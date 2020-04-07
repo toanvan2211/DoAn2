@@ -1,0 +1,17 @@
+E:\Dữ liệu\Môn học\Trường\Học kỳ 2 (2019 - 2020)\Đồ án 2\Software\DanhGiaDoanVien\DanhGiaDoanVien\bin\Debug\DanhGiaDoanVien.exe.config
+E:\Dữ liệu\Môn học\Trường\Học kỳ 2 (2019 - 2020)\Đồ án 2\Software\DanhGiaDoanVien\DanhGiaDoanVien\bin\Debug\DanhGiaDoanVien.exe
+E:\Dữ liệu\Môn học\Trường\Học kỳ 2 (2019 - 2020)\Đồ án 2\Software\DanhGiaDoanVien\DanhGiaDoanVien\bin\Debug\DanhGiaDoanVien.pdb
+E:\Dữ liệu\Môn học\Trường\Học kỳ 2 (2019 - 2020)\Đồ án 2\Software\DanhGiaDoanVien\DanhGiaDoanVien\bin\Debug\FontAwesome.Sharp.dll
+E:\Dữ liệu\Môn học\Trường\Học kỳ 2 (2019 - 2020)\Đồ án 2\Software\DanhGiaDoanVien\DanhGiaDoanVien\obj\Debug\DanhGiaDoanVien.FormMain.resources
+E:\Dữ liệu\Môn học\Trường\Học kỳ 2 (2019 - 2020)\Đồ án 2\Software\DanhGiaDoanVien\DanhGiaDoanVien\obj\Debug\DanhGiaDoanVien.Properties.Resources.resources
+E:\Dữ liệu\Môn học\Trường\Học kỳ 2 (2019 - 2020)\Đồ án 2\Software\DanhGiaDoanVien\DanhGiaDoanVien\obj\Debug\DanhGiaDoanVien.csproj.GenerateResource.cache
+E:\Dữ liệu\Môn học\Trường\Học kỳ 2 (2019 - 2020)\Đồ án 2\Software\DanhGiaDoanVien\DanhGiaDoanVien\obj\Debug\DanhGiaDoanVien.csproj.CopyComplete
+E:\Dữ liệu\Môn học\Trường\Học kỳ 2 (2019 - 2020)\Đồ án 2\Software\DanhGiaDoanVien\DanhGiaDoanVien\obj\Debug\DanhGiaDoanVien.exe
+E:\Dữ liệu\Môn học\Trường\Học kỳ 2 (2019 - 2020)\Đồ án 2\Software\DanhGiaDoanVien\DanhGiaDoanVien\obj\Debug\DanhGiaDoanVien.pdb
+E:\Dữ liệu\Môn học\Trường\Học kỳ 2 (2019 - 2020)\Đồ án 2\Software\DanhGiaDoanVien\DanhGiaDoanVien\bin\Debug\Bunifu_UI_v1.5.3.dll
+E:\Dữ liệu\Môn học\Trường\Học kỳ 2 (2019 - 2020)\Đồ án 2\Software\DanhGiaDoanVien\DanhGiaDoanVien\obj\Debug\DanhGiaDoanVien.FormGroup.resources
+E:\Dữ liệu\Môn học\Trường\Học kỳ 2 (2019 - 2020)\Đồ án 2\Software\DanhGiaDoanVien\DanhGiaDoanVien\obj\Debug\DanhGiaDoanVien.FormStudent.resources
+E:\Dữ liệu\Môn học\Trường\Học kỳ 2 (2019 - 2020)\Đồ án 2\Software\DanhGiaDoanVien\DanhGiaDoanVien\obj\Debug\DanhGiaDoanVien.FormTeacher.resources
+E:\Dữ liệu\Môn học\Trường\Học kỳ 2 (2019 - 2020)\Đồ án 2\Software\DanhGiaDoanVien\DanhGiaDoanVien\obj\Debug\DanhGiaDoanVien.FormEvaluateStudent.resources
+E:\Dữ liệu\Môn học\Trường\Học kỳ 2 (2019 - 2020)\Đồ án 2\Software\DanhGiaDoanVien\DanhGiaDoanVien\obj\Debug\DanhGiaDoanVien.FormEvaluateTeacher.resources
+E:\Dữ liệu\Môn học\Trường\Học kỳ 2 (2019 - 2020)\Đồ án 2\Software\DanhGiaDoanVien\DanhGiaDoanVien\obj\Debug\DanhGiaDoanVien.csprojAssemblyReference.cache
