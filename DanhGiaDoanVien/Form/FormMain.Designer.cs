@@ -33,25 +33,26 @@
             this.panelSubMenuEvaluate = new System.Windows.Forms.Panel();
             this.buttonEvaluateStudent = new System.Windows.Forms.Button();
             this.buttonEvaluateTeacher = new System.Windows.Forms.Button();
-            this.panelLogo = new System.Windows.Forms.Panel();
-            this.panelShadow2 = new System.Windows.Forms.Panel();
-            this.panelTop = new System.Windows.Forms.Panel();
-            this.labelCurrentChildForm = new System.Windows.Forms.Label();
-            this.panelShadow1 = new System.Windows.Forms.Panel();
-            this.panelChildForm = new System.Windows.Forms.Panel();
-            this.dragControl1 = new QuanLiDienThoai.DragControl();
-            this.pictureBoxIconCurrent = new System.Windows.Forms.PictureBox();
             this.buttonEvaluate = new System.Windows.Forms.Button();
             this.buttonGroup = new System.Windows.Forms.Button();
             this.buttonStudent = new System.Windows.Forms.Button();
             this.buttonTeacher = new System.Windows.Forms.Button();
+            this.panelLogo = new System.Windows.Forms.Panel();
             this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
+            this.panelShadow2 = new System.Windows.Forms.Panel();
+            this.panelTop = new System.Windows.Forms.Panel();
+            this.labelCurrentChildForm = new System.Windows.Forms.Label();
+            this.pictureBoxIconCurrent = new System.Windows.Forms.PictureBox();
+            this.panelShadow1 = new System.Windows.Forms.Panel();
+            this.panelChildForm = new System.Windows.Forms.Panel();
+            this.dragControl1 = new QuanLiDienThoai.DragControl();
+            this.buttonEvaluateGroup = new System.Windows.Forms.Button();
             this.panelMenu.SuspendLayout();
             this.panelSubMenuEvaluate.SuspendLayout();
             this.panelLogo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             this.panelTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxIconCurrent)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // panelMenu
@@ -71,12 +72,13 @@
             // 
             // panelSubMenuEvaluate
             // 
+            this.panelSubMenuEvaluate.Controls.Add(this.buttonEvaluateGroup);
             this.panelSubMenuEvaluate.Controls.Add(this.buttonEvaluateStudent);
             this.panelSubMenuEvaluate.Controls.Add(this.buttonEvaluateTeacher);
             this.panelSubMenuEvaluate.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelSubMenuEvaluate.Location = new System.Drawing.Point(0, 460);
             this.panelSubMenuEvaluate.Name = "panelSubMenuEvaluate";
-            this.panelSubMenuEvaluate.Size = new System.Drawing.Size(248, 110);
+            this.panelSubMenuEvaluate.Size = new System.Drawing.Size(248, 164);
             this.panelSubMenuEvaluate.TabIndex = 5;
             this.panelSubMenuEvaluate.VisibleChanged += new System.EventHandler(this.panelSubMenuEvaluate_VisibleChanged);
             // 
@@ -121,80 +123,6 @@
             this.buttonEvaluateTeacher.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonEvaluateTeacher.UseVisualStyleBackColor = false;
             this.buttonEvaluateTeacher.Click += new System.EventHandler(this.buttonEvaluateTeacher_Click);
-            // 
-            // panelLogo
-            // 
-            this.panelLogo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(49)))), ((int)(((byte)(71)))));
-            this.panelLogo.Controls.Add(this.pictureBoxLogo);
-            this.panelLogo.Controls.Add(this.panelShadow2);
-            this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelLogo.Location = new System.Drawing.Point(0, 0);
-            this.panelLogo.Name = "panelLogo";
-            this.panelLogo.Size = new System.Drawing.Size(248, 220);
-            this.panelLogo.TabIndex = 0;
-            // 
-            // panelShadow2
-            // 
-            this.panelShadow2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(44)))), ((int)(((byte)(63)))));
-            this.panelShadow2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelShadow2.Location = new System.Drawing.Point(0, 212);
-            this.panelShadow2.Name = "panelShadow2";
-            this.panelShadow2.Size = new System.Drawing.Size(248, 8);
-            this.panelShadow2.TabIndex = 0;
-            // 
-            // panelTop
-            // 
-            this.panelTop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(45)))), ((int)(((byte)(61)))));
-            this.panelTop.Controls.Add(this.labelCurrentChildForm);
-            this.panelTop.Controls.Add(this.pictureBoxIconCurrent);
-            this.panelTop.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelTop.Location = new System.Drawing.Point(248, 0);
-            this.panelTop.Name = "panelTop";
-            this.panelTop.Size = new System.Drawing.Size(1016, 117);
-            this.panelTop.TabIndex = 1;
-            // 
-            // labelCurrentChildForm
-            // 
-            this.labelCurrentChildForm.AutoSize = true;
-            this.labelCurrentChildForm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCurrentChildForm.ForeColor = System.Drawing.Color.White;
-            this.labelCurrentChildForm.Location = new System.Drawing.Point(78, 53);
-            this.labelCurrentChildForm.Name = "labelCurrentChildForm";
-            this.labelCurrentChildForm.Size = new System.Drawing.Size(89, 20);
-            this.labelCurrentChildForm.TabIndex = 2;
-            this.labelCurrentChildForm.Text = "Trang chủ";
-            // 
-            // panelShadow1
-            // 
-            this.panelShadow1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(33)))), ((int)(((byte)(45)))));
-            this.panelShadow1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelShadow1.Location = new System.Drawing.Point(248, 117);
-            this.panelShadow1.Name = "panelShadow1";
-            this.panelShadow1.Size = new System.Drawing.Size(1016, 10);
-            this.panelShadow1.TabIndex = 2;
-            // 
-            // panelChildForm
-            // 
-            this.panelChildForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(77)))), ((int)(((byte)(108)))));
-            this.panelChildForm.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelChildForm.Location = new System.Drawing.Point(248, 127);
-            this.panelChildForm.Name = "panelChildForm";
-            this.panelChildForm.Size = new System.Drawing.Size(1016, 674);
-            this.panelChildForm.TabIndex = 3;
-            // 
-            // dragControl1
-            // 
-            this.dragControl1.SelectControl = this.panelTop;
-            // 
-            // pictureBoxIconCurrent
-            // 
-            this.pictureBoxIconCurrent.Image = global::DanhGiaDoanVien.Properties.Resources.icons8_home_35px_1;
-            this.pictureBoxIconCurrent.Location = new System.Drawing.Point(27, 30);
-            this.pictureBoxIconCurrent.Name = "pictureBoxIconCurrent";
-            this.pictureBoxIconCurrent.Size = new System.Drawing.Size(45, 59);
-            this.pictureBoxIconCurrent.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBoxIconCurrent.TabIndex = 1;
-            this.pictureBoxIconCurrent.TabStop = false;
             // 
             // buttonEvaluate
             // 
@@ -280,6 +208,17 @@
             this.buttonTeacher.UseVisualStyleBackColor = true;
             this.buttonTeacher.Click += new System.EventHandler(this.buttonTeacher_Click);
             // 
+            // panelLogo
+            // 
+            this.panelLogo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(49)))), ((int)(((byte)(71)))));
+            this.panelLogo.Controls.Add(this.pictureBoxLogo);
+            this.panelLogo.Controls.Add(this.panelShadow2);
+            this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelLogo.Location = new System.Drawing.Point(0, 0);
+            this.panelLogo.Name = "panelLogo";
+            this.panelLogo.Size = new System.Drawing.Size(248, 220);
+            this.panelLogo.TabIndex = 0;
+            // 
             // pictureBoxLogo
             // 
             this.pictureBoxLogo.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxLogo.Image")));
@@ -290,6 +229,90 @@
             this.pictureBoxLogo.TabIndex = 1;
             this.pictureBoxLogo.TabStop = false;
             this.pictureBoxLogo.Click += new System.EventHandler(this.pictureBoxLogo_Click);
+            // 
+            // panelShadow2
+            // 
+            this.panelShadow2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(44)))), ((int)(((byte)(63)))));
+            this.panelShadow2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelShadow2.Location = new System.Drawing.Point(0, 212);
+            this.panelShadow2.Name = "panelShadow2";
+            this.panelShadow2.Size = new System.Drawing.Size(248, 8);
+            this.panelShadow2.TabIndex = 0;
+            // 
+            // panelTop
+            // 
+            this.panelTop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(45)))), ((int)(((byte)(61)))));
+            this.panelTop.Controls.Add(this.labelCurrentChildForm);
+            this.panelTop.Controls.Add(this.pictureBoxIconCurrent);
+            this.panelTop.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelTop.Location = new System.Drawing.Point(248, 0);
+            this.panelTop.Name = "panelTop";
+            this.panelTop.Size = new System.Drawing.Size(1016, 117);
+            this.panelTop.TabIndex = 1;
+            // 
+            // labelCurrentChildForm
+            // 
+            this.labelCurrentChildForm.AutoSize = true;
+            this.labelCurrentChildForm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCurrentChildForm.ForeColor = System.Drawing.Color.White;
+            this.labelCurrentChildForm.Location = new System.Drawing.Point(78, 53);
+            this.labelCurrentChildForm.Name = "labelCurrentChildForm";
+            this.labelCurrentChildForm.Size = new System.Drawing.Size(89, 20);
+            this.labelCurrentChildForm.TabIndex = 2;
+            this.labelCurrentChildForm.Text = "Trang chủ";
+            // 
+            // pictureBoxIconCurrent
+            // 
+            this.pictureBoxIconCurrent.Image = global::DanhGiaDoanVien.Properties.Resources.icons8_home_35px_1;
+            this.pictureBoxIconCurrent.Location = new System.Drawing.Point(27, 30);
+            this.pictureBoxIconCurrent.Name = "pictureBoxIconCurrent";
+            this.pictureBoxIconCurrent.Size = new System.Drawing.Size(45, 59);
+            this.pictureBoxIconCurrent.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxIconCurrent.TabIndex = 1;
+            this.pictureBoxIconCurrent.TabStop = false;
+            // 
+            // panelShadow1
+            // 
+            this.panelShadow1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(33)))), ((int)(((byte)(45)))));
+            this.panelShadow1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelShadow1.Location = new System.Drawing.Point(248, 117);
+            this.panelShadow1.Name = "panelShadow1";
+            this.panelShadow1.Size = new System.Drawing.Size(1016, 10);
+            this.panelShadow1.TabIndex = 2;
+            // 
+            // panelChildForm
+            // 
+            this.panelChildForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(77)))), ((int)(((byte)(108)))));
+            this.panelChildForm.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelChildForm.Location = new System.Drawing.Point(248, 127);
+            this.panelChildForm.Name = "panelChildForm";
+            this.panelChildForm.Size = new System.Drawing.Size(1016, 674);
+            this.panelChildForm.TabIndex = 3;
+            // 
+            // dragControl1
+            // 
+            this.dragControl1.SelectControl = this.panelTop;
+            // 
+            // buttonEvaluateGroup
+            // 
+            this.buttonEvaluateGroup.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(53)))), ((int)(((byte)(76)))));
+            this.buttonEvaluateGroup.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonEvaluateGroup.FlatAppearance.BorderSize = 0;
+            this.buttonEvaluateGroup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonEvaluateGroup.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonEvaluateGroup.ForeColor = System.Drawing.Color.White;
+            this.buttonEvaluateGroup.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonEvaluateGroup.Location = new System.Drawing.Point(0, 102);
+            this.buttonEvaluateGroup.Name = "buttonEvaluateGroup";
+            this.buttonEvaluateGroup.Padding = new System.Windows.Forms.Padding(80, 0, 0, 0);
+            this.buttonEvaluateGroup.Size = new System.Drawing.Size(248, 51);
+            this.buttonEvaluateGroup.TabIndex = 7;
+            this.buttonEvaluateGroup.Tag = "not";
+            this.buttonEvaluateGroup.Text = "Chi đoàn";
+            this.buttonEvaluateGroup.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonEvaluateGroup.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonEvaluateGroup.UseVisualStyleBackColor = false;
+            this.buttonEvaluateGroup.Click += new System.EventHandler(this.buttonEvaluateGroup_Click);
             // 
             // FormMain
             // 
@@ -306,10 +329,10 @@
             this.panelMenu.ResumeLayout(false);
             this.panelSubMenuEvaluate.ResumeLayout(false);
             this.panelLogo.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
             this.panelTop.ResumeLayout(false);
             this.panelTop.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxIconCurrent)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -333,6 +356,7 @@
         private System.Windows.Forms.Button buttonEvaluateTeacher;
         private System.Windows.Forms.PictureBox pictureBoxLogo;
         private QuanLiDienThoai.DragControl dragControl1;
+        private System.Windows.Forms.Button buttonEvaluateGroup;
     }
 }
 

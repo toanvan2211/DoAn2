@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DanhGiaDoanVien.NewFolder1
+namespace DanhGiaDoanVien.DTO
 {
     public class Student
     {
@@ -15,7 +15,7 @@ namespace DanhGiaDoanVien.NewFolder1
         private bool sex;
         private string group;
         private bool isMember;
-        
+
         public string IdStudent { get => idStudent; set => idStudent = value; }
         public string Name { get => name; set => name = value; }
         public string Classroom { get => classroom; set => classroom = value; }
@@ -26,12 +26,12 @@ namespace DanhGiaDoanVien.NewFolder1
         public Student() { }
         public Student(DataRow row)
         {
-            this.IdStudent = (string)row["MSSV"];
-            this.Name = (string)row["ten"];
-            this.Classroom = (string)row["lop"];
-            this.Sex = (bool)row["gioiTinh"];
-            this.Group = (string)row["chiDoan"];
-            this.IsMember = (bool)row["doanVien"];
+            IdStudent = (string)row["MSSV"];
+            Name = (string)row["ten"];
+            Classroom = (string)row["lop"];
+            Sex = (bool)row["gioiTinh"];
+            Group = (string)row["chiDoan"];
+            IsMember = (bool)row["doanVien"];
         }
     }
 }

@@ -40,11 +40,18 @@
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.panelData = new System.Windows.Forms.Panel();
-            this.dataGridViewTeacher = new System.Windows.Forms.DataGridView();
+            this.dataGridViewGroup = new System.Windows.Forms.DataGridView();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Name1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TotalMember = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TotalStudent = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TotalFemaleStudent = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TotalTeacher = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TotalFemaleTeacher = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelBottom.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMemberAmount)).BeginInit();
             this.panelData.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTeacher)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGroup)).BeginInit();
             this.SuspendLayout();
             // 
             // panelBottom
@@ -176,23 +183,80 @@
             // 
             // panelData
             // 
-            this.panelData.Controls.Add(this.dataGridViewTeacher);
+            this.panelData.Controls.Add(this.dataGridViewGroup);
             this.panelData.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelData.Location = new System.Drawing.Point(0, 0);
             this.panelData.Name = "panelData";
             this.panelData.Size = new System.Drawing.Size(1000, 438);
             this.panelData.TabIndex = 3;
             // 
-            // dataGridViewTeacher
+            // dataGridViewGroup
             // 
-            this.dataGridViewTeacher.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridViewTeacher.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(77)))), ((int)(((byte)(108)))));
-            this.dataGridViewTeacher.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewTeacher.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewTeacher.Location = new System.Drawing.Point(0, 0);
-            this.dataGridViewTeacher.Name = "dataGridViewTeacher";
-            this.dataGridViewTeacher.Size = new System.Drawing.Size(1000, 438);
-            this.dataGridViewTeacher.TabIndex = 0;
+            this.dataGridViewGroup.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewGroup.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(77)))), ((int)(((byte)(108)))));
+            this.dataGridViewGroup.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewGroup.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id,
+            this.Name1,
+            this.TotalMember,
+            this.TotalStudent,
+            this.TotalFemaleStudent,
+            this.TotalTeacher,
+            this.TotalFemaleTeacher});
+            this.dataGridViewGroup.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewGroup.Location = new System.Drawing.Point(0, 0);
+            this.dataGridViewGroup.Name = "dataGridViewGroup";
+            this.dataGridViewGroup.Size = new System.Drawing.Size(1000, 438);
+            this.dataGridViewGroup.TabIndex = 0;
+            // 
+            // id
+            // 
+            this.id.DataPropertyName = "id";
+            this.id.HeaderText = "ID";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            // 
+            // Name1
+            // 
+            this.Name1.DataPropertyName = "ten";
+            this.Name1.HeaderText = "Tên";
+            this.Name1.Name = "Name1";
+            this.Name1.ReadOnly = true;
+            // 
+            // TotalMember
+            // 
+            this.TotalMember.DataPropertyName = "soDoanVien";
+            this.TotalMember.HeaderText = "Số đoàn viên";
+            this.TotalMember.Name = "TotalMember";
+            this.TotalMember.ReadOnly = true;
+            // 
+            // TotalStudent
+            // 
+            this.TotalStudent.DataPropertyName = "tongSV";
+            this.TotalStudent.HeaderText = "Tổng sinh viên";
+            this.TotalStudent.Name = "TotalStudent";
+            this.TotalStudent.ReadOnly = true;
+            // 
+            // TotalFemaleStudent
+            // 
+            this.TotalFemaleStudent.DataPropertyName = "tongNuSV";
+            this.TotalFemaleStudent.HeaderText = "Sinh viên nữ";
+            this.TotalFemaleStudent.Name = "TotalFemaleStudent";
+            this.TotalFemaleStudent.ReadOnly = true;
+            // 
+            // TotalTeacher
+            // 
+            this.TotalTeacher.DataPropertyName = "tongGV";
+            this.TotalTeacher.HeaderText = "Tổng giảng viên";
+            this.TotalTeacher.Name = "TotalTeacher";
+            this.TotalTeacher.ReadOnly = true;
+            // 
+            // TotalFemaleTeacher
+            // 
+            this.TotalFemaleTeacher.DataPropertyName = "tongNuGV";
+            this.TotalFemaleTeacher.HeaderText = "Giảng viên nữ";
+            this.TotalFemaleTeacher.Name = "TotalFemaleTeacher";
+            this.TotalFemaleTeacher.ReadOnly = true;
             // 
             // FormGroup
             // 
@@ -208,7 +272,7 @@
             this.panelBottom.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMemberAmount)).EndInit();
             this.panelData.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTeacher)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGroup)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -225,7 +289,14 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panelData;
-        private System.Windows.Forms.DataGridView dataGridViewTeacher;
+        private System.Windows.Forms.DataGridView dataGridViewGroup;
         private System.Windows.Forms.ComboBox comboBoxRank;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Name1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TotalMember;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TotalStudent;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TotalFemaleStudent;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TotalTeacher;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TotalFemaleTeacher;
     }
 }

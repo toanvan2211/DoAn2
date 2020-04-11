@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DanhGiaDoanVien.NewFolder1
+namespace DanhGiaDoanVien.DTO
 {
     public class Group
     {
@@ -23,11 +23,11 @@ namespace DanhGiaDoanVien.NewFolder1
         public Group() { }
         public Group(DataRow row)
         {
-            this.Id = (string)row["id"];
-            this.Name = (string)row["ten"];
-            this.AmountMembet = (byte)row["soDoanVien"];
-            this.TotalStudent = (byte)row["tongSV"];
-            this.totalTeacher= (byte)row["tongGV"];
+            Id = (string)row["id"];
+            Name = (string)row["ten"];
+            AmountMembet = (byte)row["soDoanVien"];
+            TotalStudent = (byte)row["tongSV"];
+            totalTeacher = (byte)row["tongGV"];
         }
     }
 }

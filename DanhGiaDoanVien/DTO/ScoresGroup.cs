@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DanhGiaDoanVien.NewFolder1
+namespace DanhGiaDoanVien.DTO
 {
     public class ScoresGroup
     {
@@ -20,6 +20,8 @@ namespace DanhGiaDoanVien.NewFolder1
         private byte totalStudent;
         private byte totalTeacher;
         private byte totalGoodMember;
+        private string note;
+        private bool isHandle = false;
 
         public int Id { get => id; set => id = value; }
         public string IdSemester { get => idSemester; set => idSemester = value; }
@@ -32,21 +34,24 @@ namespace DanhGiaDoanVien.NewFolder1
         public byte TotalStudent { get => totalStudent; set => totalStudent = value; }
         public byte TotalTeacher { get => totalTeacher; set => totalTeacher = value; }
         public byte TotalGoodMember { get => totalGoodMember; set => totalGoodMember = value; }
+        public bool IsHandle { get => isHandle; set => isHandle = value; }
+        public string Note { get => note; set => note = value; }
 
         public ScoresGroup() { }
         public ScoresGroup(DataRow row)
         {
-            this.Id = (int)row["id"];
-            this.IdSemester = (string)row["idNamHoc"];
-            this.Rank = (string)row["xepLoai"];
-            this.ExcellentMember = (byte)row["xuatSac"];
-            this.GreatMember = (byte)row["kha"];
-            this.MediumMember = (byte)row["trungBinh"];
-            this.BabMember = (byte)row["yeuKem"];
-            this.TotalMember = (byte)row["tongDoanVien"];
-            this.TotalStudent = (byte)row["tongSV"];
-            this.TotalTeacher = (byte)row["tongGV"];
-            this.TotalGoodMember = (byte)row["tongDVUT"];
+            Id = (int)row["id"];
+            IdSemester = (string)row["idNamHoc"];
+            Rank = (string)row["xepLoai"];
+            ExcellentMember = (byte)row["xuatSac"];
+            GreatMember = (byte)row["kha"];
+            MediumMember = (byte)row["trungBinh"];
+            BabMember = (byte)row["yeuKem"];
+            TotalMember = (byte)row["tongDoanVien"];
+            TotalStudent = (byte)row["tongSV"];
+            TotalTeacher = (byte)row["tongGV"];
+            TotalGoodMember = (byte)row["tongDVUT"];
+            Note = (string)row["ghiChu"];
         }
     }
 }

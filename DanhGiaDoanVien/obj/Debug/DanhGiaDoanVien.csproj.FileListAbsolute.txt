@@ -15,3 +15,5 @@ E:\Dữ liệu\Môn học\Trường\Học kỳ 2 (2019 - 2020)\Đồ án 2\Softw
 E:\Dữ liệu\Môn học\Trường\Học kỳ 2 (2019 - 2020)\Đồ án 2\Software\DanhGiaDoanVien\DanhGiaDoanVien\obj\Debug\DanhGiaDoanVien.FormEvaluateStudent.resources
 E:\Dữ liệu\Môn học\Trường\Học kỳ 2 (2019 - 2020)\Đồ án 2\Software\DanhGiaDoanVien\DanhGiaDoanVien\obj\Debug\DanhGiaDoanVien.FormEvaluateTeacher.resources
 E:\Dữ liệu\Môn học\Trường\Học kỳ 2 (2019 - 2020)\Đồ án 2\Software\DanhGiaDoanVien\DanhGiaDoanVien\obj\Debug\DanhGiaDoanVien.csprojAssemblyReference.cache
+E:\Dữ liệu\Môn học\Trường\Học kỳ 2 (2019 - 2020)\Đồ án 2\Software\DanhGiaDoanVien\DanhGiaDoanVien\obj\Debug\DanhGiaDoanVien.FormEvaluateGroup.resources
+E:\Dữ liệu\Môn học\Trường\Học kỳ 2 (2019 - 2020)\Đồ án 2\Software\DanhGiaDoanVien\DanhGiaDoanVien\obj\Debug\DanhGiaDoanVien.FormLogin.resources

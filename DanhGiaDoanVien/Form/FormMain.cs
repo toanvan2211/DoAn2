@@ -165,6 +165,12 @@ namespace DanhGiaDoanVien
             OpenChildForm(new FormEvaluateStudent());
         }
 
+        private void buttonEvaluateGroup_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender, Color.FromArgb(255, 167, 51));
+            OpenChildForm(new FormEvaluateGroup());
+        }
+
         private void pictureBoxLogo_Click(object sender, EventArgs e)
         {
             DisableButton();

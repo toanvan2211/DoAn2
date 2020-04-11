@@ -1,4 +1,4 @@
-﻿using DanhGiaDoanVien.DAO;
+﻿using DanhGiaDoanVien.Other_Class;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,22 +11,22 @@ using System.Windows.Forms;
 
 namespace DanhGiaDoanVien
 {
-    public partial class FormGroup : Form
+    public partial class FormLogin : Form
     {
-        public FormGroup()
+        public static string accountType;
+        public FormLogin()
         {
             InitializeComponent();
-            LoadForm();
         }
 
-        void LoadForm()
+        private void buttonLogin_Click(object sender, EventArgs e)
         {
-            LoadListGroup();
+
         }
 
-        void LoadListGroup()
+        private void buttonExit_Click(object sender, EventArgs e)
         {
-            dataGridViewGroup.DataSource = GroupDAO.Instance.GetListGroup();
+            this.Close();
         }
     }
 }

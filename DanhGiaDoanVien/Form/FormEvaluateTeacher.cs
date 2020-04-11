@@ -20,8 +20,6 @@ namespace DanhGiaDoanVien
 
         void LoadEvalutaionTeacher()
         {
-            DataClassesDataContext db = new DataClassesDataContext();
-            dataGridViewTeacher.DataSource = db.KetQuaGiangViens.Select(p => p);
         }
     }
 }

@@ -55,16 +55,31 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataClasses.cs">
-      <DependentUpon>DataClasses.dbml</DependentUpon>
-    </Compile>
-    <Compile Include="DataClasses.designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataClasses.dbml</DependentUpon>
-    </Compile>
-    <Compile Include="DragControl.cs">
+    <Compile Include="DAO\AccountDAO.cs" />
+    <Compile Include="DAO\DataProvider.cs" />
+    <Compile Include="DAO\GoodStudentDAO.cs" />
+    <Compile Include="DAO\GoodTeacherDAO.cs" />
+    <Compile Include="DAO\GroupDAO.cs" />
+    <Compile Include="DAO\ScoresGroupDAO.cs" />
+    <Compile Include="DAO\ScoresStudentDAO.cs" />
+    <Compile Include="DAO\ScoresTeacherDAO.cs" />
+    <Compile Include="DAO\SemesterDAO.cs" />
+    <Compile Include="DAO\StudentDAO.cs" />
+    <Compile Include="DAO\TeacherDAO.cs" />
+    <Compile Include="Other Class\DragControl.cs">
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Form\FormLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FormLogin.Designer.cs">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FormEvaluateGroup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FormEvaluateGroup.Designer.cs">
+      <DependentUpon>FormEvaluateGroup.cs</DependentUpon>
     </Compile>
     <Compile Include="Form\FormMain.cs">
       <SubType>Form</SubType>
@@ -102,18 +117,25 @@
     <Compile Include="Form\FormTeacher.Designer.cs">
       <DependentUpon>FormTeacher.cs</DependentUpon>
     </Compile>
-    <Compile Include="NewFolder1\Account.cs" />
-    <Compile Include="NewFolder1\GoodStudent.cs" />
-    <Compile Include="NewFolder1\GoodTeacher.cs" />
-    <Compile Include="NewFolder1\Group.cs" />
-    <Compile Include="NewFolder1\ScoresGroup.cs" />
-    <Compile Include="NewFolder1\ScoresStudent.cs" />
-    <Compile Include="NewFolder1\ScoresTeacher.cs" />
-    <Compile Include="NewFolder1\Semester.cs" />
-    <Compile Include="NewFolder1\Student.cs" />
-    <Compile Include="NewFolder1\Teacher.cs" />
+    <Compile Include="DTO\Account.cs" />
+    <Compile Include="DTO\GoodStudent.cs" />
+    <Compile Include="DTO\GoodTeacher.cs" />
+    <Compile Include="DTO\Group.cs" />
+    <Compile Include="DTO\ScoresGroup.cs" />
+    <Compile Include="DTO\ScoresStudent.cs" />
+    <Compile Include="DTO\ScoresTeacher.cs" />
+    <Compile Include="DTO\Semester.cs" />
+    <Compile Include="DTO\Student.cs" />
+    <Compile Include="DTO\Teacher.cs" />
+    <Compile Include="Other Class\PasswordEncryption.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form\FormLogin.resx">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FormEvaluateGroup.resx">
+      <DependentUpon>FormEvaluateGroup.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form\FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
@@ -142,14 +164,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="DataClasses.dbml">
-      <Generator>MSLinqToSQLGenerator</Generator>
-      <LastGenOutput>DataClasses.designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="DataClasses.dbml.layout">
-      <DependentUpon>DataClasses.dbml</DependentUpon>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
