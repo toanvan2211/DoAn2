@@ -30,13 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormGroup));
             this.panelBottom = new System.Windows.Forms.Panel();
-            this.comboBoxRank = new System.Windows.Forms.ComboBox();
-            this.numericUpDownMemberAmount = new System.Windows.Forms.NumericUpDown();
             this.buttonDelete = new System.Windows.Forms.Button();
             this.buttonAdd = new System.Windows.Forms.Button();
             this.buttonUpdate = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.panelData = new System.Windows.Forms.Panel();
@@ -48,46 +44,33 @@
             this.TotalFemaleStudent = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TotalTeacher = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TotalFemaleTeacher = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.textBoxID = new System.Windows.Forms.TextBox();
+            this.panelEdit = new System.Windows.Forms.Panel();
+            this.buttonExitEdit = new System.Windows.Forms.Button();
+            this.buttonResetText = new System.Windows.Forms.Button();
+            this.buttonEdit = new System.Windows.Forms.Button();
             this.panelBottom.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMemberAmount)).BeginInit();
             this.panelData.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGroup)).BeginInit();
+            this.panel1.SuspendLayout();
+            this.panelEdit.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelBottom
             // 
             this.panelBottom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(54)))), ((int)(((byte)(75)))));
-            this.panelBottom.Controls.Add(this.comboBoxRank);
-            this.panelBottom.Controls.Add(this.numericUpDownMemberAmount);
+            this.panelBottom.Controls.Add(this.panelEdit);
+            this.panelBottom.Controls.Add(this.panel1);
             this.panelBottom.Controls.Add(this.buttonDelete);
             this.panelBottom.Controls.Add(this.buttonAdd);
             this.panelBottom.Controls.Add(this.buttonUpdate);
-            this.panelBottom.Controls.Add(this.label2);
-            this.panelBottom.Controls.Add(this.label3);
-            this.panelBottom.Controls.Add(this.label1);
-            this.panelBottom.Controls.Add(this.textBoxName);
-            this.panelBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelBottom.Location = new System.Drawing.Point(0, 438);
+            this.panelBottom.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelBottom.Location = new System.Drawing.Point(0, 0);
             this.panelBottom.Name = "panelBottom";
             this.panelBottom.Size = new System.Drawing.Size(1000, 197);
             this.panelBottom.TabIndex = 2;
-            // 
-            // comboBoxRank
-            // 
-            this.comboBoxRank.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.comboBoxRank.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxRank.FormattingEnabled = true;
-            this.comboBoxRank.Location = new System.Drawing.Point(171, 109);
-            this.comboBoxRank.Name = "comboBoxRank";
-            this.comboBoxRank.Size = new System.Drawing.Size(121, 21);
-            this.comboBoxRank.TabIndex = 6;
-            // 
-            // numericUpDownMemberAmount
-            // 
-            this.numericUpDownMemberAmount.Location = new System.Drawing.Point(421, 58);
-            this.numericUpDownMemberAmount.Name = "numericUpDownMemberAmount";
-            this.numericUpDownMemberAmount.Size = new System.Drawing.Size(120, 20);
-            this.numericUpDownMemberAmount.TabIndex = 5;
             // 
             // buttonDelete
             // 
@@ -140,34 +123,12 @@
             this.buttonUpdate.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonUpdate.UseVisualStyleBackColor = true;
             // 
-            // label2
-            // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label2.AutoSize = true;
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(340, 60);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(74, 13);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Số đoàn viên:";
-            // 
-            // label3
-            // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label3.AutoSize = true;
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(115, 109);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(48, 13);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "Xếp loại:";
-            // 
             // label1
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(115, 65);
+            this.label1.Location = new System.Drawing.Point(24, 43);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(29, 13);
             this.label1.TabIndex = 3;
@@ -176,16 +137,17 @@
             // textBoxName
             // 
             this.textBoxName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.textBoxName.Location = new System.Drawing.Point(171, 62);
+            this.textBoxName.Location = new System.Drawing.Point(80, 40);
             this.textBoxName.Name = "textBoxName";
-            this.textBoxName.Size = new System.Drawing.Size(100, 20);
+            this.textBoxName.ReadOnly = true;
+            this.textBoxName.Size = new System.Drawing.Size(198, 20);
             this.textBoxName.TabIndex = 1;
             // 
             // panelData
             // 
             this.panelData.Controls.Add(this.dataGridViewGroup);
             this.panelData.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelData.Location = new System.Drawing.Point(0, 0);
+            this.panelData.Location = new System.Drawing.Point(0, 197);
             this.panelData.Name = "panelData";
             this.panelData.Size = new System.Drawing.Size(1000, 438);
             this.panelData.TabIndex = 3;
@@ -258,6 +220,94 @@
             this.TotalFemaleTeacher.Name = "TotalFemaleTeacher";
             this.TotalFemaleTeacher.ReadOnly = true;
             // 
+            // panel1
+            // 
+            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.panel1.Controls.Add(this.textBoxID);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.textBoxName);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Location = new System.Drawing.Point(24, 26);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(306, 71);
+            this.panel1.TabIndex = 7;
+            // 
+            // label3
+            // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(32, 17);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(21, 13);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "ID:";
+            // 
+            // textBoxID
+            // 
+            this.textBoxID.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.textBoxID.Location = new System.Drawing.Point(80, 14);
+            this.textBoxID.Name = "textBoxID";
+            this.textBoxID.ReadOnly = true;
+            this.textBoxID.Size = new System.Drawing.Size(198, 20);
+            this.textBoxID.TabIndex = 1;
+            // 
+            // panelEdit
+            // 
+            this.panelEdit.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panelEdit.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panelEdit.Controls.Add(this.buttonExitEdit);
+            this.panelEdit.Controls.Add(this.buttonResetText);
+            this.panelEdit.Controls.Add(this.buttonEdit);
+            this.panelEdit.Location = new System.Drawing.Point(336, 17);
+            this.panelEdit.Name = "panelEdit";
+            this.panelEdit.Size = new System.Drawing.Size(204, 91);
+            this.panelEdit.TabIndex = 8;
+            this.panelEdit.Visible = false;
+            // 
+            // buttonExitEdit
+            // 
+            this.buttonExitEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonExitEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonExitEdit.ForeColor = System.Drawing.Color.White;
+            this.buttonExitEdit.Image = ((System.Drawing.Image)(resources.GetObject("buttonExitEdit.Image")));
+            this.buttonExitEdit.Location = new System.Drawing.Point(177, 3);
+            this.buttonExitEdit.Name = "buttonExitEdit";
+            this.buttonExitEdit.Size = new System.Drawing.Size(20, 20);
+            this.buttonExitEdit.TabIndex = 7;
+            this.buttonExitEdit.Tag = "exitEdit";
+            this.buttonExitEdit.UseVisualStyleBackColor = true;
+            // 
+            // buttonResetText
+            // 
+            this.buttonResetText.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonResetText.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.buttonResetText.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonResetText.ForeColor = System.Drawing.Color.White;
+            this.buttonResetText.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonResetText.Location = new System.Drawing.Point(108, 39);
+            this.buttonResetText.Name = "buttonResetText";
+            this.buttonResetText.Size = new System.Drawing.Size(77, 35);
+            this.buttonResetText.TabIndex = 4;
+            this.buttonResetText.Text = "Xóa";
+            this.buttonResetText.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonResetText.UseVisualStyleBackColor = true;
+            // 
+            // buttonEdit
+            // 
+            this.buttonEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonEdit.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.buttonEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonEdit.ForeColor = System.Drawing.Color.White;
+            this.buttonEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonEdit.Location = new System.Drawing.Point(25, 39);
+            this.buttonEdit.Name = "buttonEdit";
+            this.buttonEdit.Size = new System.Drawing.Size(77, 35);
+            this.buttonEdit.TabIndex = 3;
+            this.buttonEdit.Text = "Thêm";
+            this.buttonEdit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonEdit.UseVisualStyleBackColor = true;
+            // 
             // FormGroup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -269,10 +319,11 @@
             this.Name = "FormGroup";
             this.Text = "FormGroup";
             this.panelBottom.ResumeLayout(false);
-            this.panelBottom.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMemberAmount)).EndInit();
             this.panelData.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGroup)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.panelEdit.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -285,12 +336,8 @@
         private System.Windows.Forms.Button buttonUpdate;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBoxName;
-        private System.Windows.Forms.NumericUpDown numericUpDownMemberAmount;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panelData;
         private System.Windows.Forms.DataGridView dataGridViewGroup;
-        private System.Windows.Forms.ComboBox comboBoxRank;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn Name1;
         private System.Windows.Forms.DataGridViewTextBoxColumn TotalMember;
@@ -298,5 +345,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn TotalFemaleStudent;
         private System.Windows.Forms.DataGridViewTextBoxColumn TotalTeacher;
         private System.Windows.Forms.DataGridViewTextBoxColumn TotalFemaleTeacher;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.TextBox textBoxID;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Panel panelEdit;
+        private System.Windows.Forms.Button buttonExitEdit;
+        private System.Windows.Forms.Button buttonResetText;
+        private System.Windows.Forms.Button buttonEdit;
     }
 }

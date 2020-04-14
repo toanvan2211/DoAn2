@@ -15,5 +15,11 @@ namespace DanhGiaDoanVien.DAO
             private set { instance = value; }
         }
         public ScoresStudentDAO() { }
+
+        public int AddScoresStudent(string idStudent, string idSemester)
+        {
+            string query = "USP_AddScoresGroup @idStudent, @idSemester";
+            return DataProvider.Instance.ExecuteNonQuery(query, new object[] { idStudent, idSemester });
+        }
     }
 }

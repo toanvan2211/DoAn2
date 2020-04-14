@@ -68,5 +68,32 @@ namespace DanhGiaDoanVien.DAO
 
             return DataProvider.Instance.ExecuteQuery(query);
         }
+
+        public int AddStudent(string idStudent, string name, string sex, string group, bool isMember)
+        {
+            string query = "USP_AddStudent @idStudent , @name , @sex , @group , @isMember";
+            try
+            {
+                return DataProvider.Instance.ExecuteNonQuery(query, new object[] { idStudent, name, sex, group, isMember });
+            }
+            catch (System.Data.SqlClient.SqlException)
+            {
+                return -1;
+            }
+        }
+
+        public int UpdateStudent(string idStudent, string name, string sex, string group, bool isMember)
+        {
+            string query = "USP_UpdateStudent @idStudent , @name , @sex , @group , @isMember";
+
+            return DataProvider.Instance.ExecuteNonQuery(query, new object[] { idStudent, name, sex, group, isMember });
+        }
+
+        public int DeleteStudent(string idStudent)
+        {
+            string query = "USP_DeleteStudent @idStudent";
+
+            return DataProvider.Instance.ExecuteNonQuery(query, new object[] { idStudent });
+        }
     }
 }

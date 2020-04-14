@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DanhGiaDoanVien.DAO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,11 +16,24 @@ namespace DanhGiaDoanVien
         public FormEvaluateTeacher()
         {
             InitializeComponent();
-            LoadEvalutaionTeacher();
         }
 
+        #region method
         void LoadEvalutaionTeacher()
         {
+            dataGridViewTeacher.DataSource = ScoresTeacherDAO.Instance.GetListTeacher();
+        }
+
+        void CreateScoresTeacher(string idTeacher, string idSemester)
+        {
+            ScoresTeacherDAO.Instance.AddScoresTeacher(idTeacher, idSemester);
+        }
+        #endregion
+
+        private void FormEvaluateTeacher_Load(object sender, EventArgs e)
+        {
+
+            LoadEvalutaionTeacher();
         }
     }
 }

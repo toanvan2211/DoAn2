@@ -282,6 +282,7 @@
             this.Controls.Add(this.panelBottom);
             this.Name = "FormEvaluateTeacher";
             this.Text = "FormEvaluate";
+            this.Load += new System.EventHandler(this.FormEvaluateTeacher_Load);
             this.panelBottom.ResumeLayout(false);
             this.panelBottom.PerformLayout();
             this.panelData.ResumeLayout(false);

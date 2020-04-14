@@ -120,9 +120,9 @@
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="buttonExitEdit.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAA/SURBVChTY6Ad+P//vwoQa0O5IL4mEKtBuQgAFNQC4ktArIPE1oVKowIkBbgVgQBRCpEU4bca
-        KEicZ6gEGBgAAC9dgXFkVbMAAAAASUVORK5CYII=
+        iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAABGdBTUEAALGPC/xhBQAAAD9JREFUKFNj
+        oB34//+/ChBrQ7kgviYQq0G5CAAU1ALiS0Csg8TWhUqjAiQFuBWBAFEKkRThtxooSJxnqAQYGAAAL12B
+        cWRVswAAAABJRU5ErkJggg==
 </value>
   </data>
   <data name="buttonDelete.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

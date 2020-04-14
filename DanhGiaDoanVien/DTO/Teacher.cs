@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DanhGiaDoanVien.NewFolder1
+namespace DanhGiaDoanVien.DTO
 {
     public class Teacher
     {
@@ -23,11 +23,11 @@ namespace DanhGiaDoanVien.NewFolder1
         public Teacher() { }
         public Teacher(DataRow row)
         {
-            this.IdTeacher = (string)row["MSCB"];
-            this.Name = (string)row["ten"];
-            this.Sex = (bool)row["gioiTinh"];
-            this.Group = (string)row["chiDoan"];
-            this.IsMember = (bool)row["doanVien"];
+            IdTeacher = (string)row["MSCB"];
+            Name = (string)row["ten"];
+            Sex = (bool)row["gioiTinh"];
+            Group = (string)row["chiDoan"];
+            IsMember = (bool)row["doanVien"];
         }
     }
 }

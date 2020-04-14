@@ -1,4 +1,5 @@
-﻿using DanhGiaDoanVien.DTO;
+﻿using DanhGiaDoanVien.DAO;
+using DanhGiaDoanVien.DTO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,7 +19,7 @@ namespace DanhGiaDoanVien
             InitializeComponent();
         }
 
-        //method
+        #region method
         private ScoresGroup EvaluateGroup(ScoresGroup scoresGroup)
         {
             if (((scoresGroup.GreatMember / scoresGroup.TotalMember) * 100) >= 80 && scoresGroup.BabMember == 0)
@@ -91,5 +92,11 @@ namespace DanhGiaDoanVien
 
             return scoresGroup;
         }
+
+        void CreateScoresGroup(string idGroup, string idSemester)
+        {
+            ScoresGroupDAO.Instance.AddScoresGroup(idGroup, idSemester);
+        }
+        #endregion
     }
 }

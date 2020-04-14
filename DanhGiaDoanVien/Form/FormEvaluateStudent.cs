@@ -1,4 +1,5 @@
-﻿using DanhGiaDoanVien.DTO;
+﻿using DanhGiaDoanVien.DAO;
+using DanhGiaDoanVien.DTO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,7 +19,7 @@ namespace DanhGiaDoanVien
             InitializeComponent();
         }
 
-        //method
+        #region method
         private ScoresStudent Evaluate(ScoresStudent scores)
         {
             if (scores.AverageSemester1 != 0 && scores.AverageSemester2 != 0)
@@ -67,5 +68,27 @@ namespace DanhGiaDoanVien
             }
             return scores;
         }
+
+        private float CalculationScores(float a, float b)
+        {
+            float c;
+            c = (a + b) / 2;
+            return c;
+        }
+
+        private int CalculationScores(int a, int b)
+        {
+            int c;
+            c = (a + b) / 2;
+            return c;
+        }
+
+        void CreateScoresStudent(string idStudent, string idSemester)
+        {
+            ScoresStudentDAO.Instance.AddScoresStudent(idStudent, idSemester);
+        }
+
+        #endregion
+
     }
 }

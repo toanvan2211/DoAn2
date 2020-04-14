@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,5 +16,17 @@ namespace DanhGiaDoanVien.DAO
             private set { instance = value; }
         }
         public ScoresTeacherDAO() { }
+
+        public DataTable GetListTeacher()
+        {
+            string query = "USP_GetListTeacher";
+            return DataProvider.Instance.ExecuteQuery(query);
+        }
+
+        public int AddScoresTeacher(string idTeacher, string idSemester)
+        {
+            string query = "USP_AddScoresGroup @idTeacher, @idSemester";
+            return DataProvider.Instance.ExecuteNonQuery(query, new object[] { idTeacher, idSemester });
+        }
     }
 }

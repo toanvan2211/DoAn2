@@ -30,6 +30,24 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormTeacher));
             this.panelBottom = new System.Windows.Forms.Panel();
+            this.panelEdit = new System.Windows.Forms.Panel();
+            this.buttonExitEdit = new System.Windows.Forms.Button();
+            this.panelRadioEdit = new System.Windows.Forms.Panel();
+            this.radioButtonNoEdit = new System.Windows.Forms.RadioButton();
+            this.radioButtonHaveEdit = new System.Windows.Forms.RadioButton();
+            this.comboBoxSexEdit = new System.Windows.Forms.ComboBox();
+            this.buttonResetText = new System.Windows.Forms.Button();
+            this.buttonEdit = new System.Windows.Forms.Button();
+            this.comboBoxGroupEdit = new System.Windows.Forms.ComboBox();
+            this.textBoxNameEdit = new System.Windows.Forms.TextBox();
+            this.textBoxMSGVEdit = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             this.panelDefault = new System.Windows.Forms.Panel();
             this.panelRadio = new System.Windows.Forms.Panel();
             this.radioButtonNot = new System.Windows.Forms.RadioButton();
@@ -38,8 +56,10 @@
             this.comboBoxSex = new System.Windows.Forms.ComboBox();
             this.comboBoxGroup = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.labelName = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.labelMSGV = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.buttonDelete = new System.Windows.Forms.Button();
@@ -52,33 +72,13 @@
             this.Sex = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Group = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IsMember = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.labelMSGV = new System.Windows.Forms.Label();
-            this.labelName = new System.Windows.Forms.Label();
-            this.panelEdit = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.textBoxMSGVEdit = new System.Windows.Forms.TextBox();
-            this.textBoxNameEdit = new System.Windows.Forms.TextBox();
-            this.comboBoxSexEdit = new System.Windows.Forms.ComboBox();
-            this.comboBoxGroupEdit = new System.Windows.Forms.ComboBox();
-            this.panelRadioEdit = new System.Windows.Forms.Panel();
-            this.radioButtonNoEdit = new System.Windows.Forms.RadioButton();
-            this.radioButtonHaveEdit = new System.Windows.Forms.RadioButton();
-            this.buttonEdit = new System.Windows.Forms.Button();
-            this.buttonExitEdit = new System.Windows.Forms.Button();
-            this.buttonResetText = new System.Windows.Forms.Button();
             this.panelBottom.SuspendLayout();
+            this.panelEdit.SuspendLayout();
+            this.panelRadioEdit.SuspendLayout();
             this.panelDefault.SuspendLayout();
             this.panelRadio.SuspendLayout();
             this.panelData.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTeacher)).BeginInit();
-            this.panelEdit.SuspendLayout();
-            this.panelRadioEdit.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelBottom
@@ -89,322 +89,11 @@
             this.panelBottom.Controls.Add(this.buttonDelete);
             this.panelBottom.Controls.Add(this.buttonAdd);
             this.panelBottom.Controls.Add(this.buttonUpdate);
-            this.panelBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelBottom.Location = new System.Drawing.Point(0, 438);
+            this.panelBottom.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelBottom.Location = new System.Drawing.Point(0, 0);
             this.panelBottom.Name = "panelBottom";
             this.panelBottom.Size = new System.Drawing.Size(1000, 197);
-            this.panelBottom.TabIndex = 0;
-            // 
-            // panelDefault
-            // 
-            this.panelDefault.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.panelDefault.Controls.Add(this.panelRadio);
-            this.panelDefault.Controls.Add(this.comboBoxSex);
-            this.panelDefault.Controls.Add(this.comboBoxGroup);
-            this.panelDefault.Controls.Add(this.label3);
-            this.panelDefault.Controls.Add(this.labelName);
-            this.panelDefault.Controls.Add(this.label1);
-            this.panelDefault.Controls.Add(this.label4);
-            this.panelDefault.Controls.Add(this.labelMSGV);
-            this.panelDefault.Controls.Add(this.label5);
-            this.panelDefault.Controls.Add(this.label2);
-            this.panelDefault.Location = new System.Drawing.Point(59, 15);
-            this.panelDefault.Name = "panelDefault";
-            this.panelDefault.Size = new System.Drawing.Size(594, 163);
-            this.panelDefault.TabIndex = 6;
-            // 
-            // panelRadio
-            // 
-            this.panelRadio.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelRadio.Controls.Add(this.radioButtonNot);
-            this.panelRadio.Controls.Add(this.radioButtonHave);
-            this.panelRadio.Controls.Add(this.radioButtonAllMember);
-            this.panelRadio.Location = new System.Drawing.Point(498, 25);
-            this.panelRadio.Name = "panelRadio";
-            this.panelRadio.Size = new System.Drawing.Size(83, 100);
-            this.panelRadio.TabIndex = 5;
-            // 
-            // radioButtonNot
-            // 
-            this.radioButtonNot.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.radioButtonNot.AutoSize = true;
-            this.radioButtonNot.ForeColor = System.Drawing.Color.White;
-            this.radioButtonNot.Location = new System.Drawing.Point(13, 37);
-            this.radioButtonNot.Name = "radioButtonNot";
-            this.radioButtonNot.Size = new System.Drawing.Size(56, 17);
-            this.radioButtonNot.TabIndex = 2;
-            this.radioButtonNot.Text = "Không";
-            this.radioButtonNot.UseVisualStyleBackColor = true;
-            // 
-            // radioButtonHave
-            // 
-            this.radioButtonHave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.radioButtonHave.AutoSize = true;
-            this.radioButtonHave.ForeColor = System.Drawing.Color.White;
-            this.radioButtonHave.Location = new System.Drawing.Point(13, 14);
-            this.radioButtonHave.Name = "radioButtonHave";
-            this.radioButtonHave.Size = new System.Drawing.Size(38, 17);
-            this.radioButtonHave.TabIndex = 2;
-            this.radioButtonHave.Text = "Có";
-            this.radioButtonHave.UseVisualStyleBackColor = true;
-            this.radioButtonHave.CheckedChanged += new System.EventHandler(this.radioButtonHave_CheckedChanged);
-            // 
-            // radioButtonAllMember
-            // 
-            this.radioButtonAllMember.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.radioButtonAllMember.AutoSize = true;
-            this.radioButtonAllMember.Checked = true;
-            this.radioButtonAllMember.ForeColor = System.Drawing.Color.White;
-            this.radioButtonAllMember.Location = new System.Drawing.Point(13, 60);
-            this.radioButtonAllMember.Name = "radioButtonAllMember";
-            this.radioButtonAllMember.Size = new System.Drawing.Size(56, 17);
-            this.radioButtonAllMember.TabIndex = 2;
-            this.radioButtonAllMember.TabStop = true;
-            this.radioButtonAllMember.Text = "Tất cả";
-            this.radioButtonAllMember.UseVisualStyleBackColor = true;
-            this.radioButtonAllMember.CheckedChanged += new System.EventHandler(this.radioButtonAllMember_CheckedChanged);
-            // 
-            // comboBoxSex
-            // 
-            this.comboBoxSex.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBoxSex.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxSex.FormattingEnabled = true;
-            this.comboBoxSex.Items.AddRange(new object[] {
-            "Tất cả",
-            "Nam",
-            "Nữ"});
-            this.comboBoxSex.Location = new System.Drawing.Point(299, 36);
-            this.comboBoxSex.Name = "comboBoxSex";
-            this.comboBoxSex.Size = new System.Drawing.Size(100, 21);
-            this.comboBoxSex.TabIndex = 0;
-            this.comboBoxSex.SelectedIndexChanged += new System.EventHandler(this.comboBoxSex_SelectedIndexChanged);
-            // 
-            // comboBoxGroup
-            // 
-            this.comboBoxGroup.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBoxGroup.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxGroup.FormattingEnabled = true;
-            this.comboBoxGroup.Items.AddRange(new object[] {
-            "Tất cả"});
-            this.comboBoxGroup.Location = new System.Drawing.Point(84, 36);
-            this.comboBoxGroup.Name = "comboBoxGroup";
-            this.comboBoxGroup.Size = new System.Drawing.Size(121, 21);
-            this.comboBoxGroup.TabIndex = 0;
-            this.comboBoxGroup.SelectedIndexChanged += new System.EventHandler(this.comboBoxGroup_SelectedIndexChanged);
-            // 
-            // label3
-            // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label3.AutoSize = true;
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(433, 40);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(59, 13);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "Đoàn viên:";
-            // 
-            // label1
-            // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(36, 111);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(29, 13);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Tên:";
-            // 
-            // label4
-            // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label4.AutoSize = true;
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(226, 40);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(50, 13);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Giới tính:";
-            // 
-            // label5
-            // 
-            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label5.AutoSize = true;
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(24, 85);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(41, 13);
-            this.label5.TabIndex = 3;
-            this.label5.Text = "MSGV:";
-            // 
-            // label2
-            // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label2.AutoSize = true;
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(12, 39);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 13);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Chi đoàn:";
-            // 
-            // buttonDelete
-            // 
-            this.buttonDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonDelete.ForeColor = System.Drawing.Color.White;
-            this.buttonDelete.Image = ((System.Drawing.Image)(resources.GetObject("buttonDelete.Image")));
-            this.buttonDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonDelete.Location = new System.Drawing.Point(872, 130);
-            this.buttonDelete.Name = "buttonDelete";
-            this.buttonDelete.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.buttonDelete.Size = new System.Drawing.Size(91, 39);
-            this.buttonDelete.TabIndex = 4;
-            this.buttonDelete.Tag = "delete";
-            this.buttonDelete.Text = "Xóa";
-            this.buttonDelete.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonDelete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonDelete.UseVisualStyleBackColor = true;
-            this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
-            // 
-            // buttonAdd
-            // 
-            this.buttonAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonAdd.ForeColor = System.Drawing.Color.White;
-            this.buttonAdd.Image = ((System.Drawing.Image)(resources.GetObject("buttonAdd.Image")));
-            this.buttonAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonAdd.Location = new System.Drawing.Point(872, 26);
-            this.buttonAdd.Name = "buttonAdd";
-            this.buttonAdd.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.buttonAdd.Size = new System.Drawing.Size(91, 39);
-            this.buttonAdd.TabIndex = 4;
-            this.buttonAdd.Tag = "add";
-            this.buttonAdd.Text = "Thêm";
-            this.buttonAdd.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonAdd.UseVisualStyleBackColor = true;
-            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
-            // 
-            // buttonUpdate
-            // 
-            this.buttonUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonUpdate.ForeColor = System.Drawing.Color.White;
-            this.buttonUpdate.Image = ((System.Drawing.Image)(resources.GetObject("buttonUpdate.Image")));
-            this.buttonUpdate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonUpdate.Location = new System.Drawing.Point(872, 78);
-            this.buttonUpdate.Name = "buttonUpdate";
-            this.buttonUpdate.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.buttonUpdate.Size = new System.Drawing.Size(91, 39);
-            this.buttonUpdate.TabIndex = 4;
-            this.buttonUpdate.Tag = "update";
-            this.buttonUpdate.Text = "Sửa";
-            this.buttonUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonUpdate.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonUpdate.UseVisualStyleBackColor = true;
-            this.buttonUpdate.Click += new System.EventHandler(this.buttonUpdate_Click);
-            // 
-            // panelData
-            // 
-            this.panelData.Controls.Add(this.dataGridViewTeacher);
-            this.panelData.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelData.Location = new System.Drawing.Point(0, 0);
-            this.panelData.Name = "panelData";
-            this.panelData.Size = new System.Drawing.Size(1000, 438);
-            this.panelData.TabIndex = 1;
-            // 
-            // dataGridViewTeacher
-            // 
-            this.dataGridViewTeacher.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridViewTeacher.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(77)))), ((int)(((byte)(108)))));
-            this.dataGridViewTeacher.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewTeacher.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idTeacher,
-            this.Name1,
-            this.Sex,
-            this.Group,
-            this.IsMember});
-            this.dataGridViewTeacher.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewTeacher.Location = new System.Drawing.Point(0, 0);
-            this.dataGridViewTeacher.Name = "dataGridViewTeacher";
-            this.dataGridViewTeacher.Size = new System.Drawing.Size(1000, 438);
-            this.dataGridViewTeacher.TabIndex = 0;
-            this.dataGridViewTeacher.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewTeacher_CellClick);
-            // 
-            // idTeacher
-            // 
-            this.idTeacher.DataPropertyName = "MSGV";
-            this.idTeacher.HeaderText = "MSGV";
-            this.idTeacher.Name = "idTeacher";
-            this.idTeacher.ReadOnly = true;
-            // 
-            // Name1
-            // 
-            this.Name1.DataPropertyName = "ten";
-            this.Name1.HeaderText = "Tên";
-            this.Name1.Name = "Name1";
-            this.Name1.ReadOnly = true;
-            // 
-            // Sex
-            // 
-            this.Sex.DataPropertyName = "gioiTinh";
-            this.Sex.HeaderText = "Giới tính";
-            this.Sex.Name = "Sex";
-            this.Sex.ReadOnly = true;
-            // 
-            // Group
-            // 
-            this.Group.DataPropertyName = "chiDoan";
-            this.Group.HeaderText = "Chi đoàn";
-            this.Group.Name = "Group";
-            this.Group.ReadOnly = true;
-            // 
-            // IsMember
-            // 
-            this.IsMember.DataPropertyName = "doanVien";
-            this.IsMember.HeaderText = "Đoàn viên";
-            this.IsMember.Name = "IsMember";
-            this.IsMember.ReadOnly = true;
-            // 
-            // labelMSGV
-            // 
-            this.labelMSGV.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelMSGV.AutoSize = true;
-            this.labelMSGV.ForeColor = System.Drawing.Color.Gold;
-            this.labelMSGV.Location = new System.Drawing.Point(81, 85);
-            this.labelMSGV.Name = "labelMSGV";
-            this.labelMSGV.Size = new System.Drawing.Size(0, 13);
-            this.labelMSGV.TabIndex = 3;
-            // 
-            // labelName
-            // 
-            this.labelName.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelName.AutoSize = true;
-            this.labelName.ForeColor = System.Drawing.Color.Gold;
-            this.labelName.Location = new System.Drawing.Point(81, 111);
-            this.labelName.Name = "labelName";
-            this.labelName.Size = new System.Drawing.Size(0, 13);
-            this.labelName.TabIndex = 3;
+            this.panelBottom.TabIndex = 2;
             // 
             // panelEdit
             // 
@@ -428,8 +117,137 @@
             this.panelEdit.Location = new System.Drawing.Point(59, 184);
             this.panelEdit.Name = "panelEdit";
             this.panelEdit.Size = new System.Drawing.Size(594, 163);
-            this.panelEdit.TabIndex = 6;
+            this.panelEdit.TabIndex = 3;
             this.panelEdit.Visible = false;
+            // 
+            // buttonExitEdit
+            // 
+            this.buttonExitEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonExitEdit.ForeColor = System.Drawing.Color.White;
+            this.buttonExitEdit.Image = ((System.Drawing.Image)(resources.GetObject("buttonExitEdit.Image")));
+            this.buttonExitEdit.Location = new System.Drawing.Point(567, 3);
+            this.buttonExitEdit.Name = "buttonExitEdit";
+            this.buttonExitEdit.Size = new System.Drawing.Size(20, 20);
+            this.buttonExitEdit.TabIndex = 7;
+            this.buttonExitEdit.Tag = "exitEdit";
+            this.buttonExitEdit.UseVisualStyleBackColor = true;
+            this.buttonExitEdit.Click += new System.EventHandler(this.buttonExitEdit_Click);
+            // 
+            // panelRadioEdit
+            // 
+            this.panelRadioEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelRadioEdit.Controls.Add(this.radioButtonNoEdit);
+            this.panelRadioEdit.Controls.Add(this.radioButtonHaveEdit);
+            this.panelRadioEdit.Location = new System.Drawing.Point(498, 24);
+            this.panelRadioEdit.Name = "panelRadioEdit";
+            this.panelRadioEdit.Size = new System.Drawing.Size(64, 74);
+            this.panelRadioEdit.TabIndex = 5;
+            // 
+            // radioButtonNoEdit
+            // 
+            this.radioButtonNoEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.radioButtonNoEdit.AutoSize = true;
+            this.radioButtonNoEdit.ForeColor = System.Drawing.Color.White;
+            this.radioButtonNoEdit.Location = new System.Drawing.Point(3, 38);
+            this.radioButtonNoEdit.Name = "radioButtonNoEdit";
+            this.radioButtonNoEdit.Size = new System.Drawing.Size(56, 17);
+            this.radioButtonNoEdit.TabIndex = 2;
+            this.radioButtonNoEdit.Text = "Không";
+            this.radioButtonNoEdit.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonHaveEdit
+            // 
+            this.radioButtonHaveEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.radioButtonHaveEdit.AutoSize = true;
+            this.radioButtonHaveEdit.Checked = true;
+            this.radioButtonHaveEdit.ForeColor = System.Drawing.Color.White;
+            this.radioButtonHaveEdit.Location = new System.Drawing.Point(3, 15);
+            this.radioButtonHaveEdit.Name = "radioButtonHaveEdit";
+            this.radioButtonHaveEdit.Size = new System.Drawing.Size(38, 17);
+            this.radioButtonHaveEdit.TabIndex = 1;
+            this.radioButtonHaveEdit.TabStop = true;
+            this.radioButtonHaveEdit.Text = "Có";
+            this.radioButtonHaveEdit.UseVisualStyleBackColor = true;
+            this.radioButtonHaveEdit.CheckedChanged += new System.EventHandler(this.radioButtonHaveEdit_CheckedChanged);
+            // 
+            // comboBoxSexEdit
+            // 
+            this.comboBoxSexEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBoxSexEdit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxSexEdit.FormattingEnabled = true;
+            this.comboBoxSexEdit.Items.AddRange(new object[] {
+            "Nam",
+            "Nữ"});
+            this.comboBoxSexEdit.Location = new System.Drawing.Point(282, 37);
+            this.comboBoxSexEdit.Name = "comboBoxSexEdit";
+            this.comboBoxSexEdit.Size = new System.Drawing.Size(96, 21);
+            this.comboBoxSexEdit.TabIndex = 0;
+            this.comboBoxSexEdit.SelectedIndexChanged += new System.EventHandler(this.comboBoxSexEdit_SelectedIndexChanged);
+            // 
+            // buttonResetText
+            // 
+            this.buttonResetText.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonResetText.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.buttonResetText.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonResetText.ForeColor = System.Drawing.Color.White;
+            this.buttonResetText.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonResetText.Location = new System.Drawing.Point(498, 111);
+            this.buttonResetText.Name = "buttonResetText";
+            this.buttonResetText.Size = new System.Drawing.Size(77, 35);
+            this.buttonResetText.TabIndex = 4;
+            this.buttonResetText.Text = "Xóa";
+            this.buttonResetText.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonResetText.UseVisualStyleBackColor = true;
+            this.buttonResetText.Click += new System.EventHandler(this.buttonResetText_Click);
+            // 
+            // buttonEdit
+            // 
+            this.buttonEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonEdit.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.buttonEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonEdit.ForeColor = System.Drawing.Color.White;
+            this.buttonEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonEdit.Location = new System.Drawing.Point(415, 111);
+            this.buttonEdit.Name = "buttonEdit";
+            this.buttonEdit.Size = new System.Drawing.Size(77, 35);
+            this.buttonEdit.TabIndex = 3;
+            this.buttonEdit.Text = "Thêm";
+            this.buttonEdit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonEdit.UseVisualStyleBackColor = true;
+            this.buttonEdit.Click += new System.EventHandler(this.buttonEdit_Click);
+            // 
+            // comboBoxGroupEdit
+            // 
+            this.comboBoxGroupEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBoxGroupEdit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxGroupEdit.FormattingEnabled = true;
+            this.comboBoxGroupEdit.Items.AddRange(new object[] {
+            "Tất cả"});
+            this.comboBoxGroupEdit.Location = new System.Drawing.Point(78, 38);
+            this.comboBoxGroupEdit.Name = "comboBoxGroupEdit";
+            this.comboBoxGroupEdit.Size = new System.Drawing.Size(117, 21);
+            this.comboBoxGroupEdit.TabIndex = 0;
+            this.comboBoxGroupEdit.SelectedIndexChanged += new System.EventHandler(this.comboBoxGroupEdit_SelectedIndexChanged);
+            // 
+            // textBoxNameEdit
+            // 
+            this.textBoxNameEdit.Location = new System.Drawing.Point(78, 108);
+            this.textBoxNameEdit.Name = "textBoxNameEdit";
+            this.textBoxNameEdit.Size = new System.Drawing.Size(258, 20);
+            this.textBoxNameEdit.TabIndex = 2;
+            // 
+            // textBoxMSGVEdit
+            // 
+            this.textBoxMSGVEdit.Location = new System.Drawing.Point(78, 82);
+            this.textBoxMSGVEdit.Name = "textBoxMSGVEdit";
+            this.textBoxMSGVEdit.Size = new System.Drawing.Size(114, 20);
+            this.textBoxMSGVEdit.TabIndex = 1;
             // 
             // label6
             // 
@@ -520,133 +338,316 @@
             this.label12.TabIndex = 3;
             this.label12.Text = "Chi đoàn:";
             // 
-            // textBoxMSGVEdit
+            // panelDefault
             // 
-            this.textBoxMSGVEdit.Location = new System.Drawing.Point(78, 82);
-            this.textBoxMSGVEdit.Name = "textBoxMSGVEdit";
-            this.textBoxMSGVEdit.Size = new System.Drawing.Size(114, 20);
-            this.textBoxMSGVEdit.TabIndex = 6;
+            this.panelDefault.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panelDefault.Controls.Add(this.panelRadio);
+            this.panelDefault.Controls.Add(this.comboBoxSex);
+            this.panelDefault.Controls.Add(this.comboBoxGroup);
+            this.panelDefault.Controls.Add(this.label3);
+            this.panelDefault.Controls.Add(this.labelName);
+            this.panelDefault.Controls.Add(this.label1);
+            this.panelDefault.Controls.Add(this.label4);
+            this.panelDefault.Controls.Add(this.labelMSGV);
+            this.panelDefault.Controls.Add(this.label5);
+            this.panelDefault.Controls.Add(this.label2);
+            this.panelDefault.Location = new System.Drawing.Point(59, 15);
+            this.panelDefault.Name = "panelDefault";
+            this.panelDefault.Size = new System.Drawing.Size(594, 163);
+            this.panelDefault.TabIndex = 1;
             // 
-            // textBoxNameEdit
+            // panelRadio
             // 
-            this.textBoxNameEdit.Location = new System.Drawing.Point(78, 108);
-            this.textBoxNameEdit.Name = "textBoxNameEdit";
-            this.textBoxNameEdit.Size = new System.Drawing.Size(258, 20);
-            this.textBoxNameEdit.TabIndex = 6;
-            // 
-            // comboBoxSexEdit
-            // 
-            this.comboBoxSexEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.panelRadio.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBoxSexEdit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxSexEdit.FormattingEnabled = true;
-            this.comboBoxSexEdit.Items.AddRange(new object[] {
+            this.panelRadio.Controls.Add(this.radioButtonNot);
+            this.panelRadio.Controls.Add(this.radioButtonHave);
+            this.panelRadio.Controls.Add(this.radioButtonAllMember);
+            this.panelRadio.Location = new System.Drawing.Point(498, 25);
+            this.panelRadio.Name = "panelRadio";
+            this.panelRadio.Size = new System.Drawing.Size(83, 100);
+            this.panelRadio.TabIndex = 5;
+            // 
+            // radioButtonNot
+            // 
+            this.radioButtonNot.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.radioButtonNot.AutoSize = true;
+            this.radioButtonNot.ForeColor = System.Drawing.Color.White;
+            this.radioButtonNot.Location = new System.Drawing.Point(13, 37);
+            this.radioButtonNot.Name = "radioButtonNot";
+            this.radioButtonNot.Size = new System.Drawing.Size(56, 17);
+            this.radioButtonNot.TabIndex = 2;
+            this.radioButtonNot.Text = "Không";
+            this.radioButtonNot.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonHave
+            // 
+            this.radioButtonHave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.radioButtonHave.AutoSize = true;
+            this.radioButtonHave.ForeColor = System.Drawing.Color.White;
+            this.radioButtonHave.Location = new System.Drawing.Point(13, 14);
+            this.radioButtonHave.Name = "radioButtonHave";
+            this.radioButtonHave.Size = new System.Drawing.Size(38, 17);
+            this.radioButtonHave.TabIndex = 1;
+            this.radioButtonHave.Text = "Có";
+            this.radioButtonHave.UseVisualStyleBackColor = true;
+            this.radioButtonHave.CheckedChanged += new System.EventHandler(this.radioButtonHave_CheckedChanged);
+            // 
+            // radioButtonAllMember
+            // 
+            this.radioButtonAllMember.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.radioButtonAllMember.AutoSize = true;
+            this.radioButtonAllMember.Checked = true;
+            this.radioButtonAllMember.ForeColor = System.Drawing.Color.White;
+            this.radioButtonAllMember.Location = new System.Drawing.Point(13, 60);
+            this.radioButtonAllMember.Name = "radioButtonAllMember";
+            this.radioButtonAllMember.Size = new System.Drawing.Size(56, 17);
+            this.radioButtonAllMember.TabIndex = 3;
+            this.radioButtonAllMember.TabStop = true;
+            this.radioButtonAllMember.Text = "Tất cả";
+            this.radioButtonAllMember.UseVisualStyleBackColor = true;
+            this.radioButtonAllMember.CheckedChanged += new System.EventHandler(this.radioButtonAllMember_CheckedChanged);
+            // 
+            // comboBoxSex
+            // 
+            this.comboBoxSex.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBoxSex.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxSex.FormattingEnabled = true;
+            this.comboBoxSex.Items.AddRange(new object[] {
             "Tất cả",
             "Nam",
             "Nữ"});
-            this.comboBoxSexEdit.Location = new System.Drawing.Point(282, 37);
-            this.comboBoxSexEdit.Name = "comboBoxSexEdit";
-            this.comboBoxSexEdit.Size = new System.Drawing.Size(96, 21);
-            this.comboBoxSexEdit.TabIndex = 0;
-            this.comboBoxSexEdit.SelectedIndexChanged += new System.EventHandler(this.comboBoxSex_SelectedIndexChanged);
+            this.comboBoxSex.Location = new System.Drawing.Point(299, 36);
+            this.comboBoxSex.Name = "comboBoxSex";
+            this.comboBoxSex.Size = new System.Drawing.Size(100, 21);
+            this.comboBoxSex.TabIndex = 0;
+            this.comboBoxSex.SelectedIndexChanged += new System.EventHandler(this.comboBoxSex_SelectedIndexChanged);
             // 
-            // comboBoxGroupEdit
+            // comboBoxGroup
             // 
-            this.comboBoxGroupEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.comboBoxGroup.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBoxGroupEdit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxGroupEdit.FormattingEnabled = true;
-            this.comboBoxGroupEdit.Items.AddRange(new object[] {
+            this.comboBoxGroup.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxGroup.FormattingEnabled = true;
+            this.comboBoxGroup.Items.AddRange(new object[] {
             "Tất cả"});
-            this.comboBoxGroupEdit.Location = new System.Drawing.Point(78, 38);
-            this.comboBoxGroupEdit.Name = "comboBoxGroupEdit";
-            this.comboBoxGroupEdit.Size = new System.Drawing.Size(117, 21);
-            this.comboBoxGroupEdit.TabIndex = 0;
-            this.comboBoxGroupEdit.SelectedIndexChanged += new System.EventHandler(this.comboBoxGroup_SelectedIndexChanged);
+            this.comboBoxGroup.Location = new System.Drawing.Point(84, 36);
+            this.comboBoxGroup.Name = "comboBoxGroup";
+            this.comboBoxGroup.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxGroup.TabIndex = 0;
+            this.comboBoxGroup.SelectedIndexChanged += new System.EventHandler(this.comboBoxGroup_SelectedIndexChanged);
             // 
-            // panelRadioEdit
+            // label3
             // 
-            this.panelRadioEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelRadioEdit.Controls.Add(this.radioButtonNoEdit);
-            this.panelRadioEdit.Controls.Add(this.radioButtonHaveEdit);
-            this.panelRadioEdit.Location = new System.Drawing.Point(498, 24);
-            this.panelRadioEdit.Name = "panelRadioEdit";
-            this.panelRadioEdit.Size = new System.Drawing.Size(64, 74);
-            this.panelRadioEdit.TabIndex = 5;
+            this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(433, 40);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(59, 13);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "Đoàn viên:";
             // 
-            // radioButtonNoEdit
+            // labelName
             // 
-            this.radioButtonNoEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.radioButtonNoEdit.AutoSize = true;
-            this.radioButtonNoEdit.ForeColor = System.Drawing.Color.White;
-            this.radioButtonNoEdit.Location = new System.Drawing.Point(3, 38);
-            this.radioButtonNoEdit.Name = "radioButtonNoEdit";
-            this.radioButtonNoEdit.Size = new System.Drawing.Size(56, 17);
-            this.radioButtonNoEdit.TabIndex = 2;
-            this.radioButtonNoEdit.Text = "Không";
-            this.radioButtonNoEdit.UseVisualStyleBackColor = true;
+            this.labelName.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelName.AutoSize = true;
+            this.labelName.ForeColor = System.Drawing.Color.Gold;
+            this.labelName.Location = new System.Drawing.Point(81, 111);
+            this.labelName.Name = "labelName";
+            this.labelName.Size = new System.Drawing.Size(0, 13);
+            this.labelName.TabIndex = 3;
             // 
-            // radioButtonHaveEdit
+            // label1
             // 
-            this.radioButtonHaveEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.radioButtonHaveEdit.AutoSize = true;
-            this.radioButtonHaveEdit.Checked = true;
-            this.radioButtonHaveEdit.ForeColor = System.Drawing.Color.White;
-            this.radioButtonHaveEdit.Location = new System.Drawing.Point(3, 15);
-            this.radioButtonHaveEdit.Name = "radioButtonHaveEdit";
-            this.radioButtonHaveEdit.Size = new System.Drawing.Size(38, 17);
-            this.radioButtonHaveEdit.TabIndex = 2;
-            this.radioButtonHaveEdit.TabStop = true;
-            this.radioButtonHaveEdit.Text = "Có";
-            this.radioButtonHaveEdit.UseVisualStyleBackColor = true;
-            this.radioButtonHaveEdit.CheckedChanged += new System.EventHandler(this.radioButtonHave_CheckedChanged);
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(36, 111);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(29, 13);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Tên:";
             // 
-            // buttonEdit
+            // label4
             // 
-            this.buttonEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonEdit.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.buttonEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonEdit.ForeColor = System.Drawing.Color.White;
-            this.buttonEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonEdit.Location = new System.Drawing.Point(415, 111);
-            this.buttonEdit.Name = "buttonEdit";
-            this.buttonEdit.Size = new System.Drawing.Size(77, 35);
-            this.buttonEdit.TabIndex = 4;
-            this.buttonEdit.Text = "Thêm";
-            this.buttonEdit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonEdit.UseVisualStyleBackColor = true;
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(226, 40);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(50, 13);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "Giới tính:";
             // 
-            // buttonExitEdit
+            // labelMSGV
             // 
-            this.buttonExitEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonExitEdit.ForeColor = System.Drawing.Color.White;
-            this.buttonExitEdit.Image = ((System.Drawing.Image)(resources.GetObject("buttonExitEdit.Image")));
-            this.buttonExitEdit.Location = new System.Drawing.Point(567, 3);
-            this.buttonExitEdit.Name = "buttonExitEdit";
-            this.buttonExitEdit.Size = new System.Drawing.Size(20, 20);
-            this.buttonExitEdit.TabIndex = 7;
-            this.buttonExitEdit.Tag = "exitEdit";
-            this.buttonExitEdit.UseVisualStyleBackColor = true;
-            this.buttonExitEdit.Click += new System.EventHandler(this.buttonExitEdit_Click);
+            this.labelMSGV.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelMSGV.AutoSize = true;
+            this.labelMSGV.ForeColor = System.Drawing.Color.Gold;
+            this.labelMSGV.Location = new System.Drawing.Point(81, 85);
+            this.labelMSGV.Name = "labelMSGV";
+            this.labelMSGV.Size = new System.Drawing.Size(0, 13);
+            this.labelMSGV.TabIndex = 3;
             // 
-            // buttonResetText
+            // label5
             // 
-            this.buttonResetText.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonResetText.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.buttonResetText.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonResetText.ForeColor = System.Drawing.Color.White;
-            this.buttonResetText.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonResetText.Location = new System.Drawing.Point(498, 111);
-            this.buttonResetText.Name = "buttonResetText";
-            this.buttonResetText.Size = new System.Drawing.Size(77, 35);
-            this.buttonResetText.TabIndex = 4;
-            this.buttonResetText.Text = "Xóa";
-            this.buttonResetText.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonResetText.UseVisualStyleBackColor = true;
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label5.AutoSize = true;
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(24, 85);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(41, 13);
+            this.label5.TabIndex = 3;
+            this.label5.Text = "MSGV:";
+            // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(12, 39);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(53, 13);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Chi đoàn:";
+            // 
+            // buttonDelete
+            // 
+            this.buttonDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonDelete.ForeColor = System.Drawing.Color.White;
+            this.buttonDelete.Image = ((System.Drawing.Image)(resources.GetObject("buttonDelete.Image")));
+            this.buttonDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonDelete.Location = new System.Drawing.Point(872, 130);
+            this.buttonDelete.Name = "buttonDelete";
+            this.buttonDelete.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.buttonDelete.Size = new System.Drawing.Size(91, 39);
+            this.buttonDelete.TabIndex = 4;
+            this.buttonDelete.Tag = "delete";
+            this.buttonDelete.Text = "Xóa";
+            this.buttonDelete.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonDelete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonDelete.UseVisualStyleBackColor = true;
+            this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
+            // 
+            // buttonAdd
+            // 
+            this.buttonAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonAdd.ForeColor = System.Drawing.Color.White;
+            this.buttonAdd.Image = ((System.Drawing.Image)(resources.GetObject("buttonAdd.Image")));
+            this.buttonAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonAdd.Location = new System.Drawing.Point(872, 26);
+            this.buttonAdd.Name = "buttonAdd";
+            this.buttonAdd.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.buttonAdd.Size = new System.Drawing.Size(91, 39);
+            this.buttonAdd.TabIndex = 2;
+            this.buttonAdd.Tag = "add";
+            this.buttonAdd.Text = "Thêm";
+            this.buttonAdd.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonAdd.UseVisualStyleBackColor = true;
+            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
+            // 
+            // buttonUpdate
+            // 
+            this.buttonUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonUpdate.ForeColor = System.Drawing.Color.White;
+            this.buttonUpdate.Image = ((System.Drawing.Image)(resources.GetObject("buttonUpdate.Image")));
+            this.buttonUpdate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonUpdate.Location = new System.Drawing.Point(872, 78);
+            this.buttonUpdate.Name = "buttonUpdate";
+            this.buttonUpdate.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.buttonUpdate.Size = new System.Drawing.Size(91, 39);
+            this.buttonUpdate.TabIndex = 3;
+            this.buttonUpdate.Tag = "update";
+            this.buttonUpdate.Text = "Sửa";
+            this.buttonUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonUpdate.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonUpdate.UseVisualStyleBackColor = true;
+            this.buttonUpdate.Click += new System.EventHandler(this.buttonUpdate_Click);
+            // 
+            // panelData
+            // 
+            this.panelData.Controls.Add(this.dataGridViewTeacher);
+            this.panelData.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelData.Location = new System.Drawing.Point(0, 197);
+            this.panelData.Name = "panelData";
+            this.panelData.Size = new System.Drawing.Size(1000, 438);
+            this.panelData.TabIndex = 1;
+            // 
+            // dataGridViewTeacher
+            // 
+            this.dataGridViewTeacher.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewTeacher.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(77)))), ((int)(((byte)(108)))));
+            this.dataGridViewTeacher.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewTeacher.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idTeacher,
+            this.Name1,
+            this.Sex,
+            this.Group,
+            this.IsMember});
+            this.dataGridViewTeacher.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewTeacher.Location = new System.Drawing.Point(0, 0);
+            this.dataGridViewTeacher.Name = "dataGridViewTeacher";
+            this.dataGridViewTeacher.Size = new System.Drawing.Size(1000, 438);
+            this.dataGridViewTeacher.TabIndex = 0;
+            this.dataGridViewTeacher.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewTeacher_CellClick);
+            // 
+            // idTeacher
+            // 
+            this.idTeacher.DataPropertyName = "MSGV";
+            this.idTeacher.HeaderText = "MSGV";
+            this.idTeacher.Name = "idTeacher";
+            this.idTeacher.ReadOnly = true;
+            // 
+            // Name1
+            // 
+            this.Name1.DataPropertyName = "ten";
+            this.Name1.HeaderText = "Tên";
+            this.Name1.Name = "Name1";
+            this.Name1.ReadOnly = true;
+            // 
+            // Sex
+            // 
+            this.Sex.DataPropertyName = "gioiTinh";
+            this.Sex.HeaderText = "Giới tính";
+            this.Sex.Name = "Sex";
+            this.Sex.ReadOnly = true;
+            // 
+            // Group
+            // 
+            this.Group.DataPropertyName = "chiDoan";
+            this.Group.HeaderText = "Chi đoàn";
+            this.Group.Name = "Group";
+            this.Group.ReadOnly = true;
+            // 
+            // IsMember
+            // 
+            this.IsMember.DataPropertyName = "doanVien";
+            this.IsMember.HeaderText = "Đoàn viên";
+            this.IsMember.Name = "IsMember";
+            this.IsMember.ReadOnly = true;
             // 
             // FormTeacher
             // 
@@ -660,16 +661,16 @@
             this.Text = "FormTeacher";
             this.Load += new System.EventHandler(this.FormTeacher_Load);
             this.panelBottom.ResumeLayout(false);
+            this.panelEdit.ResumeLayout(false);
+            this.panelEdit.PerformLayout();
+            this.panelRadioEdit.ResumeLayout(false);
+            this.panelRadioEdit.PerformLayout();
             this.panelDefault.ResumeLayout(false);
             this.panelDefault.PerformLayout();
             this.panelRadio.ResumeLayout(false);
             this.panelRadio.PerformLayout();
             this.panelData.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTeacher)).EndInit();
-            this.panelEdit.ResumeLayout(false);
-            this.panelEdit.PerformLayout();
-            this.panelRadioEdit.ResumeLayout(false);
-            this.panelRadioEdit.PerformLayout();
             this.ResumeLayout(false);
 
         }
