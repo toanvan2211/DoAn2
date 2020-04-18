@@ -15,5 +15,30 @@ namespace DanhGiaDoanVien.DAO
             private set { instance = value; }
         }
         public SemesterDAO() { }
+
+        public int AddSemester(string idSemester, string name)
+        {
+            string query = "USP_AddSemester @idSemester , @name";
+            try
+            {
+                return DataProvider.Instance.ExecuteNonQuery(query, new object[] { idSemester, name });
+            }
+            catch (System.Data.SqlClient.SqlException)
+            {
+                return -1;
+            }
+        }
+
+        public int UpdateSemester(string idSemester, string name)
+        {
+            string query = "USP_UpdateSemester @idSemester , @name";
+            return DataProvider.Instance.ExecuteNonQuery(query, new object[] { idSemester, name });
+        }
+
+        public int DeleteGroup(string idSemester)
+        {
+            string query = "USP_DeleteSemester @idSemester";
+            return DataProvider.Instance.ExecuteNonQuery(query, new object[] { idSemester });
+        }
     }
 }

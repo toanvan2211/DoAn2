@@ -12,14 +12,14 @@ namespace DanhGiaDoanVien.DTO
         private string idStudent;
         private string name;
         private string classroom;
-        private bool sex;
+        private string sex;
         private string group;
         private bool isMember;
 
         public string IdStudent { get => idStudent; set => idStudent = value; }
         public string Name { get => name; set => name = value; }
         public string Classroom { get => classroom; set => classroom = value; }
-        public bool Sex { get => sex; set => sex = value; }
+        public string Sex { get => sex; set => sex = value; }
         public string Group { get => group; set => group = value; }
         public bool IsMember { get => isMember; set => isMember = value; }
 
@@ -29,7 +29,7 @@ namespace DanhGiaDoanVien.DTO
             IdStudent = (string)row["MSSV"];
             Name = (string)row["ten"];
             Classroom = (string)row["lop"];
-            Sex = (bool)row["gioiTinh"];
+            Sex = (string)row["gioiTinh"];
             Group = (string)row["chiDoan"];
             IsMember = (bool)row["doanVien"];
         }

@@ -67,11 +67,11 @@
             this.buttonUpdate = new System.Windows.Forms.Button();
             this.panelData = new System.Windows.Forms.Panel();
             this.dataGridViewTeacher = new System.Windows.Forms.DataGridView();
-            this.idTeacher = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MSGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Name1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Sex = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Group = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IsMember = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Sex1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Group1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IsMember1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelBottom.SuspendLayout();
             this.panelEdit.SuspendLayout();
             this.panelRadioEdit.SuspendLayout();
@@ -154,6 +154,7 @@
             this.radioButtonNoEdit.Name = "radioButtonNoEdit";
             this.radioButtonNoEdit.Size = new System.Drawing.Size(56, 17);
             this.radioButtonNoEdit.TabIndex = 2;
+            this.radioButtonNoEdit.Tag = "False";
             this.radioButtonNoEdit.Text = "Không";
             this.radioButtonNoEdit.UseVisualStyleBackColor = true;
             // 
@@ -168,6 +169,7 @@
             this.radioButtonHaveEdit.Size = new System.Drawing.Size(38, 17);
             this.radioButtonHaveEdit.TabIndex = 1;
             this.radioButtonHaveEdit.TabStop = true;
+            this.radioButtonHaveEdit.Tag = "True";
             this.radioButtonHaveEdit.Text = "Có";
             this.radioButtonHaveEdit.UseVisualStyleBackColor = true;
             this.radioButtonHaveEdit.CheckedChanged += new System.EventHandler(this.radioButtonHaveEdit_CheckedChanged);
@@ -186,7 +188,6 @@
             this.comboBoxSexEdit.Name = "comboBoxSexEdit";
             this.comboBoxSexEdit.Size = new System.Drawing.Size(96, 21);
             this.comboBoxSexEdit.TabIndex = 0;
-            this.comboBoxSexEdit.SelectedIndexChanged += new System.EventHandler(this.comboBoxSexEdit_SelectedIndexChanged);
             // 
             // buttonResetText
             // 
@@ -227,13 +228,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBoxGroupEdit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxGroupEdit.FormattingEnabled = true;
-            this.comboBoxGroupEdit.Items.AddRange(new object[] {
-            "Tất cả"});
             this.comboBoxGroupEdit.Location = new System.Drawing.Point(78, 38);
             this.comboBoxGroupEdit.Name = "comboBoxGroupEdit";
             this.comboBoxGroupEdit.Size = new System.Drawing.Size(117, 21);
             this.comboBoxGroupEdit.TabIndex = 0;
-            this.comboBoxGroupEdit.SelectedIndexChanged += new System.EventHandler(this.comboBoxGroupEdit_SelectedIndexChanged);
             // 
             // textBoxNameEdit
             // 
@@ -433,8 +431,6 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBoxGroup.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxGroup.FormattingEnabled = true;
-            this.comboBoxGroup.Items.AddRange(new object[] {
-            "Tất cả"});
             this.comboBoxGroup.Location = new System.Drawing.Point(84, 36);
             this.comboBoxGroup.Name = "comboBoxGroup";
             this.comboBoxGroup.Size = new System.Drawing.Size(121, 21);
@@ -602,11 +598,11 @@
             this.dataGridViewTeacher.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(77)))), ((int)(((byte)(108)))));
             this.dataGridViewTeacher.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewTeacher.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idTeacher,
+            this.MSGV,
             this.Name1,
-            this.Sex,
-            this.Group,
-            this.IsMember});
+            this.Sex1,
+            this.Group1,
+            this.IsMember1});
             this.dataGridViewTeacher.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewTeacher.Location = new System.Drawing.Point(0, 0);
             this.dataGridViewTeacher.Name = "dataGridViewTeacher";
@@ -614,12 +610,12 @@
             this.dataGridViewTeacher.TabIndex = 0;
             this.dataGridViewTeacher.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewTeacher_CellClick);
             // 
-            // idTeacher
+            // MSGV
             // 
-            this.idTeacher.DataPropertyName = "MSGV";
-            this.idTeacher.HeaderText = "MSGV";
-            this.idTeacher.Name = "idTeacher";
-            this.idTeacher.ReadOnly = true;
+            this.MSGV.DataPropertyName = "MSGV";
+            this.MSGV.HeaderText = "MSGV";
+            this.MSGV.Name = "MSGV";
+            this.MSGV.ReadOnly = true;
             // 
             // Name1
             // 
@@ -628,26 +624,26 @@
             this.Name1.Name = "Name1";
             this.Name1.ReadOnly = true;
             // 
-            // Sex
+            // Sex1
             // 
-            this.Sex.DataPropertyName = "gioiTinh";
-            this.Sex.HeaderText = "Giới tính";
-            this.Sex.Name = "Sex";
-            this.Sex.ReadOnly = true;
+            this.Sex1.DataPropertyName = "gioiTinh";
+            this.Sex1.HeaderText = "Giới tính";
+            this.Sex1.Name = "Sex1";
+            this.Sex1.ReadOnly = true;
             // 
-            // Group
+            // Group1
             // 
-            this.Group.DataPropertyName = "chiDoan";
-            this.Group.HeaderText = "Chi đoàn";
-            this.Group.Name = "Group";
-            this.Group.ReadOnly = true;
+            this.Group1.DataPropertyName = "chiDoan";
+            this.Group1.HeaderText = "Chi đoàn";
+            this.Group1.Name = "Group1";
+            this.Group1.ReadOnly = true;
             // 
-            // IsMember
+            // IsMember1
             // 
-            this.IsMember.DataPropertyName = "doanVien";
-            this.IsMember.HeaderText = "Đoàn viên";
-            this.IsMember.Name = "IsMember";
-            this.IsMember.ReadOnly = true;
+            this.IsMember1.DataPropertyName = "doanVien";
+            this.IsMember1.HeaderText = "Đoàn viên";
+            this.IsMember1.Name = "IsMember1";
+            this.IsMember1.ReadOnly = true;
             // 
             // FormTeacher
             // 
@@ -691,11 +687,6 @@
         private System.Windows.Forms.Button buttonUpdate;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox comboBoxSex;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idTeacher;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Name1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Sex;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Group;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IsMember;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.RadioButton radioButtonAllMember;
         private System.Windows.Forms.Panel panelRadio;
@@ -720,5 +711,10 @@
         private System.Windows.Forms.Button buttonExitEdit;
         private System.Windows.Forms.Button buttonEdit;
         private System.Windows.Forms.Button buttonResetText;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MSGV;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Name1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Sex1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Group1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IsMember1;
     }
 }

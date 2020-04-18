@@ -1,4 +1,5 @@
 ﻿using DanhGiaDoanVien.DAO;
+using DanhGiaDoanVien.DTO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,6 +18,8 @@ namespace DanhGiaDoanVien
         private string currentSex = "Tất cả";
         private string currentIsMember = "Tất cả";
         private string currentEditState = EditState.none;
+        private int currentRowIndex = -1;
+        private Teacher currentTeacher = new Teacher();
 
         private struct EditState
         {
@@ -35,6 +38,7 @@ namespace DanhGiaDoanVien
         {
             comboBoxSex.SelectedIndex = 0;
             LoadGroup();
+            comboBoxSexEdit.SelectedIndex = 0;
             currentGroup = "Tất cả";
             LoadListTeacher();
         }
@@ -51,17 +55,6 @@ namespace DanhGiaDoanVien
             LoadListTeacher();
         }
 
-        private void comboBoxSexEdit_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            currentSex = comboBoxSexEdit.Text;
-            LoadListTeacher();
-        }
-
-        private void comboBoxGroupEdit_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            currentGroup = comboBoxGroupEdit.Text;
-            LoadListTeacher();
-        }
         //RadioButton
         private void radioButtonHave_CheckedChanged(object sender, EventArgs e)
         {
@@ -77,42 +70,72 @@ namespace DanhGiaDoanVien
         private void radioButtonHaveEdit_CheckedChanged(object sender, EventArgs e)
         {
             GetCurrentRadio(panelRadioEdit);
-            LoadListTeacher();
         }
         //DataGridView
         private void dataGridViewTeacher_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            currentRowIndex = e.RowIndex;
             try
             {
-                //Main panel
                 dataGridViewTeacher.CurrentRow.Selected = true;
-                labelMSGV.Text = dataGridViewTeacher.Rows[e.RowIndex].Cells["idTeacher"].Value.ToString();
-                labelName.Text = dataGridViewTeacher.Rows[e.RowIndex].Cells["Name1"].Value.ToString();
-                //Edit panel
-                textBoxMSGVEdit.Text = dataGridViewTeacher.Rows[e.RowIndex].Cells["idTeacher"].Value.ToString();
-                textBoxNameEdit.Text = dataGridViewTeacher.Rows[e.RowIndex].Cells["Name1"].Value.ToString();
+
+                currentTeacher.IdTeacher = dataGridViewTeacher.Rows[e.RowIndex].Cells["MSGV"].Value.ToString();
+                currentTeacher.Name = dataGridViewTeacher.Rows[e.RowIndex].Cells["Name1"].Value.ToString();
+                currentTeacher.Sex = dataGridViewTeacher.Rows[e.RowIndex].Cells["Sex1"].Value.ToString();
+                currentTeacher.Group = dataGridViewTeacher.Rows[e.RowIndex].Cells["Group1"].Value.ToString();
+                string check = dataGridViewTeacher.Rows[e.RowIndex].Cells["IsMember1"].Value.ToString();
+                if (check == "True")
+                    currentTeacher.IsMember = true;
+                else
+                    currentTeacher.IsMember = false;
             }
             catch { }
+
+            //Main panel
+            labelMSGV.Text = currentTeacher.IdTeacher;
+            labelName.Text = currentTeacher.Name;
+            
+            if (currentEditState != EditState.none)
+            {
+                //Edit panel
+                textBoxMSGVEdit.Text = currentTeacher.IdTeacher;
+                textBoxNameEdit.Text = currentTeacher.Name;
+                comboBoxGroupEdit.Text = currentTeacher.Group;
+                comboBoxSexEdit.Text = currentTeacher.Sex;
+                string type = currentTeacher.IsMember.ToString();
+                foreach (RadioButton item in panelRadioEdit.Controls)
+                {
+                    if (item.Tag.ToString() == type)
+                    {
+                        item.Checked = true;
+                        break;
+                    }
+                }
+            }
         }
         //Button
         private void buttonAdd_Click(object sender, EventArgs e)
         {
             ChangeState((Button)sender);
+            LoadListTeacher();
         }
 
         private void buttonUpdate_Click(object sender, EventArgs e)
         {
             ChangeState((Button)sender);
+            LoadListTeacher();
         }
 
         private void buttonDelete_Click(object sender, EventArgs e)
         {
             ChangeState((Button)sender);
+            LoadListTeacher();
         }
 
         private void buttonExitEdit_Click(object sender, EventArgs e)
         {
             ChangeState((Button)sender);
+            LoadListTeacher();
         }
 
         private void buttonEdit_Click(object sender, EventArgs e)
@@ -137,15 +160,22 @@ namespace DanhGiaDoanVien
         }
         void LoadListTeacher()
         {
-            dataGridViewTeacher.DataSource = TeacherDAO.Instance.GetListTeacher(currentGroup, currentSex, currentIsMember);
+            if (currentEditState == EditState.none)
+                dataGridViewTeacher.DataSource = TeacherDAO.Instance.GetListTeacher(currentGroup, currentSex, currentIsMember);
+            else
+                dataGridViewTeacher.DataSource = TeacherDAO.Instance.GetListTeacher();
         }
 
         void LoadGroup()
         {
-            comboBoxGroup.DataSource = GroupDAO.Instance.GetListGroup();
-            comboBoxGroup.DisplayMember = "id";
-            comboBoxGroupEdit.DataSource = GroupDAO.Instance.GetListGroup();
-            comboBoxGroupEdit.DisplayMember = "id";
+            DataTable dataGroup = GroupDAO.Instance.GetListGroup();
+            comboBoxGroup.Items.Add("");
+            comboBoxGroupEdit.Items.Add("");
+            foreach (DataRow item in dataGroup.Rows)
+            {
+                comboBoxGroup.Items.Add(item["id"]);
+                comboBoxGroupEdit.Items.Add(item["id"]);
+            }
         }
 
         void AddAndUpdateState()
@@ -172,6 +202,22 @@ namespace DanhGiaDoanVien
 
         void ChangeState(Button btn)
         {
+            LoadListTeacher();
+            if (currentRowIndex != -1)
+            {
+                comboBoxGroupEdit.Text = currentTeacher.Group;
+                comboBoxSexEdit.Text = currentTeacher.Sex;
+                string type = currentTeacher.IsMember.ToString();
+                foreach (RadioButton item in panelRadioEdit.Controls)
+                {
+                    if (item.Tag.ToString() == type)
+                    {
+                        item.Checked = true;
+                        break;
+                    }
+                }
+            }
+
             if (btn.Tag.ToString() == "add")
             {
                 currentEditState = EditState.add;
@@ -243,7 +289,7 @@ namespace DanhGiaDoanVien
                     }
                     else if (result == -1)
                     {
-                        MessageBox.Show("MSGV mà bạn nhập đã được sử dụng!", "Trùng MSGV", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("MSGV mà bạn nhập đã tồn tại!", "Trùng MSGV", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     else
                     {
@@ -259,6 +305,7 @@ namespace DanhGiaDoanVien
             {
                 if (textBoxMSGVEdit.Text != "" && textBoxNameEdit.Text != "")
                 {
+
                     bool getIsMember = false;
                     foreach (RadioButton item in panelRadioEdit.Controls)
                     {
@@ -276,7 +323,15 @@ namespace DanhGiaDoanVien
                             }
                         }
                     }
-                    if (TeacherDAO.Instance.UpdateTeacher(textBoxMSGVEdit.Text, textBoxNameEdit.Text, comboBoxSexEdit.Text, comboBoxGroupEdit.Text, getIsMember) != 0) { LoadListTeacher(); }
+                    int result = TeacherDAO.Instance.UpdateTeacher(currentTeacher, textBoxNameEdit.Text, comboBoxSexEdit.Text, comboBoxGroupEdit.Text, getIsMember);
+                    if (result > 0)
+                    {
+                        LoadListTeacher(); 
+                    }
+                    else if (result == -1)
+                    {
+                        MessageBox.Show("Thông tin không có sự thay đổi", "Đã xảy ra lỗi");
+                    }
                     else
                     {
                         MessageBox.Show("Thất bại, thử lại sau", "Đã xảy ra lỗi");
@@ -300,6 +355,10 @@ namespace DanhGiaDoanVien
                             MessageBox.Show("Thất bại, thử lại sau", "Đã xảy ra lỗi");
                         }
                     }
+                }
+                else
+                {
+                    MessageBox.Show("Bạn chưa nhập giảng viên cần xóa!", "Lỗi", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                 }
             }
         }

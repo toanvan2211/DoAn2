@@ -18,7 +18,7 @@ namespace DanhGiaDoanVien.DAO
 
         public int AddScoresStudent(string idStudent, string idSemester)
         {
-            string query = "USP_AddScoresGroup @idStudent, @idSemester";
+            string query = "USP_AddScoresStudent @idStudent, @idSemester";
             return DataProvider.Instance.ExecuteNonQuery(query, new object[] { idStudent, idSemester });
         }
     }

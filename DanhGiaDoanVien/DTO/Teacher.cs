@@ -11,12 +11,12 @@ namespace DanhGiaDoanVien.DTO
     {
         private string idTeacher;
         private string name;
-        private bool sex;
+        private string sex;
         private string group;
         private bool isMember;
         public string IdTeacher { get => idTeacher; set => idTeacher = value; }
         public string Name { get => name; set => name = value; }
-        public bool Sex { get => sex; set => sex = value; }
+        public string Sex { get => sex; set => sex = value; }
         public string Group { get => group; set => group = value; }
         public bool IsMember { get => isMember; set => isMember = value; }
 
@@ -25,7 +25,7 @@ namespace DanhGiaDoanVien.DTO
         {
             IdTeacher = (string)row["MSCB"];
             Name = (string)row["ten"];
-            Sex = (bool)row["gioiTinh"];
+            Sex = (string)row["gioiTinh"];
             Group = (string)row["chiDoan"];
             IsMember = (bool)row["doanVien"];
         }
