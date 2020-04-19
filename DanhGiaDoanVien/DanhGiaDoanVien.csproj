@@ -12,6 +12,21 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -66,55 +81,61 @@
     <Compile Include="DAO\SemesterDAO.cs" />
     <Compile Include="DAO\StudentDAO.cs" />
     <Compile Include="DAO\TeacherDAO.cs" />
+    <Compile Include="Forms\FormSemester.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormSemester.Designer.cs">
+      <DependentUpon>FormSemester.cs</DependentUpon>
+    </Compile>
     <Compile Include="Other Class\DragControl.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Form\FormLogin.cs">
+    <Compile Include="Forms\FormLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form\FormLogin.Designer.cs">
+    <Compile Include="Forms\FormLogin.Designer.cs">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form\FormEvaluateGroup.cs">
+    <Compile Include="Forms\FormEvaluateGroup.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form\FormEvaluateGroup.Designer.cs">
+    <Compile Include="Forms\FormEvaluateGroup.Designer.cs">
       <DependentUpon>FormEvaluateGroup.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form\FormMain.cs">
+    <Compile Include="Forms\FormMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form\FormMain.Designer.cs">
+    <Compile Include="Forms\FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form\FormEvaluateStudent.cs">
+    <Compile Include="Forms\FormEvaluateStudent.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form\FormEvaluateStudent.Designer.cs">
+    <Compile Include="Forms\FormEvaluateStudent.Designer.cs">
       <DependentUpon>FormEvaluateStudent.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form\FormEvaluateTeacher.cs">
+    <Compile Include="Forms\FormEvaluateTeacher.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form\FormEvaluateTeacher.Designer.cs">
+    <Compile Include="Forms\FormEvaluateTeacher.Designer.cs">
       <DependentUpon>FormEvaluateTeacher.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form\FormGroup.cs">
+    <Compile Include="Forms\FormGroup.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form\FormGroup.Designer.cs">
+    <Compile Include="Forms\FormGroup.Designer.cs">
       <DependentUpon>FormGroup.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form\FormStudent.cs">
+    <Compile Include="Forms\FormStudent.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form\FormStudent.Designer.cs">
+    <Compile Include="Forms\FormStudent.Designer.cs">
       <DependentUpon>FormStudent.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form\FormTeacher.cs">
+    <Compile Include="Forms\FormTeacher.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form\FormTeacher.Designer.cs">
+    <Compile Include="Forms\FormTeacher.Designer.cs">
       <DependentUpon>FormTeacher.cs</DependentUpon>
     </Compile>
     <Compile Include="DTO\Account.cs" />
@@ -130,28 +151,31 @@
     <Compile Include="Other Class\PasswordEncryption.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form\FormLogin.resx">
+    <EmbeddedResource Include="Forms\FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form\FormEvaluateGroup.resx">
+    <EmbeddedResource Include="Forms\FormEvaluateGroup.resx">
       <DependentUpon>FormEvaluateGroup.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form\FormMain.resx">
+    <EmbeddedResource Include="Forms\FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form\FormEvaluateStudent.resx">
+    <EmbeddedResource Include="Forms\FormEvaluateStudent.resx">
       <DependentUpon>FormEvaluateStudent.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form\FormEvaluateTeacher.resx">
+    <EmbeddedResource Include="Forms\FormEvaluateTeacher.resx">
       <DependentUpon>FormEvaluateTeacher.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form\FormGroup.resx">
+    <EmbeddedResource Include="Forms\FormGroup.resx">
       <DependentUpon>FormGroup.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form\FormStudent.resx">
+    <EmbeddedResource Include="Forms\FormSemester.resx">
+      <DependentUpon>FormSemester.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormStudent.resx">
       <DependentUpon>FormStudent.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form\FormTeacher.resx">
+    <EmbeddedResource Include="Forms\FormTeacher.resx">
       <DependentUpon>FormTeacher.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -184,6 +208,23 @@
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\icons8_year_view_35px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_year_view_35px_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

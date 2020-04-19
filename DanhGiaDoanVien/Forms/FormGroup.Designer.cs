@@ -30,27 +30,30 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormGroup));
             this.panelBottom = new System.Windows.Forms.Panel();
-            this.panelEdit = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.textBoxID = new System.Windows.Forms.TextBox();
+            this.textBoxName = new System.Windows.Forms.TextBox();
+            this.panelEdit = new System.Windows.Forms.TableLayoutPanel();
             this.buttonExitEdit = new System.Windows.Forms.Button();
             this.buttonResetText = new System.Windows.Forms.Button();
             this.buttonEdit = new System.Windows.Forms.Button();
             this.textBoxNameEdit = new System.Windows.Forms.TextBox();
             this.textBoxMCDEdit = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.textBoxID = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBoxName = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.buttonDelete = new System.Windows.Forms.Button();
             this.buttonAdd = new System.Windows.Forms.Button();
             this.buttonUpdate = new System.Windows.Forms.Button();
             this.panelData = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.dataGridViewMember = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Sex = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Group = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.isMember = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dataGridViewGroup = new System.Windows.Forms.DataGridView();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -60,14 +63,9 @@
             this.TotalFemaleStudent = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TotalTeacher = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TotalFemaleTeacher = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Sex = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Group = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.isMember = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelBottom.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             this.panelEdit.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.panelData.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMember)).BeginInit();
@@ -78,8 +76,8 @@
             // panelBottom
             // 
             this.panelBottom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(54)))), ((int)(((byte)(75)))));
+            this.panelBottom.Controls.Add(this.tableLayoutPanel1);
             this.panelBottom.Controls.Add(this.panelEdit);
-            this.panelBottom.Controls.Add(this.panel1);
             this.panelBottom.Controls.Add(this.buttonDelete);
             this.panelBottom.Controls.Add(this.buttonAdd);
             this.panelBottom.Controls.Add(this.buttonUpdate);
@@ -89,22 +87,84 @@
             this.panelBottom.Size = new System.Drawing.Size(1000, 197);
             this.panelBottom.TabIndex = 2;
             // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18.39465F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 81.60535F));
+            this.tableLayoutPanel1.Controls.Add(this.label1, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.label3, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.textBoxID, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.textBoxName, 1, 1);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(40, 26);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(299, 73);
+            this.tableLayoutPanel1.TabIndex = 10;
+            // 
+            // label1
+            // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(23, 48);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(29, 13);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Tên:";
+            // 
+            // label3
+            // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(31, 11);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(21, 13);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "ID:";
+            // 
+            // textBoxID
+            // 
+            this.textBoxID.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxID.Location = new System.Drawing.Point(58, 8);
+            this.textBoxID.Name = "textBoxID";
+            this.textBoxID.ReadOnly = true;
+            this.textBoxID.Size = new System.Drawing.Size(238, 20);
+            this.textBoxID.TabIndex = 1;
+            // 
+            // textBoxName
+            // 
+            this.textBoxName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxName.Location = new System.Drawing.Point(58, 44);
+            this.textBoxName.Name = "textBoxName";
+            this.textBoxName.ReadOnly = true;
+            this.textBoxName.Size = new System.Drawing.Size(238, 20);
+            this.textBoxName.TabIndex = 1;
+            // 
             // panelEdit
             // 
-            this.panelEdit.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.panelEdit.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panelEdit.Controls.Add(this.buttonExitEdit);
-            this.panelEdit.Controls.Add(this.buttonResetText);
-            this.panelEdit.Controls.Add(this.buttonEdit);
-            this.panelEdit.Controls.Add(this.textBoxNameEdit);
-            this.panelEdit.Controls.Add(this.textBoxMCDEdit);
-            this.panelEdit.Controls.Add(this.label7);
-            this.panelEdit.Controls.Add(this.label8);
-            this.panelEdit.Controls.Add(this.label10);
-            this.panelEdit.Controls.Add(this.label11);
-            this.panelEdit.Location = new System.Drawing.Point(336, 12);
+            this.panelEdit.ColumnCount = 4;
+            this.panelEdit.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22.58064F));
+            this.panelEdit.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 56.45161F));
+            this.panelEdit.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 21.11959F));
+            this.panelEdit.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 28F));
+            this.panelEdit.Controls.Add(this.buttonExitEdit, 3, 0);
+            this.panelEdit.Controls.Add(this.buttonResetText, 2, 2);
+            this.panelEdit.Controls.Add(this.buttonEdit, 1, 2);
+            this.panelEdit.Controls.Add(this.textBoxNameEdit, 1, 1);
+            this.panelEdit.Controls.Add(this.textBoxMCDEdit, 1, 0);
+            this.panelEdit.Controls.Add(this.label2, 0, 0);
+            this.panelEdit.Controls.Add(this.label4, 0, 1);
+            this.panelEdit.Location = new System.Drawing.Point(345, 26);
             this.panelEdit.Name = "panelEdit";
-            this.panelEdit.Size = new System.Drawing.Size(363, 136);
+            this.panelEdit.RowCount = 3;
+            this.panelEdit.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.panelEdit.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.panelEdit.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.panelEdit.Size = new System.Drawing.Size(409, 129);
             this.panelEdit.TabIndex = 9;
             this.panelEdit.Visible = false;
             // 
@@ -114,7 +174,7 @@
             this.buttonExitEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonExitEdit.ForeColor = System.Drawing.Color.White;
             this.buttonExitEdit.Image = ((System.Drawing.Image)(resources.GetObject("buttonExitEdit.Image")));
-            this.buttonExitEdit.Location = new System.Drawing.Point(336, 3);
+            this.buttonExitEdit.Location = new System.Drawing.Point(386, 3);
             this.buttonExitEdit.Name = "buttonExitEdit";
             this.buttonExitEdit.Size = new System.Drawing.Size(20, 20);
             this.buttonExitEdit.TabIndex = 7;
@@ -124,14 +184,14 @@
             // 
             // buttonResetText
             // 
-            this.buttonResetText.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonResetText.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.buttonResetText.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.buttonResetText.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonResetText.ForeColor = System.Drawing.Color.White;
             this.buttonResetText.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonResetText.Location = new System.Drawing.Point(279, 84);
+            this.buttonResetText.Location = new System.Drawing.Point(302, 90);
             this.buttonResetText.Name = "buttonResetText";
-            this.buttonResetText.Size = new System.Drawing.Size(77, 35);
+            this.buttonResetText.Size = new System.Drawing.Size(74, 35);
             this.buttonResetText.TabIndex = 4;
             this.buttonResetText.Text = "Xóa";
             this.buttonResetText.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -140,12 +200,12 @@
             // 
             // buttonEdit
             // 
-            this.buttonEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonEdit.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.buttonEdit.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.buttonEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonEdit.ForeColor = System.Drawing.Color.White;
             this.buttonEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonEdit.Location = new System.Drawing.Point(196, 84);
+            this.buttonEdit.Location = new System.Drawing.Point(219, 90);
             this.buttonEdit.Name = "buttonEdit";
             this.buttonEdit.Size = new System.Drawing.Size(77, 35);
             this.buttonEdit.TabIndex = 3;
@@ -156,119 +216,41 @@
             // 
             // textBoxNameEdit
             // 
-            this.textBoxNameEdit.Location = new System.Drawing.Point(103, 52);
+            this.textBoxNameEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxNameEdit.Location = new System.Drawing.Point(88, 54);
             this.textBoxNameEdit.Name = "textBoxNameEdit";
-            this.textBoxNameEdit.Size = new System.Drawing.Size(242, 20);
+            this.textBoxNameEdit.Size = new System.Drawing.Size(208, 20);
             this.textBoxNameEdit.TabIndex = 2;
             // 
             // textBoxMCDEdit
             // 
-            this.textBoxMCDEdit.Location = new System.Drawing.Point(103, 26);
+            this.textBoxMCDEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxMCDEdit.Location = new System.Drawing.Point(88, 11);
             this.textBoxMCDEdit.Name = "textBoxMCDEdit";
-            this.textBoxMCDEdit.Size = new System.Drawing.Size(114, 20);
+            this.textBoxMCDEdit.Size = new System.Drawing.Size(208, 20);
             this.textBoxMCDEdit.TabIndex = 1;
             // 
-            // label7
+            // label2
             // 
-            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label7.AutoSize = true;
-            this.label7.ForeColor = System.Drawing.Color.Gold;
-            this.label7.Location = new System.Drawing.Point(84, 55);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(0, 13);
-            this.label7.TabIndex = 3;
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(12, 15);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(70, 13);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Mã chi đoàn:";
             // 
-            // label8
+            // label4
             // 
-            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label8.AutoSize = true;
-            this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(68, 55);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(29, 13);
-            this.label8.TabIndex = 3;
-            this.label8.Text = "Tên:";
-            // 
-            // label10
-            // 
-            this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label10.AutoSize = true;
-            this.label10.ForeColor = System.Drawing.Color.Gold;
-            this.label10.Location = new System.Drawing.Point(84, 29);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(0, 13);
-            this.label10.TabIndex = 3;
-            // 
-            // label11
-            // 
-            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label11.AutoSize = true;
-            this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(27, 29);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(70, 13);
-            this.label11.TabIndex = 3;
-            this.label11.Text = "Mã chi đoàn:";
-            // 
-            // panel1
-            // 
-            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.panel1.Controls.Add(this.textBoxID);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.textBoxName);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(24, 26);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(306, 71);
-            this.panel1.TabIndex = 7;
-            // 
-            // textBoxID
-            // 
-            this.textBoxID.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.textBoxID.Location = new System.Drawing.Point(80, 14);
-            this.textBoxID.Name = "textBoxID";
-            this.textBoxID.ReadOnly = true;
-            this.textBoxID.Size = new System.Drawing.Size(198, 20);
-            this.textBoxID.TabIndex = 1;
-            // 
-            // label3
-            // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label3.AutoSize = true;
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(32, 17);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(21, 13);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "ID:";
-            // 
-            // textBoxName
-            // 
-            this.textBoxName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.textBoxName.Location = new System.Drawing.Point(80, 40);
-            this.textBoxName.Name = "textBoxName";
-            this.textBoxName.ReadOnly = true;
-            this.textBoxName.Size = new System.Drawing.Size(198, 20);
-            this.textBoxName.TabIndex = 1;
-            // 
-            // label1
-            // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(24, 43);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(29, 13);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Tên:";
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(53, 58);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(29, 13);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "Tên:";
             // 
             // buttonDelete
             // 
@@ -363,6 +345,39 @@
             this.dataGridViewMember.Name = "dataGridViewMember";
             this.dataGridViewMember.Size = new System.Drawing.Size(477, 438);
             this.dataGridViewMember.TabIndex = 2;
+            this.dataGridViewMember.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewMember_CellClick);
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "id";
+            this.dataGridViewTextBoxColumn1.HeaderText = "ID";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "ten";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Tên";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // Sex
+            // 
+            this.Sex.DataPropertyName = "gioiTinh";
+            this.Sex.HeaderText = "Giới tính";
+            this.Sex.Name = "Sex";
+            // 
+            // Group
+            // 
+            this.Group.DataPropertyName = "chiDoan";
+            this.Group.HeaderText = "Chi đoàn";
+            this.Group.Name = "Group";
+            // 
+            // isMember
+            // 
+            this.isMember.DataPropertyName = "doanVien";
+            this.isMember.HeaderText = "Đoàn viên";
+            this.isMember.Name = "isMember";
             // 
             // panel2
             // 
@@ -443,38 +458,6 @@
             this.TotalFemaleTeacher.Name = "TotalFemaleTeacher";
             this.TotalFemaleTeacher.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "id";
-            this.dataGridViewTextBoxColumn1.HeaderText = "ID";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "ten";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Tên";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // Sex
-            // 
-            this.Sex.DataPropertyName = "gioiTinh";
-            this.Sex.HeaderText = "Giới tính";
-            this.Sex.Name = "Sex";
-            // 
-            // Group
-            // 
-            this.Group.DataPropertyName = "chiDoan";
-            this.Group.HeaderText = "Chi đoàn";
-            this.Group.Name = "Group";
-            // 
-            // isMember
-            // 
-            this.isMember.DataPropertyName = "doanVien";
-            this.isMember.HeaderText = "Đoàn viên";
-            this.isMember.Name = "isMember";
-            // 
             // FormGroup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -486,10 +469,10 @@
             this.Name = "FormGroup";
             this.Text = "FormGroup";
             this.panelBottom.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
             this.panelEdit.ResumeLayout(false);
             this.panelEdit.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.panelData.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMember)).EndInit();
@@ -505,26 +488,15 @@
         private System.Windows.Forms.Button buttonDelete;
         private System.Windows.Forms.Button buttonAdd;
         private System.Windows.Forms.Button buttonUpdate;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBoxName;
         private System.Windows.Forms.Panel panelData;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox textBoxID;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.DataGridView dataGridViewMember;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.DataGridView dataGridViewGroup;
-        private System.Windows.Forms.Panel panelEdit;
-        private System.Windows.Forms.Button buttonExitEdit;
         private System.Windows.Forms.Button buttonResetText;
         private System.Windows.Forms.Button buttonEdit;
         private System.Windows.Forms.TextBox textBoxNameEdit;
         private System.Windows.Forms.TextBox textBoxMCDEdit;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn Name1;
         private System.Windows.Forms.DataGridViewTextBoxColumn TotalMember;
@@ -537,5 +509,14 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Sex;
         private System.Windows.Forms.DataGridViewTextBoxColumn Group;
         private System.Windows.Forms.DataGridViewTextBoxColumn isMember;
+        private System.Windows.Forms.TableLayoutPanel panelEdit;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button buttonExitEdit;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox textBoxID;
+        private System.Windows.Forms.TextBox textBoxName;
     }
 }

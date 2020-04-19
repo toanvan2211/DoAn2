@@ -12,30 +12,34 @@ namespace DanhGiaDoanVien.DTO
         private int id;
         private string idSemester;
         private string rank;
-        private byte excellentMember;
-        private byte greatMember;
-        private byte mediumMember;
-        private byte babMember;
-        private byte totalMember;
-        private byte totalStudent;
-        private byte totalTeacher;
-        private byte totalGoodMember;
+        private int excellentMember;
+        private int greatMember;
+        private int mediumMember;
+        private int babMember;
+        private int totalMember;
+        private int totalStudent;
+        private int totalFemalStudent;
+        private int totalTeacher;
+        private int totalFemalTeacher;
+        private int totalGoodMember;
         private string note;
         private bool isHandle = false;
 
         public int Id { get => id; set => id = value; }
         public string IdSemester { get => idSemester; set => idSemester = value; }
         public string Rank { get => rank; set => rank = value; }
-        public byte ExcellentMember { get => excellentMember; set => excellentMember = value; }
-        public byte GreatMember { get => greatMember; set => greatMember = value; }
-        public byte MediumMember { get => mediumMember; set => mediumMember = value; }
-        public byte BabMember { get => babMember; set => babMember = value; }
-        public byte TotalMember { get => totalMember; set => totalMember = value; }
-        public byte TotalStudent { get => totalStudent; set => totalStudent = value; }
-        public byte TotalTeacher { get => totalTeacher; set => totalTeacher = value; }
-        public byte TotalGoodMember { get => totalGoodMember; set => totalGoodMember = value; }
+        public int ExcellentMember { get => excellentMember; set => excellentMember = value; }
+        public int GreatMember { get => greatMember; set => greatMember = value; }
+        public int MediumMember { get => mediumMember; set => mediumMember = value; }
+        public int BabMember { get => babMember; set => babMember = value; }
+        public int TotalMember { get => totalMember; set => totalMember = value; }
+        public int TotalStudent { get => totalStudent; set => totalStudent = value; }
+        public int TotalTeacher { get => totalTeacher; set => totalTeacher = value; }
+        public int TotalGoodMember { get => totalGoodMember; set => totalGoodMember = value; }
         public bool IsHandle { get => isHandle; set => isHandle = value; }
         public string Note { get => note; set => note = value; }
+        public int TotalFemalStudent { get => totalFemalStudent; set => totalFemalStudent = value; }
+        public int TotalFemalTeacher { get => totalFemalTeacher; set => totalFemalTeacher = value; }
 
         public ScoresGroup() { }
         public ScoresGroup(DataRow row)
@@ -43,14 +47,14 @@ namespace DanhGiaDoanVien.DTO
             Id = (int)row["id"];
             IdSemester = (string)row["idNamHoc"];
             Rank = (string)row["xepLoai"];
-            ExcellentMember = (byte)row["xuatSac"];
-            GreatMember = (byte)row["kha"];
-            MediumMember = (byte)row["trungBinh"];
-            BabMember = (byte)row["yeuKem"];
-            TotalMember = (byte)row["tongDoanVien"];
-            TotalStudent = (byte)row["tongSV"];
-            TotalTeacher = (byte)row["tongGV"];
-            TotalGoodMember = (byte)row["tongDVUT"];
+            ExcellentMember = (int)row["xuatSac"];
+            GreatMember = (int)row["kha"];
+            MediumMember = (int)row["trungBinh"];
+            BabMember = (int)row["yeuKem"];
+            TotalMember = (int)row["tongDoanVien"];
+            TotalStudent = (int)row["tongSV"];
+            TotalTeacher = (int)row["tongGV"];
+            TotalGoodMember = (int)row["tongDVUT"];
             Note = (string)row["ghiChu"];
         }
     }

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DanhGiaDoanVien.Forms;
 
 namespace DanhGiaDoanVien
 {
@@ -19,20 +20,6 @@ namespace DanhGiaDoanVien
         public FormMain()
         {
             InitializeComponent();
-            leftBorderBtn = new Panel();
-            leftBorderBtn.Size = new Size(7, 60);
-            panelMenu.Controls.Add(leftBorderBtn);
-            //Form
-            this.Text = string.Empty;
-            this.DoubleBuffered = true;
-            this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
-            //icon tag
-            buttonTeacher.Tag = Properties.Resources.icons8_school_director_35px_1;
-            buttonStudent.Tag = Properties.Resources.icons8_read_online_35px_1;
-            buttonGroup.Tag = Properties.Resources.icons8_teamwork_35px;
-            buttonEvaluate.Tag = Properties.Resources.icons8_report_card_35px;
-            //Visible
-            panelSubMenuEvaluate.Visible = false;
         }
 
         private struct RGBColors
@@ -42,9 +29,11 @@ namespace DanhGiaDoanVien
             public static Color colorStudent = Color.FromArgb(147, 255, 119);
             public static Color colorEvaluate1 = Color.FromArgb(249, 88, 155);
             public static Color colorGroup = Color.FromArgb(24, 161, 251);
+            public static Color colorSemester = Color.FromArgb(255, 219, 77);
         }
 
-        //Methods        
+        #region method
+
         private void ActivateButton(object senderBtn, Color color, Image img)
         {
             if (senderBtn != null)
@@ -91,7 +80,7 @@ namespace DanhGiaDoanVien
                 currentBtn.BackColor = Color.FromArgb(43, 44, 63);
                 currentBtn.ForeColor = Color.White;
                 currentBtn.TextAlign = ContentAlignment.MiddleLeft;
-                if (currentBtn.Tag.ToString() != "not") 
+                if (currentBtn.Tag.ToString() != "not")
                     currentBtn.Image = (Image)currentBtn.Tag;
                 currentBtn.TextImageRelation = TextImageRelation.ImageBeforeText;
                 currentBtn.ImageAlign = ContentAlignment.MiddleLeft;
@@ -114,6 +103,27 @@ namespace DanhGiaDoanVien
             panelChildForm.Tag = childForm;
             childForm.BringToFront();
             childForm.Show();
+        }
+
+        #endregion
+
+        private void FormMain_Load(object sender, EventArgs e)
+        {
+            leftBorderBtn = new Panel();
+            leftBorderBtn.Size = new Size(7, 60);
+            panelMenu.Controls.Add(leftBorderBtn);
+            //Form
+            this.Text = string.Empty;
+            this.DoubleBuffered = true;
+            this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
+            //icon tag
+            buttonTeacher.Tag = Properties.Resources.icons8_school_director_35px_1;
+            buttonStudent.Tag = Properties.Resources.icons8_read_online_35px_1;
+            buttonGroup.Tag = Properties.Resources.icons8_teamwork_35px;
+            buttonEvaluate.Tag = Properties.Resources.icons8_report_card_35px;
+            buttonSemester.Tag = Properties.Resources.icons8_year_view_35px_1;
+            //Visible
+            panelSubMenuEvaluate.Visible = false;
         }
 
         private void buttonTeacher_Click(object sender, EventArgs e)
@@ -195,5 +205,13 @@ namespace DanhGiaDoanVien
                 leftBorderBtn.Visible = false;
             }
         }
+
+        private void buttonSemester_Click(object sender, EventArgs e)
+        {
+            panelSubMenuEvaluate.Visible = false;
+            ActivateButton(sender, RGBColors.colorSemester, Properties.Resources.icons8_year_view_35px);
+            OpenChildForm(new FormSemester());
+        }
+
     }
 }

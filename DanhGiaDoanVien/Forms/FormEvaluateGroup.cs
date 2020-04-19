@@ -20,6 +20,11 @@ namespace DanhGiaDoanVien
         }
 
         #region method
+
+        void LoadListScoresGroup()
+        {
+            
+        }
         private ScoresGroup EvaluateGroup(ScoresGroup scoresGroup)
         {
             if (((scoresGroup.GreatMember / scoresGroup.TotalMember) * 100) >= 80 && scoresGroup.BabMember == 0)
@@ -63,7 +68,7 @@ namespace DanhGiaDoanVien
                     scoresGroup.BabMember++;
                 }
             }
-            scoresGroup.TotalMember = (byte)(listMember.Length + 1);
+            scoresGroup.TotalMember = (int)(listMember.Length + 1);
 
             return scoresGroup;
         }
@@ -88,7 +93,7 @@ namespace DanhGiaDoanVien
                     scoresGroup.BabMember++;
                 }
             }
-            scoresGroup.TotalMember = (byte)(listMember.Length + 1);
+            scoresGroup.TotalMember = (int)(listMember.Length + 1);
 
             return scoresGroup;
         }
@@ -98,5 +103,10 @@ namespace DanhGiaDoanVien
             ScoresGroupDAO.Instance.AddScoresGroup(idGroup, idSemester);
         }
         #endregion
+
+        private void FormEvaluateGroup_Load(object sender, EventArgs e)
+        {
+            LoadListScoresGroup();
+        }
     }
 }

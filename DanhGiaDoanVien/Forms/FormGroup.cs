@@ -36,75 +36,6 @@ namespace DanhGiaDoanVien
             dataGridViewGroup.DataSource = GroupDAO.Instance.GetListGroup();
         }
 
-        void CreateGroup(string idGroup, string name)
-        {
-            int result;
-            result = GroupDAO.Instance.AddGroup(idGroup, name);
-            if (result > 0)
-            {
-                LoadListGroup();
-            }
-            else if (result == -1)
-            {
-                MessageBox.Show("ID mà bạn nhập đã được sử dụng!", "Trùng ID", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            {
-                MessageBox.Show("Thất bại, thử lại sau", "Đã xảy ra lỗi");
-            }
-        }
-
-        void UpdateGroup(string idGroup, string name)
-        {
-            int result;
-            result = GroupDAO.Instance.UpdateGroup(idGroup, name);
-            if (result > 0)
-            {
-                LoadListGroup();
-            }
-            else
-            {
-                MessageBox.Show("Thất bại, thử lại sau", "Đã xảy ra lỗi");
-            }
-        }
-
-        void DeleteGroup(string idGroup)
-        {
-            int result;
-            result = GroupDAO.Instance.DeleteGroup(idGroup);
-            if (result > 0)
-            {
-                LoadListGroup();
-            }
-            else
-            {
-                MessageBox.Show("Thất bại, thử lại sau", "Đã xảy ra lỗi");
-            }
-        }
-
-        void AddMemberToGroup(Teacher[] teacher, string idGroup) 
-        {
-            //Đổi id chi đoàn của giảng viên hoặc sinh viên thành một id mới, chi đoàn cũ sẽ giảm số thành viên, chi đoàn này sẽ tăng thành viên
-            GroupDAO.Instance.AddMemberToGroup(teacher, idGroup);
-        }
-
-        void AddMemberToGroup(Student[] student, string idGroup)
-        {
-            //Đổi id chi đoàn của giảng viên hoặc sinh viên thành một id mới, chi đoàn cũ sẽ giảm số thành viên, chi đoàn này sẽ tăng thành viên
-            GroupDAO.Instance.AddMemberToGroup(student, idGroup);
-        }
-        #endregion
-        void LoadForm()
-        {
-            LoadListGroup();
-        }
-
-        private void buttonAdd_Click(object sender, EventArgs e)
-        {
-            ChangeState((Button)sender);
-        }
-
-        #region method
         void AddAndUpdateState()
         {
             //Show the panel
@@ -113,8 +44,6 @@ namespace DanhGiaDoanVien
             AcceptButton = buttonEdit;
             buttonEdit.Text = currentEditState;
             buttonResetText.Visible = true;
-            //Change Location button
-            buttonEdit.Location = new Point(buttonResetText.Location.X - 83, buttonResetText.Location.Y);
             //Other controls
             textBoxMCDEdit.Enabled = true;
             textBoxMCDEdit.ReadOnly = false;
@@ -145,8 +74,6 @@ namespace DanhGiaDoanVien
                 AcceptButton = buttonEdit;
                 buttonResetText.Visible = false;
                 buttonEdit.Text = currentEditState;
-                //Change Location button
-                buttonEdit.Location = buttonResetText.Location;
                 //Other controls
                 textBoxMCDEdit.Enabled = false;
                 textBoxNameEdit.Enabled = false;
@@ -236,6 +163,15 @@ namespace DanhGiaDoanVien
         }
 
         #endregion
+        void LoadForm()
+        {
+            LoadListGroup();
+        }
+
+        private void buttonAdd_Click(object sender, EventArgs e)
+        {
+            ChangeState((Button)sender);
+        }
 
         private void dataGridViewGroup_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -276,6 +212,11 @@ namespace DanhGiaDoanVien
         private void buttonExitEdit_Click(object sender, EventArgs e)
         {
             ChangeState((Button)sender);
+        }
+
+        private void dataGridViewMember_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            dataGridViewMember.CurrentRow.Selected = true;
         }
     }
 }

@@ -17,16 +17,16 @@ namespace DanhGiaDoanVien.DAO
         }
         public ScoresTeacherDAO() { }
 
-        public DataTable GetListTeacher()
+        public DataTable GetListScoresTeacher()
         {
-            string query = "USP_GetListTeacher";
+            string query = "USP_GetListScoresTeacher";
             return DataProvider.Instance.ExecuteQuery(query);
         }
 
-        public int AddScoresTeacher(string idTeacher, string idSemester)
+        public int AddScoresTeacher(string idTeacher, string idScoresGroup)
         {
-            string query = "USP_AddScoresTeacher @idTeacher, @idSemester";
-            return DataProvider.Instance.ExecuteNonQuery(query, new object[] { idTeacher, idSemester });
+            string query = "USP_AddScoresTeacher @idTeacher, @idScoresGroup";
+            return DataProvider.Instance.ExecuteNonQuery(query, new object[] { idTeacher, idScoresGroup });
         }
     }
 }

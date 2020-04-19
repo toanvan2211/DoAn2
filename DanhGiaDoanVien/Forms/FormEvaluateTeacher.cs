@@ -21,7 +21,7 @@ namespace DanhGiaDoanVien
         #region method
         void LoadEvalutaionTeacher()
         {
-            dataGridViewTeacher.DataSource = ScoresTeacherDAO.Instance.GetListTeacher();
+            dataGridViewScoresTeacher.DataSource = ScoresTeacherDAO.Instance.GetListScoresTeacher();
         }
 
         void CreateScoresTeacher(string idTeacher, string idSemester)

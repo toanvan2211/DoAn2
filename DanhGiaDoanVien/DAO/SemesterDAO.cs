@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,6 +16,13 @@ namespace DanhGiaDoanVien.DAO
             private set { instance = value; }
         }
         public SemesterDAO() { }
+
+        public DataTable GetListSemester()
+        {
+            string query = "select * from nam";
+
+            return DataProvider.Instance.ExecuteQuery(query);
+        }
 
         public int AddSemester(string idSemester, string name)
         {
@@ -35,7 +43,7 @@ namespace DanhGiaDoanVien.DAO
             return DataProvider.Instance.ExecuteNonQuery(query, new object[] { idSemester, name });
         }
 
-        public int DeleteGroup(string idSemester)
+        public int DeleteSemester(string idSemester)
         {
             string query = "USP_DeleteSemester @idSemester";
             return DataProvider.Instance.ExecuteNonQuery(query, new object[] { idSemester });
