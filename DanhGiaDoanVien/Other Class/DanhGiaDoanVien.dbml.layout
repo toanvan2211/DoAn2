@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11.5, 13.125" name="DanhGiaDoanVien">
+  <DataContextMoniker Name="/DanhGiaDoanVienDataContext" />
+  <nestedChildShapes>
+    <classShape Id="919acb1b-ae02-4b19-855a-12eccf674034" absoluteBounds="0.75, 8.625, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/DanhGiaDoanVienDataContext/ChiDoan" />
+      <nestedChildShapes>
+        <elementListCompartment Id="63cc09f7-01c9-4cb7-9d60-f1543128f917" absoluteBounds="0.765, 9.085, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="09907fbe-71d1-42ec-ab39-62af83be5e7f" absoluteBounds="6.25, 7.75, 2, 1.3862939453124996">
+      <DataClassMoniker Name="/DanhGiaDoanVienDataContext/TaiKhoan" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7f60366b-b603-4ded-acfe-2503559c3100" absoluteBounds="6.265, 8.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="3fc05860-bbf7-45c1-9247-bdd43d681dab" absoluteBounds="6.25, 4.5, 2, 1.7708968098958327">
+      <DataClassMoniker Name="/DanhGiaDoanVienDataContext/DoanVienUuTuGV" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ece0a21f-6c6f-4def-914f-7b259c8d79be" absoluteBounds="6.265, 4.96, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a2e68890-f0db-415f-ac34-71f1b8490b60" absoluteBounds="9.25, 6.5, 2, 1.7708968098958327">
+      <DataClassMoniker Name="/DanhGiaDoanVienDataContext/DoanVienUuTuSV" />
+      <nestedChildShapes>
+        <elementListCompartment Id="49c087a4-0708-49b1-b799-43c7787554c6" absoluteBounds="9.265, 6.96, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c53912e7-48d6-4460-94f7-1160391dd0c0" absoluteBounds="3.5, 7.5, 2, 1.7708968098958335">
+      <DataClassMoniker Name="/DanhGiaDoanVienDataContext/GiangVien" />
+      <nestedChildShapes>
+        <elementListCompartment Id="05761331-3376-4cfb-8b6b-f2fb086e74d8" absoluteBounds="3.515, 7.96, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d3397c91-e8a0-4897-9af1-a33b18c9b55c" absoluteBounds="3.5, 2.875, 2, 3.6939111328124992">
+      <DataClassMoniker Name="/DanhGiaDoanVienDataContext/KetQuaChiDoan" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3daae347-0ad5-4698-83de-21c5edf1e213" absoluteBounds="3.515, 3.335, 1.9700000000000002, 3.1339111328125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="0c0dfc93-e0ed-446e-ab2a-a571d0277f6d" absoluteBounds="6.25, 10.25, 2, 2.3478011067708344">
+      <DataClassMoniker Name="/DanhGiaDoanVienDataContext/KetQuaGiangVien" />
+      <nestedChildShapes>
+        <elementListCompartment Id="30b1de0a-9215-42c2-92a3-f7c900f35e13" absoluteBounds="6.265, 10.71, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c36936fc-d972-4ba8-944c-1326bf3342b8" absoluteBounds="9.25, 9.625, 2, 3.3093082682291666">
+      <DataClassMoniker Name="/DanhGiaDoanVienDataContext/KetQuaSinhVien" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6bd3b4cc-7547-4f4e-9949-4e331aa9ae9c" absoluteBounds="9.265, 10.085, 1.9700000000000002, 2.7493082682291665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="17c9051c-ad47-4947-a699-33c160eb45d5" absoluteBounds="0.75, 4.125, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/DanhGiaDoanVienDataContext/nam" />
+      <nestedChildShapes>
+        <elementListCompartment Id="96369838-4d5f-4e83-8856-0511b36fcda4" absoluteBounds="0.765, 4.585, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="4a09438c-edae-4bb2-af36-ac9830c43d11" absoluteBounds="3.5, 10, 2, 1.7708968098958344">
+      <DataClassMoniker Name="/DanhGiaDoanVienDataContext/SinhVien" />
+      <nestedChildShapes>
+        <elementListCompartment Id="47ed0911-d508-4f0b-879e-990c4731d7cd" absoluteBounds="3.515, 10.46, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

@@ -24,6 +24,12 @@ namespace DanhGiaDoanVien.DAO
             return DataProvider.Instance.ExecuteQuery(query);
         }
 
+        public DataTable GetListGroupNoScores(string idSemester)
+        {
+            string query = "select id from ChiDoan except select idChiDoan from ketQuaChiDoan where idNamHoc = '" + idSemester + "'";
+            return DataProvider.Instance.ExecuteQuery(query);
+        }
+
         public int AddGroup(string idGroup, string name)
         {
             string query = "USP_AddGroup @idGroup , @name";

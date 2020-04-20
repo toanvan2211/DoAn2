@@ -87,6 +87,11 @@
     <Compile Include="Forms\FormSemester.Designer.cs">
       <DependentUpon>FormSemester.cs</DependentUpon>
     </Compile>
+    <Compile Include="Other Class\DanhGiaDoanVien.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DanhGiaDoanVien.dbml</DependentUpon>
+    </Compile>
     <Compile Include="Other Class\DragControl.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -188,6 +193,14 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="Other Class\DanhGiaDoanVien.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>DanhGiaDoanVien.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Other Class\DanhGiaDoanVien.dbml.layout">
+      <DependentUpon>DanhGiaDoanVien.dbml</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="danhGiaDoanVien" Class="DanhGiaDoanVienDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.\SQLExpress;Initial Catalog=danhGiaDoanVien;Integrated Security=True" SettingsObjectName="DanhGiaDoanVien.Properties.Settings" SettingsPropertyName="danhGiaDoanVienConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.ChiDoan" Member="ChiDoans">
+    <Type Name="ChiDoan">
+      <Column Name="id" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ten" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="soThanhVien" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="tongSV" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="tongNuSV" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="tongGV" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="tongNuGV" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TaiKhoan" Member="TaiKhoans">
+    <Type Name="TaiKhoan">
+      <Column Name="taiKhoan" Member="taiKhoan1" Type="System.String" DbType="VarChar(100) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="matKhau" Type="System.String" DbType="VarChar(32) NOT NULL" CanBeNull="false" />
+      <Column Name="MSGV" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DoanVienUuTuGV" Member="DoanVienUuTuGVs">
+    <Type Name="DoanVienUuTuGV">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MSGV" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="idKetQuaChiDoan" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="phieuBau" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="tongPhieu" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DoanVienUuTuSV" Member="DoanVienUuTuSVs">
+    <Type Name="DoanVienUuTuSV">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MSSV" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="idKetQuaChiDoan" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="phieuBau" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="tongPhieu" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.GiangVien" Member="GiangViens">
+    <Type Name="GiangVien">
+      <Column Name="MSGV" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ten" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="gioiTinh" Type="System.String" DbType="NVarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="chiDoan" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="doanVien" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.KetQuaChiDoan" Member="KetQuaChiDoans">
+    <Type Name="KetQuaChiDoan">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="idChiDoan" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="idNamHoc" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="xepLoai" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="xuatSac" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="kha" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="trungBinh" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="yeuKem" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="soThanhVien" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="tongSV" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="tongGV" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="tongNuSV" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="tongNuGV" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="tongDVUT" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ghiChu" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.KetQuaGiangVien" Member="KetQuaGiangViens">
+    <Type Name="KetQuaGiangVien">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="idKetQuaChiDoan" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MSGV" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="ketQuaDanhGia" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="xepLoai" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="thanhTichTieuBieu" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="doanVienUuTu" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="ghiChu" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.KetQuaSinhVien" Member="KetQuaSinhViens">
+    <Type Name="KetQuaSinhVien">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="idKetQuaChiDoan" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MSSV" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="diemHK1" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="diemHK2" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="tongHK" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="DRLHK1" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DRLHK2" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DRL" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="xepLoai" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="thanhTichTieuBieu" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="doanVienUuTu" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="ghiChu" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.nam" Member="nams">
+    <Type Name="nam">
+      <Column Name="id" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ten" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SinhVien" Member="SinhViens">
+    <Type Name="SinhVien">
+      <Column Name="MSSV" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ten" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="gioiTinh" Type="System.String" DbType="NVarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="chiDoan" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="doanVien" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+</Database>

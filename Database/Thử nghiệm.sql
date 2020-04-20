@@ -29,7 +29,7 @@ create table KetQuaChiDoan
 	idChiDoan varchar(10) references ChiDoan(id) on delete cascade on update cascade,
 	idNamHoc varchar(10) references Nam(id) on delete cascade on update cascade,
 	xepLoai nvarchar(100),
-	xuatXac int not null default 0,
+	xuatSac int not null default 0,
 	kha int not null default 0,
 	trungBinh int not null default 0,
 	yeuKem int not null default 0,
@@ -441,7 +441,6 @@ begin
 end
 go
 
-create proc 
 
 -----------------------------GiangVien------------------------------------
 
@@ -705,7 +704,7 @@ go
 
 
 create proc USP_AddScoresTeacher
-@idTeacher varchar(10), @idScoresGroup varchar(10)
+@idTeacher varchar(10), @idScoresGroup int
 as
 begin
 	insert into KetQuaGiangVien (MSGV, idKetQuaChiDoan)
@@ -752,7 +751,7 @@ end
 go
 
 create trigger UTG_InsertUpdateScoresTeacher
-on KetQuaGiangVien for insert, update
+on KetQuaGiangVien for update
 as
 begin
 	declare @id int = (select id from inserted)
@@ -764,7 +763,7 @@ begin
 	begin
 		if @oldRank = N'Xuất sắc'
 		begin
-			update KetQuaChiDoan set xuatXac -= 1
+			update KetQuaChiDoan set xuatSac -= 1
 			where id = @idScoresGroup
 		end
 		else if @oldRank = N'Khá'
@@ -788,7 +787,7 @@ begin
 	begin
 		if @rank = N'Xuất sắc'
 		begin
-			update KetQuaChiDoan set xuatXac += 1
+			update KetQuaChiDoan set xuatSac += 1
 			where id = @idScoresGroup
 		end
 		else if @rank = N'Khá'
@@ -820,7 +819,7 @@ end
 go
 
 create proc USP_AddScoresStudent
-@idStudent varchar(10), @idScoresGroup varchar(10)
+@idStudent varchar(10), @idScoresGroup int
 as
 begin
 	insert into KetQuaSinhVien (MSSV, idKetQuaChiDoan)
@@ -895,7 +894,7 @@ end
 go
 
 create trigger UTG_InsertUpdateScoresStudent
-on KetQuaSinhVien for update, insert
+on KetQuaSinhVien for update
 as
 begin
 	declare @id int = (select id from inserted)
@@ -906,7 +905,7 @@ begin
 	begin
 		if @oldRank = N'Xuất sắc'
 		begin
-			update KetQuaChiDoan set xuatXac -= 1
+			update KetQuaChiDoan set xuatSac -= 1
 			where id = @idScoresGroup
 		end
 		else if @oldRank = N'Khá'
@@ -930,7 +929,7 @@ begin
 	begin
 		if @rank = N'Xuất sắc'
 		begin
-			update KetQuaChiDoan set xuatXac += 1
+			update KetQuaChiDoan set xuatSac += 1
 			where id = @idScoresGroup
 		end
 		else if @rank = N'Khá'
@@ -978,27 +977,50 @@ begin
 	-- Thêm dữ liệu vào
 	insert into KetQuaChiDoan(idChiDoan, idNamHoc, soThanhVien, tongSV, tongNuSV, tongGV, tongNuGV)
 	values (@idGroup, @idSemester, @tongThanhVien, @tongSV, @tongNuSV, @tongGV, @tongNuGV)
+end
+go
+
+
+
+alter proc USP_AddScoresGroup
+@idGroup varchar(10), @idSemester varchar(10)
+as
+begin
+	select * into #tempTable from ChiDoan where id = @idGroup
+	declare @tongSV int, @tongGV int, @tongThanhVien int, @tongNuSV int, @tongNuGV int
+
+	set @tongSV = (select tongSV from #tempTable)
+	set @tongGV = (select tongGV from #tempTable)
+	set @tongNuSV = (select tongNuSV from #tempTable)
+	set @tongNuGV = (select tongNuGV from #tempTable)
+	set @tongThanhVien = @tongSV + @tongGV
+
+	-- Thêm dữ liệu vào
+	insert into KetQuaChiDoan(idChiDoan, idNamHoc, soThanhVien, tongSV, tongNuSV, tongGV, tongNuGV)
+	values (@idGroup, @idSemester, @tongThanhVien, @tongSV, @tongNuSV, @tongGV, @tongNuGV)
 
 	--Khi tạo kết quả đoàn viên mới, thì chắc chắc cũng phải tạo kết quả học tập cho các thành viên trong chi đoàn.
 	declare @cnt int = 0;
+	declare @id int = (select id from KetQuaChiDoan where idNamHoc = @idSemester and idChiDoan = @idGroup)
 	--Sinh viên
 	while @cnt < @tongSV
-	
 	begin
 		declare @MSSV varchar(10) = (select MSSV from SinhVien where SinhVien.chiDoan = @idGroup)
-		exec USP_AddScoresStudent @MSSV, @idSemester
-		set @cnt += 1
+		exec USP_AddScoresStudent @MSSV, @id
+		set @cnt = @cnt + 1
 	end;
 	--Giảng viên
 	set @cnt = 0;
 	while @cnt < @tongGV
 	begin
 		declare @MSGV varchar(10) = (select MSGV from GiangVien where GiangVien.chiDoan = @idGroup)
-		exec USP_AddScoresTeacher @MSGV, @idSemester
-		set @cnt += 1
+		exec USP_AddScoresTeacher @MSGV, @id
+		set @cnt = @cnt + 1
 	end
 end
 go
+
+USP_AddScoresGroup 'KTPM0117', 'KKTM'
 
 create proc USP_UpdateScoresGroup
 @id int, @rank nvarchar(100), @note nvarchar(1000)
@@ -1026,4 +1048,20 @@ begin
 	where id = @id
 end
 go
+
+create trigger UTG_InsertSrocesGroup
+on KetQuaChiDoan for insert
+as
+begin
+	declare @idGroup varchar(10) = (select idChiDoan from inserted)
+	declare @idSemester varchar(10) = (select idNamHoc from inserted)
+	declare @count int = (select count(*) from KetQuaChiDoan where idNamHoc = @idSemester and idChiDoan = @idGroup)
+
+	if @count > 1
+	begin
+		rollback tran
+	end
+end
+go
+
 ----------------------------------------------------------------------------------------------------------------

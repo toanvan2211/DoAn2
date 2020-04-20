@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DanhGiaDoanVien.NewFolder1
+namespace DanhGiaDoanVien.DTO
 {
     public class Account
     {
