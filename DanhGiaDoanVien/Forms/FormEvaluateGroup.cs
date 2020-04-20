@@ -1,5 +1,6 @@
 ﻿using DanhGiaDoanVien.DAO;
 using DanhGiaDoanVien.DTO;
+using DanhGiaDoanVien.Other_Class;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,6 +17,7 @@ namespace DanhGiaDoanVien
     {
         private string idCurrentSemester = "";
         private List<Semester> listSemester = new List<Semester>();
+        private int idCurrentScoresGroup = -1;
         
         public FormEvaluateGroup()
         {
@@ -23,7 +25,6 @@ namespace DanhGiaDoanVien
         }
 
         #region method
-
         void LoadListScoresGroup()
         {
             if (idCurrentSemester == "")
@@ -36,6 +37,10 @@ namespace DanhGiaDoanVien
 
         void LoadListGroup()
         {
+            if (idCurrentSemester == "")
+            {
+                return;
+            }
             comboBoxGroup.DataSource = GroupDAO.Instance.GetListGroupNoScores(idCurrentSemester);
             comboBoxGroup.DisplayMember = "id";
         }
@@ -52,6 +57,11 @@ namespace DanhGiaDoanVien
 
                 comboBoxSemester.Items.Add(item["id"]);
             }
+        }
+
+        void EditScoresGroup()
+        {
+            
         }
 
         private ScoresGroup EvaluateGroup(ScoresGroup scoresGroup)
@@ -156,13 +166,19 @@ namespace DanhGiaDoanVien
             else
                 idCurrentSemester = listSemester[comboBoxSemester.SelectedIndex - 1].Id;
             LoadListScoresGroup();
+            LoadListGroup();
         }
 
         private void buttonCreateList_Click(object sender, EventArgs e)
         {
             if (idCurrentSemester == "")
             {
-                MessageBox.Show("Vui lòng chọn năm học", "Chưa chọn năm học", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Vui lòng chọn năm học!", "Chưa chọn năm học", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            else if (comboBoxGroup.Text == "")
+            {
+                MessageBox.Show("Vui lòng chọn chi đoàn!", "Chưa chọn chi đoàn", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             CreateScoresGroup(comboBoxGroup.Text, idCurrentSemester);
@@ -172,7 +188,30 @@ namespace DanhGiaDoanVien
 
         private void dataGridViewScoresGroup_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            try
+            {
+                idCurrentScoresGroup = Convert.ToInt32(dataGridViewScoresGroup.Rows[e.RowIndex].Cells["Id1"].Value.ToString());
+            }
+            catch { }
+        }
 
+        private void buttonDelete_Click(object sender, EventArgs e)
+        {
+            if (idCurrentScoresGroup != -1)
+            {
+                ScoresGroupDAO.Instance.DeleteScoresGroup(idCurrentScoresGroup);
+                LoadListScoresGroup();
+                LoadListGroup();
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn đánh giá muốn xóa!", "Chưa chọn đánh giá", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void buttonUpdate_Click(object sender, EventArgs e)
+        {
+            EditScoresGroup();
         }
     }
 }

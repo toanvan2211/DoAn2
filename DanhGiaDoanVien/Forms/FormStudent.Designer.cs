@@ -114,7 +114,7 @@
             this.panelEdit.Controls.Add(this.label10);
             this.panelEdit.Controls.Add(this.label11);
             this.panelEdit.Controls.Add(this.label12);
-            this.panelEdit.Location = new System.Drawing.Point(59, 184);
+            this.panelEdit.Location = new System.Drawing.Point(56, 26);
             this.panelEdit.Name = "panelEdit";
             this.panelEdit.Size = new System.Drawing.Size(594, 163);
             this.panelEdit.TabIndex = 6;

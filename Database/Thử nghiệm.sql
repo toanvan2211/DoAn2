@@ -288,7 +288,7 @@ begin
 	begin
 		update ChiDoan set tongSV -= @amount
 		where id = @idGroup
-		exec USP_PlusMember @idGroup, @amount
+		exec USP_MinusMember @idGroup, @amount
 	end
 end
 go
@@ -440,7 +440,6 @@ begin
 	end
 end
 go
-
 
 -----------------------------GiangVien------------------------------------
 
@@ -696,6 +695,13 @@ go
 -----------------------------KetQuaGiangVien------------------------------------
 
 create proc USP_GetScoresTeacher
+as
+begin
+	select * from KetQuaGiangVien
+end
+go
+
+create proc USP_GetListScoresTeacher
 as
 begin
 	select * from KetQuaGiangVien
@@ -979,48 +985,6 @@ begin
 	values (@idGroup, @idSemester, @tongThanhVien, @tongSV, @tongNuSV, @tongGV, @tongNuGV)
 end
 go
-
-
-
-alter proc USP_AddScoresGroup
-@idGroup varchar(10), @idSemester varchar(10)
-as
-begin
-	select * into #tempTable from ChiDoan where id = @idGroup
-	declare @tongSV int, @tongGV int, @tongThanhVien int, @tongNuSV int, @tongNuGV int
-
-	set @tongSV = (select tongSV from #tempTable)
-	set @tongGV = (select tongGV from #tempTable)
-	set @tongNuSV = (select tongNuSV from #tempTable)
-	set @tongNuGV = (select tongNuGV from #tempTable)
-	set @tongThanhVien = @tongSV + @tongGV
-
-	-- Thêm dữ liệu vào
-	insert into KetQuaChiDoan(idChiDoan, idNamHoc, soThanhVien, tongSV, tongNuSV, tongGV, tongNuGV)
-	values (@idGroup, @idSemester, @tongThanhVien, @tongSV, @tongNuSV, @tongGV, @tongNuGV)
-
-	--Khi tạo kết quả đoàn viên mới, thì chắc chắc cũng phải tạo kết quả học tập cho các thành viên trong chi đoàn.
-	declare @cnt int = 0;
-	declare @id int = (select id from KetQuaChiDoan where idNamHoc = @idSemester and idChiDoan = @idGroup)
-	--Sinh viên
-	while @cnt < @tongSV
-	begin
-		declare @MSSV varchar(10) = (select MSSV from SinhVien where SinhVien.chiDoan = @idGroup)
-		exec USP_AddScoresStudent @MSSV, @id
-		set @cnt = @cnt + 1
-	end;
-	--Giảng viên
-	set @cnt = 0;
-	while @cnt < @tongGV
-	begin
-		declare @MSGV varchar(10) = (select MSGV from GiangVien where GiangVien.chiDoan = @idGroup)
-		exec USP_AddScoresTeacher @MSGV, @id
-		set @cnt = @cnt + 1
-	end
-end
-go
-
-USP_AddScoresGroup 'KTPM0117', 'KKTM'
 
 create proc USP_UpdateScoresGroup
 @id int, @rank nvarchar(100), @note nvarchar(1000)

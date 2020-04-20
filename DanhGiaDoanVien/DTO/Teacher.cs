@@ -23,7 +23,7 @@ namespace DanhGiaDoanVien.DTO
         public Teacher() { }
         public Teacher(DataRow row)
         {
-            IdTeacher = (string)row["MSCB"];
+            IdTeacher = (string)row["MSGV"];
             Name = (string)row["ten"];
             Sex = (string)row["gioiTinh"];
             Group = (string)row["chiDoan"];

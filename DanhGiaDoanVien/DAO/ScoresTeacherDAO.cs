@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DanhGiaDoanVien.Other_Class;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -17,12 +18,12 @@ namespace DanhGiaDoanVien.DAO
         }
         public ScoresTeacherDAO() { }
 
-        public DataTable GetListScoresTeacher()
+        public object GetListScoresTeacher()
         {
-            string query = "USP_GetListScoresTeacher";
-            return DataProvider.Instance.ExecuteQuery(query);
-        }
+            DanhGiaDoanVienDataContext db = new DanhGiaDoanVienDataContext();
 
+            return db.KetQuaGiangViens.Select(p => p);
+        }
         public int AddScoresTeacher(string idTeacher, string idScoresGroup)
         {
             string query = "USP_AddScoresTeacher @idTeacher, @idScoresGroup";

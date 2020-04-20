@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DanhGiaDoanVien.Other_Class;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,13 @@ namespace DanhGiaDoanVien.DAO
             private set { instance = value; }
         }
         public ScoresStudentDAO() { }
+
+        public object GetListScoresStudent()
+        {
+            DanhGiaDoanVienDataContext db = new DanhGiaDoanVienDataContext();
+
+            return db.KetQuaSinhViens.Select(p => p);
+        }
 
         public int AddScoresStudent(string idStudent, string idSemester)
         {

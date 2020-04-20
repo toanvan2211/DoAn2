@@ -172,7 +172,14 @@ namespace DanhGiaDoanVien.DAO
                         {
                             sb.Append(", ");
                         }
-                        sb.Append(nameProperties[i] + " = N'" + values[i] + "'");
+                        if (i == 2 && group == "")
+                        {
+                            sb.Append(nameProperties[i] + " = null");
+                        }
+                        else
+                        {
+                            sb.Append(nameProperties[i] + " = N'" + values[i] + "'");
+                        }
                     }
                 }
                 if (check[3] == true)
@@ -193,9 +200,9 @@ namespace DanhGiaDoanVien.DAO
                 sb.Append(" where MSSV = '" + student.IdStudent + "'");
                 query = sb.ToString();
 
-                if (check[1] == true)
+                if (check[1] == true && check[2] == false)
                 {
-                    DataProvider.Instance.ExecuteNonQuery("USP_ChangeSexStudent @idGroup , @sex , @oldSex", new object[] { student.IdStudent, sex, student.Sex });
+                    DataProvider.Instance.ExecuteNonQuery("USP_ChangeSexStudent @idGroup , @sex , @oldSex", new object[] { student.Group, sex, student.Sex });
                 }
 
                 if (check[2] == true)

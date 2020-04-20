@@ -52,6 +52,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.buttonAdd = new System.Windows.Forms.Button();
+            this.buttonDelete = new System.Windows.Forms.Button();
             this.buttonUpdate = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.comboBoxSemester = new System.Windows.Forms.ComboBox();
@@ -60,7 +61,7 @@
             this.Id1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Semester1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idGroup1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Rank1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Rank1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.Excellent1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GreatMember1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MediumMember1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -71,6 +72,7 @@
             this.TotalFemaleStudent1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TotalFemaleTeacher1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TotalGoodMember1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Note1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelBottom.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -89,6 +91,7 @@
             this.panelBottom.Controls.Add(this.tableLayoutPanel3);
             this.panelBottom.Controls.Add(this.panel1);
             this.panelBottom.Controls.Add(this.buttonAdd);
+            this.panelBottom.Controls.Add(this.buttonDelete);
             this.panelBottom.Controls.Add(this.buttonUpdate);
             this.panelBottom.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelBottom.Location = new System.Drawing.Point(0, 45);
@@ -361,6 +364,20 @@
             this.buttonAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonAdd.UseVisualStyleBackColor = true;
             // 
+            // buttonDelete
+            // 
+            this.buttonDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonDelete.ForeColor = System.Drawing.Color.White;
+            this.buttonDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonDelete.Location = new System.Drawing.Point(718, 135);
+            this.buttonDelete.Name = "buttonDelete";
+            this.buttonDelete.Size = new System.Drawing.Size(91, 39);
+            this.buttonDelete.TabIndex = 4;
+            this.buttonDelete.Text = "Xóa";
+            this.buttonDelete.UseVisualStyleBackColor = true;
+            this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
+            // 
             // buttonUpdate
             // 
             this.buttonUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -377,6 +394,7 @@
             this.buttonUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonUpdate.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonUpdate.UseVisualStyleBackColor = true;
+            this.buttonUpdate.Click += new System.EventHandler(this.buttonUpdate_Click);
             // 
             // label4
             // 
@@ -432,13 +450,12 @@
             this.TotalTeacher1,
             this.TotalFemaleStudent1,
             this.TotalFemaleTeacher1,
-            this.TotalGoodMember1});
+            this.TotalGoodMember1,
+            this.Note1});
             this.dataGridViewScoresGroup.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewScoresGroup.Enabled = false;
             this.dataGridViewScoresGroup.Location = new System.Drawing.Point(0, 242);
             this.dataGridViewScoresGroup.MultiSelect = false;
             this.dataGridViewScoresGroup.Name = "dataGridViewScoresGroup";
-            this.dataGridViewScoresGroup.ReadOnly = true;
             this.dataGridViewScoresGroup.Size = new System.Drawing.Size(1000, 393);
             this.dataGridViewScoresGroup.TabIndex = 7;
             this.dataGridViewScoresGroup.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewScoresGroup_CellClick);
@@ -446,9 +463,8 @@
             // Id1
             // 
             this.Id1.DataPropertyName = "id";
-            this.Id1.HeaderText = "id";
+            this.Id1.HeaderText = "ID";
             this.Id1.Name = "Id1";
-            this.Id1.ReadOnly = true;
             // 
             // Semester1
             // 
@@ -468,7 +484,14 @@
             // 
             this.Rank1.DataPropertyName = "xepLoai";
             this.Rank1.HeaderText = "Xếp loại";
+            this.Rank1.Items.AddRange(new object[] {
+            "Xuất sắc",
+            "Khá",
+            "Trung bình",
+            "Yếu kém"});
             this.Rank1.Name = "Rank1";
+            this.Rank1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Rank1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // Excellent1
             // 
@@ -530,6 +553,13 @@
             this.TotalGoodMember1.HeaderText = "ĐVUT";
             this.TotalGoodMember1.Name = "TotalGoodMember1";
             // 
+            // Note1
+            // 
+            this.Note1.DataPropertyName = "ghiChu";
+            this.Note1.HeaderText = "Ghi chú";
+            this.Note1.Name = "Note1";
+            this.Note1.Visible = false;
+            // 
             // FormEvaluateGroup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -588,10 +618,11 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.DataGridView dataGridViewScoresGroup;
+        private System.Windows.Forms.Button buttonDelete;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Semester1;
         private System.Windows.Forms.DataGridViewTextBoxColumn idGroup1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Rank1;
+        private System.Windows.Forms.DataGridViewComboBoxColumn Rank1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Excellent1;
         private System.Windows.Forms.DataGridViewTextBoxColumn GreatMember1;
         private System.Windows.Forms.DataGridViewTextBoxColumn MediumMember1;
@@ -602,5 +633,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn TotalFemaleStudent1;
         private System.Windows.Forms.DataGridViewTextBoxColumn TotalFemaleTeacher1;
         private System.Windows.Forms.DataGridViewTextBoxColumn TotalGoodMember1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Note1;
     }
 }

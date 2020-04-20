@@ -14,12 +14,54 @@ namespace DanhGiaDoanVien
 {
     public partial class FormEvaluateStudent : Form
     {
+        private string idCurrentSemester = "";
+        private string idCurrentGroup = "";
+
         public FormEvaluateStudent()
         {
             InitializeComponent();
         }
 
         #region method
+
+        void LoadScoresStudent()
+        {
+            if (idCurrentSemester == "" && idCurrentGroup == "")
+            {
+                dataGridViewStudent.DataSource = ScoresStudentDAO.Instance.GetListScoresStudent();
+            }
+            else if (idCurrentSemester != "" && idCurrentGroup == "" )
+            {
+                dataGridViewStudent.DataSource = ScoresGroupDAO.Instance.GetListScoresStudentByID(idCurrentSemester, 2);
+            }
+            else if (idCurrentSemester == "" && idCurrentGroup != "")
+            {
+                dataGridViewStudent.DataSource = ScoresGroupDAO.Instance.GetListScoresStudentByID(idCurrentGroup, 1);
+            }
+            else
+            {
+                dataGridViewStudent.DataSource = ScoresGroupDAO.Instance.GetListScoresStudentByID(idCurrentGroup, idCurrentSemester);
+            }
+        }
+
+        void LoadComboBoxGroup()
+        {
+            DataTable dataGroup = GroupDAO.Instance.GetListGroup();
+            foreach (DataRow item in dataGroup.Rows)
+            {
+                comboBoxGroup.Items.Add(item["id"]);
+            }
+        }
+
+        void LoadComboBoxSemester()
+        {
+            DataTable dataGroup = SemesterDAO.Instance.GetListSemester();
+            foreach (DataRow item in dataGroup.Rows)
+            {
+                comboBoxSemester.Items.Add(item["id"]);
+            }
+        }
+
         private ScoresStudent Evaluate(ScoresStudent scores)
         {
             if (scores.AverageSemester1 != 0 && scores.AverageSemester2 != 0)
@@ -90,5 +132,41 @@ namespace DanhGiaDoanVien
 
         #endregion
 
+        private void FormEvaluateStudent_Load(object sender, EventArgs e)
+        {
+            LoadComboBoxGroup();
+            LoadComboBoxSemester();
+
+            comboBoxSemester.SelectedIndex = 0;
+            comboBoxGroup.SelectedIndex = 0;
+
+            LoadScoresStudent();
+        }
+
+        private void comboBoxGroup_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBoxGroup.SelectedIndex == 0)
+            {
+                idCurrentGroup = "";
+            }
+            else
+            {
+                idCurrentGroup = comboBoxGroup.Text;
+            }
+            LoadScoresStudent();
+        }
+
+        private void comboBoxSemester_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBoxSemester.SelectedIndex == 0)
+            {
+                idCurrentSemester = "";
+            }
+            else
+            {
+                idCurrentSemester = comboBoxSemester.Text;
+            }
+            LoadScoresStudent();
+        }
     }
 }

@@ -285,6 +285,8 @@ namespace DanhGiaDoanVien
                     int result = TeacherDAO.Instance.AddTeacher(textBoxMSGVEdit.Text, textBoxNameEdit.Text, comboBoxSexEdit.Text, comboBoxGroupEdit.Text, getIsMember);
                     if (result >= 0)
                     {
+                        textBoxMSGVEdit.ResetText();
+                        textBoxNameEdit.ResetText();
                         LoadListTeacher();
                     }
                     else if (result == -1)

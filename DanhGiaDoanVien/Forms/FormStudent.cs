@@ -285,11 +285,13 @@ namespace DanhGiaDoanVien
                     int result = StudentDAO.Instance.AddStudent(textBoxMSSVEdit.Text, textBoxNameEdit.Text, comboBoxSexEdit.Text, comboBoxGroupEdit.Text, getIsMember);
                     if (result > 0)
                     {
+                        textBoxMSSVEdit.ResetText();
+                        textBoxNameEdit.ResetText();
                         LoadListStudent();
                     }
                     else if (result == -1)
                     {
-                        MessageBox.Show("MSSV mà bạn nhập đã được sử dụng!", "Trùng MSSV", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("MSSV mà bạn nhập đã tồn tại!", "Trùng MSSV", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     else
                     {
