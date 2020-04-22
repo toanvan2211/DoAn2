@@ -225,6 +225,6 @@ namespace DanhGiaDoanVien.DAO
         {
             string query = "select MSSV as id, ten, gioiTinh, chiDoan, doanVien from SinhVien where chiDoan = '" + idGroup + "'";
             return DataProvider.Instance.ExecuteQuery(query);
-        }
+        }        
     }
 }

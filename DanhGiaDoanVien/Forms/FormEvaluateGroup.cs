@@ -18,13 +18,44 @@ namespace DanhGiaDoanVien
         private string idCurrentSemester = "";
         private List<Semester> listSemester = new List<Semester>();
         private int idCurrentScoresGroup = -1;
+        private int currentIndex = -1;
         
         public FormEvaluateGroup()
         {
             InitializeComponent();
         }
 
+        private struct RankGroup
+        {
+            public static string rank1 = "Chi đoàn vững mạnh";
+            public static string rank2 = "Chi đoàn khá";
+            public static string rank3 = "Chi đoàn trung bình";
+            public static string rank4 = "Chi đoàn yếu kém";
+        }
+
         #region method
+        void CellClick(int index)
+        {
+            if (index != -1)
+            {
+                textBoxIdGroup.Text = dataGridViewScoresGroup.Rows[index].Cells["idGroup1"].Value.ToString();
+                textBoxMember.Text = dataGridViewScoresGroup.Rows[index].Cells["TotalMember1"].Value.ToString();
+                textBoxTeacher.Text = dataGridViewScoresGroup.Rows[index].Cells["TotalTeacher1"].Value.ToString();
+                textBoxStudent.Text = dataGridViewScoresGroup.Rows[index].Cells["TotalStudent1"].Value.ToString();
+                textBoxExcellent.Text = dataGridViewScoresGroup.Rows[index].Cells["Excellent1"].Value.ToString();
+                textBoxGreate.Text = dataGridViewScoresGroup.Rows[index].Cells["Great1"].Value.ToString();
+                textBoxMedium.Text = dataGridViewScoresGroup.Rows[index].Cells["Medium1"].Value.ToString();
+                textBoxBad.Text = dataGridViewScoresGroup.Rows[index].Cells["Bad1"].Value.ToString();
+                textBoxNote.Text = dataGridViewScoresGroup.Rows[index].Cells["Note1"].Value.ToString();
+                textBoxGoodMember.Text = dataGridViewScoresGroup.Rows[index].Cells["TotalGoodMember1"].Value.ToString();
+                string rank1 = dataGridViewScoresGroup.Rows[index].Cells["Rank1"].Value.ToString();
+                if (rank1 != "")
+                    comboBoxRank.Text = dataGridViewScoresGroup.Rows[index].Cells["Rank1"].Value.ToString();
+                else
+                    comboBoxRank.Text = "";
+            }
+        }
+
         void LoadListScoresGroup()
         {
             if (idCurrentSemester == "")
@@ -59,81 +90,59 @@ namespace DanhGiaDoanVien
             }
         }
 
+        ScoresGroup CreateScoresGroupByRowIndex(int index)
+        {
+            ScoresGroup sg = new ScoresGroup();
+            sg.Id = Convert.ToInt32(dataGridViewScoresGroup.Rows[index].Cells["Id1"].Value.ToString());
+            sg.IdSemester = dataGridViewScoresGroup.Rows[index].Cells["Semester1"].Value.ToString();
+            sg.Rank = dataGridViewScoresGroup.Rows[index].Cells["Rank1"].Value.ToString();
+            sg.ExcellentMember = Convert.ToInt32(dataGridViewScoresGroup.Rows[index].Cells["Excellent1"].Value.ToString());
+            sg.GreatMember = Convert.ToInt32(dataGridViewScoresGroup.Rows[index].Cells["Great1"].Value.ToString());
+            sg.MediumMember = Convert.ToInt32(dataGridViewScoresGroup.Rows[index].Cells["Medium1"].Value.ToString());
+            sg.BadMember = Convert.ToInt32(dataGridViewScoresGroup.Rows[index].Cells["Bad1"].Value.ToString());
+            sg.TotalMember = Convert.ToInt32(dataGridViewScoresGroup.Rows[index].Cells["TotalMember1"].Value.ToString());
+            sg.TotalStudent = Convert.ToInt32(dataGridViewScoresGroup.Rows[index].Cells["TotalStudent1"].Value.ToString());
+            sg.TotalTeacher = Convert.ToInt32(dataGridViewScoresGroup.Rows[index].Cells["TotalTeacher1"].Value.ToString());
+            sg.TotalGoodMember = Convert.ToInt32(dataGridViewScoresGroup.Rows[index].Cells["TotalGoodMember1"].Value.ToString());
+            sg.TotalFemalStudent = Convert.ToInt32(dataGridViewScoresGroup.Rows[index].Cells["TotalFemaleStudent1"].Value.ToString());
+            sg.TotalFemalTeacher = Convert.ToInt32(dataGridViewScoresGroup.Rows[index].Cells["TotalFemaleTeacher1"].Value.ToString());
+            sg.Note = dataGridViewScoresGroup.Rows[index].Cells["Note1"].Value.ToString();
+
+            return sg;
+        }
+
         void EditScoresGroup()
         {
-            
+            ScoresGroup res = new ScoresGroup();
+            res.Id = Convert.ToInt32(dataGridViewScoresGroup.Rows[currentIndex].Cells["Id1"].Value.ToString());
+            if (comboBoxRank.Text != "")
+                res.Rank = comboBoxRank.Text;
+            res.Note = textBoxNote.Text;
+            ScoresGroupDAO.Instance.UpdateScoresGroup(res.Id, res.Rank, res.Note);
         }
 
         private ScoresGroup EvaluateGroup(ScoresGroup scoresGroup)
         {
-            if (((scoresGroup.GreatMember / scoresGroup.TotalMember) * 100) >= 80 && scoresGroup.BabMember == 0)
+            try
             {
-                scoresGroup.Rank = "Chi đoàn vững mạnh";
-            }
-            else if (((scoresGroup.GreatMember / scoresGroup.TotalMember) * 100) >= 60 && scoresGroup.BabMember == 0)
-            {
-                scoresGroup.Rank = "Chi đoàn khá";
-            }
-            else if (((scoresGroup.GreatMember / scoresGroup.TotalMember) * 100) >= 50 && ((scoresGroup.BabMember / scoresGroup.TotalMember) * 100) <= 20)
-            {
-                scoresGroup.Rank = "Chi đoàn trung bình";
-            }
-            else
-            {
-                scoresGroup.Rank = "Chi đoàn yếu kém";
-            }
-
-            return scoresGroup;
-        }
-
-        private ScoresGroup CountRankMember(ScoresGroup scoresGroup, ScoresStudent[] listMember)
-        {
-            for (int i = 0; i < listMember.Length; i++)
-            {
-                if (listMember[i].Rank == "Xuất sắc")
+                if (((scoresGroup.GreatMember / scoresGroup.TotalMember) * 100) >= 80 && scoresGroup.BadMember == 0)
                 {
-                    scoresGroup.ExcellentMember++;
+                    scoresGroup.Rank = RankGroup.rank1;
                 }
-                else if (listMember[i].Rank == "Khá")
+                else if (((scoresGroup.GreatMember / scoresGroup.TotalMember) * 100) >= 60 && scoresGroup.BadMember == 0)
                 {
-                    scoresGroup.GreatMember++;
+                    scoresGroup.Rank = RankGroup.rank2;
                 }
-                else if (listMember[i].Rank == "Trung bình")
+                else if (((scoresGroup.GreatMember / scoresGroup.TotalMember) * 100) >= 50 && ((scoresGroup.BadMember / scoresGroup.TotalMember) * 100) <= 20)
                 {
-                    scoresGroup.MediumMember++;
+                    scoresGroup.Rank = RankGroup.rank3;
                 }
-                else if (listMember[i].Rank == "Yếu kém")
+                else
                 {
-                    scoresGroup.BabMember++;
+                    scoresGroup.Rank = RankGroup.rank4;
                 }
             }
-            scoresGroup.TotalMember = (int)(listMember.Length + 1);
-
-            return scoresGroup;
-        }
-        private ScoresGroup CountRankMember(ScoresGroup scoresGroup, ScoresTeacher[] listMember)
-        {
-            for (int i = 0; i < listMember.Length; i++)
-            {
-                if (listMember[i].Rank == "Xuất sắc")
-                {
-                    scoresGroup.ExcellentMember++;
-                }
-                else if (listMember[i].Rank == "Khá")
-                {
-                    scoresGroup.GreatMember++;
-                }
-                else if (listMember[i].Rank == "Trung bình")
-                {
-                    scoresGroup.MediumMember++;
-                }
-                else if (listMember[i].Rank == "Yếu kém")
-                {
-                    scoresGroup.BabMember++;
-                }
-            }
-            scoresGroup.TotalMember = (int)(listMember.Length + 1);
-
+            catch {  }
             return scoresGroup;
         }
 
@@ -145,6 +154,7 @@ namespace DanhGiaDoanVien
 
         private void FormEvaluateGroup_Load(object sender, EventArgs e)
         {
+
             LoadListScoresGroup();
             LoadListGroup();
             LoadListSemester();
@@ -153,7 +163,7 @@ namespace DanhGiaDoanVien
             {
                 comboBoxGroup.SelectedIndex = 0;
             }
-            comboBoxRank.SelectedIndex = 0;
+            comboBoxRank.SelectedIndex = 1;
             comboBoxSemester.SelectedIndex = 0;
         }
 
@@ -190,9 +200,11 @@ namespace DanhGiaDoanVien
         {
             try
             {
+                currentIndex = e.RowIndex;
                 idCurrentScoresGroup = Convert.ToInt32(dataGridViewScoresGroup.Rows[e.RowIndex].Cells["Id1"].Value.ToString());
             }
             catch { }
+            CellClick(currentIndex);
         }
 
         private void buttonDelete_Click(object sender, EventArgs e)
@@ -212,6 +224,20 @@ namespace DanhGiaDoanVien
         private void buttonUpdate_Click(object sender, EventArgs e)
         {
             EditScoresGroup();
+            LoadListScoresGroup();
+        }
+
+        private void buttonAuto_Click(object sender, EventArgs e)
+        {
+            List<int> listIndex = new List<int>() { };
+            List<ScoresGroup> listSG = new List<ScoresGroup>();
+            foreach (int rowIndex in dataGridViewScoresGroup.SelectedCells.Cast<DataGridViewCell>().Select(x => x.RowIndex).Distinct())
+            {
+                listIndex.Add(rowIndex);
+                ScoresGroup sg = EvaluateGroup(CreateScoresGroupByRowIndex(rowIndex));
+                ScoresGroupDAO.Instance.UpdateScoresGroup(sg.Id, sg.Rank, sg.Note);
+            }
+            LoadListScoresGroup();
         }
     }
 }

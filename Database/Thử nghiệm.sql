@@ -105,20 +105,20 @@ go
 create table DoanVienUuTuSV
 (
 	id int identity(1,1) primary key,
-	MSSV varchar(10) references SinhVien(MSSV) on delete cascade,
+	MSSV varchar(10) references SinhVien(MSSV) on delete cascade not null,
 	idKetQuaChiDoan int references KetQuaChiDoan(id) on delete cascade not null,
-	phieuBau int not null,
-	tongPhieu int not null,
+	phieuBau int not null default 0,
+	tongPhieu int not null default 0,
 )
 go
 
 create table DoanVienUuTuGV
 (
 	id int identity(1,1) primary key,
-	MSGV varchar(10) references GiangVien(MSGV) on delete cascade,
+	MSGV varchar(10) references GiangVien(MSGV) on delete cascade not null,
 	idKetQuaChiDoan int references KetQuaChiDoan(id) on delete cascade not null,
-	phieuBau int not null,
-	tongPhieu int not null,
+	phieuBau int not null default 0,
+	tongPhieu int not null default 0,
 )
 go
 
@@ -834,7 +834,7 @@ end
 go
 
 create proc USP_UpdateScoresStudent --Thủ công
-@id int, @scoresSemester1 float, @scoresSemester2 float, @scoresTrain1 int, @scoresTrain2 int, @rank nvarchar(100), @achievements nvarchar(200), @note nvarchar(1000)
+@id int, @scoresSemester1 float, @scoresSemester2 float, @scoresTrain1 int, @scoresTrain2 int, @rank nvarchar(100), @achievements nvarchar(200), @note nvarchar(1000), @isGoodMember bit
 as
 begin
 	declare @scoresSemester float, @scoresTrain int
@@ -842,7 +842,7 @@ begin
 	set @scoresTrain = (@scoresTrain1 + @scoresTrain2) / 2
 	update KetQuaSinhVien 
 		set diemHK1 = @scoresSemester1, [diemHK2] = @scoresSemester2, [tongHK] = @scoresSemester, [DRLHK1] = @scoresTrain1, [DRLHK2] = @scoresTrain2, [DRL] = @scoresTrain, [xepLoai] = @rank,
-			[thanhTichTieuBieu] = @achievements, [ghiChu] = @note
+			[thanhTichTieuBieu] = @achievements, [ghiChu] = @note, doanVienUuTu = @isGoodMember
 	where [id] = @id
 end
 go
@@ -957,6 +957,29 @@ begin
 end
 go
 
+create trigger UTG_ChangeGoodStudent
+on KetQuaSinhVien after update
+as
+begin
+	declare @check bit = (select doanVienUuTu from inserted)
+	declare @MSSV varchar(10) = (select MSSV from inserted)
+	declare @idKetQuaChiDoan int = (select idKetQuaChiDoan from inserted)
+	if (@check = 1)
+	begin
+		declare @count int = (select count(*) from DoanVienUuTuSV where idKetQuaChiDoan = @idKetQuaChiDoan and MSSV = @MSSV)
+		if @count > 0
+		begin
+			delete DoanVienUuTuSV where idKetQuaChiDoan = @idKetQuaChiDoan and MSSV = @MSSV
+		end
+		insert into DoanVienUuTuSV (MSSV, idKetQuaChiDoan)
+		values (@MSSV, @idKetQuaChiDoan)
+	end
+	else
+	begin
+		delete DoanVienUuTuSV where idKetQuaChiDoan = @idKetQuaChiDoan and MSSV = @MSSV
+	end
+end
+go
 
 -----------------------------KetQuaChiDoan------------------------------------
 

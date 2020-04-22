@@ -37,21 +37,29 @@
             this.label3 = new System.Windows.Forms.Label();
             this.comboBoxRank = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.textBoxNote = new System.Windows.Forms.RichTextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.textBoxBad = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.textBoxMedium = new System.Windows.Forms.TextBox();
+            this.textBoxGreate = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.textBoxExcellent = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.textBoxMember = new System.Windows.Forms.TextBox();
+            this.textBoxTeacher = new System.Windows.Forms.TextBox();
+            this.textBoxStudent = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.textBoxGoodMember = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBoxName = new System.Windows.Forms.TextBox();
-            this.buttonAdd = new System.Windows.Forms.Button();
+            this.textBoxIdGroup = new System.Windows.Forms.TextBox();
+            this.buttonAuto = new System.Windows.Forms.Button();
             this.buttonDelete = new System.Windows.Forms.Button();
             this.buttonUpdate = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
@@ -63,9 +71,9 @@
             this.idGroup1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Rank1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.Excellent1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GreatMember1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MediumMember1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BadMember1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Great1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Medium1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Bad1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TotalMember1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TotalStudent1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TotalTeacher1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -90,7 +98,7 @@
             this.panelBottom.Controls.Add(this.tableLayoutPanel4);
             this.panelBottom.Controls.Add(this.tableLayoutPanel3);
             this.panelBottom.Controls.Add(this.panel1);
-            this.panelBottom.Controls.Add(this.buttonAdd);
+            this.panelBottom.Controls.Add(this.buttonAuto);
             this.panelBottom.Controls.Add(this.buttonDelete);
             this.panelBottom.Controls.Add(this.buttonUpdate);
             this.panelBottom.Dock = System.Windows.Forms.DockStyle.Top;
@@ -148,7 +156,7 @@
             this.tableLayoutPanel3.Controls.Add(this.label3, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.comboBoxRank, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.label2, 0, 1);
-            this.tableLayoutPanel3.Controls.Add(this.richTextBox1, 1, 1);
+            this.tableLayoutPanel3.Controls.Add(this.textBoxNote, 1, 1);
             this.tableLayoutPanel3.Location = new System.Drawing.Point(385, 4);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 2;
@@ -174,10 +182,11 @@
             this.comboBoxRank.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxRank.FormattingEnabled = true;
             this.comboBoxRank.Items.AddRange(new object[] {
-            "Xuất sắc",
-            "Khá",
-            "Trung bình",
-            "Yếu kém"});
+            "",
+            "Chi đoàn vững mạnh",
+            "Chi đoàn khá",
+            "Chi đoàn trung bình",
+            "Chi đoàn yếu kém"});
             this.comboBoxRank.Location = new System.Drawing.Point(114, 17);
             this.comboBoxRank.Name = "comboBoxRank";
             this.comboBoxRank.Size = new System.Drawing.Size(210, 21);
@@ -194,14 +203,14 @@
             this.label2.TabIndex = 6;
             this.label2.Text = "Chú thích:";
             // 
-            // richTextBox1
+            // textBoxNote
             // 
-            this.richTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.richTextBox1.Location = new System.Drawing.Point(114, 59);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(210, 50);
-            this.richTextBox1.TabIndex = 7;
-            this.richTextBox1.Text = "";
+            this.textBoxNote.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxNote.Location = new System.Drawing.Point(114, 59);
+            this.textBoxNote.Name = "textBoxNote";
+            this.textBoxNote.Size = new System.Drawing.Size(210, 50);
+            this.textBoxNote.TabIndex = 7;
+            this.textBoxNote.Text = "";
             // 
             // panel1
             // 
@@ -219,14 +228,22 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel2.Controls.Add(this.textBox8, 3, 3);
+            this.tableLayoutPanel2.Controls.Add(this.textBoxBad, 3, 3);
             this.tableLayoutPanel2.Controls.Add(this.label12, 2, 3);
-            this.tableLayoutPanel2.Controls.Add(this.textBox7, 3, 2);
-            this.tableLayoutPanel2.Controls.Add(this.textBox6, 3, 1);
+            this.tableLayoutPanel2.Controls.Add(this.textBoxMedium, 3, 2);
+            this.tableLayoutPanel2.Controls.Add(this.textBoxGreate, 3, 1);
             this.tableLayoutPanel2.Controls.Add(this.label10, 2, 2);
-            this.tableLayoutPanel2.Controls.Add(this.textBox5, 3, 0);
+            this.tableLayoutPanel2.Controls.Add(this.textBoxExcellent, 3, 0);
             this.tableLayoutPanel2.Controls.Add(this.label11, 2, 1);
             this.tableLayoutPanel2.Controls.Add(this.label9, 2, 0);
+            this.tableLayoutPanel2.Controls.Add(this.label5, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.textBoxMember, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.textBoxTeacher, 1, 1);
+            this.tableLayoutPanel2.Controls.Add(this.textBoxStudent, 1, 2);
+            this.tableLayoutPanel2.Controls.Add(this.label7, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.label6, 0, 2);
+            this.tableLayoutPanel2.Controls.Add(this.textBoxGoodMember, 1, 3);
+            this.tableLayoutPanel2.Controls.Add(this.label8, 0, 3);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 32);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -238,13 +255,14 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(326, 150);
             this.tableLayoutPanel2.TabIndex = 9;
             // 
-            // textBox8
+            // textBoxBad
             // 
-            this.textBox8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox8.Location = new System.Drawing.Point(246, 120);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(77, 20);
-            this.textBox8.TabIndex = 1;
+            this.textBoxBad.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxBad.Location = new System.Drawing.Point(246, 120);
+            this.textBoxBad.Name = "textBoxBad";
+            this.textBoxBad.ReadOnly = true;
+            this.textBoxBad.Size = new System.Drawing.Size(77, 20);
+            this.textBoxBad.TabIndex = 1;
             // 
             // label12
             // 
@@ -257,21 +275,23 @@
             this.label12.TabIndex = 3;
             this.label12.Text = "Yếu kém:";
             // 
-            // textBox7
+            // textBoxMedium
             // 
-            this.textBox7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox7.Location = new System.Drawing.Point(246, 82);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(77, 20);
-            this.textBox7.TabIndex = 1;
+            this.textBoxMedium.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxMedium.Location = new System.Drawing.Point(246, 82);
+            this.textBoxMedium.Name = "textBoxMedium";
+            this.textBoxMedium.ReadOnly = true;
+            this.textBoxMedium.Size = new System.Drawing.Size(77, 20);
+            this.textBoxMedium.TabIndex = 1;
             // 
-            // textBox6
+            // textBoxGreate
             // 
-            this.textBox6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox6.Location = new System.Drawing.Point(246, 45);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(77, 20);
-            this.textBox6.TabIndex = 1;
+            this.textBoxGreate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxGreate.Location = new System.Drawing.Point(246, 45);
+            this.textBoxGreate.Name = "textBoxGreate";
+            this.textBoxGreate.ReadOnly = true;
+            this.textBoxGreate.Size = new System.Drawing.Size(77, 20);
+            this.textBoxGreate.TabIndex = 1;
             // 
             // label10
             // 
@@ -284,13 +304,14 @@
             this.label10.TabIndex = 3;
             this.label10.Text = "Trung bình:";
             // 
-            // textBox5
+            // textBoxExcellent
             // 
-            this.textBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox5.Location = new System.Drawing.Point(246, 8);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(77, 20);
-            this.textBox5.TabIndex = 1;
+            this.textBoxExcellent.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxExcellent.Location = new System.Drawing.Point(246, 8);
+            this.textBoxExcellent.Name = "textBoxExcellent";
+            this.textBoxExcellent.ReadOnly = true;
+            this.textBoxExcellent.Size = new System.Drawing.Size(77, 20);
+            this.textBoxExcellent.TabIndex = 1;
             // 
             // label11
             // 
@@ -314,13 +335,93 @@
             this.label9.TabIndex = 3;
             this.label9.Text = "Xuất sắc:";
             // 
+            // label5
+            // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label5.AutoSize = true;
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(14, 12);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(64, 13);
+            this.label5.TabIndex = 3;
+            this.label5.Text = "Thành viên:";
+            // 
+            // textBoxMember
+            // 
+            this.textBoxMember.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxMember.Location = new System.Drawing.Point(84, 8);
+            this.textBoxMember.Name = "textBoxMember";
+            this.textBoxMember.ReadOnly = true;
+            this.textBoxMember.Size = new System.Drawing.Size(75, 20);
+            this.textBoxMember.TabIndex = 1;
+            // 
+            // textBoxTeacher
+            // 
+            this.textBoxTeacher.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxTeacher.Location = new System.Drawing.Point(84, 45);
+            this.textBoxTeacher.Name = "textBoxTeacher";
+            this.textBoxTeacher.ReadOnly = true;
+            this.textBoxTeacher.Size = new System.Drawing.Size(75, 20);
+            this.textBoxTeacher.TabIndex = 1;
+            // 
+            // textBoxStudent
+            // 
+            this.textBoxStudent.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxStudent.Location = new System.Drawing.Point(84, 82);
+            this.textBoxStudent.Name = "textBoxStudent";
+            this.textBoxStudent.ReadOnly = true;
+            this.textBoxStudent.Size = new System.Drawing.Size(75, 20);
+            this.textBoxStudent.TabIndex = 1;
+            // 
+            // label7
+            // 
+            this.label7.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label7.AutoSize = true;
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Location = new System.Drawing.Point(17, 49);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(61, 13);
+            this.label7.TabIndex = 3;
+            this.label7.Text = "Giảng viên:";
+            // 
+            // label6
+            // 
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label6.AutoSize = true;
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(24, 86);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(54, 13);
+            this.label6.TabIndex = 3;
+            this.label6.Text = "Sinh viên:";
+            // 
+            // textBoxGoodMember
+            // 
+            this.textBoxGoodMember.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxGoodMember.Location = new System.Drawing.Point(84, 120);
+            this.textBoxGoodMember.Name = "textBoxGoodMember";
+            this.textBoxGoodMember.ReadOnly = true;
+            this.textBoxGoodMember.Size = new System.Drawing.Size(75, 20);
+            this.textBoxGoodMember.TabIndex = 1;
+            // 
+            // label8
+            // 
+            this.label8.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label8.AutoSize = true;
+            this.label8.ForeColor = System.Drawing.Color.White;
+            this.label8.Location = new System.Drawing.Point(38, 124);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(40, 13);
+            this.label8.TabIndex = 3;
+            this.label8.Text = "DVUT:";
+            // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 24.84663F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 75.15337F));
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.textBoxName, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.textBoxIdGroup, 1, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -340,29 +441,31 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "Chi đoàn:";
             // 
-            // textBoxName
+            // textBoxIdGroup
             // 
-            this.textBoxName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxName.Location = new System.Drawing.Point(84, 6);
-            this.textBoxName.Name = "textBoxName";
-            this.textBoxName.Size = new System.Drawing.Size(239, 20);
-            this.textBoxName.TabIndex = 1;
+            this.textBoxIdGroup.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxIdGroup.Location = new System.Drawing.Point(84, 6);
+            this.textBoxIdGroup.Name = "textBoxIdGroup";
+            this.textBoxIdGroup.ReadOnly = true;
+            this.textBoxIdGroup.Size = new System.Drawing.Size(239, 20);
+            this.textBoxIdGroup.TabIndex = 1;
             // 
-            // buttonAdd
+            // buttonAuto
             // 
-            this.buttonAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonAdd.ForeColor = System.Drawing.Color.White;
-            this.buttonAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonAdd.Location = new System.Drawing.Point(718, 13);
-            this.buttonAdd.Name = "buttonAdd";
-            this.buttonAdd.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.buttonAdd.Size = new System.Drawing.Size(91, 39);
-            this.buttonAdd.TabIndex = 4;
-            this.buttonAdd.Text = "Đánh giá";
-            this.buttonAdd.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonAdd.UseVisualStyleBackColor = true;
+            this.buttonAuto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonAuto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonAuto.ForeColor = System.Drawing.Color.White;
+            this.buttonAuto.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonAuto.Location = new System.Drawing.Point(718, 13);
+            this.buttonAuto.Name = "buttonAuto";
+            this.buttonAuto.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.buttonAuto.Size = new System.Drawing.Size(91, 39);
+            this.buttonAuto.TabIndex = 4;
+            this.buttonAuto.Text = "Đánh giá";
+            this.buttonAuto.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonAuto.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonAuto.UseVisualStyleBackColor = true;
+            this.buttonAuto.Click += new System.EventHandler(this.buttonAuto_Click);
             // 
             // buttonDelete
             // 
@@ -442,9 +545,9 @@
             this.idGroup1,
             this.Rank1,
             this.Excellent1,
-            this.GreatMember1,
-            this.MediumMember1,
-            this.BadMember1,
+            this.Great1,
+            this.Medium1,
+            this.Bad1,
             this.TotalMember1,
             this.TotalStudent1,
             this.TotalTeacher1,
@@ -454,7 +557,6 @@
             this.Note1});
             this.dataGridViewScoresGroup.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewScoresGroup.Location = new System.Drawing.Point(0, 242);
-            this.dataGridViewScoresGroup.MultiSelect = false;
             this.dataGridViewScoresGroup.Name = "dataGridViewScoresGroup";
             this.dataGridViewScoresGroup.Size = new System.Drawing.Size(1000, 393);
             this.dataGridViewScoresGroup.TabIndex = 7;
@@ -465,6 +567,7 @@
             this.Id1.DataPropertyName = "id";
             this.Id1.HeaderText = "ID";
             this.Id1.Name = "Id1";
+            this.Id1.ReadOnly = true;
             // 
             // Semester1
             // 
@@ -485,10 +588,10 @@
             this.Rank1.DataPropertyName = "xepLoai";
             this.Rank1.HeaderText = "Xếp loại";
             this.Rank1.Items.AddRange(new object[] {
-            "Xuất sắc",
-            "Khá",
-            "Trung bình",
-            "Yếu kém"});
+            "Chi đoàn vững mạnh",
+            "Chi đoàn khá",
+            "Chi đoàn trung bình",
+            "Chi đoàn yếu kém"});
             this.Rank1.Name = "Rank1";
             this.Rank1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Rank1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
@@ -499,35 +602,37 @@
             this.Excellent1.HeaderText = "Xuất sắc";
             this.Excellent1.Name = "Excellent1";
             // 
-            // GreatMember1
+            // Great1
             // 
-            this.GreatMember1.DataPropertyName = "kha";
-            this.GreatMember1.HeaderText = "Khá";
-            this.GreatMember1.Name = "GreatMember1";
+            this.Great1.DataPropertyName = "kha";
+            this.Great1.HeaderText = "Khá";
+            this.Great1.Name = "Great1";
             // 
-            // MediumMember1
+            // Medium1
             // 
-            this.MediumMember1.DataPropertyName = "trungBinh";
-            this.MediumMember1.HeaderText = "Trung bình";
-            this.MediumMember1.Name = "MediumMember1";
+            this.Medium1.DataPropertyName = "trungBinh";
+            this.Medium1.HeaderText = "Trung bình";
+            this.Medium1.Name = "Medium1";
             // 
-            // BadMember1
+            // Bad1
             // 
-            this.BadMember1.DataPropertyName = "yeuKem";
-            this.BadMember1.HeaderText = "Yếu kém";
-            this.BadMember1.Name = "BadMember1";
+            this.Bad1.DataPropertyName = "yeuKem";
+            this.Bad1.HeaderText = "Yếu kém";
+            this.Bad1.Name = "Bad1";
             // 
             // TotalMember1
             // 
             this.TotalMember1.DataPropertyName = "soThanhVien";
             this.TotalMember1.HeaderText = "Số thành viên";
             this.TotalMember1.Name = "TotalMember1";
+            this.TotalMember1.ReadOnly = true;
             // 
             // TotalStudent1
             // 
             this.TotalStudent1.DataPropertyName = "tongSV";
             this.TotalStudent1.HeaderText = "Sinh viên";
             this.TotalStudent1.Name = "TotalStudent1";
+            this.TotalStudent1.ReadOnly = true;
             // 
             // TotalTeacher1
             // 
@@ -595,19 +700,19 @@
         private System.Windows.Forms.ComboBox comboBoxSemester;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox comboBoxRank;
-        private System.Windows.Forms.Button buttonAdd;
+        private System.Windows.Forms.Button buttonAuto;
         private System.Windows.Forms.Button buttonUpdate;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBoxName;
+        private System.Windows.Forms.TextBox textBoxIdGroup;
         private System.Windows.Forms.Panel panelTop;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox textBoxBad;
+        private System.Windows.Forms.TextBox textBoxMedium;
+        private System.Windows.Forms.TextBox textBoxGreate;
+        private System.Windows.Forms.TextBox textBoxExcellent;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
@@ -616,17 +721,25 @@
         private System.Windows.Forms.ComboBox comboBoxGroup;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.DataGridView dataGridViewScoresGroup;
+        private System.Windows.Forms.RichTextBox textBoxNote;
         private System.Windows.Forms.Button buttonDelete;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox textBoxMember;
+        private System.Windows.Forms.TextBox textBoxTeacher;
+        private System.Windows.Forms.TextBox textBoxStudent;
+        private System.Windows.Forms.DataGridView dataGridViewScoresGroup;
+        private System.Windows.Forms.TextBox textBoxGoodMember;
+        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Semester1;
         private System.Windows.Forms.DataGridViewTextBoxColumn idGroup1;
         private System.Windows.Forms.DataGridViewComboBoxColumn Rank1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Excellent1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn GreatMember1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MediumMember1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn BadMember1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Great1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Medium1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Bad1;
         private System.Windows.Forms.DataGridViewTextBoxColumn TotalMember1;
         private System.Windows.Forms.DataGridViewTextBoxColumn TotalStudent1;
         private System.Windows.Forms.DataGridViewTextBoxColumn TotalTeacher1;

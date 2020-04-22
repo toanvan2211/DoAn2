@@ -19,18 +19,18 @@ namespace DanhGiaDoanVien.DAO
         }
         public ScoresGroupDAO() { }
 
-        public object GetListScoresGroup()
+        public DataTable GetListScoresGroup()
         {
-            DanhGiaDoanVienDataContext db = new DanhGiaDoanVienDataContext();
+            string query = "select * from KetQuaChiDoan";
 
-            return db.KetQuaChiDoans.Select(k => k);
+            return DataProvider.Instance.ExecuteQuery(query);
         }
 
-        public object GetListScoresGroup(string idSemester)
+        public DataTable GetListScoresGroup(string idSemester)
         {
-            DanhGiaDoanVienDataContext db = new DanhGiaDoanVienDataContext();
+            string query = "select * from KetQuaChiDoan where idNamHoc = '" + idSemester + "'";
 
-            return db.KetQuaChiDoans.Where(p => p.idNamHoc == idSemester);
+            return DataProvider.Instance.ExecuteQuery(query);
         }
 
         public DataTable GetListScoresStudentByID(string idGroup, string idSemester)
@@ -93,6 +93,12 @@ namespace DanhGiaDoanVien.DAO
                     DataProvider.Instance.ExecuteNonQuery(query, new object[] { tc.IdTeacher, id });
                 }
             }
+        }
+
+        public int UpdateScoresGroup(int id, string rank, string note)
+        {
+            string query = "USP_UpdateScoresGroup @id , @rank , @note";
+            return DataProvider.Instance.ExecuteNonQuery(query, new object[] { id, rank, note });
         }
 
         public int DeleteScoresGroup(int id)

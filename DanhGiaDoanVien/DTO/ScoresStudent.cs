@@ -10,7 +10,7 @@ namespace DanhGiaDoanVien.DTO
     public class ScoresStudent
     {
         private int id;
-        private string idSemester;
+        private string idScoresGroup;
         private string idStudent;
         private float averageSemester1;
         private float averageSemester2;
@@ -22,10 +22,9 @@ namespace DanhGiaDoanVien.DTO
         private string achievement;
         private bool isGoodMember;
         private string note;
-        private bool isHandle = false;
 
         public int Id { get => id; set => id = value; }
-        public string IdSemester { get => idSemester; set => idSemester = value; }
+        public string IdScoresGroup { get => idScoresGroup; set => idScoresGroup = value; }
         public string IdStudent { get => idStudent; set => idStudent = value; }
         public float AverageSemester1 { get => averageSemester1; set => averageSemester1 = value; }
         public float AverageSemester2 { get => averageSemester2; set => averageSemester2 = value; }
@@ -36,14 +35,13 @@ namespace DanhGiaDoanVien.DTO
         public string Rank { get => rank; set => rank = value; }
         public string Achievement { get => achievement; set => achievement = value; }
         public bool IsGoodMember { get => isGoodMember; set => isGoodMember = value; }
-        public bool IsHandle { get => isHandle; set => isHandle = value; }
         public string Note { get => note; set => note = value; }
 
         public ScoresStudent() { }
         public ScoresStudent(DataRow row)
         {
             Id = (int)row["id"];
-            IdSemester = (string)row["idNamHoc"];
+            IdScoresGroup = (string)row["idKetQuaChiDoan"];
             IdStudent = (string)row["MSSV"];
             AverageSemester1 = (float)row["diemHK1"];
             AverageSemester2 = (float)row["diemHK2"];

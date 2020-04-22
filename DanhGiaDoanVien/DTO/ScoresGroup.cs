@@ -15,7 +15,7 @@ namespace DanhGiaDoanVien.DTO
         private int excellentMember;
         private int greatMember;
         private int mediumMember;
-        private int babMember;
+        private int badMember;
         private int totalMember;
         private int totalStudent;
         private int totalFemalStudent;
@@ -23,7 +23,6 @@ namespace DanhGiaDoanVien.DTO
         private int totalFemalTeacher;
         private int totalGoodMember;
         private string note;
-        private bool isHandle = false;
 
         public int Id { get => id; set => id = value; }
         public string IdSemester { get => idSemester; set => idSemester = value; }
@@ -31,12 +30,11 @@ namespace DanhGiaDoanVien.DTO
         public int ExcellentMember { get => excellentMember; set => excellentMember = value; }
         public int GreatMember { get => greatMember; set => greatMember = value; }
         public int MediumMember { get => mediumMember; set => mediumMember = value; }
-        public int BabMember { get => babMember; set => babMember = value; }
+        public int BadMember { get => badMember; set => badMember = value; }
         public int TotalMember { get => totalMember; set => totalMember = value; }
         public int TotalStudent { get => totalStudent; set => totalStudent = value; }
         public int TotalTeacher { get => totalTeacher; set => totalTeacher = value; }
         public int TotalGoodMember { get => totalGoodMember; set => totalGoodMember = value; }
-        public bool IsHandle { get => isHandle; set => isHandle = value; }
         public string Note { get => note; set => note = value; }
         public int TotalFemalStudent { get => totalFemalStudent; set => totalFemalStudent = value; }
         public int TotalFemalTeacher { get => totalFemalTeacher; set => totalFemalTeacher = value; }
@@ -50,12 +48,14 @@ namespace DanhGiaDoanVien.DTO
             ExcellentMember = (int)row["xuatSac"];
             GreatMember = (int)row["kha"];
             MediumMember = (int)row["trungBinh"];
-            BabMember = (int)row["yeuKem"];
+            BadMember = (int)row["yeuKem"];
             TotalMember = (int)row["tongDoanVien"];
             TotalStudent = (int)row["tongSV"];
             TotalTeacher = (int)row["tongGV"];
             TotalGoodMember = (int)row["tongDVUT"];
             Note = (string)row["ghiChu"];
+            TotalFemalStudent = (int)row["tongNuSV"];
+            TotalFemalTeacher = (int)row["tongNuGV"];
         }
     }
 }

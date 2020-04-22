@@ -193,6 +193,12 @@ namespace DanhGiaDoanVien.Other_Class
 		
 		private int _tongNuGV;
 		
+		private EntitySet<GiangVien> _GiangViens;
+		
+		private EntitySet<KetQuaChiDoan> _KetQuaChiDoans;
+		
+		private EntitySet<SinhVien> _SinhViens;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -215,6 +221,9 @@ namespace DanhGiaDoanVien.Other_Class
 		
 		public ChiDoan()
 		{
+			this._GiangViens = new EntitySet<GiangVien>(new Action<GiangVien>(this.attach_GiangViens), new Action<GiangVien>(this.detach_GiangViens));
+			this._KetQuaChiDoans = new EntitySet<KetQuaChiDoan>(new Action<KetQuaChiDoan>(this.attach_KetQuaChiDoans), new Action<KetQuaChiDoan>(this.detach_KetQuaChiDoans));
+			this._SinhViens = new EntitySet<SinhVien>(new Action<SinhVien>(this.attach_SinhViens), new Action<SinhVien>(this.detach_SinhViens));
 			OnCreated();
 		}
 		
@@ -358,6 +367,45 @@ namespace DanhGiaDoanVien.Other_Class
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ChiDoan_GiangVien", Storage="_GiangViens", ThisKey="id", OtherKey="chiDoan")]
+		public EntitySet<GiangVien> GiangViens
+		{
+			get
+			{
+				return this._GiangViens;
+			}
+			set
+			{
+				this._GiangViens.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ChiDoan_KetQuaChiDoan", Storage="_KetQuaChiDoans", ThisKey="id", OtherKey="idChiDoan")]
+		public EntitySet<KetQuaChiDoan> KetQuaChiDoans
+		{
+			get
+			{
+				return this._KetQuaChiDoans;
+			}
+			set
+			{
+				this._KetQuaChiDoans.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ChiDoan_SinhVien", Storage="_SinhViens", ThisKey="id", OtherKey="chiDoan")]
+		public EntitySet<SinhVien> SinhViens
+		{
+			get
+			{
+				return this._SinhViens;
+			}
+			set
+			{
+				this._SinhViens.Assign(value);
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -377,6 +425,42 @@ namespace DanhGiaDoanVien.Other_Class
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
+		
+		private void attach_GiangViens(GiangVien entity)
+		{
+			this.SendPropertyChanging();
+			entity.ChiDoan1 = this;
+		}
+		
+		private void detach_GiangViens(GiangVien entity)
+		{
+			this.SendPropertyChanging();
+			entity.ChiDoan1 = null;
+		}
+		
+		private void attach_KetQuaChiDoans(KetQuaChiDoan entity)
+		{
+			this.SendPropertyChanging();
+			entity.ChiDoan = this;
+		}
+		
+		private void detach_KetQuaChiDoans(KetQuaChiDoan entity)
+		{
+			this.SendPropertyChanging();
+			entity.ChiDoan = null;
+		}
+		
+		private void attach_SinhViens(SinhVien entity)
+		{
+			this.SendPropertyChanging();
+			entity.ChiDoan1 = this;
+		}
+		
+		private void detach_SinhViens(SinhVien entity)
+		{
+			this.SendPropertyChanging();
+			entity.ChiDoan1 = null;
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TaiKhoan")]
@@ -390,6 +474,8 @@ namespace DanhGiaDoanVien.Other_Class
 		private string _matKhau;
 		
 		private string _MSGV;
+		
+		private EntityRef<GiangVien> _GiangVien;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -405,6 +491,7 @@ namespace DanhGiaDoanVien.Other_Class
 		
 		public TaiKhoan()
 		{
+			this._GiangVien = default(EntityRef<GiangVien>);
 			OnCreated();
 		}
 		
@@ -459,11 +546,49 @@ namespace DanhGiaDoanVien.Other_Class
 			{
 				if ((this._MSGV != value))
 				{
+					if (this._GiangVien.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
 					this.OnMSGVChanging(value);
 					this.SendPropertyChanging();
 					this._MSGV = value;
 					this.SendPropertyChanged("MSGV");
 					this.OnMSGVChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="GiangVien_TaiKhoan", Storage="_GiangVien", ThisKey="MSGV", OtherKey="MSGV", IsForeignKey=true, DeleteRule="CASCADE")]
+		public GiangVien GiangVien
+		{
+			get
+			{
+				return this._GiangVien.Entity;
+			}
+			set
+			{
+				GiangVien previousValue = this._GiangVien.Entity;
+				if (((previousValue != value) 
+							|| (this._GiangVien.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._GiangVien.Entity = null;
+						previousValue.TaiKhoans.Remove(this);
+					}
+					this._GiangVien.Entity = value;
+					if ((value != null))
+					{
+						value.TaiKhoans.Add(this);
+						this._MSGV = value.MSGV;
+					}
+					else
+					{
+						this._MSGV = default(string);
+					}
+					this.SendPropertyChanged("GiangVien");
 				}
 			}
 		}
@@ -505,6 +630,10 @@ namespace DanhGiaDoanVien.Other_Class
 		
 		private int _tongPhieu;
 		
+		private EntityRef<GiangVien> _GiangVien;
+		
+		private EntityRef<KetQuaChiDoan> _KetQuaChiDoan;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -523,6 +652,8 @@ namespace DanhGiaDoanVien.Other_Class
 		
 		public DoanVienUuTuGV()
 		{
+			this._GiangVien = default(EntityRef<GiangVien>);
+			this._KetQuaChiDoan = default(EntityRef<KetQuaChiDoan>);
 			OnCreated();
 		}
 		
@@ -557,6 +688,10 @@ namespace DanhGiaDoanVien.Other_Class
 			{
 				if ((this._MSGV != value))
 				{
+					if (this._GiangVien.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
 					this.OnMSGVChanging(value);
 					this.SendPropertyChanging();
 					this._MSGV = value;
@@ -577,6 +712,10 @@ namespace DanhGiaDoanVien.Other_Class
 			{
 				if ((this._idKetQuaChiDoan != value))
 				{
+					if (this._KetQuaChiDoan.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
 					this.OnidKetQuaChiDoanChanging(value);
 					this.SendPropertyChanging();
 					this._idKetQuaChiDoan = value;
@@ -622,6 +761,74 @@ namespace DanhGiaDoanVien.Other_Class
 					this._tongPhieu = value;
 					this.SendPropertyChanged("tongPhieu");
 					this.OntongPhieuChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="GiangVien_DoanVienUuTuGV", Storage="_GiangVien", ThisKey="MSGV", OtherKey="MSGV", IsForeignKey=true, DeleteRule="CASCADE")]
+		public GiangVien GiangVien
+		{
+			get
+			{
+				return this._GiangVien.Entity;
+			}
+			set
+			{
+				GiangVien previousValue = this._GiangVien.Entity;
+				if (((previousValue != value) 
+							|| (this._GiangVien.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._GiangVien.Entity = null;
+						previousValue.DoanVienUuTuGVs.Remove(this);
+					}
+					this._GiangVien.Entity = value;
+					if ((value != null))
+					{
+						value.DoanVienUuTuGVs.Add(this);
+						this._MSGV = value.MSGV;
+					}
+					else
+					{
+						this._MSGV = default(string);
+					}
+					this.SendPropertyChanged("GiangVien");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="KetQuaChiDoan_DoanVienUuTuGV", Storage="_KetQuaChiDoan", ThisKey="idKetQuaChiDoan", OtherKey="id", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
+		public KetQuaChiDoan KetQuaChiDoan
+		{
+			get
+			{
+				return this._KetQuaChiDoan.Entity;
+			}
+			set
+			{
+				KetQuaChiDoan previousValue = this._KetQuaChiDoan.Entity;
+				if (((previousValue != value) 
+							|| (this._KetQuaChiDoan.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._KetQuaChiDoan.Entity = null;
+						previousValue.DoanVienUuTuGVs.Remove(this);
+					}
+					this._KetQuaChiDoan.Entity = value;
+					if ((value != null))
+					{
+						value.DoanVienUuTuGVs.Add(this);
+						this._idKetQuaChiDoan = value.id;
+					}
+					else
+					{
+						this._idKetQuaChiDoan = default(int);
+					}
+					this.SendPropertyChanged("KetQuaChiDoan");
 				}
 			}
 		}
@@ -663,6 +870,10 @@ namespace DanhGiaDoanVien.Other_Class
 		
 		private int _tongPhieu;
 		
+		private EntityRef<KetQuaChiDoan> _KetQuaChiDoan;
+		
+		private EntityRef<SinhVien> _SinhVien;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -681,6 +892,8 @@ namespace DanhGiaDoanVien.Other_Class
 		
 		public DoanVienUuTuSV()
 		{
+			this._KetQuaChiDoan = default(EntityRef<KetQuaChiDoan>);
+			this._SinhVien = default(EntityRef<SinhVien>);
 			OnCreated();
 		}
 		
@@ -715,6 +928,10 @@ namespace DanhGiaDoanVien.Other_Class
 			{
 				if ((this._MSSV != value))
 				{
+					if (this._SinhVien.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
 					this.OnMSSVChanging(value);
 					this.SendPropertyChanging();
 					this._MSSV = value;
@@ -735,6 +952,10 @@ namespace DanhGiaDoanVien.Other_Class
 			{
 				if ((this._idKetQuaChiDoan != value))
 				{
+					if (this._KetQuaChiDoan.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
 					this.OnidKetQuaChiDoanChanging(value);
 					this.SendPropertyChanging();
 					this._idKetQuaChiDoan = value;
@@ -784,6 +1005,74 @@ namespace DanhGiaDoanVien.Other_Class
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="KetQuaChiDoan_DoanVienUuTuSV", Storage="_KetQuaChiDoan", ThisKey="idKetQuaChiDoan", OtherKey="id", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
+		public KetQuaChiDoan KetQuaChiDoan
+		{
+			get
+			{
+				return this._KetQuaChiDoan.Entity;
+			}
+			set
+			{
+				KetQuaChiDoan previousValue = this._KetQuaChiDoan.Entity;
+				if (((previousValue != value) 
+							|| (this._KetQuaChiDoan.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._KetQuaChiDoan.Entity = null;
+						previousValue.DoanVienUuTuSVs.Remove(this);
+					}
+					this._KetQuaChiDoan.Entity = value;
+					if ((value != null))
+					{
+						value.DoanVienUuTuSVs.Add(this);
+						this._idKetQuaChiDoan = value.id;
+					}
+					else
+					{
+						this._idKetQuaChiDoan = default(int);
+					}
+					this.SendPropertyChanged("KetQuaChiDoan");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SinhVien_DoanVienUuTuSV", Storage="_SinhVien", ThisKey="MSSV", OtherKey="MSSV", IsForeignKey=true, DeleteRule="CASCADE")]
+		public SinhVien SinhVien
+		{
+			get
+			{
+				return this._SinhVien.Entity;
+			}
+			set
+			{
+				SinhVien previousValue = this._SinhVien.Entity;
+				if (((previousValue != value) 
+							|| (this._SinhVien.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._SinhVien.Entity = null;
+						previousValue.DoanVienUuTuSVs.Remove(this);
+					}
+					this._SinhVien.Entity = value;
+					if ((value != null))
+					{
+						value.DoanVienUuTuSVs.Add(this);
+						this._MSSV = value.MSSV;
+					}
+					else
+					{
+						this._MSSV = default(string);
+					}
+					this.SendPropertyChanged("SinhVien");
+				}
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -821,6 +1110,14 @@ namespace DanhGiaDoanVien.Other_Class
 		
 		private bool _doanVien;
 		
+		private EntitySet<TaiKhoan> _TaiKhoans;
+		
+		private EntitySet<DoanVienUuTuGV> _DoanVienUuTuGVs;
+		
+		private EntitySet<KetQuaGiangVien> _KetQuaGiangViens;
+		
+		private EntityRef<ChiDoan> _ChiDoan1;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -839,6 +1136,10 @@ namespace DanhGiaDoanVien.Other_Class
 		
 		public GiangVien()
 		{
+			this._TaiKhoans = new EntitySet<TaiKhoan>(new Action<TaiKhoan>(this.attach_TaiKhoans), new Action<TaiKhoan>(this.detach_TaiKhoans));
+			this._DoanVienUuTuGVs = new EntitySet<DoanVienUuTuGV>(new Action<DoanVienUuTuGV>(this.attach_DoanVienUuTuGVs), new Action<DoanVienUuTuGV>(this.detach_DoanVienUuTuGVs));
+			this._KetQuaGiangViens = new EntitySet<KetQuaGiangVien>(new Action<KetQuaGiangVien>(this.attach_KetQuaGiangViens), new Action<KetQuaGiangVien>(this.detach_KetQuaGiangViens));
+			this._ChiDoan1 = default(EntityRef<ChiDoan>);
 			OnCreated();
 		}
 		
@@ -913,6 +1214,10 @@ namespace DanhGiaDoanVien.Other_Class
 			{
 				if ((this._chiDoan != value))
 				{
+					if (this._ChiDoan1.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
 					this.OnchiDoanChanging(value);
 					this.SendPropertyChanging();
 					this._chiDoan = value;
@@ -942,6 +1247,79 @@ namespace DanhGiaDoanVien.Other_Class
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="GiangVien_TaiKhoan", Storage="_TaiKhoans", ThisKey="MSGV", OtherKey="MSGV")]
+		public EntitySet<TaiKhoan> TaiKhoans
+		{
+			get
+			{
+				return this._TaiKhoans;
+			}
+			set
+			{
+				this._TaiKhoans.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="GiangVien_DoanVienUuTuGV", Storage="_DoanVienUuTuGVs", ThisKey="MSGV", OtherKey="MSGV")]
+		public EntitySet<DoanVienUuTuGV> DoanVienUuTuGVs
+		{
+			get
+			{
+				return this._DoanVienUuTuGVs;
+			}
+			set
+			{
+				this._DoanVienUuTuGVs.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="GiangVien_KetQuaGiangVien", Storage="_KetQuaGiangViens", ThisKey="MSGV", OtherKey="MSGV")]
+		public EntitySet<KetQuaGiangVien> KetQuaGiangViens
+		{
+			get
+			{
+				return this._KetQuaGiangViens;
+			}
+			set
+			{
+				this._KetQuaGiangViens.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ChiDoan_GiangVien", Storage="_ChiDoan1", ThisKey="chiDoan", OtherKey="id", IsForeignKey=true, DeleteRule="SET NULL")]
+		public ChiDoan ChiDoan1
+		{
+			get
+			{
+				return this._ChiDoan1.Entity;
+			}
+			set
+			{
+				ChiDoan previousValue = this._ChiDoan1.Entity;
+				if (((previousValue != value) 
+							|| (this._ChiDoan1.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._ChiDoan1.Entity = null;
+						previousValue.GiangViens.Remove(this);
+					}
+					this._ChiDoan1.Entity = value;
+					if ((value != null))
+					{
+						value.GiangViens.Add(this);
+						this._chiDoan = value.id;
+					}
+					else
+					{
+						this._chiDoan = default(string);
+					}
+					this.SendPropertyChanged("ChiDoan1");
+				}
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -960,6 +1338,42 @@ namespace DanhGiaDoanVien.Other_Class
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+		
+		private void attach_TaiKhoans(TaiKhoan entity)
+		{
+			this.SendPropertyChanging();
+			entity.GiangVien = this;
+		}
+		
+		private void detach_TaiKhoans(TaiKhoan entity)
+		{
+			this.SendPropertyChanging();
+			entity.GiangVien = null;
+		}
+		
+		private void attach_DoanVienUuTuGVs(DoanVienUuTuGV entity)
+		{
+			this.SendPropertyChanging();
+			entity.GiangVien = this;
+		}
+		
+		private void detach_DoanVienUuTuGVs(DoanVienUuTuGV entity)
+		{
+			this.SendPropertyChanging();
+			entity.GiangVien = null;
+		}
+		
+		private void attach_KetQuaGiangViens(KetQuaGiangVien entity)
+		{
+			this.SendPropertyChanging();
+			entity.GiangVien = this;
+		}
+		
+		private void detach_KetQuaGiangViens(KetQuaGiangVien entity)
+		{
+			this.SendPropertyChanging();
+			entity.GiangVien = null;
 		}
 	}
 	
@@ -999,6 +1413,18 @@ namespace DanhGiaDoanVien.Other_Class
 		
 		private string _ghiChu;
 		
+		private EntitySet<DoanVienUuTuGV> _DoanVienUuTuGVs;
+		
+		private EntitySet<DoanVienUuTuSV> _DoanVienUuTuSVs;
+		
+		private EntitySet<KetQuaGiangVien> _KetQuaGiangViens;
+		
+		private EntitySet<KetQuaSinhVien> _KetQuaSinhViens;
+		
+		private EntityRef<ChiDoan> _ChiDoan;
+		
+		private EntityRef<nam> _nam;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -1037,6 +1463,12 @@ namespace DanhGiaDoanVien.Other_Class
 		
 		public KetQuaChiDoan()
 		{
+			this._DoanVienUuTuGVs = new EntitySet<DoanVienUuTuGV>(new Action<DoanVienUuTuGV>(this.attach_DoanVienUuTuGVs), new Action<DoanVienUuTuGV>(this.detach_DoanVienUuTuGVs));
+			this._DoanVienUuTuSVs = new EntitySet<DoanVienUuTuSV>(new Action<DoanVienUuTuSV>(this.attach_DoanVienUuTuSVs), new Action<DoanVienUuTuSV>(this.detach_DoanVienUuTuSVs));
+			this._KetQuaGiangViens = new EntitySet<KetQuaGiangVien>(new Action<KetQuaGiangVien>(this.attach_KetQuaGiangViens), new Action<KetQuaGiangVien>(this.detach_KetQuaGiangViens));
+			this._KetQuaSinhViens = new EntitySet<KetQuaSinhVien>(new Action<KetQuaSinhVien>(this.attach_KetQuaSinhViens), new Action<KetQuaSinhVien>(this.detach_KetQuaSinhViens));
+			this._ChiDoan = default(EntityRef<ChiDoan>);
+			this._nam = default(EntityRef<nam>);
 			OnCreated();
 		}
 		
@@ -1071,6 +1503,10 @@ namespace DanhGiaDoanVien.Other_Class
 			{
 				if ((this._idChiDoan != value))
 				{
+					if (this._ChiDoan.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
 					this.OnidChiDoanChanging(value);
 					this.SendPropertyChanging();
 					this._idChiDoan = value;
@@ -1091,6 +1527,10 @@ namespace DanhGiaDoanVien.Other_Class
 			{
 				if ((this._idNamHoc != value))
 				{
+					if (this._nam.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
 					this.OnidNamHocChanging(value);
 					this.SendPropertyChanging();
 					this._idNamHoc = value;
@@ -1340,6 +1780,126 @@ namespace DanhGiaDoanVien.Other_Class
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="KetQuaChiDoan_DoanVienUuTuGV", Storage="_DoanVienUuTuGVs", ThisKey="id", OtherKey="idKetQuaChiDoan")]
+		public EntitySet<DoanVienUuTuGV> DoanVienUuTuGVs
+		{
+			get
+			{
+				return this._DoanVienUuTuGVs;
+			}
+			set
+			{
+				this._DoanVienUuTuGVs.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="KetQuaChiDoan_DoanVienUuTuSV", Storage="_DoanVienUuTuSVs", ThisKey="id", OtherKey="idKetQuaChiDoan")]
+		public EntitySet<DoanVienUuTuSV> DoanVienUuTuSVs
+		{
+			get
+			{
+				return this._DoanVienUuTuSVs;
+			}
+			set
+			{
+				this._DoanVienUuTuSVs.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="KetQuaChiDoan_KetQuaGiangVien", Storage="_KetQuaGiangViens", ThisKey="id", OtherKey="idKetQuaChiDoan")]
+		public EntitySet<KetQuaGiangVien> KetQuaGiangViens
+		{
+			get
+			{
+				return this._KetQuaGiangViens;
+			}
+			set
+			{
+				this._KetQuaGiangViens.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="KetQuaChiDoan_KetQuaSinhVien", Storage="_KetQuaSinhViens", ThisKey="id", OtherKey="idKetQuaChiDoan")]
+		public EntitySet<KetQuaSinhVien> KetQuaSinhViens
+		{
+			get
+			{
+				return this._KetQuaSinhViens;
+			}
+			set
+			{
+				this._KetQuaSinhViens.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ChiDoan_KetQuaChiDoan", Storage="_ChiDoan", ThisKey="idChiDoan", OtherKey="id", IsForeignKey=true, DeleteRule="CASCADE")]
+		public ChiDoan ChiDoan
+		{
+			get
+			{
+				return this._ChiDoan.Entity;
+			}
+			set
+			{
+				ChiDoan previousValue = this._ChiDoan.Entity;
+				if (((previousValue != value) 
+							|| (this._ChiDoan.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._ChiDoan.Entity = null;
+						previousValue.KetQuaChiDoans.Remove(this);
+					}
+					this._ChiDoan.Entity = value;
+					if ((value != null))
+					{
+						value.KetQuaChiDoans.Add(this);
+						this._idChiDoan = value.id;
+					}
+					else
+					{
+						this._idChiDoan = default(string);
+					}
+					this.SendPropertyChanged("ChiDoan");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="nam_KetQuaChiDoan", Storage="_nam", ThisKey="idNamHoc", OtherKey="id", IsForeignKey=true, DeleteRule="CASCADE")]
+		public nam nam
+		{
+			get
+			{
+				return this._nam.Entity;
+			}
+			set
+			{
+				nam previousValue = this._nam.Entity;
+				if (((previousValue != value) 
+							|| (this._nam.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._nam.Entity = null;
+						previousValue.KetQuaChiDoans.Remove(this);
+					}
+					this._nam.Entity = value;
+					if ((value != null))
+					{
+						value.KetQuaChiDoans.Add(this);
+						this._idNamHoc = value.id;
+					}
+					else
+					{
+						this._idNamHoc = default(string);
+					}
+					this.SendPropertyChanged("nam");
+				}
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -1358,6 +1918,54 @@ namespace DanhGiaDoanVien.Other_Class
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+		
+		private void attach_DoanVienUuTuGVs(DoanVienUuTuGV entity)
+		{
+			this.SendPropertyChanging();
+			entity.KetQuaChiDoan = this;
+		}
+		
+		private void detach_DoanVienUuTuGVs(DoanVienUuTuGV entity)
+		{
+			this.SendPropertyChanging();
+			entity.KetQuaChiDoan = null;
+		}
+		
+		private void attach_DoanVienUuTuSVs(DoanVienUuTuSV entity)
+		{
+			this.SendPropertyChanging();
+			entity.KetQuaChiDoan = this;
+		}
+		
+		private void detach_DoanVienUuTuSVs(DoanVienUuTuSV entity)
+		{
+			this.SendPropertyChanging();
+			entity.KetQuaChiDoan = null;
+		}
+		
+		private void attach_KetQuaGiangViens(KetQuaGiangVien entity)
+		{
+			this.SendPropertyChanging();
+			entity.KetQuaChiDoan = this;
+		}
+		
+		private void detach_KetQuaGiangViens(KetQuaGiangVien entity)
+		{
+			this.SendPropertyChanging();
+			entity.KetQuaChiDoan = null;
+		}
+		
+		private void attach_KetQuaSinhViens(KetQuaSinhVien entity)
+		{
+			this.SendPropertyChanging();
+			entity.KetQuaChiDoan = this;
+		}
+		
+		private void detach_KetQuaSinhViens(KetQuaSinhVien entity)
+		{
+			this.SendPropertyChanging();
+			entity.KetQuaChiDoan = null;
 		}
 	}
 	
@@ -1383,6 +1991,10 @@ namespace DanhGiaDoanVien.Other_Class
 		
 		private string _ghiChu;
 		
+		private EntityRef<KetQuaChiDoan> _KetQuaChiDoan;
+		
+		private EntityRef<GiangVien> _GiangVien;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -1407,6 +2019,8 @@ namespace DanhGiaDoanVien.Other_Class
 		
 		public KetQuaGiangVien()
 		{
+			this._KetQuaChiDoan = default(EntityRef<KetQuaChiDoan>);
+			this._GiangVien = default(EntityRef<GiangVien>);
 			OnCreated();
 		}
 		
@@ -1441,6 +2055,10 @@ namespace DanhGiaDoanVien.Other_Class
 			{
 				if ((this._idKetQuaChiDoan != value))
 				{
+					if (this._KetQuaChiDoan.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
 					this.OnidKetQuaChiDoanChanging(value);
 					this.SendPropertyChanging();
 					this._idKetQuaChiDoan = value;
@@ -1461,6 +2079,10 @@ namespace DanhGiaDoanVien.Other_Class
 			{
 				if ((this._MSGV != value))
 				{
+					if (this._GiangVien.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
 					this.OnMSGVChanging(value);
 					this.SendPropertyChanging();
 					this._MSGV = value;
@@ -1570,6 +2192,74 @@ namespace DanhGiaDoanVien.Other_Class
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="KetQuaChiDoan_KetQuaGiangVien", Storage="_KetQuaChiDoan", ThisKey="idKetQuaChiDoan", OtherKey="id", IsForeignKey=true, DeleteRule="CASCADE")]
+		public KetQuaChiDoan KetQuaChiDoan
+		{
+			get
+			{
+				return this._KetQuaChiDoan.Entity;
+			}
+			set
+			{
+				KetQuaChiDoan previousValue = this._KetQuaChiDoan.Entity;
+				if (((previousValue != value) 
+							|| (this._KetQuaChiDoan.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._KetQuaChiDoan.Entity = null;
+						previousValue.KetQuaGiangViens.Remove(this);
+					}
+					this._KetQuaChiDoan.Entity = value;
+					if ((value != null))
+					{
+						value.KetQuaGiangViens.Add(this);
+						this._idKetQuaChiDoan = value.id;
+					}
+					else
+					{
+						this._idKetQuaChiDoan = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("KetQuaChiDoan");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="GiangVien_KetQuaGiangVien", Storage="_GiangVien", ThisKey="MSGV", OtherKey="MSGV", IsForeignKey=true, DeleteRule="CASCADE")]
+		public GiangVien GiangVien
+		{
+			get
+			{
+				return this._GiangVien.Entity;
+			}
+			set
+			{
+				GiangVien previousValue = this._GiangVien.Entity;
+				if (((previousValue != value) 
+							|| (this._GiangVien.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._GiangVien.Entity = null;
+						previousValue.KetQuaGiangViens.Remove(this);
+					}
+					this._GiangVien.Entity = value;
+					if ((value != null))
+					{
+						value.KetQuaGiangViens.Add(this);
+						this._MSGV = value.MSGV;
+					}
+					else
+					{
+						this._MSGV = default(string);
+					}
+					this.SendPropertyChanged("GiangVien");
+				}
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -1623,6 +2313,10 @@ namespace DanhGiaDoanVien.Other_Class
 		
 		private string _ghiChu;
 		
+		private EntityRef<KetQuaChiDoan> _KetQuaChiDoan;
+		
+		private EntityRef<SinhVien> _SinhVien;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -1657,6 +2351,8 @@ namespace DanhGiaDoanVien.Other_Class
 		
 		public KetQuaSinhVien()
 		{
+			this._KetQuaChiDoan = default(EntityRef<KetQuaChiDoan>);
+			this._SinhVien = default(EntityRef<SinhVien>);
 			OnCreated();
 		}
 		
@@ -1691,6 +2387,10 @@ namespace DanhGiaDoanVien.Other_Class
 			{
 				if ((this._idKetQuaChiDoan != value))
 				{
+					if (this._KetQuaChiDoan.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
 					this.OnidKetQuaChiDoanChanging(value);
 					this.SendPropertyChanging();
 					this._idKetQuaChiDoan = value;
@@ -1711,6 +2411,10 @@ namespace DanhGiaDoanVien.Other_Class
 			{
 				if ((this._MSSV != value))
 				{
+					if (this._SinhVien.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
 					this.OnMSSVChanging(value);
 					this.SendPropertyChanging();
 					this._MSSV = value;
@@ -1920,6 +2624,74 @@ namespace DanhGiaDoanVien.Other_Class
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="KetQuaChiDoan_KetQuaSinhVien", Storage="_KetQuaChiDoan", ThisKey="idKetQuaChiDoan", OtherKey="id", IsForeignKey=true, DeleteRule="CASCADE")]
+		public KetQuaChiDoan KetQuaChiDoan
+		{
+			get
+			{
+				return this._KetQuaChiDoan.Entity;
+			}
+			set
+			{
+				KetQuaChiDoan previousValue = this._KetQuaChiDoan.Entity;
+				if (((previousValue != value) 
+							|| (this._KetQuaChiDoan.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._KetQuaChiDoan.Entity = null;
+						previousValue.KetQuaSinhViens.Remove(this);
+					}
+					this._KetQuaChiDoan.Entity = value;
+					if ((value != null))
+					{
+						value.KetQuaSinhViens.Add(this);
+						this._idKetQuaChiDoan = value.id;
+					}
+					else
+					{
+						this._idKetQuaChiDoan = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("KetQuaChiDoan");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SinhVien_KetQuaSinhVien", Storage="_SinhVien", ThisKey="MSSV", OtherKey="MSSV", IsForeignKey=true, DeleteRule="CASCADE")]
+		public SinhVien SinhVien
+		{
+			get
+			{
+				return this._SinhVien.Entity;
+			}
+			set
+			{
+				SinhVien previousValue = this._SinhVien.Entity;
+				if (((previousValue != value) 
+							|| (this._SinhVien.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._SinhVien.Entity = null;
+						previousValue.KetQuaSinhViens.Remove(this);
+					}
+					this._SinhVien.Entity = value;
+					if ((value != null))
+					{
+						value.KetQuaSinhViens.Add(this);
+						this._MSSV = value.MSSV;
+					}
+					else
+					{
+						this._MSSV = default(string);
+					}
+					this.SendPropertyChanged("SinhVien");
+				}
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -1951,6 +2723,8 @@ namespace DanhGiaDoanVien.Other_Class
 		
 		private string _ten;
 		
+		private EntitySet<KetQuaChiDoan> _KetQuaChiDoans;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -1963,6 +2737,7 @@ namespace DanhGiaDoanVien.Other_Class
 		
 		public nam()
 		{
+			this._KetQuaChiDoans = new EntitySet<KetQuaChiDoan>(new Action<KetQuaChiDoan>(this.attach_KetQuaChiDoans), new Action<KetQuaChiDoan>(this.detach_KetQuaChiDoans));
 			OnCreated();
 		}
 		
@@ -2006,6 +2781,19 @@ namespace DanhGiaDoanVien.Other_Class
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="nam_KetQuaChiDoan", Storage="_KetQuaChiDoans", ThisKey="id", OtherKey="idNamHoc")]
+		public EntitySet<KetQuaChiDoan> KetQuaChiDoans
+		{
+			get
+			{
+				return this._KetQuaChiDoans;
+			}
+			set
+			{
+				this._KetQuaChiDoans.Assign(value);
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -2025,6 +2813,18 @@ namespace DanhGiaDoanVien.Other_Class
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
+		
+		private void attach_KetQuaChiDoans(KetQuaChiDoan entity)
+		{
+			this.SendPropertyChanging();
+			entity.nam = this;
+		}
+		
+		private void detach_KetQuaChiDoans(KetQuaChiDoan entity)
+		{
+			this.SendPropertyChanging();
+			entity.nam = null;
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.SinhVien")]
@@ -2042,6 +2842,12 @@ namespace DanhGiaDoanVien.Other_Class
 		private string _chiDoan;
 		
 		private bool _doanVien;
+		
+		private EntitySet<DoanVienUuTuSV> _DoanVienUuTuSVs;
+		
+		private EntitySet<KetQuaSinhVien> _KetQuaSinhViens;
+		
+		private EntityRef<ChiDoan> _ChiDoan1;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -2061,6 +2867,9 @@ namespace DanhGiaDoanVien.Other_Class
 		
 		public SinhVien()
 		{
+			this._DoanVienUuTuSVs = new EntitySet<DoanVienUuTuSV>(new Action<DoanVienUuTuSV>(this.attach_DoanVienUuTuSVs), new Action<DoanVienUuTuSV>(this.detach_DoanVienUuTuSVs));
+			this._KetQuaSinhViens = new EntitySet<KetQuaSinhVien>(new Action<KetQuaSinhVien>(this.attach_KetQuaSinhViens), new Action<KetQuaSinhVien>(this.detach_KetQuaSinhViens));
+			this._ChiDoan1 = default(EntityRef<ChiDoan>);
 			OnCreated();
 		}
 		
@@ -2135,6 +2944,10 @@ namespace DanhGiaDoanVien.Other_Class
 			{
 				if ((this._chiDoan != value))
 				{
+					if (this._ChiDoan1.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
 					this.OnchiDoanChanging(value);
 					this.SendPropertyChanging();
 					this._chiDoan = value;
@@ -2164,6 +2977,66 @@ namespace DanhGiaDoanVien.Other_Class
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SinhVien_DoanVienUuTuSV", Storage="_DoanVienUuTuSVs", ThisKey="MSSV", OtherKey="MSSV")]
+		public EntitySet<DoanVienUuTuSV> DoanVienUuTuSVs
+		{
+			get
+			{
+				return this._DoanVienUuTuSVs;
+			}
+			set
+			{
+				this._DoanVienUuTuSVs.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SinhVien_KetQuaSinhVien", Storage="_KetQuaSinhViens", ThisKey="MSSV", OtherKey="MSSV")]
+		public EntitySet<KetQuaSinhVien> KetQuaSinhViens
+		{
+			get
+			{
+				return this._KetQuaSinhViens;
+			}
+			set
+			{
+				this._KetQuaSinhViens.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ChiDoan_SinhVien", Storage="_ChiDoan1", ThisKey="chiDoan", OtherKey="id", IsForeignKey=true, DeleteRule="SET NULL")]
+		public ChiDoan ChiDoan1
+		{
+			get
+			{
+				return this._ChiDoan1.Entity;
+			}
+			set
+			{
+				ChiDoan previousValue = this._ChiDoan1.Entity;
+				if (((previousValue != value) 
+							|| (this._ChiDoan1.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._ChiDoan1.Entity = null;
+						previousValue.SinhViens.Remove(this);
+					}
+					this._ChiDoan1.Entity = value;
+					if ((value != null))
+					{
+						value.SinhViens.Add(this);
+						this._chiDoan = value.id;
+					}
+					else
+					{
+						this._chiDoan = default(string);
+					}
+					this.SendPropertyChanged("ChiDoan1");
+				}
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -2182,6 +3055,30 @@ namespace DanhGiaDoanVien.Other_Class
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+		
+		private void attach_DoanVienUuTuSVs(DoanVienUuTuSV entity)
+		{
+			this.SendPropertyChanging();
+			entity.SinhVien = this;
+		}
+		
+		private void detach_DoanVienUuTuSVs(DoanVienUuTuSV entity)
+		{
+			this.SendPropertyChanging();
+			entity.SinhVien = null;
+		}
+		
+		private void attach_KetQuaSinhViens(KetQuaSinhVien entity)
+		{
+			this.SendPropertyChanging();
+			entity.SinhVien = this;
+		}
+		
+		private void detach_KetQuaSinhViens(KetQuaSinhVien entity)
+		{
+			this.SendPropertyChanging();
+			entity.SinhVien = null;
 		}
 	}
 }

@@ -17,7 +17,6 @@ namespace DanhGiaDoanVien.DTO
         private string achievement;
         private bool isGoodTeacher;
         private string note;
-        private bool isHandle = false;
         public int Id { get => id; set => id = value; }
         public string IdSemester { get => idSemester; set => idSemester = value; }
         public string IdTeacher { get => idTeacher; set => idTeacher = value; }
@@ -25,7 +24,6 @@ namespace DanhGiaDoanVien.DTO
         public string Rank { get => rank; set => rank = value; }
         public string Achievement { get => achievement; set => achievement = value; }
         public bool IsGoodTeacher { get => isGoodTeacher; set => isGoodTeacher = value; }
-        public bool IsHandle { get => isHandle; set => isHandle = value; }
         public string Note { get => note; set => note = value; }
 
         public ScoresTeacher() { }
