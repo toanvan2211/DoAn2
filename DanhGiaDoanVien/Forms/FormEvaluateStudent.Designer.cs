@@ -30,6 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormEvaluateStudent));
             this.panelTop = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.label14 = new System.Windows.Forms.Label();
+            this.checkBoxGoodMember = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.label2 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -38,6 +41,9 @@
             this.textBoxGroup = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.textBoxAchievement = new System.Windows.Forms.RichTextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.textBoxNote = new System.Windows.Forms.RichTextBox();
+            this.textBoxRank = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label5 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -52,42 +58,37 @@
             this.textBoxMSSV = new System.Windows.Forms.TextBox();
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.buttonAuto = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.buttonUpdate = new System.Windows.Forms.Button();
             this.panelData = new System.Windows.Forms.Panel();
             this.dgvProvide = new System.Windows.Forms.DataGridView();
             this.dataGridViewStudent = new System.Windows.Forms.DataGridView();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.comboBoxGroup = new System.Windows.Forms.ComboBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.comboBoxSemester = new System.Windows.Forms.ComboBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.textBoxNote = new System.Windows.Forms.RichTextBox();
             this.Id1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IdStudent1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PointSemester11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PointSemester21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PointSemester1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TrainSemester11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TrainSemester21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PointSemester1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TrainSemester1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Rank1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.Achievement1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GoodMember1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Note1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IdScoresGroup1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.label14 = new System.Windows.Forms.Label();
-            this.checkBoxGoodMember = new System.Windows.Forms.CheckBox();
-            this.textBoxRank = new System.Windows.Forms.TextBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.comboBoxGroup = new System.Windows.Forms.ComboBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.comboBoxSemester = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.panelTop.SuspendLayout();
+            this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panelData.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProvide)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStudent)).BeginInit();
             this.panel1.SuspendLayout();
-            this.tableLayoutPanel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelTop
@@ -97,12 +98,49 @@
             this.panelTop.Controls.Add(this.tableLayoutPanel2);
             this.panelTop.Controls.Add(this.tableLayoutPanel1);
             this.panelTop.Controls.Add(this.buttonAuto);
+            this.panelTop.Controls.Add(this.button1);
             this.panelTop.Controls.Add(this.buttonUpdate);
             this.panelTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTop.Location = new System.Drawing.Point(0, 45);
             this.panelTop.Name = "panelTop";
             this.panelTop.Size = new System.Drawing.Size(1000, 197);
             this.panelTop.TabIndex = 4;
+            // 
+            // tableLayoutPanel3
+            // 
+            this.tableLayoutPanel3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tableLayoutPanel3.ColumnCount = 2;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 77.45098F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22.54902F));
+            this.tableLayoutPanel3.Controls.Add(this.label14, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.checkBoxGoodMember, 1, 0);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(764, 136);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 1;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(122, 50);
+            this.tableLayoutPanel3.TabIndex = 5;
+            // 
+            // label14
+            // 
+            this.label14.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label14.AutoSize = true;
+            this.label14.ForeColor = System.Drawing.Color.White;
+            this.label14.Location = new System.Drawing.Point(5, 18);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(86, 13);
+            this.label14.TabIndex = 3;
+            this.label14.Text = "Đoàn viên ưu tú:";
+            // 
+            // checkBoxGoodMember
+            // 
+            this.checkBoxGoodMember.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.checkBoxGoodMember.AutoSize = true;
+            this.checkBoxGoodMember.Location = new System.Drawing.Point(97, 18);
+            this.checkBoxGoodMember.Name = "checkBoxGoodMember";
+            this.checkBoxGoodMember.Size = new System.Drawing.Size(22, 14);
+            this.checkBoxGoodMember.TabIndex = 4;
+            this.checkBoxGoodMember.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel2
             // 
@@ -203,6 +241,35 @@
             this.textBoxAchievement.TabIndex = 9;
             this.textBoxAchievement.Text = "";
             // 
+            // label13
+            // 
+            this.label13.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label13.AutoSize = true;
+            this.label13.ForeColor = System.Drawing.Color.White;
+            this.label13.Location = new System.Drawing.Point(63, 137);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(47, 13);
+            this.label13.TabIndex = 3;
+            this.label13.Text = "Ghi chú:";
+            // 
+            // textBoxNote
+            // 
+            this.textBoxNote.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxNote.Location = new System.Drawing.Point(116, 115);
+            this.textBoxNote.Name = "textBoxNote";
+            this.textBoxNote.Size = new System.Drawing.Size(245, 58);
+            this.textBoxNote.TabIndex = 9;
+            this.textBoxNote.Text = "";
+            // 
+            // textBoxRank
+            // 
+            this.textBoxRank.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxRank.Location = new System.Drawing.Point(116, 53);
+            this.textBoxRank.Name = "textBoxRank";
+            this.textBoxRank.ReadOnly = true;
+            this.textBoxRank.Size = new System.Drawing.Size(245, 20);
+            this.textBoxRank.TabIndex = 1;
+            // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -284,6 +351,7 @@
             this.textBoxPoint1.Name = "textBoxPoint1";
             this.textBoxPoint1.Size = new System.Drawing.Size(222, 20);
             this.textBoxPoint1.TabIndex = 1;
+            this.textBoxPoint1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxPoint1_KeyPress);
             // 
             // textBoxPoint2
             // 
@@ -292,6 +360,7 @@
             this.textBoxPoint2.Name = "textBoxPoint2";
             this.textBoxPoint2.Size = new System.Drawing.Size(222, 20);
             this.textBoxPoint2.TabIndex = 1;
+            this.textBoxPoint2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxPoint2_KeyPress);
             // 
             // textBoxTrain2
             // 
@@ -300,6 +369,7 @@
             this.textBoxTrain2.Name = "textBoxTrain2";
             this.textBoxTrain2.Size = new System.Drawing.Size(222, 20);
             this.textBoxTrain2.TabIndex = 1;
+            this.textBoxTrain2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxTrain2_KeyPress);
             // 
             // textBoxTrain1
             // 
@@ -308,6 +378,7 @@
             this.textBoxTrain1.Name = "textBoxTrain1";
             this.textBoxTrain1.Size = new System.Drawing.Size(222, 20);
             this.textBoxTrain1.TabIndex = 1;
+            this.textBoxTrain1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxTrain1_KeyPress);
             // 
             // label12
             // 
@@ -363,6 +434,23 @@
             this.buttonAuto.UseVisualStyleBackColor = true;
             this.buttonAuto.Click += new System.EventHandler(this.buttonAuto_Click);
             // 
+            // button1
+            // 
+            this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(892, 136);
+            this.button1.Name = "button1";
+            this.button1.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
+            this.button1.Size = new System.Drawing.Size(96, 50);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "DVUT";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.buttonUpdate_Click);
+            // 
             // buttonUpdate
             // 
             this.buttonUpdate.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -394,12 +482,11 @@
             // dgvProvide
             // 
             this.dgvProvide.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProvide.Location = new System.Drawing.Point(197, 121);
+            this.dgvProvide.Location = new System.Drawing.Point(195, 130);
             this.dgvProvide.Name = "dgvProvide";
             this.dgvProvide.ReadOnly = true;
             this.dgvProvide.Size = new System.Drawing.Size(618, 190);
             this.dgvProvide.TabIndex = 1;
-            this.dgvProvide.Visible = false;
             // 
             // dataGridViewStudent
             // 
@@ -411,9 +498,9 @@
             this.IdStudent1,
             this.PointSemester11,
             this.PointSemester21,
+            this.PointSemester1,
             this.TrainSemester11,
             this.TrainSemester21,
-            this.PointSemester1,
             this.TrainSemester1,
             this.Rank1,
             this.Achievement1,
@@ -426,6 +513,96 @@
             this.dataGridViewStudent.Size = new System.Drawing.Size(1000, 393);
             this.dataGridViewStudent.TabIndex = 0;
             this.dataGridViewStudent.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewStudent_CellClick);
+            // 
+            // Id1
+            // 
+            this.Id1.DataPropertyName = "id";
+            this.Id1.HeaderText = "ID";
+            this.Id1.Name = "Id1";
+            this.Id1.ReadOnly = true;
+            // 
+            // IdStudent1
+            // 
+            this.IdStudent1.DataPropertyName = "MSSV";
+            this.IdStudent1.HeaderText = "MSSV";
+            this.IdStudent1.Name = "IdStudent1";
+            this.IdStudent1.ReadOnly = true;
+            // 
+            // PointSemester11
+            // 
+            this.PointSemester11.DataPropertyName = "diemHK1";
+            this.PointSemester11.HeaderText = "HK1";
+            this.PointSemester11.Name = "PointSemester11";
+            // 
+            // PointSemester21
+            // 
+            this.PointSemester21.DataPropertyName = "diemHK2";
+            this.PointSemester21.HeaderText = "HK2";
+            this.PointSemester21.Name = "PointSemester21";
+            // 
+            // PointSemester1
+            // 
+            this.PointSemester1.DataPropertyName = "tongHK";
+            this.PointSemester1.HeaderText = "TBC HK";
+            this.PointSemester1.Name = "PointSemester1";
+            // 
+            // TrainSemester11
+            // 
+            this.TrainSemester11.DataPropertyName = "DRLHK1";
+            this.TrainSemester11.HeaderText = "DRL1";
+            this.TrainSemester11.Name = "TrainSemester11";
+            // 
+            // TrainSemester21
+            // 
+            this.TrainSemester21.DataPropertyName = "DRLHK2";
+            this.TrainSemester21.HeaderText = "DRL2";
+            this.TrainSemester21.Name = "TrainSemester21";
+            // 
+            // TrainSemester1
+            // 
+            this.TrainSemester1.DataPropertyName = "DRL";
+            this.TrainSemester1.HeaderText = "TBC DRL";
+            this.TrainSemester1.Name = "TrainSemester1";
+            // 
+            // Rank1
+            // 
+            this.Rank1.DataPropertyName = "xepLoai";
+            this.Rank1.HeaderText = "Xếp loại";
+            this.Rank1.Items.AddRange(new object[] {
+            "Xuất sắc",
+            "Khá",
+            "Trung bình",
+            "Yếu kém"});
+            this.Rank1.Name = "Rank1";
+            this.Rank1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Rank1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // Achievement1
+            // 
+            this.Achievement1.DataPropertyName = "thanhTichTieuBieu";
+            this.Achievement1.HeaderText = "Thành tích tiêu biểu";
+            this.Achievement1.Name = "Achievement1";
+            // 
+            // GoodMember1
+            // 
+            this.GoodMember1.DataPropertyName = "doanVienUuTu";
+            this.GoodMember1.HeaderText = "DVUT";
+            this.GoodMember1.Name = "GoodMember1";
+            this.GoodMember1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // Note1
+            // 
+            this.Note1.DataPropertyName = "ghiChu";
+            this.Note1.HeaderText = "Ghi chú";
+            this.Note1.Name = "Note1";
+            this.Note1.Visible = false;
+            // 
+            // IdScoresGroup1
+            // 
+            this.IdScoresGroup1.DataPropertyName = "idKetQuaChiDoan";
+            this.IdScoresGroup1.HeaderText = "ID KQCD";
+            this.IdScoresGroup1.Name = "IdScoresGroup1";
+            this.IdScoresGroup1.Visible = false;
             // 
             // panel1
             // 
@@ -492,161 +669,6 @@
             this.label10.TabIndex = 8;
             this.label10.Text = "Năm học:";
             // 
-            // label13
-            // 
-            this.label13.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label13.AutoSize = true;
-            this.label13.ForeColor = System.Drawing.Color.White;
-            this.label13.Location = new System.Drawing.Point(63, 137);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(47, 13);
-            this.label13.TabIndex = 3;
-            this.label13.Text = "Ghi chú:";
-            // 
-            // textBoxNote
-            // 
-            this.textBoxNote.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxNote.Location = new System.Drawing.Point(116, 115);
-            this.textBoxNote.Name = "textBoxNote";
-            this.textBoxNote.Size = new System.Drawing.Size(245, 58);
-            this.textBoxNote.TabIndex = 9;
-            this.textBoxNote.Text = "";
-            // 
-            // Id1
-            // 
-            this.Id1.DataPropertyName = "id";
-            this.Id1.HeaderText = "ID";
-            this.Id1.Name = "Id1";
-            this.Id1.ReadOnly = true;
-            // 
-            // IdStudent1
-            // 
-            this.IdStudent1.DataPropertyName = "MSSV";
-            this.IdStudent1.HeaderText = "MSSV";
-            this.IdStudent1.Name = "IdStudent1";
-            this.IdStudent1.ReadOnly = true;
-            // 
-            // PointSemester11
-            // 
-            this.PointSemester11.DataPropertyName = "diemHK1";
-            this.PointSemester11.HeaderText = "HK1";
-            this.PointSemester11.Name = "PointSemester11";
-            // 
-            // PointSemester21
-            // 
-            this.PointSemester21.DataPropertyName = "diemHK2";
-            this.PointSemester21.HeaderText = "HK2";
-            this.PointSemester21.Name = "PointSemester21";
-            // 
-            // TrainSemester11
-            // 
-            this.TrainSemester11.DataPropertyName = "DRLHK1";
-            this.TrainSemester11.HeaderText = "DRL1";
-            this.TrainSemester11.Name = "TrainSemester11";
-            // 
-            // TrainSemester21
-            // 
-            this.TrainSemester21.DataPropertyName = "DRLHK2";
-            this.TrainSemester21.HeaderText = "DRL2";
-            this.TrainSemester21.Name = "TrainSemester21";
-            // 
-            // PointSemester1
-            // 
-            this.PointSemester1.DataPropertyName = "tongHK";
-            this.PointSemester1.HeaderText = "TBC HK";
-            this.PointSemester1.Name = "PointSemester1";
-            // 
-            // TrainSemester1
-            // 
-            this.TrainSemester1.DataPropertyName = "DRL";
-            this.TrainSemester1.HeaderText = "TBC DRL";
-            this.TrainSemester1.Name = "TrainSemester1";
-            // 
-            // Rank1
-            // 
-            this.Rank1.DataPropertyName = "xepLoai";
-            this.Rank1.HeaderText = "Xếp loại";
-            this.Rank1.Items.AddRange(new object[] {
-            "Xuất sắc",
-            "Khá",
-            "Trung bình",
-            "Yếu kém"});
-            this.Rank1.Name = "Rank1";
-            this.Rank1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Rank1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // Achievement1
-            // 
-            this.Achievement1.DataPropertyName = "thanhTichTieuBieu";
-            this.Achievement1.HeaderText = "Thành tích tiêu biểu";
-            this.Achievement1.Name = "Achievement1";
-            // 
-            // GoodMember1
-            // 
-            this.GoodMember1.DataPropertyName = "doanVienUuTu";
-            this.GoodMember1.HeaderText = "DVUT";
-            this.GoodMember1.Name = "GoodMember1";
-            this.GoodMember1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // Note1
-            // 
-            this.Note1.DataPropertyName = "ghiChu";
-            this.Note1.HeaderText = "Ghi chú";
-            this.Note1.Name = "Note1";
-            this.Note1.Visible = false;
-            // 
-            // IdScoresGroup1
-            // 
-            this.IdScoresGroup1.DataPropertyName = "idKetQuaChiDoan";
-            this.IdScoresGroup1.HeaderText = "ID KQCD";
-            this.IdScoresGroup1.Name = "IdScoresGroup1";
-            this.IdScoresGroup1.Visible = false;
-            // 
-            // tableLayoutPanel3
-            // 
-            this.tableLayoutPanel3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tableLayoutPanel3.ColumnCount = 2;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 77.45098F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22.54902F));
-            this.tableLayoutPanel3.Controls.Add(this.label14, 0, 0);
-            this.tableLayoutPanel3.Controls.Add(this.checkBoxGoodMember, 1, 0);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(764, 136);
-            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 1;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(122, 50);
-            this.tableLayoutPanel3.TabIndex = 5;
-            // 
-            // label14
-            // 
-            this.label14.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label14.AutoSize = true;
-            this.label14.ForeColor = System.Drawing.Color.White;
-            this.label14.Location = new System.Drawing.Point(5, 18);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(86, 13);
-            this.label14.TabIndex = 3;
-            this.label14.Text = "Đoàn viên ưu tú:";
-            // 
-            // checkBoxGoodMember
-            // 
-            this.checkBoxGoodMember.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.checkBoxGoodMember.AutoSize = true;
-            this.checkBoxGoodMember.Location = new System.Drawing.Point(97, 18);
-            this.checkBoxGoodMember.Name = "checkBoxGoodMember";
-            this.checkBoxGoodMember.Size = new System.Drawing.Size(22, 14);
-            this.checkBoxGoodMember.TabIndex = 4;
-            this.checkBoxGoodMember.UseVisualStyleBackColor = true;
-            // 
-            // textBoxRank
-            // 
-            this.textBoxRank.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxRank.Location = new System.Drawing.Point(116, 53);
-            this.textBoxRank.Name = "textBoxRank";
-            this.textBoxRank.ReadOnly = true;
-            this.textBoxRank.Size = new System.Drawing.Size(245, 20);
-            this.textBoxRank.TabIndex = 1;
-            // 
             // FormEvaluateStudent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -660,6 +682,8 @@
             this.Text = "FormEvaluateStudent";
             this.Load += new System.EventHandler(this.FormEvaluateStudent_Load);
             this.panelTop.ResumeLayout(false);
+            this.tableLayoutPanel3.ResumeLayout(false);
+            this.tableLayoutPanel3.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -669,8 +693,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStudent)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.tableLayoutPanel3.ResumeLayout(false);
-            this.tableLayoutPanel3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -711,22 +733,23 @@
         private System.Windows.Forms.DataGridView dgvProvide;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.RichTextBox textBoxNote;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.CheckBox checkBoxGoodMember;
+        private System.Windows.Forms.TextBox textBoxRank;
+        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id1;
         private System.Windows.Forms.DataGridViewTextBoxColumn IdStudent1;
         private System.Windows.Forms.DataGridViewTextBoxColumn PointSemester11;
         private System.Windows.Forms.DataGridViewTextBoxColumn PointSemester21;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PointSemester1;
         private System.Windows.Forms.DataGridViewTextBoxColumn TrainSemester11;
         private System.Windows.Forms.DataGridViewTextBoxColumn TrainSemester21;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PointSemester1;
         private System.Windows.Forms.DataGridViewTextBoxColumn TrainSemester1;
         private System.Windows.Forms.DataGridViewComboBoxColumn Rank1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Achievement1;
         private System.Windows.Forms.DataGridViewTextBoxColumn GoodMember1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Note1;
         private System.Windows.Forms.DataGridViewTextBoxColumn IdScoresGroup1;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.CheckBox checkBoxGoodMember;
-        private System.Windows.Forms.TextBox textBoxRank;
     }
 }

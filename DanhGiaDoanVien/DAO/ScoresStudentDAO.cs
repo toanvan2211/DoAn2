@@ -34,14 +34,26 @@ namespace DanhGiaDoanVien.DAO
 
         public DataTable LoadProvide()
         {
-            string query = "select * from KetQuaChiDoan, SinhVien";
+            string query = "select * from KetQuaChiDoan, SinhVien, nam";
             return DataProvider.Instance.ExecuteQuery(query);
         }
 
+        //public int UpdateScoresStudent(ScoresStudent st)
+        //{
+        //    string query = "USP_UpdateScoresStudent @id , @sm1 , @sm2 , @ttsm , @st1 , @st2 , @tp , @rank , @achi , @note , @igm";
+        //    return DataProvider.Instance.ExecuteNonQuery(query, new object[] { st.Id, st.AverageSemester1, st.AverageSemester2, st.TotalAverage, st.PointTraning1, st.PointTraning2, st.AverageTrainingPoint, st.Rank, st.Achievement, st.Note, st.IsGoodMember });
+        //}
+
         public int UpdateScoresStudent(ScoresStudent st)
         {
-            string query = "USP_UpdateScoresStudent @id , @sm1 , @sm2 , @st1 , @st2 , @rank , @achi , @note , @igm";
-            return DataProvider.Instance.ExecuteNonQuery(query, new object[] { st.Id, st.AverageSemester1, st.AverageSemester2, st.PointTraning1, st.PointTraning2, st.Rank, st.Achievement, st.Note, st.IsGoodMember });
+            string query = "update KetQuaSinhVien set diemHK1 = " + st.AverageSemester1 +
+                ", diemHK2 = " + st.AverageSemester2 + ", tongHK = " + st.TotalAverage +
+                ", DRLHK1 = " + st.PointTraning1 + ", DRLHK2 = " + st.PointTraning2 + 
+                ", DRL = " + st.AverageTrainingPoint + ", xepLoai = N'" + st.Rank + 
+                "', thanhTichTieuBieu = N'" + st.Achievement + "', ghiChu = N'" + st.Note + 
+                "', doanVienUuTu = '" + st.IsGoodMember + "' where id = " + st.Id;
+
+            return DataProvider.Instance.ExecuteNonQuery(query);
         }
     }
 }

@@ -18,6 +18,7 @@ namespace DanhGiaDoanVien
         private string idCurrentSemester = "";
         private string idCurrentGroup = "";
         private int currentIndex = -1;
+        private List<Semester> listSemester = new List<Semester>();
 
         public FormEvaluateStudent()
         {
@@ -42,7 +43,7 @@ namespace DanhGiaDoanVien
                 DataGridViewRow row = dgvProvide.Rows.Cast<DataGridViewRow>().Where(r => r.Cells["MSSV"].Value.ToString().Equals(MSSV)).First();
                 textBoxName.Text = dgvProvide.Rows[row.Index].Cells["ten"].Value.ToString();
                 row = dgvProvide.Rows.Cast<DataGridViewRow>().Where(r => r.Cells["id"].Value.ToString().Equals(idKQCD)).First();
-                textBoxSemester.Text = dgvProvide.Rows[row.Index].Cells["idNamHoc"].Value.ToString();
+                textBoxSemester.Text = dgvProvide.Rows[row.Index].Cells[dgvProvide.Columns.Count - 1].Value.ToString();
                 textBoxMSSV.Text = MSSV;
                 textBoxPoint1.Text = dataGridViewStudent.Rows[currentIndex].Cells["PointSemester11"].Value.ToString();
                 textBoxPoint2.Text = dataGridViewStudent.Rows[currentIndex].Cells["PointSemester21"].Value.ToString();
@@ -92,10 +93,15 @@ namespace DanhGiaDoanVien
 
         void LoadComboBoxSemester()
         {
-            DataTable dataGroup = SemesterDAO.Instance.GetListSemester();
-            foreach (DataRow item in dataGroup.Rows)
+            DataTable dataSM = SemesterDAO.Instance.GetListSemester();
+            foreach (DataRow item in dataSM.Rows)
             {
-                comboBoxSemester.Items.Add(item["id"]);
+                Semester sm = new Semester(item);
+                listSemester.Add(sm);
+            }
+            foreach (DataRow item in dataSM.Rows)
+            {
+                comboBoxSemester.Items.Add(item["ten"]);
             }
         }
 
@@ -111,9 +117,9 @@ namespace DanhGiaDoanVien
             st.Note = dataGridViewStudent.Rows[index].Cells["Note1"].Value.ToString();
             try
             {
-                st.AverageSemester1 = float.Parse(dataGridViewStudent.Rows[index].Cells["PointSemester11"].Value.ToString(), CultureInfo.InvariantCulture.NumberFormat);
-                st.AverageSemester2 = float.Parse(dataGridViewStudent.Rows[index].Cells["PointSemester21"].Value.ToString(), CultureInfo.InvariantCulture.NumberFormat);
-                st.TotalAverage = Convert.ToInt32(dataGridViewStudent.Rows[index].Cells["PointSemester1"].Value.ToString());
+                st.AverageSemester1 = float.Parse(dataGridViewStudent.Rows[index].Cells["PointSemester11"].Value.ToString()); //CultureInfo.InvariantCulture.NumberFormat
+                st.AverageSemester2 = float.Parse(dataGridViewStudent.Rows[index].Cells["PointSemester21"].Value.ToString());
+                st.TotalAverage = float.Parse(dataGridViewStudent.Rows[index].Cells["PointSemester1"].Value.ToString());
                 st.PointTraning1 = Convert.ToInt32(dataGridViewStudent.Rows[index].Cells["TrainSemester11"].Value.ToString());
                 st.PointTraning2 = Convert.ToInt32(dataGridViewStudent.Rows[index].Cells["TrainSemester21"].Value.ToString());
                 st.AverageTrainingPoint = Convert.ToInt32(dataGridViewStudent.Rows[index].Cells["TrainSemester1"].Value.ToString());
@@ -134,8 +140,8 @@ namespace DanhGiaDoanVien
             st.Note = textBoxNote.Text;
             try
             {
-                st.AverageSemester1 = float.Parse(textBoxPoint1.Text, CultureInfo.InvariantCulture.NumberFormat);
-                st.AverageSemester2 = float.Parse(textBoxPoint2.Text, CultureInfo.InvariantCulture.NumberFormat);
+                st.AverageSemester1 = float.Parse(textBoxPoint1.Text);
+                st.AverageSemester2 = float.Parse(textBoxPoint2.Text);
                 st.PointTraning1 = Convert.ToInt32(textBoxTrain1.Text);
                 st.PointTraning2 = Convert.ToInt32(textBoxTrain2.Text);
                 
@@ -146,8 +152,6 @@ namespace DanhGiaDoanVien
 
         private ScoresStudent Evaluate(ScoresStudent scores)
         {
-            scores.TotalAverage = CalculationScores(scores.AverageSemester1, scores.AverageSemester2);
-            scores.AverageTrainingPoint = CalculationScores(scores.PointTraning1, scores.PointTraning2);
             try
             {
                 if (scores.AverageSemester1 != 0 && scores.AverageSemester2 != 0)
@@ -156,7 +160,7 @@ namespace DanhGiaDoanVien
                 }
                 if (scores.PointTraning1 != 0 && scores.PointTraning2 != 0)
                 {
-                    scores.AverageTrainingPoint = (byte)((scores.PointTraning1 + scores.PointTraning2) / 2);
+                    scores.AverageTrainingPoint = (int)((scores.PointTraning1 + scores.PointTraning2) / 2);
                 }
                 if (scores.AverageTrainingPoint != 0 && scores.TotalAverage != 0)
                 {
@@ -174,7 +178,7 @@ namespace DanhGiaDoanVien
                         {
                             scores.Rank = Rank.rank3;
                         }
-                        else if (scores.PointTraning1 < 30 || scores.PointTraning2 < 30 || scores.AverageTrainingPoint < 50)
+                        else
                         {
                             scores.Rank = Rank.rank4;
                         }
@@ -189,7 +193,7 @@ namespace DanhGiaDoanVien
                         {
                             scores.Rank = Rank.rank3;
                         }
-                        else if (scores.PointTraning1 < 30 || scores.PointTraning2 < 30 || scores.AverageTrainingPoint < 50)
+                        else
                         {
                             scores.Rank = Rank.rank4;
                         }
@@ -200,16 +204,12 @@ namespace DanhGiaDoanVien
                         {
                             scores.Rank = Rank.rank3;
                         }
-                        else if (scores.PointTraning1 < 30 || scores.PointTraning2 < 30 || scores.AverageTrainingPoint < 50)
+                        else
                         {
                             scores.Rank = Rank.rank4;
                         }
                     }
                     else if (scores.AverageSemester1 < 1.0 || scores.AverageSemester2 < 1.0)
-                    {
-                        scores.Rank = Rank.rank4;
-                    }
-                    else if (scores.PointTraning1 < 30 || scores.PointTraning2 < 30 || scores.AverageTrainingPoint < 50)
                     {
                         scores.Rank = Rank.rank4;
                     }
@@ -277,7 +277,7 @@ namespace DanhGiaDoanVien
             }
             else
             {
-                idCurrentSemester = comboBoxSemester.Text;
+                idCurrentSemester = listSemester[comboBoxSemester.SelectedIndex - 1].Id;
             }
             LoadScoresStudent();
         }
@@ -306,12 +306,127 @@ namespace DanhGiaDoanVien
                 ScoresStudentDAO.Instance.UpdateScoresStudent(st);
             }
             LoadScoresStudent();
+            CellClick();
         }
 
         private void buttonUpdate_Click(object sender, EventArgs e)
         {
             ScoresStudentDAO.Instance.UpdateScoresStudent(Evaluate(CreateScoresStudentByText()));
             LoadScoresStudent();
+            CellClick();
         }
+
+        #region KeyPress   
+        private void textBoxPoint1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            TextBox tb = textBoxPoint1;
+            float x;
+            string test = tb.Text + e.KeyChar;
+
+            if (test[test.Length - 1] == '.')
+                test = test + "00";
+            
+            float.TryParse(test, out x);
+
+            if (x > 4) // Nếu lớn hơn 4 thì chặn
+            {
+                e.Handled = true;
+            }
+
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.')) //Nếu k phải là số, control, '.' thì chặn
+            {
+                e.Handled = true;
+            }
+            else if (char.IsDigit(e.KeyChar) && tb.Text.Length == 1) // Nếu là số và đc nhập vào ở vị trí thứ 2 thì chặn
+            {
+                e.Handled = true;
+            }
+
+            if ((e.KeyChar == '.') && (tb.Text.Length == 0 || tb.Text.Length > 1)) // Nếu là dấu '.' và nhập vào ở vị trí đầu tiên hoặc sau 2 thì chặn
+            {
+                e.Handled = true;
+            }
+
+            if (tb.Text.Length == 4 && !char.IsControl(e.KeyChar)) // Nếu quá 4 kí tự thì chặn
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textBoxPoint2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            TextBox tb = textBoxPoint2;
+            float x;
+            string test = tb.Text + e.KeyChar;
+
+            if (test[test.Length - 1] == '.')
+                test = test + "00";
+
+            float.TryParse(test, out x);
+
+            if (x > 4) // Nếu lớn hơn 4 thì chặn
+            {
+                e.Handled = true;
+            }
+
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.')) //Nếu k phải là số, control, '.' thì chặn
+            {
+                e.Handled = true;
+            }
+            else if (char.IsDigit(e.KeyChar) && tb.Text.Length == 1) // Nếu là số và đc nhập vào ở vị trí thứ 2 thì chặn
+            {
+                e.Handled = true;
+            }
+
+            if ((e.KeyChar == '.') && (tb.Text.Length == 0 || tb.Text.Length > 1)) // Nếu là dấu '.' và nhập vào ở vị trí đầu tiên hoặc sau 2 thì chặn
+            {
+                e.Handled = true;
+            }
+
+            if (tb.Text.Length == 4 && !char.IsControl(e.KeyChar)) // Nếu quá 4 kí tự thì chặn
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textBoxTrain1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            TextBox tb = textBoxTrain1;
+            int x;
+            string test = tb.Text + e.KeyChar;
+
+            int.TryParse(test, out x);
+
+            if (x > 100) // Nếu lớn hơn 100 thì chặn
+            {
+                e.Handled = true;
+            }
+
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar)) //Nếu k phải là số, control, '.' thì chặn
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textBoxTrain2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            TextBox tb = textBoxTrain2;
+            int x;
+            string test = tb.Text + e.KeyChar;
+            
+            int.TryParse(test, out x);
+
+            if (x > 100) // Nếu lớn hơn 100 thì chặn
+            {
+                e.Handled = true;
+            }
+
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar)) //Nếu k phải là số, control, '.' thì chặn
+            {
+                e.Handled = true;
+            }
+        }
+
+        #endregion
     }
 }
