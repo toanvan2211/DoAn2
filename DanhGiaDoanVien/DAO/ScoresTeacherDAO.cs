@@ -18,11 +18,10 @@ namespace DanhGiaDoanVien.DAO
         }
         public ScoresTeacherDAO() { }
 
-        public object GetListScoresTeacher()
+        public DataTable GetListScoresTeacher()
         {
-            DanhGiaDoanVienDataContext db = new DanhGiaDoanVienDataContext();
-
-            return db.KetQuaGiangViens.Select(p => p);
+            string query = "select id, MSGV, ketQuaDanhGia, xepLoai, thanhTichTieuBieu, doanVienUuTu, ghiChu, idKetQuaChiDoan from KetQuaGiangVien";
+            return DataProvider.Instance.ExecuteQuery(query);
         }
         public int AddScoresTeacher(string idTeacher, string idScoresGroup)
         {

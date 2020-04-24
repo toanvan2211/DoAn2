@@ -15,6 +15,7 @@ namespace DanhGiaDoanVien
     {
         private string idCurrentSemester = "";
         private string idCurrentGroup = "";
+        private int currentIndex = -1;
 
         public FormEvaluateTeacher()
         {
@@ -86,6 +87,19 @@ namespace DanhGiaDoanVien
                 idCurrentGroup = comboBoxGroup.Text;
             }
             LoadScoresTeacher();
+        }
+
+        private void dataGridViewScoresTeacher_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                textBoxIdTeacher.Text = dataGridViewScoresTeacher.Rows[e.RowIndex].Cells["IdTeacher1"].Value.ToString();
+                textBoxNote.Text = 
+            }
+            catch
+            {
+
+            }
         }
     }
 }

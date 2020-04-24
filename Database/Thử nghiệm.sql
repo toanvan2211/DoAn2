@@ -899,88 +899,6 @@ begin
 end
 go
 
-create trigger UTG_InsertUpdateScoresStudent
-on KetQuaSinhVien for update
-as
-begin
-	declare @id int = (select id from inserted)
-	declare @oldRank nvarchar(20) = (select xepLoai from KetQuaSinhVien where id = @id)
-	declare @rank nvarchar(20) = (select xepLoai from inserted)
-	declare @idScoresGroup int = (select idKetQuaChiDoan from inserted)
-	if @oldRank != null
-	begin
-		if @oldRank = N'Xuất sắc'
-		begin
-			update KetQuaChiDoan set xuatSac -= 1
-			where id = @idScoresGroup
-		end
-		else if @oldRank = N'Khá'
-		begin
-			update KetQuaChiDoan set kha -= 1
-			where id = @idScoresGroup
-		end
-		else if @oldRank = N'Trung bình'
-		begin
-			update KetQuaChiDoan set trungBinh -= 1
-			where id = @idScoresGroup
-		end
-		else if @oldRank = N'Yếu kém'
-		begin
-			update KetQuaChiDoan set yeuKem -= 1
-			where id = @idScoresGroup
-		end
-	end
-
-	if @rank != null
-	begin
-		if @rank = N'Xuất sắc'
-		begin
-			update KetQuaChiDoan set xuatSac += 1
-			where id = @idScoresGroup
-		end
-		else if @rank = N'Khá'
-		begin
-			update KetQuaChiDoan set kha += 1
-			where id = @idScoresGroup
-		end
-		else if @rank = N'Trung bình'
-		begin
-			update KetQuaChiDoan set trungBinh += 1
-			where id = @idScoresGroup
-		end
-		else if @rank = N'Yếu kém'
-		begin
-			update KetQuaChiDoan set yeuKem += 1
-			where id = @idScoresGroup
-		end
-	end
-end
-go
-
-create trigger UTG_ChangeGoodStudent
-on KetQuaSinhVien after update
-as
-begin
-	declare @check bit = (select doanVienUuTu from inserted)
-	declare @MSSV varchar(10) = (select MSSV from inserted)
-	declare @idKetQuaChiDoan int = (select idKetQuaChiDoan from inserted)
-	if (@check = 1)
-	begin
-		declare @count int = (select count(*) from DoanVienUuTuSV where idKetQuaChiDoan = @idKetQuaChiDoan and MSSV = @MSSV)
-		if @count > 0
-		begin
-			delete DoanVienUuTuSV where idKetQuaChiDoan = @idKetQuaChiDoan and MSSV = @MSSV
-		end
-		insert into DoanVienUuTuSV (MSSV, idKetQuaChiDoan)
-		values (@MSSV, @idKetQuaChiDoan)
-	end
-	else
-	begin
-		delete DoanVienUuTuSV where idKetQuaChiDoan = @idKetQuaChiDoan and MSSV = @MSSV
-	end
-end
-go
-
 -----------------------------KetQuaChiDoan------------------------------------
 
 create proc USP_GetScoresGroup
@@ -1036,7 +954,7 @@ begin
 end
 go
 
-create trigger UTG_InsertSrocesGroup
+create trigger UTG_InsertSrocesGroup --Nếu đã tồn tại kết quả chi đoàn này rồi thì hủy
 on KetQuaChiDoan for insert
 as
 begin

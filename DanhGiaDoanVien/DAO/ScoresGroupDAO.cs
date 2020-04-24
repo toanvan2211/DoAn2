@@ -39,7 +39,7 @@ namespace DanhGiaDoanVien.DAO
 
             int id = Convert.ToInt32(DataProvider.Instance.ExecuteQuery(query).Rows[0]["id"]);
 
-            query = "select * from KetQuaSinhVien where idKetQuaChiDoan = " + id;
+            query = "select id, MSSV, diemHK1, diemHK2, DRLHK1, DRLHK2, tongHK, DRL, xepLoai, thanhTichTieuBieu, doanVienUuTu, ghiChu, idKetQuaChiDoan from KetQuaSinhVien where idKetQuaChiDoan = " + id;
 
             return DataProvider.Instance.ExecuteQuery(query);
         }
@@ -48,12 +48,12 @@ namespace DanhGiaDoanVien.DAO
         {
             if (a == 1)
             {
-                string query = "select * from KetQuaSinhVien where idKetQuaChiDoan in (select id from KetQuaChiDoan where idChiDoan = '" + id + "')";
+                string query = "select id, MSSV, diemHK1, diemHK2, DRLHK1, DRLHK2, tongHK, DRL, xepLoai, thanhTichTieuBieu, doanVienUuTu, ghiChu, idKetQuaChiDoan from KetQuaSinhVien where idKetQuaChiDoan in (select id from KetQuaChiDoan where idChiDoan = '" + id + "')";
                 return DataProvider.Instance.ExecuteQuery(query);
             }
             else if (a == 2)
             {
-                string query = "select * from KetQuaSinhVien where idKetQuaChiDoan in (select id from KetQuaChiDoan where idNamHoc = '" + id + "')";
+                string query = "select id, MSSV, diemHK1, diemHK2, DRLHK1, DRLHK2, tongHK, DRL, xepLoai, thanhTichTieuBieu, doanVienUuTu, ghiChu, idKetQuaChiDoan from KetQuaSinhVien where idKetQuaChiDoan in (select id from KetQuaChiDoan where idNamHoc = '" + id + "')";
                 return DataProvider.Instance.ExecuteQuery(query);
             }
             return null;

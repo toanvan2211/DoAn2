@@ -1,5 +1,6 @@
 ﻿using DanhGiaDoanVien.DAO;
 using DanhGiaDoanVien.DTO;
+using DanhGiaDoanVien.Forms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,6 +20,7 @@ namespace DanhGiaDoanVien
         private string idCurrentGroup = "";
         private int currentIndex = -1;
         private List<Semester> listSemester = new List<Semester>();
+        GoodStudent gst;
 
         public FormEvaluateStudent()
         {
@@ -39,27 +41,35 @@ namespace DanhGiaDoanVien
             if (currentIndex != -1)
             {
                 string MSSV = dataGridViewStudent.Rows[currentIndex].Cells["IdStudent1"].Value.ToString();
-                string idKQCD = dataGridViewStudent.Rows[currentIndex].Cells["IdScoresGroup1"].Value.ToString();
-                DataGridViewRow row = dgvProvide.Rows.Cast<DataGridViewRow>().Where(r => r.Cells["MSSV"].Value.ToString().Equals(MSSV)).First();
-                textBoxName.Text = dgvProvide.Rows[row.Index].Cells["ten"].Value.ToString();
-                row = dgvProvide.Rows.Cast<DataGridViewRow>().Where(r => r.Cells["id"].Value.ToString().Equals(idKQCD)).First();
-                textBoxSemester.Text = dgvProvide.Rows[row.Index].Cells[dgvProvide.Columns.Count - 1].Value.ToString();
-                textBoxMSSV.Text = MSSV;
-                textBoxPoint1.Text = dataGridViewStudent.Rows[currentIndex].Cells["PointSemester11"].Value.ToString();
-                textBoxPoint2.Text = dataGridViewStudent.Rows[currentIndex].Cells["PointSemester21"].Value.ToString();
-                textBoxTrain1.Text = dataGridViewStudent.Rows[currentIndex].Cells["TrainSemester11"].Value.ToString();
-                textBoxTrain2.Text = dataGridViewStudent.Rows[currentIndex].Cells["TrainSemester21"].Value.ToString();
-                textBoxRank.Text = dataGridViewStudent.Rows[currentIndex].Cells["Rank1"].Value.ToString();
-                textBoxGroup.Text = dgvProvide.Rows[row.Index].Cells["idChiDoan"].Value.ToString();
-                textBoxAchievement.Text = dataGridViewStudent.Rows[currentIndex].Cells["Achievement1"].Value.ToString();
-                textBoxNote.Text = dataGridViewStudent.Rows[currentIndex].Cells["Note1"].Value.ToString();
-                checkBoxGoodMember.Checked = Convert.ToBoolean(dataGridViewStudent.Rows[currentIndex].Cells["GoodMember1"].Value.ToString());
-            }
-        }
+                int idKQCD;
 
-        void LoadProvide()
-        {
-            dgvProvide.DataSource = ScoresStudentDAO.Instance.LoadProvide();           
+                if (int.TryParse(dataGridViewStudent.Rows[currentIndex].Cells["IdScoresGroup1"].Value.ToString(), out idKQCD))
+                {
+                    DataTable dataProvide = ScoresStudentDAO.Instance.GetInfo(idKQCD, MSSV);
+
+                    textBoxName.Text = dataProvide.Rows[0]["tenSV"].ToString();
+                    textBoxSemester.Text = dataProvide.Rows[0]["tenNamHoc"].ToString();
+                    textBoxMSSV.Text = MSSV;
+                    textBoxPoint1.Text = dataGridViewStudent.Rows[currentIndex].Cells["PointSemester11"].Value.ToString();
+                    textBoxPoint2.Text = dataGridViewStudent.Rows[currentIndex].Cells["PointSemester21"].Value.ToString();
+                    textBoxTrain1.Text = dataGridViewStudent.Rows[currentIndex].Cells["TrainSemester11"].Value.ToString();
+                    textBoxTrain2.Text = dataGridViewStudent.Rows[currentIndex].Cells["TrainSemester21"].Value.ToString();
+                    textBoxRank.Text = dataGridViewStudent.Rows[currentIndex].Cells["Rank1"].Value.ToString();
+                    textBoxGroup.Text = dataProvide.Rows[0]["idChiDoan"].ToString();
+                    textBoxAchievement.Text = dataGridViewStudent.Rows[currentIndex].Cells["Achievement1"].Value.ToString();
+                    textBoxNote.Text = dataGridViewStudent.Rows[currentIndex].Cells["Note1"].Value.ToString();
+                    checkBoxGoodMember.Checked = Convert.ToBoolean(dataGridViewStudent.Rows[currentIndex].Cells["GoodMember1"].Value.ToString());
+
+                    if (checkBoxGoodMember.Checked == true)
+                    {
+                        gst = new GoodStudent(GoodStudentDAO.Instance.GetInfo(idKQCD, MSSV).Rows[0]);
+                    }
+                    else
+                    {
+                        gst = null;
+                    }
+                }
+            }
         }
 
         void LoadScoresStudent()
@@ -115,18 +125,19 @@ namespace DanhGiaDoanVien
             st.Achievement = dataGridViewStudent.Rows[index].Cells["Achievement1"].Value.ToString();
             st.IsGoodMember = Convert.ToBoolean(dataGridViewStudent.Rows[index].Cells["GoodMember1"].Value.ToString());
             st.Note = dataGridViewStudent.Rows[index].Cells["Note1"].Value.ToString();
-            try
-            {
-                st.AverageSemester1 = float.Parse(dataGridViewStudent.Rows[index].Cells["PointSemester11"].Value.ToString()); //CultureInfo.InvariantCulture.NumberFormat
-                st.AverageSemester2 = float.Parse(dataGridViewStudent.Rows[index].Cells["PointSemester21"].Value.ToString());
-                st.TotalAverage = float.Parse(dataGridViewStudent.Rows[index].Cells["PointSemester1"].Value.ToString());
-                st.PointTraning1 = Convert.ToInt32(dataGridViewStudent.Rows[index].Cells["TrainSemester11"].Value.ToString());
-                st.PointTraning2 = Convert.ToInt32(dataGridViewStudent.Rows[index].Cells["TrainSemester21"].Value.ToString());
-                st.AverageTrainingPoint = Convert.ToInt32(dataGridViewStudent.Rows[index].Cells["TrainSemester1"].Value.ToString());
-                
-                return st;
-            }
-            catch { return st; }
+
+            float temp = 0;
+            float.TryParse(dataGridViewStudent.Rows[index].Cells["PointSemester11"].Value.ToString(), out temp);
+            st.AverageSemester1 = temp;
+            float.TryParse(dataGridViewStudent.Rows[index].Cells["PointSemester21"].Value.ToString(), out temp);
+            st.AverageSemester2 = temp;
+            int temp1 = 0;
+            int.TryParse(dataGridViewStudent.Rows[index].Cells["TrainSemester11"].Value.ToString(), out temp1);
+            st.PointTraning1 = temp1;
+            int.TryParse(dataGridViewStudent.Rows[index].Cells["TrainSemester21"].Value.ToString(), out temp1);
+            st.PointTraning2 = temp1;
+
+            return st;
         }
 
         ScoresStudent CreateScoresStudentByText()
@@ -138,16 +149,18 @@ namespace DanhGiaDoanVien
             st.Achievement = textBoxAchievement.Text;
             st.IsGoodMember = checkBoxGoodMember.Checked ? true : false;
             st.Note = textBoxNote.Text;
-            try
-            {
-                st.AverageSemester1 = float.Parse(textBoxPoint1.Text);
-                st.AverageSemester2 = float.Parse(textBoxPoint2.Text);
-                st.PointTraning1 = Convert.ToInt32(textBoxTrain1.Text);
-                st.PointTraning2 = Convert.ToInt32(textBoxTrain2.Text);
-                
-                return st;
-            }
-            catch { return st; }
+
+            float temp = 0;
+            float.TryParse(textBoxPoint1.Text, out temp);
+            st.AverageSemester1 = temp;
+            float.TryParse(textBoxPoint2.Text, out temp);
+            st.AverageSemester2 = temp;
+            int temp1 = 0;
+            int.TryParse(textBoxTrain1.Text, out temp1);
+            st.PointTraning1 = temp1;
+            int.TryParse(textBoxTrain2.Text, out temp1);
+            st.PointTraning2 = temp1;
+            return st;
         }
 
         private ScoresStudent Evaluate(ScoresStudent scores)
@@ -252,7 +265,6 @@ namespace DanhGiaDoanVien
             comboBoxGroup.SelectedIndex = 0;
 
             LoadScoresStudent();
-            LoadProvide();
         }
 
         private void comboBoxGroup_SelectedIndexChanged(object sender, EventArgs e)
@@ -266,7 +278,6 @@ namespace DanhGiaDoanVien
                 idCurrentGroup = comboBoxGroup.Text;
             }
             LoadScoresStudent();
-            LoadProvide();
         }
 
         private void comboBoxSemester_SelectedIndexChanged(object sender, EventArgs e)
@@ -427,6 +438,100 @@ namespace DanhGiaDoanVien
             }
         }
 
+
+        private void KeyPress_Column3(object sender, KeyPressEventArgs e)
+        {
+            TextBox tb = (TextBox)sender;
+            float x;
+            string test = tb.Text + e.KeyChar;
+
+            if (test[test.Length - 1] == '.')
+                test = test + "00";
+
+            float.TryParse(test, out x);
+
+            if (x > 4) // Nếu lớn hơn 4 thì chặn
+            {
+                e.Handled = true;
+            }
+
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.')) //Nếu k phải là số, control, '.' thì chặn
+            {
+                e.Handled = true;
+            }
+            else if (char.IsDigit(e.KeyChar) && tb.Text.Length == 1) // Nếu là số và đc nhập vào ở vị trí thứ 2 thì chặn
+            {
+                e.Handled = true;
+            }
+
+            if ((e.KeyChar == '.') && (tb.Text.Length == 0 || tb.Text.Length > 1)) // Nếu là dấu '.' và nhập vào ở vị trí đầu tiên hoặc sau 2 thì chặn
+            {
+                e.Handled = true;
+            }
+
+            if (tb.Text.Length == 4 && !char.IsControl(e.KeyChar)) // Nếu quá 4 kí tự thì chặn
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void KeyPress_Column6(object sender, KeyPressEventArgs e)
+        {
+            TextBox tb = (TextBox)sender;
+            int x;
+            string test = tb.Text + e.KeyChar;
+
+            int.TryParse(test, out x);
+
+            if (x > 100) // Nếu lớn hơn 100 thì chặn
+            {
+                e.Handled = true;
+            }
+
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar)) //Nếu k phải là số, control, '.' thì chặn
+            {
+                e.Handled = true;
+            }
+        }
         #endregion
+
+        private void dataGridViewStudent_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+        {
+            e.Control.KeyPress -= new KeyPressEventHandler(KeyPress_Column3);
+            e.Control.KeyPress -= new KeyPressEventHandler(KeyPress_Column6);
+            if (dataGridViewStudent.CurrentCell.ColumnIndex == 3 || dataGridViewStudent.CurrentCell.ColumnIndex == 4)
+            {
+                TextBox tb = e.Control as TextBox;
+                if (tb != null)
+                {
+                    tb.KeyPress += new KeyPressEventHandler(KeyPress_Column3);
+                }
+            }
+            else if (dataGridViewStudent.CurrentCell.ColumnIndex == 6 || dataGridViewStudent.CurrentCell.ColumnIndex == 7)
+            {
+                TextBox tb = e.Control as TextBox;
+                if (tb != null)
+                {
+                    tb.KeyPress += new KeyPressEventHandler(KeyPress_Column6);
+                }
+            }
+        }
+
+        private void buttonVoteGoodMember_Click(object sender, EventArgs e)
+        {
+            if (gst != null)
+            {
+                using (FormVote fmvte = new FormVote(gst, textBoxName.Text, textBoxSemester.Text))
+                {
+                    fmvte.ShowDialog();
+                }
+                int idKQCD = Convert.ToInt32(dataGridViewStudent.Rows[currentIndex].Cells["IdScoresGroup1"].Value.ToString());
+                gst = new GoodStudent(GoodStudentDAO.Instance.GetInfo(idKQCD, gst.IdStudent).Rows[0]);
+            }
+            else
+            {
+                MessageBox.Show("Chưa chọn sinh viên, hoặc sinh viên này không phải là đoàn viên ưu tú!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
     }
 }

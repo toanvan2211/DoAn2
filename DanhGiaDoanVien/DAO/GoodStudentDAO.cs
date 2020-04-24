@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,5 +16,18 @@ namespace DanhGiaDoanVien.DAO
             private set { instance = value; }
         }
         public GoodStudentDAO() { }
+
+        public DataTable GetInfo(int idScoresGroup, string idStudent)
+        {
+            string query = "select * from DoanVienUuTuSV where idKetQuaChiDoan = " + idScoresGroup + " and MSSV = '" + idStudent + "'";
+            return DataProvider.Instance.ExecuteQuery(query);
+        }
+
+        public int SaveVote(int idScoresGroup, string idStudent, int voteFor, int totalVote)
+        {
+            string query = "update DoanVienUuTuSV set phieuBau = " + voteFor + ", tongPhieu = " + totalVote + " where idKetQuaChiDoan = " + idScoresGroup + " and MSSV = '" + idStudent + "'";
+
+            return DataProvider.Instance.ExecuteNonQuery(query);
+        }
     }
 }

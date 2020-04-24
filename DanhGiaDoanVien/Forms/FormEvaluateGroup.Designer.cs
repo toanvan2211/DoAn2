@@ -61,7 +61,6 @@
             this.textBoxIdGroup = new System.Windows.Forms.TextBox();
             this.buttonAuto = new System.Windows.Forms.Button();
             this.buttonDelete = new System.Windows.Forms.Button();
-            this.buttonUpdate = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.comboBoxSemester = new System.Windows.Forms.ComboBox();
             this.panelTop = new System.Windows.Forms.Panel();
@@ -81,6 +80,7 @@
             this.TotalFemaleTeacher1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TotalGoodMember1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Note1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.buttonUpdate = new System.Windows.Forms.Button();
             this.panelBottom.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -481,24 +481,6 @@
             this.buttonDelete.UseVisualStyleBackColor = true;
             this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
             // 
-            // buttonUpdate
-            // 
-            this.buttonUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonUpdate.ForeColor = System.Drawing.Color.White;
-            this.buttonUpdate.Image = ((System.Drawing.Image)(resources.GetObject("buttonUpdate.Image")));
-            this.buttonUpdate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonUpdate.Location = new System.Drawing.Point(718, 65);
-            this.buttonUpdate.Name = "buttonUpdate";
-            this.buttonUpdate.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.buttonUpdate.Size = new System.Drawing.Size(91, 39);
-            this.buttonUpdate.TabIndex = 4;
-            this.buttonUpdate.Text = "Sửa";
-            this.buttonUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonUpdate.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonUpdate.UseVisualStyleBackColor = true;
-            this.buttonUpdate.Click += new System.EventHandler(this.buttonUpdate_Click);
-            // 
             // label4
             // 
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -664,6 +646,24 @@
             this.Note1.HeaderText = "Ghi chú";
             this.Note1.Name = "Note1";
             this.Note1.Visible = false;
+            // 
+            // buttonUpdate
+            // 
+            this.buttonUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonUpdate.ForeColor = System.Drawing.Color.White;
+            this.buttonUpdate.Image = ((System.Drawing.Image)(resources.GetObject("buttonUpdate.Image")));
+            this.buttonUpdate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonUpdate.Location = new System.Drawing.Point(718, 65);
+            this.buttonUpdate.Name = "buttonUpdate";
+            this.buttonUpdate.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.buttonUpdate.Size = new System.Drawing.Size(91, 39);
+            this.buttonUpdate.TabIndex = 4;
+            this.buttonUpdate.Text = "Sửa";
+            this.buttonUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonUpdate.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonUpdate.UseVisualStyleBackColor = true;
+            this.buttonUpdate.Click += new System.EventHandler(this.buttonUpdate_Click);
             // 
             // FormEvaluateGroup
             // 
