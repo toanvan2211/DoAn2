@@ -594,6 +594,8 @@
             // 
             // dataGridViewTeacher
             // 
+            this.dataGridViewTeacher.AllowUserToAddRows = false;
+            this.dataGridViewTeacher.AllowUserToDeleteRows = false;
             this.dataGridViewTeacher.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewTeacher.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(77)))), ((int)(((byte)(108)))));
             this.dataGridViewTeacher.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;

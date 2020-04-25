@@ -4,13 +4,14 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace DanhGiaDoanVien.DTO
 {
     public class ScoresStudent
     {
         private int id;
-        private string idScoresGroup;
+        private int idScoresGroup;
         private string idStudent;
         private float averageSemester1;
         private float averageSemester2;
@@ -24,7 +25,7 @@ namespace DanhGiaDoanVien.DTO
         private string note;
 
         public int Id { get => id; set => id = value; }
-        public string IdScoresGroup { get => idScoresGroup; set => idScoresGroup = value; }
+        public int IdScoresGroup { get => idScoresGroup; set => idScoresGroup = value; }
         public string IdStudent { get => idStudent; set => idStudent = value; }
         public float AverageSemester1 { get => averageSemester1; set => averageSemester1 = value; }
         public float AverageSemester2 { get => averageSemester2; set => averageSemester2 = value; }
@@ -41,7 +42,7 @@ namespace DanhGiaDoanVien.DTO
         public ScoresStudent(DataRow row)
         {
             Id = (int)row["id"];
-            IdScoresGroup = (string)row["idKetQuaChiDoan"];
+            IdScoresGroup = (int)row["idKetQuaChiDoan"];
             IdStudent = (string)row["MSSV"];
             AverageSemester1 = (float)row["diemHK1"];
             AverageSemester2 = (float)row["diemHK2"];
@@ -53,6 +54,24 @@ namespace DanhGiaDoanVien.DTO
             Achievement = (string)row["thanhTichTieuBieu"];
             Note = (string)row["ghiChu"];
             IsGoodMember = (bool)row["doanVienUuTu"];
+        }
+
+        public ScoresStudent(DataGridViewRow row)
+        {
+
+            Id = Convert.ToInt32(row.Cells["Id1"].Value.ToString());
+            IdScoresGroup = Convert.ToInt32(row.Cells["IdScoresGroup1"].Value.ToString());
+            IdStudent = (string)row.Cells["IdStudent1"].Value.ToString();
+            AverageSemester1 = float.Parse((row.Cells["PointSemester11"].Value.ToString() == "") ? "0" : row.Cells["PointSemester11"].Value.ToString());
+            AverageSemester2 = float.Parse((row.Cells["PointSemester21"].Value.ToString() == "") ? "0" : row.Cells["PointSemester21"].Value.ToString());
+            TotalAverage = float.Parse((row.Cells["PointSemester1"].Value.ToString() == "") ? "0" : row.Cells["PointSemester1"].Value.ToString());
+            PointTraning1 = Convert.ToInt32((row.Cells["TrainSemester11"].Value.ToString() == "") ? "0" : row.Cells["TrainSemester11"].Value.ToString());
+            PointTraning2 = Convert.ToInt32((row.Cells["TrainSemester21"].Value.ToString() == "") ? "0" : row.Cells["TrainSemester21"].Value.ToString());
+            AverageTrainingPoint = Convert.ToInt32((row.Cells["TrainSemester1"].Value.ToString() == "") ? "0" : row.Cells["TrainSemester1"].Value.ToString());
+            Rank = row.Cells["Rank1"].Value.ToString();
+            Achievement = row.Cells["Achievement1"].Value.ToString();
+            Note = row.Cells["Note1"].Value.ToString();
+            IsGoodMember = Convert.ToBoolean(row.Cells["GoodMember1"].Value.ToString());
         }
     }
 }

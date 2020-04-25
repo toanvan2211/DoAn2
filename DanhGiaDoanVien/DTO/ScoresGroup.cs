@@ -4,6 +4,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace DanhGiaDoanVien.DTO
 {
@@ -56,6 +57,13 @@ namespace DanhGiaDoanVien.DTO
             Note = (string)row["ghiChu"];
             TotalFemalStudent = (int)row["tongNuSV"];
             TotalFemalTeacher = (int)row["tongNuGV"];
+        }
+
+        public ScoresGroup(DataGridViewRow row)
+        {
+            Id = Convert.ToInt32(row.Cells["Id1"].Value.ToString());
+            Rank = row.Cells["Rank1"].Value.ToString();
+            Note = row.Cells["Note1"].Value.ToString();
         }
     }
 }

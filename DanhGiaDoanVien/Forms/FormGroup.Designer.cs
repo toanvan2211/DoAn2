@@ -46,31 +46,31 @@
             this.buttonDelete = new System.Windows.Forms.Button();
             this.buttonAdd = new System.Windows.Forms.Button();
             this.buttonUpdate = new System.Windows.Forms.Button();
+            this.panelGroup = new System.Windows.Forms.Panel();
+            this.dataGridViewGroup = new System.Windows.Forms.DataGridView();
+            this.TotalFemaleTeacher = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TotalTeacher = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TotalFemaleStudent = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TotalStudent = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TotalMember = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Name1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelData = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.dataGridViewMember = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Sex = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Group = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.isMember = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.dataGridViewGroup = new System.Windows.Forms.DataGridView();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Name1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TotalMember = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TotalStudent = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TotalFemaleStudent = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TotalTeacher = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TotalFemaleTeacher = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelBottom.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panelEdit.SuspendLayout();
-            this.panelData.SuspendLayout();
-            this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMember)).BeginInit();
-            this.panel2.SuspendLayout();
+            this.panelGroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGroup)).BeginInit();
+            this.panelData.SuspendLayout();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMember)).BeginInit();
             this.SuspendLayout();
             // 
             // panelBottom
@@ -150,7 +150,7 @@
             this.panelEdit.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22.58064F));
             this.panelEdit.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 56.45161F));
             this.panelEdit.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 21.11959F));
-            this.panelEdit.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 28F));
+            this.panelEdit.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.panelEdit.Controls.Add(this.buttonExitEdit, 3, 0);
             this.panelEdit.Controls.Add(this.buttonResetText, 2, 2);
             this.panelEdit.Controls.Add(this.buttonEdit, 1, 2);
@@ -189,9 +189,9 @@
             this.buttonResetText.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonResetText.ForeColor = System.Drawing.Color.White;
             this.buttonResetText.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonResetText.Location = new System.Drawing.Point(302, 90);
+            this.buttonResetText.Location = new System.Drawing.Point(301, 90);
             this.buttonResetText.Name = "buttonResetText";
-            this.buttonResetText.Size = new System.Drawing.Size(74, 35);
+            this.buttonResetText.Size = new System.Drawing.Size(73, 35);
             this.buttonResetText.TabIndex = 4;
             this.buttonResetText.Text = "Xóa";
             this.buttonResetText.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -205,7 +205,7 @@
             this.buttonEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonEdit.ForeColor = System.Drawing.Color.White;
             this.buttonEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonEdit.Location = new System.Drawing.Point(219, 90);
+            this.buttonEdit.Location = new System.Drawing.Point(218, 90);
             this.buttonEdit.Name = "buttonEdit";
             this.buttonEdit.Size = new System.Drawing.Size(77, 35);
             this.buttonEdit.TabIndex = 3;
@@ -219,7 +219,7 @@
             this.textBoxNameEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxNameEdit.Location = new System.Drawing.Point(88, 54);
             this.textBoxNameEdit.Name = "textBoxNameEdit";
-            this.textBoxNameEdit.Size = new System.Drawing.Size(208, 20);
+            this.textBoxNameEdit.Size = new System.Drawing.Size(207, 20);
             this.textBoxNameEdit.TabIndex = 2;
             // 
             // textBoxMCDEdit
@@ -227,7 +227,7 @@
             this.textBoxMCDEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxMCDEdit.Location = new System.Drawing.Point(88, 11);
             this.textBoxMCDEdit.Name = "textBoxMCDEdit";
-            this.textBoxMCDEdit.Size = new System.Drawing.Size(208, 20);
+            this.textBoxMCDEdit.Size = new System.Drawing.Size(207, 20);
             this.textBoxMCDEdit.TabIndex = 1;
             // 
             // label2
@@ -309,29 +309,110 @@
             this.buttonUpdate.UseVisualStyleBackColor = true;
             this.buttonUpdate.Click += new System.EventHandler(this.buttonUpdate_Click);
             // 
+            // panelGroup
+            // 
+            this.panelGroup.AutoScroll = true;
+            this.panelGroup.Controls.Add(this.dataGridViewGroup);
+            this.panelGroup.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panelGroup.Location = new System.Drawing.Point(0, 0);
+            this.panelGroup.Name = "panelGroup";
+            this.panelGroup.Size = new System.Drawing.Size(491, 438);
+            this.panelGroup.TabIndex = 0;
+            // 
+            // dataGridViewGroup
+            // 
+            this.dataGridViewGroup.AllowUserToAddRows = false;
+            this.dataGridViewGroup.AllowUserToDeleteRows = false;
+            this.dataGridViewGroup.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewGroup.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(77)))), ((int)(((byte)(108)))));
+            this.dataGridViewGroup.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewGroup.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id,
+            this.Name1,
+            this.TotalMember,
+            this.TotalStudent,
+            this.TotalFemaleStudent,
+            this.TotalTeacher,
+            this.TotalFemaleTeacher});
+            this.dataGridViewGroup.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewGroup.Location = new System.Drawing.Point(0, 0);
+            this.dataGridViewGroup.Name = "dataGridViewGroup";
+            this.dataGridViewGroup.Size = new System.Drawing.Size(491, 438);
+            this.dataGridViewGroup.TabIndex = 1;
+            this.dataGridViewGroup.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewGroup_CellClick);
+            // 
+            // TotalFemaleTeacher
+            // 
+            this.TotalFemaleTeacher.DataPropertyName = "tongNuGV";
+            this.TotalFemaleTeacher.HeaderText = "Giảng viên nữ";
+            this.TotalFemaleTeacher.Name = "TotalFemaleTeacher";
+            this.TotalFemaleTeacher.ReadOnly = true;
+            // 
+            // TotalTeacher
+            // 
+            this.TotalTeacher.DataPropertyName = "tongGV";
+            this.TotalTeacher.HeaderText = "Tổng giảng viên";
+            this.TotalTeacher.Name = "TotalTeacher";
+            this.TotalTeacher.ReadOnly = true;
+            // 
+            // TotalFemaleStudent
+            // 
+            this.TotalFemaleStudent.DataPropertyName = "tongNuSV";
+            this.TotalFemaleStudent.HeaderText = "Sinh viên nữ";
+            this.TotalFemaleStudent.Name = "TotalFemaleStudent";
+            this.TotalFemaleStudent.ReadOnly = true;
+            // 
+            // TotalStudent
+            // 
+            this.TotalStudent.DataPropertyName = "tongSV";
+            this.TotalStudent.HeaderText = "Tổng sinh viên";
+            this.TotalStudent.Name = "TotalStudent";
+            this.TotalStudent.ReadOnly = true;
+            // 
+            // TotalMember
+            // 
+            this.TotalMember.DataPropertyName = "soThanhVien";
+            this.TotalMember.HeaderText = "Số thành viên";
+            this.TotalMember.Name = "TotalMember";
+            this.TotalMember.ReadOnly = true;
+            // 
+            // Name1
+            // 
+            this.Name1.DataPropertyName = "ten";
+            this.Name1.HeaderText = "Tên";
+            this.Name1.Name = "Name1";
+            this.Name1.ReadOnly = true;
+            // 
+            // id
+            // 
+            this.id.DataPropertyName = "id";
+            this.id.HeaderText = "ID";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            // 
             // panelData
             // 
-            this.panelData.Controls.Add(this.panel3);
-            this.panelData.Controls.Add(this.panel2);
+            this.panelData.Controls.Add(this.panel1);
+            this.panelData.Controls.Add(this.panelGroup);
             this.panelData.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelData.Location = new System.Drawing.Point(0, 197);
             this.panelData.Name = "panelData";
             this.panelData.Size = new System.Drawing.Size(1000, 438);
             this.panelData.TabIndex = 3;
             // 
-            // panel3
+            // panel1
             // 
-            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel3.Controls.Add(this.dataGridViewMember);
-            this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(477, 438);
-            this.panel3.TabIndex = 1;
+            this.panel1.Controls.Add(this.dataGridViewMember);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(491, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(509, 438);
+            this.panel1.TabIndex = 1;
             // 
             // dataGridViewMember
             // 
-            this.dataGridViewMember.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridViewMember.AllowUserToAddRows = false;
+            this.dataGridViewMember.AllowUserToDeleteRows = false;
             this.dataGridViewMember.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewMember.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(77)))), ((int)(((byte)(108)))));
             this.dataGridViewMember.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -341,11 +422,11 @@
             this.Sex,
             this.Group,
             this.isMember});
+            this.dataGridViewMember.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewMember.Location = new System.Drawing.Point(0, 0);
             this.dataGridViewMember.Name = "dataGridViewMember";
-            this.dataGridViewMember.Size = new System.Drawing.Size(477, 438);
-            this.dataGridViewMember.TabIndex = 2;
-            this.dataGridViewMember.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewMember_CellClick);
+            this.dataGridViewMember.Size = new System.Drawing.Size(509, 438);
+            this.dataGridViewMember.TabIndex = 3;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -379,85 +460,6 @@
             this.isMember.HeaderText = "Đoàn viên";
             this.isMember.Name = "isMember";
             // 
-            // panel2
-            // 
-            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel2.Controls.Add(this.dataGridViewGroup);
-            this.panel2.Location = new System.Drawing.Point(477, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(523, 438);
-            this.panel2.TabIndex = 0;
-            // 
-            // dataGridViewGroup
-            // 
-            this.dataGridViewGroup.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridViewGroup.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(77)))), ((int)(((byte)(108)))));
-            this.dataGridViewGroup.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewGroup.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.id,
-            this.Name1,
-            this.TotalMember,
-            this.TotalStudent,
-            this.TotalFemaleStudent,
-            this.TotalTeacher,
-            this.TotalFemaleTeacher});
-            this.dataGridViewGroup.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewGroup.Location = new System.Drawing.Point(0, 0);
-            this.dataGridViewGroup.Name = "dataGridViewGroup";
-            this.dataGridViewGroup.Size = new System.Drawing.Size(523, 438);
-            this.dataGridViewGroup.TabIndex = 1;
-            this.dataGridViewGroup.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewGroup_CellClick);
-            // 
-            // id
-            // 
-            this.id.DataPropertyName = "id";
-            this.id.HeaderText = "ID";
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            // 
-            // Name1
-            // 
-            this.Name1.DataPropertyName = "ten";
-            this.Name1.HeaderText = "Tên";
-            this.Name1.Name = "Name1";
-            this.Name1.ReadOnly = true;
-            // 
-            // TotalMember
-            // 
-            this.TotalMember.DataPropertyName = "soThanhVien";
-            this.TotalMember.HeaderText = "Số thành viên";
-            this.TotalMember.Name = "TotalMember";
-            this.TotalMember.ReadOnly = true;
-            // 
-            // TotalStudent
-            // 
-            this.TotalStudent.DataPropertyName = "tongSV";
-            this.TotalStudent.HeaderText = "Tổng sinh viên";
-            this.TotalStudent.Name = "TotalStudent";
-            this.TotalStudent.ReadOnly = true;
-            // 
-            // TotalFemaleStudent
-            // 
-            this.TotalFemaleStudent.DataPropertyName = "tongNuSV";
-            this.TotalFemaleStudent.HeaderText = "Sinh viên nữ";
-            this.TotalFemaleStudent.Name = "TotalFemaleStudent";
-            this.TotalFemaleStudent.ReadOnly = true;
-            // 
-            // TotalTeacher
-            // 
-            this.TotalTeacher.DataPropertyName = "tongGV";
-            this.TotalTeacher.HeaderText = "Tổng giảng viên";
-            this.TotalTeacher.Name = "TotalTeacher";
-            this.TotalTeacher.ReadOnly = true;
-            // 
-            // TotalFemaleTeacher
-            // 
-            this.TotalFemaleTeacher.DataPropertyName = "tongNuGV";
-            this.TotalFemaleTeacher.HeaderText = "Giảng viên nữ";
-            this.TotalFemaleTeacher.Name = "TotalFemaleTeacher";
-            this.TotalFemaleTeacher.ReadOnly = true;
-            // 
             // FormGroup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -473,11 +475,11 @@
             this.tableLayoutPanel1.PerformLayout();
             this.panelEdit.ResumeLayout(false);
             this.panelEdit.PerformLayout();
-            this.panelData.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMember)).EndInit();
-            this.panel2.ResumeLayout(false);
+            this.panelGroup.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGroup)).EndInit();
+            this.panelData.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMember)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -488,27 +490,10 @@
         private System.Windows.Forms.Button buttonDelete;
         private System.Windows.Forms.Button buttonAdd;
         private System.Windows.Forms.Button buttonUpdate;
-        private System.Windows.Forms.Panel panelData;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.DataGridView dataGridViewMember;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.DataGridView dataGridViewGroup;
         private System.Windows.Forms.Button buttonResetText;
         private System.Windows.Forms.Button buttonEdit;
         private System.Windows.Forms.TextBox textBoxNameEdit;
         private System.Windows.Forms.TextBox textBoxMCDEdit;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Name1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TotalMember;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TotalStudent;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TotalFemaleStudent;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TotalTeacher;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TotalFemaleTeacher;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Sex;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Group;
-        private System.Windows.Forms.DataGridViewTextBoxColumn isMember;
         private System.Windows.Forms.TableLayoutPanel panelEdit;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
@@ -518,5 +503,22 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBoxID;
         private System.Windows.Forms.TextBox textBoxName;
+        private System.Windows.Forms.Panel panelGroup;
+        private System.Windows.Forms.DataGridView dataGridViewGroup;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Name1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TotalMember;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TotalStudent;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TotalFemaleStudent;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TotalTeacher;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TotalFemaleTeacher;
+        private System.Windows.Forms.Panel panelData;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.DataGridView dataGridViewMember;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Sex;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Group;
+        private System.Windows.Forms.DataGridViewTextBoxColumn isMember;
     }
 }

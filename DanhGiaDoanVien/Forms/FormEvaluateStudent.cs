@@ -80,15 +80,15 @@ namespace DanhGiaDoanVien
             }
             else if (idCurrentSemester != "" && idCurrentGroup == "" )
             {
-                dataGridViewStudent.DataSource = ScoresGroupDAO.Instance.GetListScoresStudentByID(idCurrentSemester, 2);
+                dataGridViewStudent.DataSource = ScoresStudentDAO.Instance.GetListScoresStudentByID(idCurrentSemester, 2);
             }
             else if (idCurrentSemester == "" && idCurrentGroup != "")
             {
-                dataGridViewStudent.DataSource = ScoresGroupDAO.Instance.GetListScoresStudentByID(idCurrentGroup, 1);
+                dataGridViewStudent.DataSource = ScoresStudentDAO.Instance.GetListScoresStudentByID(idCurrentGroup, 1);
             }
             else
             {
-                dataGridViewStudent.DataSource = ScoresGroupDAO.Instance.GetListScoresStudentByID(idCurrentGroup, idCurrentSemester);
+                dataGridViewStudent.DataSource = ScoresStudentDAO.Instance.GetListScoresStudentByID(idCurrentGroup, idCurrentSemester);
             }
         }
 
@@ -119,7 +119,7 @@ namespace DanhGiaDoanVien
         {
             ScoresStudent st = new ScoresStudent();
             st.Id = Convert.ToInt32(dataGridViewStudent.Rows[index].Cells["Id1"].Value.ToString());
-            st.IdScoresGroup = dataGridViewStudent.Rows[index].Cells["IdScoresGroup1"].Value.ToString();
+            st.IdScoresGroup = Convert.ToInt32(dataGridViewStudent.Rows[index].Cells["IdScoresGroup1"].Value.ToString());
             st.IdStudent = dataGridViewStudent.Rows[index].Cells["IdStudent1"].Value.ToString();
             st.Rank = dataGridViewStudent.Rows[index].Cells["Rank1"].Value.ToString();
             st.Achievement = dataGridViewStudent.Rows[index].Cells["Achievement1"].Value.ToString();
@@ -144,7 +144,7 @@ namespace DanhGiaDoanVien
         {
             ScoresStudent st = new ScoresStudent();
             st.Id = Convert.ToInt32(dataGridViewStudent.Rows[currentIndex].Cells["Id1"].Value.ToString());
-            st.IdScoresGroup = dataGridViewStudent.Rows[currentIndex].Cells["IdScoresGroup1"].Value.ToString();
+            st.IdScoresGroup = Convert.ToInt32(dataGridViewStudent.Rows[currentIndex].Cells["IdScoresGroup1"].Value.ToString());
             st.IdStudent = dataGridViewStudent.Rows[currentIndex].Cells["IdStudent1"].Value.ToString();
             st.Achievement = textBoxAchievement.Text;
             st.IsGoodMember = checkBoxGoodMember.Checked ? true : false;
@@ -306,13 +306,25 @@ namespace DanhGiaDoanVien
             CellClick();
         }
 
-        private void buttonAuto_Click(object sender, EventArgs e)
+        private void buttonAuto_Click(object sender, EventArgs e) //Cập nhật toàn bộ
         {
-            List<int> listIndex = new List<int>() { };
-            List<ScoresGroup> listSG = new List<ScoresGroup>();
+            DialogResult quest = MessageBox.Show("Bạn có chắc muốn cập nhật toàn bộ?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (quest == DialogResult.Yes)
+            {
+                foreach (DataGridViewRow row in dataGridViewStudent.Rows)
+                {
+                    ScoresStudent st1 = new ScoresStudent(row);
+                    ScoresStudentDAO.Instance.UpdateScoresStudent(st1);
+                }
+                LoadScoresStudent();
+                CellClick();
+            }
+        }
+
+        private void buttonSaveSelect_Click(object sender, EventArgs e) //Chỉ cập nhật những hàng đc chọn
+        {
             foreach (int rowIndex in dataGridViewStudent.SelectedCells.Cast<DataGridViewCell>().Select(x => x.RowIndex).Distinct())
             {
-                listIndex.Add(rowIndex);
                 ScoresStudent st = Evaluate(CreateScoresStudentByRowIndex(rowIndex));
                 ScoresStudentDAO.Instance.UpdateScoresStudent(st);
             }
@@ -475,7 +487,7 @@ namespace DanhGiaDoanVien
             }
         }
 
-        private void KeyPress_Column6(object sender, KeyPressEventArgs e)
+        private void KeyPress_Column5(object sender, KeyPressEventArgs e)
         {
             TextBox tb = (TextBox)sender;
             int x;
@@ -498,7 +510,7 @@ namespace DanhGiaDoanVien
         private void dataGridViewStudent_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
         {
             e.Control.KeyPress -= new KeyPressEventHandler(KeyPress_Column3);
-            e.Control.KeyPress -= new KeyPressEventHandler(KeyPress_Column6);
+            e.Control.KeyPress -= new KeyPressEventHandler(KeyPress_Column5);
             if (dataGridViewStudent.CurrentCell.ColumnIndex == 3 || dataGridViewStudent.CurrentCell.ColumnIndex == 4)
             {
                 TextBox tb = e.Control as TextBox;
@@ -507,12 +519,12 @@ namespace DanhGiaDoanVien
                     tb.KeyPress += new KeyPressEventHandler(KeyPress_Column3);
                 }
             }
-            else if (dataGridViewStudent.CurrentCell.ColumnIndex == 6 || dataGridViewStudent.CurrentCell.ColumnIndex == 7)
+            else if (dataGridViewStudent.CurrentCell.ColumnIndex == 5 || dataGridViewStudent.CurrentCell.ColumnIndex == 6)
             {
                 TextBox tb = e.Control as TextBox;
                 if (tb != null)
                 {
-                    tb.KeyPress += new KeyPressEventHandler(KeyPress_Column6);
+                    tb.KeyPress += new KeyPressEventHandler(KeyPress_Column5);
                 }
             }
         }

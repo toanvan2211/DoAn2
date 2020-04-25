@@ -27,6 +27,32 @@ namespace DanhGiaDoanVien.DAO
             return DataProvider.Instance.ExecuteQuery(query);
         }
 
+        public DataTable GetListScoresStudentByID(string idGroup, string idSemester)
+        {
+            string query = "select id from KetQuaChiDoan where idChiDoan = '" + idGroup + "' and idNamHoc = '" + idSemester + "'";
+
+            int id = Convert.ToInt32(DataProvider.Instance.ExecuteQuery(query).Rows[0]["id"]);
+
+            query = "select id, MSSV, diemHK1, diemHK2, DRLHK1, DRLHK2, tongHK, DRL, xepLoai, thanhTichTieuBieu, doanVienUuTu, ghiChu, idKetQuaChiDoan from KetQuaSinhVien where idKetQuaChiDoan = " + id;
+
+            return DataProvider.Instance.ExecuteQuery(query);
+        }
+
+        public DataTable GetListScoresStudentByID(string id, int a) //a = 1 idGroup, a = 2 idSemester
+        {
+            if (a == 1)
+            {
+                string query = "select id, MSSV, diemHK1, diemHK2, DRLHK1, DRLHK2, tongHK, DRL, xepLoai, thanhTichTieuBieu, doanVienUuTu, ghiChu, idKetQuaChiDoan from KetQuaSinhVien where idKetQuaChiDoan in (select id from KetQuaChiDoan where idChiDoan = '" + id + "')";
+                return DataProvider.Instance.ExecuteQuery(query);
+            }
+            else if (a == 2)
+            {
+                string query = "select id, MSSV, diemHK1, diemHK2, DRLHK1, DRLHK2, tongHK, DRL, xepLoai, thanhTichTieuBieu, doanVienUuTu, ghiChu, idKetQuaChiDoan from KetQuaSinhVien where idKetQuaChiDoan in (select id from KetQuaChiDoan where idNamHoc = '" + id + "')";
+                return DataProvider.Instance.ExecuteQuery(query);
+            }
+            return null;
+        }
+
         public DataTable GetInfo(int idScoresGroup, string MSSV)
         {
             string query = "select sv.ten as tenSV, nam.ten as tenNamHoc, kqcd.idChiDoan from KetQuaChiDoan kqcd, SinhVien sv, nam where kqcd.idNamHoc = nam.id and sv.MSSV = '" + MSSV + "' and kqcd.id = " + idScoresGroup;

@@ -134,7 +134,7 @@
             this.panelEdit.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22.58064F));
             this.panelEdit.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 56.45161F));
             this.panelEdit.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 21.11959F));
-            this.panelEdit.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 28F));
+            this.panelEdit.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.panelEdit.Controls.Add(this.buttonExitEdit, 3, 0);
             this.panelEdit.Controls.Add(this.buttonResetText, 2, 2);
             this.panelEdit.Controls.Add(this.textBoxNameEdit, 1, 1);
@@ -173,9 +173,9 @@
             this.buttonResetText.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonResetText.ForeColor = System.Drawing.Color.White;
             this.buttonResetText.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonResetText.Location = new System.Drawing.Point(302, 91);
+            this.buttonResetText.Location = new System.Drawing.Point(301, 91);
             this.buttonResetText.Name = "buttonResetText";
-            this.buttonResetText.Size = new System.Drawing.Size(74, 35);
+            this.buttonResetText.Size = new System.Drawing.Size(73, 35);
             this.buttonResetText.TabIndex = 4;
             this.buttonResetText.Text = "Xóa";
             this.buttonResetText.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -187,7 +187,7 @@
             this.textBoxNameEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxNameEdit.Location = new System.Drawing.Point(88, 54);
             this.textBoxNameEdit.Name = "textBoxNameEdit";
-            this.textBoxNameEdit.Size = new System.Drawing.Size(208, 20);
+            this.textBoxNameEdit.Size = new System.Drawing.Size(207, 20);
             this.textBoxNameEdit.TabIndex = 2;
             // 
             // buttonEdit
@@ -197,7 +197,7 @@
             this.buttonEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonEdit.ForeColor = System.Drawing.Color.White;
             this.buttonEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonEdit.Location = new System.Drawing.Point(219, 91);
+            this.buttonEdit.Location = new System.Drawing.Point(218, 91);
             this.buttonEdit.Name = "buttonEdit";
             this.buttonEdit.Size = new System.Drawing.Size(77, 35);
             this.buttonEdit.TabIndex = 3;
@@ -211,7 +211,7 @@
             this.textBoxIdSemester.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxIdSemester.Location = new System.Drawing.Point(88, 11);
             this.textBoxIdSemester.Name = "textBoxIdSemester";
-            this.textBoxIdSemester.Size = new System.Drawing.Size(208, 20);
+            this.textBoxIdSemester.Size = new System.Drawing.Size(207, 20);
             this.textBoxIdSemester.TabIndex = 1;
             // 
             // label11
@@ -305,6 +305,8 @@
             // 
             // dataGridViewSemester
             // 
+            this.dataGridViewSemester.AllowUserToAddRows = false;
+            this.dataGridViewSemester.AllowUserToDeleteRows = false;
             this.dataGridViewSemester.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewSemester.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(77)))), ((int)(((byte)(108)))));
             this.dataGridViewSemester.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;

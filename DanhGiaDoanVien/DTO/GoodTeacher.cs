@@ -25,7 +25,7 @@ namespace DanhGiaDoanVien.DTO
         public GoodTeacher(DataRow row)
         {
             this.Id = (int)row["id"];
-            this.IdTeacher = (string)row["MSSV"];
+            this.IdTeacher = (string)row["MSGV"];
             this.IdScoresGroup = (int)row["idKetQuaChiDoan"];
             this.Vote = (int)row["phieuBau"];
             this.TotalVote = (int)row["tongPhieu"];

@@ -19,6 +19,7 @@ namespace DanhGiaDoanVien
         private List<Semester> listSemester = new List<Semester>();
         private int idCurrentScoresGroup = -1;
         private int currentIndex = -1;
+        private string idCurrentGroup = "";
         
         public FormEvaluateGroup()
         {
@@ -34,23 +35,23 @@ namespace DanhGiaDoanVien
         }
 
         #region method
-        void CellClick(int index)
+        void CellClick()
         {
-            if (index != -1)
+            if (currentIndex != -1)
             {
-                textBoxIdGroup.Text = dataGridViewScoresGroup.Rows[index].Cells["idGroup1"].Value.ToString();
-                textBoxMember.Text = dataGridViewScoresGroup.Rows[index].Cells["TotalMember1"].Value.ToString();
-                textBoxTeacher.Text = dataGridViewScoresGroup.Rows[index].Cells["TotalTeacher1"].Value.ToString();
-                textBoxStudent.Text = dataGridViewScoresGroup.Rows[index].Cells["TotalStudent1"].Value.ToString();
-                textBoxExcellent.Text = dataGridViewScoresGroup.Rows[index].Cells["Excellent1"].Value.ToString();
-                textBoxGreate.Text = dataGridViewScoresGroup.Rows[index].Cells["Great1"].Value.ToString();
-                textBoxMedium.Text = dataGridViewScoresGroup.Rows[index].Cells["Medium1"].Value.ToString();
-                textBoxBad.Text = dataGridViewScoresGroup.Rows[index].Cells["Bad1"].Value.ToString();
-                textBoxNote.Text = dataGridViewScoresGroup.Rows[index].Cells["Note1"].Value.ToString();
-                textBoxGoodMember.Text = dataGridViewScoresGroup.Rows[index].Cells["TotalGoodMember1"].Value.ToString();
-                string rank1 = dataGridViewScoresGroup.Rows[index].Cells["Rank1"].Value.ToString();
+                textBoxIdGroup.Text = dataGridViewScoresGroup.Rows[currentIndex].Cells["idGroup1"].Value.ToString();
+                textBoxMember.Text = dataGridViewScoresGroup.Rows[currentIndex].Cells["TotalMember1"].Value.ToString();
+                textBoxTeacher.Text = dataGridViewScoresGroup.Rows[currentIndex].Cells["TotalTeacher1"].Value.ToString();
+                textBoxStudent.Text = dataGridViewScoresGroup.Rows[currentIndex].Cells["TotalStudent1"].Value.ToString();
+                textBoxExcellent.Text = dataGridViewScoresGroup.Rows[currentIndex].Cells["Excellent1"].Value.ToString();
+                textBoxGreate.Text = dataGridViewScoresGroup.Rows[currentIndex].Cells["Great1"].Value.ToString();
+                textBoxMedium.Text = dataGridViewScoresGroup.Rows[currentIndex].Cells["Medium1"].Value.ToString();
+                textBoxBad.Text = dataGridViewScoresGroup.Rows[currentIndex].Cells["Bad1"].Value.ToString();
+                textBoxNote.Text = dataGridViewScoresGroup.Rows[currentIndex].Cells["Note1"].Value.ToString();
+                textBoxGoodMember.Text = dataGridViewScoresGroup.Rows[currentIndex].Cells["TotalGoodMember1"].Value.ToString();
+                string rank1 = dataGridViewScoresGroup.Rows[currentIndex].Cells["Rank1"].Value.ToString();
                 if (rank1 != "")
-                    comboBoxRank.Text = dataGridViewScoresGroup.Rows[index].Cells["Rank1"].Value.ToString();
+                    comboBoxRank.Text = dataGridViewScoresGroup.Rows[currentIndex].Cells["Rank1"].Value.ToString();
                 else
                     comboBoxRank.Text = "";
             }
@@ -58,11 +59,21 @@ namespace DanhGiaDoanVien
 
         void LoadListScoresGroup()
         {
-            if (idCurrentSemester == "")
+            if (idCurrentSemester == "" && idCurrentGroup == "")
+            {
                 dataGridViewScoresGroup.DataSource = ScoresGroupDAO.Instance.GetListScoresGroup();
+            }
+            else if (idCurrentSemester != "" && idCurrentGroup == "")
+            {
+                dataGridViewScoresGroup.DataSource = ScoresGroupDAO.Instance.GetListScoresGroupByID(idCurrentSemester, 2);
+            }
+            else if (idCurrentSemester == "" && idCurrentGroup != "")
+            {
+                dataGridViewScoresGroup.DataSource = ScoresGroupDAO.Instance.GetListScoresGroupByID(idCurrentGroup, 1);
+            }
             else
             {
-                dataGridViewScoresGroup.DataSource = ScoresGroupDAO.Instance.GetListScoresGroup(idCurrentSemester);
+                dataGridViewScoresGroup.DataSource = ScoresGroupDAO.Instance.GetListScoresGroup(idCurrentSemester, idCurrentGroup);
             }
         }
 
@@ -72,8 +83,8 @@ namespace DanhGiaDoanVien
             {
                 return;
             }
-            comboBoxGroup.DataSource = GroupDAO.Instance.GetListGroupNoScores(idCurrentSemester);
-            comboBoxGroup.DisplayMember = "id";
+            comboBoxGroupEmpty.DataSource = GroupDAO.Instance.GetListGroupNoScores(idCurrentSemester);
+            comboBoxGroupEmpty.DisplayMember = "id";
         }
 
         void LoadListSemester()
@@ -159,9 +170,9 @@ namespace DanhGiaDoanVien
             LoadListGroup();
             LoadListSemester();
 
-            if (comboBoxGroup.Text != "")
+            if (comboBoxGroupEmpty.Text != "")
             {
-                comboBoxGroup.SelectedIndex = 0;
+                comboBoxGroupEmpty.SelectedIndex = 0;
             }
             comboBoxRank.SelectedIndex = 1;
             comboBoxSemester.SelectedIndex = 0;
@@ -179,6 +190,19 @@ namespace DanhGiaDoanVien
             LoadListGroup();
         }
 
+        private void comboBoxGroup_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBoxGroup.SelectedIndex == 0)
+            {
+                idCurrentGroup = "";
+            }
+            else
+            {
+                idCurrentGroup = comboBoxGroup.Text;
+            }
+            LoadListScoresGroup();
+        }
+
         private void buttonCreateList_Click(object sender, EventArgs e)
         {
             if (idCurrentSemester == "")
@@ -186,12 +210,12 @@ namespace DanhGiaDoanVien
                 MessageBox.Show("Vui lòng chọn năm học!", "Chưa chọn năm học", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            else if (comboBoxGroup.Text == "")
+            else if (comboBoxGroupEmpty.Text == "")
             {
                 MessageBox.Show("Vui lòng chọn chi đoàn!", "Chưa chọn chi đoàn", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            CreateScoresGroup(comboBoxGroup.Text, idCurrentSemester);
+            CreateScoresGroup(comboBoxGroupEmpty.Text, idCurrentSemester);
             LoadListGroup();
             LoadListScoresGroup();
         }
@@ -204,7 +228,7 @@ namespace DanhGiaDoanVien
                 idCurrentScoresGroup = Convert.ToInt32(dataGridViewScoresGroup.Rows[e.RowIndex].Cells["Id1"].Value.ToString());
             }
             catch { }
-            CellClick(currentIndex);
+            CellClick();
         }
 
         private void buttonDelete_Click(object sender, EventArgs e)
@@ -227,17 +251,30 @@ namespace DanhGiaDoanVien
             LoadListScoresGroup();
         }
 
-        private void buttonAuto_Click(object sender, EventArgs e)
+        private void buttonSaveSelect_Click(object sender, EventArgs e)
         {
-            List<int> listIndex = new List<int>() { };
-            List<ScoresGroup> listSG = new List<ScoresGroup>();
             foreach (int rowIndex in dataGridViewScoresGroup.SelectedCells.Cast<DataGridViewCell>().Select(x => x.RowIndex).Distinct())
             {
-                listIndex.Add(rowIndex);
                 ScoresGroup sg = EvaluateGroup(CreateScoresGroupByRowIndex(rowIndex));
                 ScoresGroupDAO.Instance.UpdateScoresGroup(sg.Id, sg.Rank, sg.Note);
             }
             LoadListScoresGroup();
+            CellClick();
+        }
+
+        private void buttonSaveAll_Click(object sender, EventArgs e)
+        {
+            DialogResult quest = MessageBox.Show("Bạn có chắc muốn cập nhật toàn bộ?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (quest == DialogResult.Yes)
+            {
+                foreach (DataGridViewRow row in dataGridViewScoresGroup.Rows)
+                {
+                    ScoresGroup sg1 = new ScoresGroup(row);
+                    ScoresGroupDAO.Instance.UpdateScoresGroup(sg1.Id, sg1.Rank, sg1.Note);
+                }
+                LoadListScoresGroup();
+                CellClick();
+            }
         }
     }
 }
