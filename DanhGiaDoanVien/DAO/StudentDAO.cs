@@ -200,7 +200,7 @@ namespace DanhGiaDoanVien.DAO
                 sb.Append(" where MSSV = '" + student.IdStudent + "'");
                 query = sb.ToString();
 
-                if (check[1] == true && check[2] == false)
+                if (check[1] == true)
                 {
                     DataProvider.Instance.ExecuteNonQuery("USP_ChangeSexStudent @idGroup , @sex , @oldSex", new object[] { student.Group, sex, student.Sex });
                 }

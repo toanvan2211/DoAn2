@@ -53,7 +53,7 @@ namespace DanhGiaDoanVien
                 if (rank1 != "")
                     comboBoxRank.Text = dataGridViewScoresGroup.Rows[currentIndex].Cells["Rank1"].Value.ToString();
                 else
-                    comboBoxRank.Text = "";
+                    comboBoxRank.ResetText();
             }
         }
 
@@ -97,7 +97,7 @@ namespace DanhGiaDoanVien
                 Semester sm = new Semester(item);
                 listSemester.Add(sm);
 
-                comboBoxSemester.Items.Add(item["id"]);
+                comboBoxSemester.Items.Add(item["ten"]);
             }
         }
 
@@ -122,29 +122,24 @@ namespace DanhGiaDoanVien
             return sg;
         }
 
-        void EditScoresGroup()
+        ScoresGroup EvaluateGroup(ScoresGroup scoresGroup)
         {
-            ScoresGroup res = new ScoresGroup();
-            res.Id = Convert.ToInt32(dataGridViewScoresGroup.Rows[currentIndex].Cells["Id1"].Value.ToString());
-            if (comboBoxRank.Text != "")
-                res.Rank = comboBoxRank.Text;
-            res.Note = textBoxNote.Text;
-            ScoresGroupDAO.Instance.UpdateScoresGroup(res.Id, res.Rank, res.Note);
-        }
-
-        private ScoresGroup EvaluateGroup(ScoresGroup scoresGroup)
-        {
-            try
+            if (scoresGroup.TotalMember == 0) // Nếu chi đoàn chưa có đoàn viên thì không đánh giá được, nên để xếp loại là ""
             {
-                if (((scoresGroup.GreatMember / scoresGroup.TotalMember) * 100) >= 80 && scoresGroup.BadMember == 0)
+                scoresGroup.Rank = "";
+            }
+            else
+            {
+                int greatMember = scoresGroup.ExcellentMember + scoresGroup.GreatMember;
+                if ((((float)greatMember / (float)scoresGroup.TotalMember) * 100) >= 80 && scoresGroup.BadMember == 0)
                 {
                     scoresGroup.Rank = RankGroup.rank1;
                 }
-                else if (((scoresGroup.GreatMember / scoresGroup.TotalMember) * 100) >= 60 && scoresGroup.BadMember == 0)
+                else if ((((float)greatMember / (float)scoresGroup.TotalMember) * 100) >= 60 && scoresGroup.BadMember == 0)
                 {
                     scoresGroup.Rank = RankGroup.rank2;
                 }
-                else if (((scoresGroup.GreatMember / scoresGroup.TotalMember) * 100) >= 50 && ((scoresGroup.BadMember / scoresGroup.TotalMember) * 100) <= 20)
+                else if ((((float)greatMember / (float)scoresGroup.TotalMember) * 100) >= 50 && (((float)scoresGroup.BadMember / (float)scoresGroup.TotalMember) * 100) <= 20)
                 {
                     scoresGroup.Rank = RankGroup.rank3;
                 }
@@ -153,8 +148,62 @@ namespace DanhGiaDoanVien
                     scoresGroup.Rank = RankGroup.rank4;
                 }
             }
-            catch {  }
             return scoresGroup;
+        }
+
+        bool CompareRankCondition(string evaluatedRank, string rankHope)
+        {
+            bool result = false;
+            if (rankHope == "")
+            {
+                return true;
+            }
+            else
+            {
+                if (evaluatedRank != rankHope)
+                {
+                    int[] compareRank = new int[2]; //Chuyển từ string rank sang int 1 2 3 4 tương ứng vs xs, khá, tb, yk
+                    switch (evaluatedRank)
+                    {
+                        case "Chi đoàn vững mạnh":
+                            compareRank[0] = 1;
+                            break;
+                        case "Chi đoàn khá":
+                            compareRank[0] = 2;
+                            break;
+                        case "Chi đoàn trung bình":
+                            compareRank[0] = 3;
+                            break;
+                        case "Chi đoàn yếu kém":
+                            compareRank[0] = 4;
+                            break;
+                    }
+                    switch (rankHope)
+                    {
+                        case "Chi đoàn vững mạnh":
+                            compareRank[1] = 1;
+                            break;
+                        case "Chi đoàn khá":
+                            compareRank[1] = 2;
+                            break;
+                        case "Chi đoàn trung bình":
+                            compareRank[1] = 3;
+                            break;
+                        case "Chi đoàn yếu kém":
+                            compareRank[1] = 4;
+                            break;
+                    }
+                    if (compareRank[0] <= compareRank[1])
+                    {
+                        result = true;
+                    }
+                }
+                else
+                {
+                    result = true;
+                }
+            }
+            return result;
         }
 
         void CreateScoresGroup(string idGroup, string idSemester)
@@ -174,7 +223,7 @@ namespace DanhGiaDoanVien
             {
                 comboBoxGroupEmpty.SelectedIndex = 0;
             }
-            comboBoxRank.SelectedIndex = 1;
+            
             comboBoxSemester.SelectedIndex = 0;
         }
 
@@ -247,16 +296,59 @@ namespace DanhGiaDoanVien
 
         private void buttonUpdate_Click(object sender, EventArgs e)
         {
-            EditScoresGroup();
-            LoadListScoresGroup();
+            ScoresGroup sc = new ScoresGroup(dataGridViewScoresGroup.Rows[currentIndex]);
+            string rankHope = comboBoxRank.Text;
+            if (sc.Rank != "")
+            {
+                sc = EvaluateGroup(sc);
+                if (CompareRankCondition(sc.Rank, rankHope)) // Nếu rank đủ điểu kiện lớn hơn rank mong muốn thì duyệt, ngược lại thì thông báo
+                {
+                    sc.Note = textBoxNote.Text;
+                    ScoresGroupDAO.Instance.UpdateScoresGroup(sc.Id, rankHope, sc.Note);
+                    LoadListScoresGroup();
+                }
+                else
+                {
+                    MessageBox.Show("Chi đoàn này không đủ điều kiện để được xếp loại \"" + rankHope + "\". Vui lòng xem xét lại!", "Không đủ điều kiện", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
         }
 
         private void buttonSaveSelect_Click(object sender, EventArgs e)
         {
+            List<int> listRankError = new List<int>(); //Dùng để lưu lại id các kết quả không đủ điều kiện xếp loại
             foreach (int rowIndex in dataGridViewScoresGroup.SelectedCells.Cast<DataGridViewCell>().Select(x => x.RowIndex).Distinct())
             {
                 ScoresGroup sg = EvaluateGroup(CreateScoresGroupByRowIndex(rowIndex));
-                ScoresGroupDAO.Instance.UpdateScoresGroup(sg.Id, sg.Rank, sg.Note);
+
+                string rankHope = dataGridViewScoresGroup.Rows[rowIndex].Cells["Rank1"].Value.ToString();
+                if (CompareRankCondition(sg.Rank, rankHope)) //Đủ điều kiện xếp loại thì duyệt
+                {
+                    ScoresGroupDAO.Instance.UpdateScoresGroup(sg.Id, rankHope, sg.Note);
+                }
+                else //Không thì lưu lại id kết quả để báo lỗi
+                {
+                    listRankError.Add(sg.Id);
+                }
+            }
+
+            if (listRankError.Count != 0)
+            {
+                StringBuilder sbd = new StringBuilder();
+                sbd.Append("Danh sách các kết quả chi đoàn không đủ điều kiện xếp loại: ");
+                for (int i = 0; i < listRankError.Count; i++)
+                {
+                    if (i < listRankError.Count - 1)
+                    {
+                        sbd.Append(listRankError[i] + ", ");
+                    }
+                    else
+                    {
+                        sbd.Append(listRankError[i] + ".");
+                    }
+                }
+                sbd.Append("\nVui lòng kiểm tra lại!");
+                MessageBox.Show(sbd.ToString(), "Danh sách sai sót", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             LoadListScoresGroup();
             CellClick();
@@ -267,10 +359,39 @@ namespace DanhGiaDoanVien
             DialogResult quest = MessageBox.Show("Bạn có chắc muốn cập nhật toàn bộ?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (quest == DialogResult.Yes)
             {
+                List<int> listRankError = new List<int>(); //Dùng để lưu lại id các kết quả không đủ điều kiện xếp loại
                 foreach (DataGridViewRow row in dataGridViewScoresGroup.Rows)
                 {
-                    ScoresGroup sg1 = new ScoresGroup(row);
-                    ScoresGroupDAO.Instance.UpdateScoresGroup(sg1.Id, sg1.Rank, sg1.Note);
+                    string rankHope = row.Cells["Rank1"].Value.ToString();
+                    ScoresGroup sg = new ScoresGroup(row);
+                    sg = EvaluateGroup(sg);
+                    if (CompareRankCondition(sg.Rank, rankHope)) //Đủ điều kiện xếp loại thì duyệt
+                    {
+                        ScoresGroupDAO.Instance.UpdateScoresGroup(sg.Id, rankHope, sg.Note);
+                    }
+                    else //Không thì lưu lại id kết quả để báo lỗi
+                    {
+                        listRankError.Add(sg.Id);
+                    }
+                }
+
+                if (listRankError.Count != 0)
+                {
+                    StringBuilder sbd = new StringBuilder();
+                    sbd.Append("Danh sách các kết quả chi đoàn không đủ điều kiện xếp loại: ");
+                    for (int i = 0; i < listRankError.Count; i++)
+                    {
+                        if (i < listRankError.Count - 1)
+                        {
+                            sbd.Append(listRankError[i] + ", ");
+                        }
+                        else
+                        {
+                            sbd.Append(listRankError[i] + ".");
+                        }
+                    }
+                    sbd.Append("\nVui lòng kiểm tra lại!");
+                    MessageBox.Show(sbd.ToString(), "Danh sách sai sót", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 LoadListScoresGroup();
                 CellClick();

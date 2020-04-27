@@ -39,7 +39,10 @@ namespace DanhGiaDoanVien
         void AddAndUpdateState()
         {
             //Show the panel
+            panelDefault.Visible = false;
             panelEdit.Visible = true;
+            //Position
+            panelEdit.Location = panelDefault.Location;
             //Button in panel
             AcceptButton = buttonEdit;
             buttonEdit.Text = currentEditState;
@@ -49,7 +52,7 @@ namespace DanhGiaDoanVien
             textBoxMCDEdit.ReadOnly = false;
             textBoxNameEdit.Enabled = true;
             textBoxNameEdit.ReadOnly = false;
-            panelEdit.Enabled = true;
+            tabapanel.Enabled = true;
         }
 
         void ChangeState(Button btn)
@@ -70,6 +73,9 @@ namespace DanhGiaDoanVien
                 currentEditState = EditState.delete;
                 //Show the panel
                 panelEdit.Visible = true;
+                panelDefault.Visible = false;
+                //Position
+                panelEdit.Location = panelDefault.Location;
                 //Button in panel
                 AcceptButton = buttonEdit;
                 buttonResetText.Visible = false;
@@ -82,8 +88,11 @@ namespace DanhGiaDoanVien
             {
                 //AcceptButton
                 AcceptButton = null;
+                //Position
+                panelEdit.Location = panelDefault.Location;
                 //Hide the panel edit
                 panelEdit.Visible = false;
+                panelDefault.Visible = true;
             }
         }
 
@@ -179,9 +188,9 @@ namespace DanhGiaDoanVien
             try
             {
                 currentIdGroup = dataGridViewGroup.Rows[e.RowIndex].Cells["id"].Value.ToString();
-                textBoxID.Text = dataGridViewGroup.Rows[e.RowIndex].Cells["id"].Value.ToString();
+                labelID.Text = dataGridViewGroup.Rows[e.RowIndex].Cells["id"].Value.ToString();
                 textBoxMCDEdit.Text = dataGridViewGroup.Rows[e.RowIndex].Cells["id"].Value.ToString();
-                textBoxName.Text = dataGridViewGroup.Rows[e.RowIndex].Cells["Name1"].Value.ToString();
+                labelName.Text = dataGridViewGroup.Rows[e.RowIndex].Cells["Name1"].Value.ToString();
                 textBoxNameEdit.Text = dataGridViewGroup.Rows[e.RowIndex].Cells["Name1"].Value.ToString();
             }
             catch { }

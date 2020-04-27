@@ -72,6 +72,7 @@
             this.Sex1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Group1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IsMember1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panelBottom.SuspendLayout();
             this.panelEdit.SuspendLayout();
             this.panelRadioEdit.SuspendLayout();
@@ -79,6 +80,7 @@
             this.panelRadio.SuspendLayout();
             this.panelData.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStudent)).BeginInit();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelBottom
@@ -114,7 +116,7 @@
             this.panelEdit.Controls.Add(this.label10);
             this.panelEdit.Controls.Add(this.label11);
             this.panelEdit.Controls.Add(this.label12);
-            this.panelEdit.Location = new System.Drawing.Point(56, 26);
+            this.panelEdit.Location = new System.Drawing.Point(143, 184);
             this.panelEdit.Name = "panelEdit";
             this.panelEdit.Size = new System.Drawing.Size(594, 163);
             this.panelEdit.TabIndex = 6;
@@ -180,6 +182,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBoxSexEdit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxSexEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBoxSexEdit.FormattingEnabled = true;
             this.comboBoxSexEdit.Items.AddRange(new object[] {
             "Nam",
@@ -188,6 +191,7 @@
             this.comboBoxSexEdit.Name = "comboBoxSexEdit";
             this.comboBoxSexEdit.Size = new System.Drawing.Size(96, 21);
             this.comboBoxSexEdit.TabIndex = 0;
+            this.comboBoxSexEdit.SelectedIndexChanged += new System.EventHandler(this.comboBoxSexEdit_SelectedIndexChanged);
             // 
             // buttonResetText
             // 
@@ -227,11 +231,13 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBoxGroupEdit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxGroupEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBoxGroupEdit.FormattingEnabled = true;
             this.comboBoxGroupEdit.Location = new System.Drawing.Point(78, 38);
             this.comboBoxGroupEdit.Name = "comboBoxGroupEdit";
             this.comboBoxGroupEdit.Size = new System.Drawing.Size(117, 21);
             this.comboBoxGroupEdit.TabIndex = 0;
+            this.comboBoxGroupEdit.SelectedIndexChanged += new System.EventHandler(this.comboBoxGroupEdit_SelectedIndexChanged);
             // 
             // textBoxNameEdit
             // 
@@ -339,19 +345,16 @@
             // panelDefault
             // 
             this.panelDefault.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panelDefault.Controls.Add(this.tableLayoutPanel1);
             this.panelDefault.Controls.Add(this.panelRadio);
-            this.panelDefault.Controls.Add(this.comboBoxSex);
-            this.panelDefault.Controls.Add(this.comboBoxGroup);
             this.panelDefault.Controls.Add(this.label3);
             this.panelDefault.Controls.Add(this.labelName);
             this.panelDefault.Controls.Add(this.label1);
-            this.panelDefault.Controls.Add(this.label4);
             this.panelDefault.Controls.Add(this.labelMSSV);
             this.panelDefault.Controls.Add(this.label5);
-            this.panelDefault.Controls.Add(this.label2);
             this.panelDefault.Location = new System.Drawing.Point(59, 15);
             this.panelDefault.Name = "panelDefault";
-            this.panelDefault.Size = new System.Drawing.Size(594, 163);
+            this.panelDefault.Size = new System.Drawing.Size(764, 163);
             this.panelDefault.TabIndex = 1;
             // 
             // panelRadio
@@ -362,9 +365,9 @@
             this.panelRadio.Controls.Add(this.radioButtonNot);
             this.panelRadio.Controls.Add(this.radioButtonHave);
             this.panelRadio.Controls.Add(this.radioButtonAllMember);
-            this.panelRadio.Location = new System.Drawing.Point(498, 25);
+            this.panelRadio.Location = new System.Drawing.Point(665, 15);
             this.panelRadio.Name = "panelRadio";
-            this.panelRadio.Size = new System.Drawing.Size(83, 100);
+            this.panelRadio.Size = new System.Drawing.Size(96, 100);
             this.panelRadio.TabIndex = 5;
             // 
             // radioButtonNot
@@ -372,10 +375,11 @@
             this.radioButtonNot.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.radioButtonNot.AutoSize = true;
             this.radioButtonNot.ForeColor = System.Drawing.Color.White;
-            this.radioButtonNot.Location = new System.Drawing.Point(13, 37);
+            this.radioButtonNot.Location = new System.Drawing.Point(13, 59);
             this.radioButtonNot.Name = "radioButtonNot";
             this.radioButtonNot.Size = new System.Drawing.Size(56, 17);
             this.radioButtonNot.TabIndex = 2;
+            this.radioButtonNot.Tag = "False";
             this.radioButtonNot.Text = "Không";
             this.radioButtonNot.UseVisualStyleBackColor = true;
             // 
@@ -384,10 +388,11 @@
             this.radioButtonHave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.radioButtonHave.AutoSize = true;
             this.radioButtonHave.ForeColor = System.Drawing.Color.White;
-            this.radioButtonHave.Location = new System.Drawing.Point(13, 14);
+            this.radioButtonHave.Location = new System.Drawing.Point(13, 37);
             this.radioButtonHave.Name = "radioButtonHave";
             this.radioButtonHave.Size = new System.Drawing.Size(38, 17);
             this.radioButtonHave.TabIndex = 2;
+            this.radioButtonHave.Tag = "True";
             this.radioButtonHave.Text = "Có";
             this.radioButtonHave.UseVisualStyleBackColor = true;
             this.radioButtonHave.CheckedChanged += new System.EventHandler(this.radioButtonHave_CheckedChanged);
@@ -398,7 +403,7 @@
             this.radioButtonAllMember.AutoSize = true;
             this.radioButtonAllMember.Checked = true;
             this.radioButtonAllMember.ForeColor = System.Drawing.Color.White;
-            this.radioButtonAllMember.Location = new System.Drawing.Point(13, 60);
+            this.radioButtonAllMember.Location = new System.Drawing.Point(13, 14);
             this.radioButtonAllMember.Name = "radioButtonAllMember";
             this.radioButtonAllMember.Size = new System.Drawing.Size(56, 17);
             this.radioButtonAllMember.TabIndex = 2;
@@ -409,31 +414,29 @@
             // 
             // comboBoxSex
             // 
-            this.comboBoxSex.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBoxSex.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBoxSex.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxSex.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBoxSex.FormattingEnabled = true;
             this.comboBoxSex.Items.AddRange(new object[] {
             "Tất cả",
             "Nam",
             "Nữ"});
-            this.comboBoxSex.Location = new System.Drawing.Point(299, 36);
+            this.comboBoxSex.Location = new System.Drawing.Point(351, 8);
             this.comboBoxSex.Name = "comboBoxSex";
-            this.comboBoxSex.Size = new System.Drawing.Size(100, 21);
+            this.comboBoxSex.Size = new System.Drawing.Size(217, 21);
             this.comboBoxSex.TabIndex = 0;
             this.comboBoxSex.SelectedIndexChanged += new System.EventHandler(this.comboBoxSex_SelectedIndexChanged);
             // 
             // comboBoxGroup
             // 
-            this.comboBoxGroup.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBoxGroup.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBoxGroup.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxGroup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBoxGroup.FormattingEnabled = true;
-            this.comboBoxGroup.Location = new System.Drawing.Point(84, 36);
+            this.comboBoxGroup.Location = new System.Drawing.Point(67, 8);
             this.comboBoxGroup.Name = "comboBoxGroup";
-            this.comboBoxGroup.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxGroup.Size = new System.Drawing.Size(216, 21);
             this.comboBoxGroup.TabIndex = 0;
             this.comboBoxGroup.SelectedIndexChanged += new System.EventHandler(this.comboBoxGroup_SelectedIndexChanged);
             // 
@@ -444,7 +447,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(433, 40);
+            this.label3.Location = new System.Drawing.Point(600, 31);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(59, 13);
             this.label3.TabIndex = 3;
@@ -477,12 +480,10 @@
             // 
             // label4
             // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(226, 40);
+            this.label4.Location = new System.Drawing.Point(295, 12);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(50, 13);
             this.label4.TabIndex = 3;
@@ -515,12 +516,10 @@
             // 
             // label2
             // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(12, 39);
+            this.label2.Location = new System.Drawing.Point(8, 12);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(53, 13);
             this.label2.TabIndex = 3;
@@ -648,6 +647,24 @@
             this.IsMember1.Name = "IsMember1";
             this.IsMember1.ReadOnly = true;
             // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 4;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.38354F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 39.05429F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.03327F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 38.87916F));
+            this.tableLayoutPanel1.Controls.Add(this.label2, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.comboBoxSex, 3, 0);
+            this.tableLayoutPanel1.Controls.Add(this.comboBoxGroup, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.label4, 2, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(22, 20);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(571, 38);
+            this.tableLayoutPanel1.TabIndex = 6;
+            // 
             // FormStudent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -670,6 +687,8 @@
             this.panelRadio.PerformLayout();
             this.panelData.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStudent)).EndInit();
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -719,5 +738,6 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
     }
 }

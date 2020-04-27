@@ -63,6 +63,11 @@
             this.label4 = new System.Windows.Forms.Label();
             this.panelData = new System.Windows.Forms.Panel();
             this.dataGridViewScoresTeacher = new System.Windows.Forms.DataGridView();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.comboBoxGroup = new System.Windows.Forms.ComboBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.comboBoxSemester = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.Id1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IdTeacher1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Evaluation1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
@@ -71,11 +76,6 @@
             this.GoodMember1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Note1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IdScoresGroup1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.comboBoxGroup = new System.Windows.Forms.ComboBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.comboBoxSemester = new System.Windows.Forms.ComboBox();
-            this.label10 = new System.Windows.Forms.Label();
             this.panelBottom.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -450,6 +450,71 @@
             this.dataGridViewScoresTeacher.TabIndex = 0;
             this.dataGridViewScoresTeacher.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewScoresTeacher_CellClick);
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(105)))), ((int)(((byte)(146)))));
+            this.panel1.Controls.Add(this.comboBoxGroup);
+            this.panel1.Controls.Add(this.label11);
+            this.panel1.Controls.Add(this.comboBoxSemester);
+            this.panel1.Controls.Add(this.label10);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1000, 45);
+            this.panel1.TabIndex = 8;
+            // 
+            // comboBoxGroup
+            // 
+            this.comboBoxGroup.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.comboBoxGroup.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxGroup.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxGroup.FormattingEnabled = true;
+            this.comboBoxGroup.Items.AddRange(new object[] {
+            "Tất cả"});
+            this.comboBoxGroup.Location = new System.Drawing.Point(611, 9);
+            this.comboBoxGroup.Name = "comboBoxGroup";
+            this.comboBoxGroup.Size = new System.Drawing.Size(283, 24);
+            this.comboBoxGroup.TabIndex = 7;
+            this.comboBoxGroup.SelectedIndexChanged += new System.EventHandler(this.comboBoxGroup_SelectedIndexChanged);
+            // 
+            // label11
+            // 
+            this.label11.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.White;
+            this.label11.Location = new System.Drawing.Point(537, 12);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(68, 17);
+            this.label11.TabIndex = 8;
+            this.label11.Text = "Chi đoàn:";
+            // 
+            // comboBoxSemester
+            // 
+            this.comboBoxSemester.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.comboBoxSemester.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxSemester.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxSemester.FormattingEnabled = true;
+            this.comboBoxSemester.Items.AddRange(new object[] {
+            "Tất cả"});
+            this.comboBoxSemester.Location = new System.Drawing.Point(180, 9);
+            this.comboBoxSemester.Name = "comboBoxSemester";
+            this.comboBoxSemester.Size = new System.Drawing.Size(283, 24);
+            this.comboBoxSemester.TabIndex = 7;
+            this.comboBoxSemester.SelectedIndexChanged += new System.EventHandler(this.comboBoxSemester_SelectedIndexChanged);
+            // 
+            // label10
+            // 
+            this.label10.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.White;
+            this.label10.Location = new System.Drawing.Point(106, 12);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(68, 17);
+            this.label10.TabIndex = 8;
+            this.label10.Text = "Năm học:";
+            // 
             // Id1
             // 
             this.Id1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
@@ -521,11 +586,12 @@
             this.GoodMember1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.GoodMember1.DataPropertyName = "doanVienUuTu";
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             dataGridViewCellStyle6.NullValue = false;
             this.GoodMember1.DefaultCellStyle = dataGridViewCellStyle6;
             this.GoodMember1.HeaderText = "Đoàn viên ưu tú";
             this.GoodMember1.Name = "GoodMember1";
+            this.GoodMember1.ReadOnly = true;
             this.GoodMember1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.GoodMember1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.GoodMember1.Width = 91;
@@ -538,6 +604,7 @@
             this.Note1.Name = "Note1";
             this.Note1.ReadOnly = true;
             this.Note1.Visible = false;
+            this.Note1.Width = 64;
             // 
             // IdScoresGroup1
             // 
@@ -547,71 +614,7 @@
             this.IdScoresGroup1.Name = "IdScoresGroup1";
             this.IdScoresGroup1.ReadOnly = true;
             this.IdScoresGroup1.Visible = false;
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(105)))), ((int)(((byte)(146)))));
-            this.panel1.Controls.Add(this.comboBoxGroup);
-            this.panel1.Controls.Add(this.label11);
-            this.panel1.Controls.Add(this.comboBoxSemester);
-            this.panel1.Controls.Add(this.label10);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1000, 45);
-            this.panel1.TabIndex = 8;
-            // 
-            // comboBoxGroup
-            // 
-            this.comboBoxGroup.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.comboBoxGroup.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxGroup.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBoxGroup.FormattingEnabled = true;
-            this.comboBoxGroup.Items.AddRange(new object[] {
-            "Tất cả"});
-            this.comboBoxGroup.Location = new System.Drawing.Point(611, 9);
-            this.comboBoxGroup.Name = "comboBoxGroup";
-            this.comboBoxGroup.Size = new System.Drawing.Size(283, 24);
-            this.comboBoxGroup.TabIndex = 7;
-            this.comboBoxGroup.SelectedIndexChanged += new System.EventHandler(this.comboBoxGroup_SelectedIndexChanged);
-            // 
-            // label11
-            // 
-            this.label11.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(537, 12);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(68, 17);
-            this.label11.TabIndex = 8;
-            this.label11.Text = "Chi đoàn:";
-            // 
-            // comboBoxSemester
-            // 
-            this.comboBoxSemester.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.comboBoxSemester.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxSemester.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBoxSemester.FormattingEnabled = true;
-            this.comboBoxSemester.Items.AddRange(new object[] {
-            "Tất cả"});
-            this.comboBoxSemester.Location = new System.Drawing.Point(180, 9);
-            this.comboBoxSemester.Name = "comboBoxSemester";
-            this.comboBoxSemester.Size = new System.Drawing.Size(283, 24);
-            this.comboBoxSemester.TabIndex = 7;
-            this.comboBoxSemester.SelectedIndexChanged += new System.EventHandler(this.comboBoxSemester_SelectedIndexChanged);
-            // 
-            // label10
-            // 
-            this.label10.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(106, 12);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(68, 17);
-            this.label10.TabIndex = 8;
-            this.label10.Text = "Năm học:";
+            this.IdScoresGroup1.Width = 70;
             // 
             // FormEvaluateTeacher
             // 
@@ -674,6 +677,7 @@
         private System.Windows.Forms.Button buttonVoteGoodMember;
         private System.Windows.Forms.Button buttonSaveAll;
         private System.Windows.Forms.Button buttonEdit;
+        private System.Windows.Forms.Button buttonSaveSelect;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id1;
         private System.Windows.Forms.DataGridViewTextBoxColumn IdTeacher1;
         private System.Windows.Forms.DataGridViewComboBoxColumn Evaluation1;
@@ -682,6 +686,5 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn GoodMember1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Note1;
         private System.Windows.Forms.DataGridViewTextBoxColumn IdScoresGroup1;
-        private System.Windows.Forms.Button buttonSaveSelect;
     }
 }

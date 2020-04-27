@@ -37,12 +37,12 @@ namespace DanhGiaDoanVien.DAO
         {
             if (a == 1)
             {
-                string query = "select * from KetQuaSinhVien where idChiDoan = '" + id + ";";
+                string query = "select * from KetQuaChiDoan where idChiDoan = '" + id + "'";
                 return DataProvider.Instance.ExecuteQuery(query);
             }
             else if (a == 2)
             {
-                string query = "select * from KetQuaSinhVien where idNamHoc = '" + id + ";";
+                string query = "select * from KetQuaChiDoan where idNamHoc = '" + id + "'";
                 return DataProvider.Instance.ExecuteQuery(query);
             }
             return null;

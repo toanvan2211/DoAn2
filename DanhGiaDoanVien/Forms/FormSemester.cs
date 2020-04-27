@@ -1,4 +1,5 @@
 ﻿using DanhGiaDoanVien.DAO;
+using DanhGiaDoanVien.DTO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,6 +15,8 @@ namespace DanhGiaDoanVien.Forms
     public partial class FormSemester : Form
     {
         private string currentEditState = EditState.none;
+        private int currentIndex = -1;
+        private Semester currentSemester = new Semester();
 
         private struct EditState
         {
@@ -33,6 +36,9 @@ namespace DanhGiaDoanVien.Forms
         {
             //Show the panel
             panelEdit.Visible = true;
+            panelDefault.Visible = false;
+            //Location
+            panelEdit.Location = panelDefault.Location;
             //Button in panel
             AcceptButton = buttonEdit;
             buttonEdit.Text = currentEditState;
@@ -63,6 +69,9 @@ namespace DanhGiaDoanVien.Forms
                 currentEditState = EditState.delete;
                 //Show the panel
                 panelEdit.Visible = true;
+                panelDefault.Visible = false;
+                //Location
+                panelEdit.Location = panelDefault.Location;
                 //Button in panel
                 AcceptButton = buttonEdit;
                 buttonResetText.Visible = false;
@@ -75,8 +84,11 @@ namespace DanhGiaDoanVien.Forms
             {
                 //AcceptButton
                 AcceptButton = null;
+                //Location
+                panelEdit.Location = new Point(256, 182);
                 //Hide the panel edit
                 panelEdit.Visible = false;
+                panelDefault.Visible = true;
             }
         }
 
@@ -161,6 +173,11 @@ namespace DanhGiaDoanVien.Forms
             }
         }
 
+        void LoadGroupInSemester()
+        {
+            dataGridViewGroup.DataSource = SemesterDAO.Instance.GetGroupInSemester(currentSemester.Id);
+        }
+
         #endregion
 
         public FormSemester()
@@ -207,12 +224,24 @@ namespace DanhGiaDoanVien.Forms
             dataGridViewSemester.CurrentRow.Selected = true;
             try
             {
-                textBoxID.Text = dataGridViewSemester.Rows[e.RowIndex].Cells["Id1"].Value.ToString();
+                currentIndex = e.RowIndex;
+                labelID.Text = dataGridViewSemester.Rows[e.RowIndex].Cells["Id1"].Value.ToString();
                 textBoxIdSemester.Text = dataGridViewSemester.Rows[e.RowIndex].Cells["Id1"].Value.ToString();
-                textBoxName.Text = dataGridViewSemester.Rows[e.RowIndex].Cells["Name1"].Value.ToString();
+                labelName.Text = dataGridViewSemester.Rows[e.RowIndex].Cells["Name1"].Value.ToString();
                 textBoxNameEdit.Text = dataGridViewSemester.Rows[e.RowIndex].Cells["Name1"].Value.ToString();
+
+                currentSemester.Id = labelID.Text;
+                currentSemester.Name = labelName.Text;                
             }
-            catch { }
+            catch
+            {
+                currentIndex = -1;
+            }
+
+            if (currentIndex != -1)
+            {
+                LoadGroupInSemester();
+            }
         }
 
         private void FormSemester_Load(object sender, EventArgs e)

@@ -24,6 +24,13 @@ namespace DanhGiaDoanVien.DAO
             return DataProvider.Instance.ExecuteQuery(query);
         }
 
+        public DataTable GetGroupInSemester(string id)
+        {
+            string query = "select cd.Id, cd.ten, cd.soThanhVien from nam, ketQuaChiDoan kqcd, chiDoan cd where idNamHoc = nam.id and cd.id = kqcd.idChiDoan and nam.id = '" + id + "'";
+
+            return DataProvider.Instance.ExecuteQuery(query);
+        }
+
         public int AddSemester(string idSemester, string name)
         {
             string query = "USP_AddSemester @idSemester , @name";

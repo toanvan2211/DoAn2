@@ -36,15 +36,21 @@ namespace DanhGiaDoanVien
         private void FormStudent_Load(object sender, EventArgs e)
         {
             LoadGroup();
-            currentGroup = "Tất cả";
             comboBoxSex.SelectedIndex = 0;
             comboBoxSexEdit.SelectedIndex = 0;
+            currentGroup = "Tất cả";
+            currentSex = "Tất cả";
             LoadListStudent();
         }
         //ComboBox
         private void comboBoxGroup_SelectedIndexChanged(object sender, EventArgs e)
         {
-            currentGroup = comboBoxGroup.Text;
+            if (comboBoxGroup.SelectedIndex == 0)
+                currentGroup = "Tất cả";
+            else
+            {
+                currentGroup = comboBoxGroup.Text;
+            }
             LoadListStudent();
         }
 
@@ -69,13 +75,14 @@ namespace DanhGiaDoanVien
         private void radioButtonHaveEdit_CheckedChanged(object sender, EventArgs e)
         {
             GetCurrentRadio(panelRadioEdit);
+            LoadListStudent();
         }
         //DataGridView
         private void dataGridViewStudent_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            currentRowIndex = e.RowIndex;
             try
             {
+                currentRowIndex = e.RowIndex;
                 dataGridViewStudent.CurrentRow.Selected = true;
 
                 currentStudent.IdStudent = dataGridViewStudent.Rows[e.RowIndex].Cells["MSSV"].Value.ToString();
@@ -88,28 +95,34 @@ namespace DanhGiaDoanVien
                 else
                     currentStudent.IsMember = false;
             }
-            catch { }
-
-            //Main panel
-            labelMSSV.Text = currentStudent.IdStudent;
-            labelName.Text = currentStudent.Name;
-
-
-            if (currentEditState != EditState.none)
+            catch 
             {
-                //Edit panel
-                textBoxMSSVEdit.Text = currentStudent.IdStudent;
-                textBoxNameEdit.Text = currentStudent.Name;
-                comboBoxGroupEdit.Text = currentStudent.Group;
-                comboBoxSexEdit.Text = currentStudent.Sex;
-                string type = currentStudent.IsMember.ToString();
-                foreach (RadioButton item in panelRadioEdit.Controls)
+                currentRowIndex = -1;
+            }
+            
+            if (currentRowIndex != -1)
+            {
+                if (currentEditState != EditState.none)
                 {
-                    if (item.Tag.ToString() == type)
+                    //Edit panel
+                    textBoxMSSVEdit.Text = currentStudent.IdStudent;
+                    textBoxNameEdit.Text = currentStudent.Name;
+                    comboBoxGroupEdit.Text = currentStudent.Group;
+                    comboBoxSexEdit.Text = currentStudent.Sex;
+                    foreach (RadioButton item in panelRadioEdit.Controls)
                     {
-                        item.Checked = true;
-                        break;
+                        if (item.Tag.ToString() == currentStudent.IsMember.ToString())
+                        {
+                            item.Checked = true;
+                            break;
+                        }
                     }
+                }
+                else
+                {
+                    //Main panel
+                    labelMSSV.Text = currentStudent.IdStudent;
+                    labelName.Text = currentStudent.Name;
                 }
             }
         }
@@ -161,10 +174,7 @@ namespace DanhGiaDoanVien
         }
         void LoadListStudent()
         {
-            if (currentEditState == EditState.none)
-                dataGridViewStudent.DataSource = StudentDAO.Instance.GetListStudent(currentGroup, currentSex, currentIsMember);
-            else
-                dataGridViewStudent.DataSource = StudentDAO.Instance.GetListStudent();
+            dataGridViewStudent.DataSource = StudentDAO.Instance.GetListStudent(currentGroup, currentSex, currentIsMember);
         }
 
         void LoadGroup()
@@ -178,11 +188,21 @@ namespace DanhGiaDoanVien
                 comboBoxGroupEdit.Items.Add(item["id"]);
             }
         }
+
+        void SetCurrent(string group, string sex, string isMember)
+        {
+            if (group == "")
+                group = "Tất cả";
+
+            currentGroup = group;
+            currentSex = sex;
+            currentIsMember = isMember;
+        }
         void AddAndUpdateState()
         {
             //Show the panel
             panelEdit.Visible = true;
-            panelEdit.Location = panelDefault.Location;
+            panelEdit.Location = new Point(143, 15);
             panelDefault.Visible = false;
             //Button in panel
             AcceptButton = buttonEdit;
@@ -202,54 +222,70 @@ namespace DanhGiaDoanVien
 
         void ChangeState(Button btn)
         {
-            if (currentRowIndex != -1)
+            if (btn.Tag.ToString() != "exitEdit")
             {
-                comboBoxGroupEdit.Text = currentStudent.Group;
-                comboBoxSexEdit.Text = currentStudent.Sex;
-                string type = currentStudent.IsMember.ToString();
-                foreach (RadioButton item in panelRadioEdit.Controls)
+                if (currentRowIndex != -1)
                 {
-                    if (item.Tag.ToString() == type)
+                    textBoxNameEdit.Text = currentStudent.Name;
+                    textBoxMSSVEdit.Text = currentStudent.IdStudent;
+                    comboBoxGroupEdit.Text = currentStudent.Group;
+                    comboBoxSexEdit.Text = currentStudent.Sex;
+                    foreach (RadioButton item in panelRadioEdit.Controls)
                     {
-                        item.Checked = true;
-                        break;
+                        if (item.Tag.ToString() == currentStudent.IsMember.ToString())
+                        {
+                            item.Checked = true;
+                            break;
+                        }
                     }
                 }
-            }
 
-            if (btn.Tag.ToString() == "add")
-            {
-                currentEditState = EditState.add;
-                AddAndUpdateState();
+                GetCurrentRadio(panelRadioEdit);
+
+                SetCurrent(comboBoxGroupEdit.Text, comboBoxSexEdit.Text, currentIsMember);
+
+                if (btn.Tag.ToString() == "add")
+                {
+                    panelDefault.Visible = false;
+                    currentEditState = EditState.add;
+                    AddAndUpdateState();
+                }
+                else if (btn.Tag.ToString() == "update")
+                {
+                    panelDefault.Visible = false;
+                    currentEditState = EditState.update;
+                    AddAndUpdateState();
+                    textBoxMSSVEdit.Enabled = false;
+                }
+                else if (btn.Tag.ToString() == "delete")
+                {
+                    panelDefault.Visible = false;
+                    currentEditState = EditState.delete;
+                    //Show the panel
+                    panelEdit.Visible = true;
+                    panelEdit.Location = new Point(143, 15);
+                    panelDefault.Visible = false;
+                    //Button in panel
+                    AcceptButton = buttonEdit;
+                    buttonResetText.Visible = false;
+                    buttonEdit.Text = currentEditState;
+                    //Change Location button
+                    buttonEdit.Location = buttonResetText.Location;
+                    //Other controls
+                    textBoxMSSVEdit.Enabled = false;
+                    textBoxNameEdit.Enabled = false;
+                    comboBoxGroupEdit.Enabled = true;
+                    comboBoxSexEdit.Enabled = true;
+                    panelRadioEdit.Enabled = true;
+                }
             }
-            else if (btn.Tag.ToString() == "update")
+            else
             {
-                currentEditState = EditState.update;
-                AddAndUpdateState();
-                textBoxMSSVEdit.Enabled = false;
-            }
-            else if (btn.Tag.ToString() == "delete")
-            {
-                currentEditState = EditState.delete;
-                //Show the panel
-                panelEdit.Visible = true;
-                panelEdit.Location = panelDefault.Location;
-                panelDefault.Visible = false;
-                //Button in panel
-                AcceptButton = buttonEdit;
-                buttonResetText.Visible = false;
-                buttonEdit.Text = currentEditState;
-                //Change Location button
-                buttonEdit.Location = buttonResetText.Location;
-                //Other controls
-                textBoxMSSVEdit.Enabled = false;
-                textBoxNameEdit.Enabled = false;
-                comboBoxGroupEdit.Enabled = true;
-                comboBoxSexEdit.Enabled = true;
-                panelRadioEdit.Enabled = true;
-            }
-            else if (btn.Tag.ToString() == "exitEdit")
-            {
+                GetCurrentRadio(panelRadio);
+                SetCurrent(comboBoxGroup.Text, comboBoxSex.Text, currentIsMember);
+
+                panelDefault.Visible = true;
+                currentEditState = EditState.none;
                 //AcceptButton
                 AcceptButton = null;
                 //Hide the panel edit
@@ -373,5 +409,22 @@ namespace DanhGiaDoanVien
             textBoxNameEdit.ResetText();
         }
         #endregion
+
+        private void comboBoxGroupEdit_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBoxGroupEdit.SelectedIndex == 0)
+                currentGroup = "Tất cả";
+            else
+            {
+                currentGroup = comboBoxGroupEdit.Text;
+            }
+            LoadListStudent();
+        }
+
+        private void comboBoxSexEdit_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            currentSex = comboBoxSexEdit.Text;
+            LoadListStudent();
+        }
     }
 }

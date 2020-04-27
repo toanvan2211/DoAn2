@@ -11,7 +11,6 @@ namespace DanhGiaDoanVien.DTO
     {
         private string idStudent;
         private string name;
-        private string classroom;
         private string sex;
         private string group;
         private bool isMember;

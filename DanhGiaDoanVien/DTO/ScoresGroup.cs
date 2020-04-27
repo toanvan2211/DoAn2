@@ -11,6 +11,7 @@ namespace DanhGiaDoanVien.DTO
     public class ScoresGroup
     {
         private int id;
+        private string idGroup;
         private string idSemester;
         private string rank;
         private int excellentMember;
@@ -39,11 +40,13 @@ namespace DanhGiaDoanVien.DTO
         public string Note { get => note; set => note = value; }
         public int TotalFemalStudent { get => totalFemalStudent; set => totalFemalStudent = value; }
         public int TotalFemalTeacher { get => totalFemalTeacher; set => totalFemalTeacher = value; }
+        public string IdGroup { get => idGroup; set => idGroup = value; }
 
         public ScoresGroup() { }
         public ScoresGroup(DataRow row)
         {
             Id = (int)row["id"];
+            IdGroup = (string)row["idChiDoan"];
             IdSemester = (string)row["idNamHoc"];
             Rank = (string)row["xepLoai"];
             ExcellentMember = (int)row["xuatSac"];
@@ -53,16 +56,28 @@ namespace DanhGiaDoanVien.DTO
             TotalMember = (int)row["tongDoanVien"];
             TotalStudent = (int)row["tongSV"];
             TotalTeacher = (int)row["tongGV"];
-            TotalGoodMember = (int)row["tongDVUT"];
-            Note = (string)row["ghiChu"];
             TotalFemalStudent = (int)row["tongNuSV"];
             TotalFemalTeacher = (int)row["tongNuGV"];
+            TotalGoodMember = (int)row["tongDVUT"];
+            Note = (string)row["ghiChu"];
         }
 
         public ScoresGroup(DataGridViewRow row)
         {
             Id = Convert.ToInt32(row.Cells["Id1"].Value.ToString());
+            IdGroup = row.Cells["IdGroup1"].Value.ToString();
+            IdSemester = row.Cells["Semester1"].Value.ToString();
             Rank = row.Cells["Rank1"].Value.ToString();
+            ExcellentMember = Convert.ToInt32(row.Cells["Excellent1"].Value.ToString());
+            GreatMember = Convert.ToInt32(row.Cells["Great1"].Value.ToString());
+            MediumMember = Convert.ToInt32(row.Cells["Medium1"].Value.ToString());
+            BadMember = Convert.ToInt32(row.Cells["Bad1"].Value.ToString());
+            TotalMember = Convert.ToInt32(row.Cells["TotalMember1"].Value.ToString());
+            TotalStudent = Convert.ToInt32(row.Cells["TotalStudent1"].Value.ToString());
+            TotalTeacher = Convert.ToInt32(row.Cells["TotalTeacher1"].Value.ToString());
+            TotalFemalStudent = Convert.ToInt32(row.Cells["TotalFemaleStudent1"].Value.ToString());
+            TotalFemalTeacher = Convert.ToInt32(row.Cells["TotalFemaleTeacher1"].Value.ToString());
+            TotalGoodMember = Convert.ToInt32(row.Cells["TotalGoodMember1"].Value.ToString());
             Note = row.Cells["Note1"].Value.ToString();
         }
     }

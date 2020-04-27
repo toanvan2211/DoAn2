@@ -25,6 +25,22 @@ namespace DanhGiaDoanVien
             InitializeComponent();
         }
 
+        struct EvalutationStruct
+        {
+            public static string evaluation1 = "HOÀN THÀNH XUẤT SẮC NHIỆM VỤ";
+            public static string evaluation2 = "HOÀN THÀNH TỐT NHIỆM VỤ";
+            public static string evaluation3 = "HOÀN THÀNH NHIỆM VỤ";
+            public static string evaluation4 = "KHÔNG HOÀN THÀNH NHIỆM VỤ";
+        }
+
+        struct Rank
+        {
+            public static string rank1 = "Xuất sắc";
+            public static string rank2 = "Khá";
+            public static string rank3 = "Trung bình";
+            public static string rank4 = "Yếu kém";
+        }
+
         #region method
         void LoadScoresTeacher()
         {
@@ -45,34 +61,167 @@ namespace DanhGiaDoanVien
                 dataGridViewScoresTeacher.DataSource = ScoresTeacherDAO.Instance.GetListScoresTeacherByID(idCurrentGroup, idCurrentSemester);
             }
         }
+
+        bool CheckConditionGoodTeacher(ScoresTeacher tc)
+        {
+            bool result = false;
+            if (tc.Rank == "Xuất sắc")
+            {
+                result = true;
+            }
+            return result;
+        }
+
+        ScoresTeacher Evaluation(ScoresTeacher tc) //Đánh giá giảng viên
+        {            
+            if (tc.Evaluation == EvalutationStruct.evaluation1)
+            {
+                tc.Rank = Rank.rank1;
+            }
+            else if (tc.Evaluation == EvalutationStruct.evaluation2)
+            {
+                tc.Rank = Rank.rank2;
+            }
+            else if (tc.Evaluation == EvalutationStruct.evaluation3)
+            {
+                tc.Rank = Rank.rank3;
+            }
+            else if (tc.Evaluation == EvalutationStruct.evaluation4)
+            {
+                tc.Rank = Rank.rank4;
+            }
+            return tc;
+        }
+
+        bool CheckConditionAmountGoodMember(ScoresTeacher tc)
+        {
+            bool result = false;
+            DataTable data = ScoresTeacherDAO.Instance.GetRankAndAmountOfExcellent(tc.IdScoresGroup);
+            string rank = data.Rows[0]["xepLoai"].ToString();
+            int excellent = Convert.ToInt32(data.Rows[0]["xuatSac"].ToString());
+            int goodMember = Convert.ToInt32(data.Rows[0]["tongDVUT"].ToString() + 1); //Cộng 1 ở đây là tính luôn giảng viên đang được xét thành DVUT
+
+            if (rank == "Chi đoàn vững mạnh")
+            {
+                result = true;
+            }
+            else if (rank == "Chi đoàn khá")
+            {
+                if ((((float)goodMember / (float)excellent) * 100) <= 20)
+                {
+                    result = true;
+                }
+            }
+            else if (rank == "Chi đoàn trung bình")
+            {
+                if ((((float)goodMember / (float)excellent) * 100) <= 10)
+                {
+                    result = true;
+                }
+            }
+            else if (rank == "Chi đoàn yếu kém")
+            {
+                result = false;
+            }
+
+            return result;
+        }
+
+        bool CompareRankCondition(string evaluatedRank, string rankHope)
+        {
+            bool result = false;
+            if (rankHope == "")
+            {
+                return true;
+            }
+            else
+            {
+                if (evaluatedRank != rankHope)
+                {
+                    int[] compareRank = new int[2]; //Chuyển từ string rank sang int 1 2 3 4 tương ứng vs xs, khá, tb, yk
+                    switch (evaluatedRank)
+                    {
+                        case "Xuất sắc":
+                            compareRank[0] = 1;
+                            break;
+                        case "Khá":
+                            compareRank[0] = 2;
+                            break;
+                        case "Trung bình":
+                            compareRank[0] = 3;
+                            break;
+                        case "Yếu kém":
+                            compareRank[0] = 4;
+                            break;
+                    }
+                    switch (rankHope)
+                    {
+                        case "Xuất sắc":
+                            compareRank[1] = 1;
+                            break;
+                        case "Khá":
+                            compareRank[1] = 2;
+                            break;
+                        case "Trung bình":
+                            compareRank[1] = 3;
+                            break;
+                        case "Yếu kém":
+                            compareRank[1] = 4;
+                            break;
+                    }
+                    if (compareRank[0] <= compareRank[1])
+                    {
+                        result = true;
+                    }
+                }
+                else
+                {
+                    result = true;
+                }
+            }
+            return result;
+        }
+
         ScoresTeacher CreateScoresTeacherByRowIndex(int index)
         {
             ScoresTeacher tc = new ScoresTeacher();
-            tc.Id = Convert.ToInt32(dataGridViewScoresTeacher.Rows[index].Cells["Id1"].Value.ToString());
-            tc.IdScoresGroup = Convert.ToInt32(dataGridViewScoresTeacher.Rows[index].Cells["IdScoresGroup1"].Value.ToString());
-            tc.Evaluation = dataGridViewScoresTeacher.Rows[index].Cells["Evaluation1"].Value.ToString();
-            tc.IdTeacher = dataGridViewScoresTeacher.Rows[index].Cells["IdTeacher"].Value.ToString();
-            tc.Rank = dataGridViewScoresTeacher.Rows[index].Cells["Rank1"].Value.ToString();
-            tc.Achievement = dataGridViewScoresTeacher.Rows[index].Cells["Achievement1"].Value.ToString();
-            tc.IsGoodMember = Convert.ToBoolean(dataGridViewScoresTeacher.Rows[index].Cells["GoodMember1"].Value.ToString());
-            tc.Note = dataGridViewScoresTeacher.Rows[index].Cells["Note1"].Value.ToString();
-            
-            return tc;
+            if (currentIndex != -1)
+            {
+                tc.Id = Convert.ToInt32(dataGridViewScoresTeacher.Rows[index].Cells["Id1"].Value.ToString());
+                tc.IdScoresGroup = Convert.ToInt32(dataGridViewScoresTeacher.Rows[index].Cells["IdScoresGroup1"].Value.ToString());
+                tc.Evaluation = dataGridViewScoresTeacher.Rows[index].Cells["Evaluation1"].Value.ToString();
+                tc.IdTeacher = dataGridViewScoresTeacher.Rows[index].Cells["IdTeacher1"].Value.ToString();
+                tc.Rank = dataGridViewScoresTeacher.Rows[index].Cells["Rank1"].Value.ToString();
+                tc.Achievement = dataGridViewScoresTeacher.Rows[index].Cells["Achievement1"].Value.ToString();
+                tc.IsGoodMember = Convert.ToBoolean(dataGridViewScoresTeacher.Rows[index].Cells["GoodMember1"].Value.ToString());
+                tc.Note = dataGridViewScoresTeacher.Rows[index].Cells["Note1"].Value.ToString();
+                return tc;
+            }
+            else
+            {
+                return null;
+            }
         }
 
         ScoresTeacher CreateScoresTeacherByText()
         {
             ScoresTeacher tc = new ScoresTeacher();
-            tc.Id = Convert.ToInt32(dataGridViewScoresTeacher.Rows[currentIndex].Cells["Id1"].Value.ToString());
-            tc.IdScoresGroup = Convert.ToInt32(dataGridViewScoresTeacher.Rows[currentIndex].Cells["IdScoresGroup1"].Value.ToString());
-            tc.IdTeacher = textBoxMSGV.Text;
-            tc.Evaluation = comboBoxEvaluation.Text;
-            tc.Rank = comboBoxRank.Text;
-            tc.Achievement = textBoxAchievement.Text;
-            tc.IsGoodMember = checkBoxGoodMember.Checked ? true : false;
-            tc.Note = textBoxNote.Text;
-
-            return tc;
+            if (currentIndex != -1)
+            {
+                tc.Id = Convert.ToInt32(dataGridViewScoresTeacher.Rows[currentIndex].Cells["Id1"].Value.ToString());
+                tc.IdScoresGroup = Convert.ToInt32(dataGridViewScoresTeacher.Rows[currentIndex].Cells["IdScoresGroup1"].Value.ToString());
+                tc.IdTeacher = textBoxMSGV.Text;
+                tc.Evaluation = comboBoxEvaluation.Text;
+                tc.Rank = comboBoxRank.Text;
+                tc.Achievement = textBoxAchievement.Text;
+                tc.IsGoodMember = checkBoxGoodMember.Checked ? true : false;
+                tc.Note = textBoxNote.Text;
+                return tc;
+            }
+            else
+            {
+                return null;
+            }
         }
 
         void CellClick()
@@ -117,12 +266,12 @@ namespace DanhGiaDoanVien
             }
         }
 
-        void LoadComboBoxSemester()
+        void LoadListSemester()
         {
             DataTable dataGroup = SemesterDAO.Instance.GetListSemester();
             foreach (DataRow item in dataGroup.Rows)
             {
-                comboBoxSemester.Items.Add(item["id"]);
+                comboBoxSemester.Items.Add(item["ten"]);
             }
         }
         #endregion
@@ -130,7 +279,7 @@ namespace DanhGiaDoanVien
         private void FormEvaluateTeacher_Load(object sender, EventArgs e)
         {
             LoadComboBoxGroup();
-            LoadComboBoxSemester();
+            LoadListSemester();
 
             comboBoxSemester.SelectedIndex = 0;
             comboBoxGroup.SelectedIndex = 0;
@@ -179,9 +328,45 @@ namespace DanhGiaDoanVien
 
         private void buttonEdit_Click(object sender, EventArgs e)
         {
-            ScoresTeacherDAO.Instance.UpdateScoresTeacher(CreateScoresTeacherByText());
-            LoadScoresTeacher();
-            CellClick();
+            ScoresTeacher teacher = CreateScoresTeacherByText();
+            if (teacher != null)
+            {
+                string rankHope = comboBoxRank.Text;
+                teacher = Evaluation(teacher);
+                if (CompareRankCondition(teacher.Rank, rankHope)) //Kiểm tra xem coi rankHope có lớn hơn rank điều kiện k, nếu nhỏ hơn thì duyệt
+                {
+                    teacher.Rank = rankHope;
+                    if (checkBoxGoodMember.Checked) // Nếu giảng viên đc chọn là DVUT thì phải check điều kiện
+                    {
+                        if (CheckConditionGoodTeacher(teacher))
+                        {
+                            if (CheckConditionAmountGoodMember(teacher))
+                            {
+                                ScoresTeacherDAO.Instance.UpdateScoresTeacher(teacher);
+                                LoadScoresTeacher();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Số lượng DVUT trong chi đoàn đã đạt tối đa. Vui lòng cân nhắc lại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Giảng viên này không đủ điều kiện để xét DVUT. Vui lòng xem xét lại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                    else //Không thì thôi
+                    {
+                        ScoresTeacherDAO.Instance.UpdateScoresTeacher(teacher);
+                        LoadScoresTeacher();
+                    }
+                    CellClick();
+                }
+                else
+                {
+                    MessageBox.Show("Giảng viên này không đủ điều kiện để được xếp loại \"" + rankHope + "\". Vui lòng xem xét lại!", "Không đủ điều kiện", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
         }
 
         private void buttonVoteGoodMember_Click(object sender, EventArgs e)
@@ -206,10 +391,40 @@ namespace DanhGiaDoanVien
             DialogResult quest = MessageBox.Show("Bạn có chắc muốn cập nhật toàn bộ?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (quest == DialogResult.Yes)
             {
+                List<int> listRankError = new List<int>(); //Dùng để lưu lại id các kết quả không đủ điều kiện xếp loại
                 foreach (DataGridViewRow row in dataGridViewScoresTeacher.Rows)
                 {
-                    ScoresTeacher tc1 = new ScoresTeacher(row);
-                    ScoresTeacherDAO.Instance.UpdateScoresTeacher(tc1);
+                    string rankHope = row.Cells["Rank1"].Value.ToString();
+                    ScoresTeacher tc = new ScoresTeacher(row);
+                    tc = Evaluation(tc);
+                    if (CompareRankCondition(tc.Rank, rankHope)) //Đủ điều kiện xếp loại thì duyệt
+                    {
+                        tc.Rank = rankHope;
+                        ScoresTeacherDAO.Instance.UpdateScoresTeacher(tc);
+                    }
+                    else
+                    {
+                        listRankError.Add(tc.Id);
+                    }
+                }
+
+                if (listRankError.Count != 0)
+                {
+                    StringBuilder sbd = new StringBuilder();
+                    sbd.Append("Danh sách các kết quả giảng viên không đủ điều kiện xếp loại: ");
+                    for (int i = 0; i < listRankError.Count; i++)
+                    {
+                        if (i < listRankError.Count - 1)
+                        {
+                            sbd.Append(listRankError[i] + ", ");
+                        }
+                        else
+                        {
+                            sbd.Append(listRankError[i] + ".");
+                        }
+                    }
+                    sbd.Append("\nVui lòng kiểm tra lại!");
+                    MessageBox.Show(sbd.ToString(), "Danh sách sai sót", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 LoadScoresTeacher();
                 CellClick();
@@ -218,10 +433,40 @@ namespace DanhGiaDoanVien
 
         private void buttonSaveSelect_Click(object sender, EventArgs e)
         {
+            List<int> listRankError = new List<int>(); //Dùng để lưu lại id các kết quả không đủ điều kiện xếp loại
             foreach (int rowIndex in dataGridViewScoresTeacher.SelectedCells.Cast<DataGridViewCell>().Select(x => x.RowIndex).Distinct())
             {
+                string rankHope = dataGridViewScoresTeacher.Rows[rowIndex].Cells["Rank1"].Value.ToString();
                 ScoresTeacher tc = CreateScoresTeacherByRowIndex(rowIndex);
-                ScoresTeacherDAO.Instance.UpdateScoresTeacher(tc);
+                tc = Evaluation(tc);
+                if (CompareRankCondition(tc.Rank, rankHope)) //Đủ điều kiện xếp loại thì duyệt
+                {
+                    tc.Rank = rankHope;
+                    ScoresTeacherDAO.Instance.UpdateScoresTeacher(tc);
+                }
+                else
+                {
+                    listRankError.Add(tc.Id);
+                }
+            }
+
+            if (listRankError.Count != 0)
+            {
+                StringBuilder sbd = new StringBuilder();
+                sbd.Append("Danh sách các kết quả giảng viên không đủ điều kiện xếp loại: ");
+                for (int i = 0; i < listRankError.Count; i++)
+                {
+                    if (i < listRankError.Count - 1)
+                    {
+                        sbd.Append(listRankError[i] + ", ");
+                    }
+                    else
+                    {
+                        sbd.Append(listRankError[i] + ".");
+                    }
+                }
+                sbd.Append("\nVui lòng kiểm tra lại!");
+                MessageBox.Show(sbd.ToString(), "Danh sách sai sót", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             LoadScoresTeacher();
             CellClick();

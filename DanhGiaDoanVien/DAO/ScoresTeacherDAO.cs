@@ -25,6 +25,12 @@ namespace DanhGiaDoanVien.DAO
             return DataProvider.Instance.ExecuteQuery(query);
         }
 
+        public DataTable GetRankAndAmountOfExcellent(int idScoresGroup)
+        {
+            string query = "select xepLoai, xuatSac, tongDVUT from KetQuaChiDoan where id = " + idScoresGroup;
+            return DataProvider.Instance.ExecuteQuery(query);
+        }
+
         public DataTable GetListScoresTeacherByID(string idGroup, string idSemester)
         {
             string query = "select id from KetQuaChiDoan where idChiDoan = '" + idGroup + "' and idNamHoc = '" + idSemester + "'";

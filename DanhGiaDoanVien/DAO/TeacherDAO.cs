@@ -163,7 +163,7 @@ namespace DanhGiaDoanVien.DAO
                 sb.Append(" where MSGV = '" + teacher.IdTeacher + "'");
                 query = sb.ToString();
 
-                if (check[1] == true && check[2] == false)
+                if (check[1] == true)
                 {
                     DataProvider.Instance.ExecuteNonQuery("USP_ChangeSexTeacher @idGroup , @sex , @oldSex", new object[] { teacher.Group, sex, teacher.Sex });
                 }
