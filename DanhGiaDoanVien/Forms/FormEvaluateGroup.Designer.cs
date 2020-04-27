@@ -98,6 +98,9 @@
             this.TotalFemaleTeacher1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TotalGoodMember1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Note1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.label15 = new System.Windows.Forms.Label();
+            this.checkBoxAuto = new System.Windows.Forms.CheckBox();
             this.panelBottom.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -106,12 +109,14 @@
             this.tableLayoutPanel1.SuspendLayout();
             this.panelTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewScoresGroup)).BeginInit();
+            this.tableLayoutPanel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelBottom
             // 
             this.panelBottom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(54)))), ((int)(((byte)(75)))));
             this.panelBottom.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panelBottom.Controls.Add(this.tableLayoutPanel5);
             this.panelBottom.Controls.Add(this.tableLayoutPanel4);
             this.panelBottom.Controls.Add(this.tableLayoutPanel3);
             this.panelBottom.Controls.Add(this.panel1);
@@ -478,7 +483,7 @@
             this.buttonSaveAll.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.buttonSaveAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSaveAll.ForeColor = System.Drawing.Color.White;
-            this.buttonSaveAll.Location = new System.Drawing.Point(762, 42);
+            this.buttonSaveAll.Location = new System.Drawing.Point(882, 47);
             this.buttonSaveAll.Name = "buttonSaveAll";
             this.buttonSaveAll.Size = new System.Drawing.Size(104, 39);
             this.buttonSaveAll.TabIndex = 4;
@@ -506,7 +511,7 @@
             this.buttonSaveSelect.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.buttonSaveSelect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSaveSelect.ForeColor = System.Drawing.Color.White;
-            this.buttonSaveSelect.Location = new System.Drawing.Point(762, 80);
+            this.buttonSaveSelect.Location = new System.Drawing.Point(882, 85);
             this.buttonSaveSelect.Name = "buttonSaveSelect";
             this.buttonSaveSelect.Size = new System.Drawing.Size(104, 39);
             this.buttonSaveSelect.TabIndex = 4;
@@ -521,7 +526,7 @@
             this.buttonUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonUpdate.ForeColor = System.Drawing.Color.White;
             this.buttonUpdate.Image = ((System.Drawing.Image)(resources.GetObject("buttonUpdate.Image")));
-            this.buttonUpdate.Location = new System.Drawing.Point(762, 4);
+            this.buttonUpdate.Location = new System.Drawing.Point(882, 9);
             this.buttonUpdate.Name = "buttonUpdate";
             this.buttonUpdate.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
             this.buttonUpdate.Size = new System.Drawing.Size(104, 39);
@@ -783,6 +788,42 @@
             this.Note1.Name = "Note1";
             this.Note1.Visible = false;
             // 
+            // tableLayoutPanel5
+            // 
+            this.tableLayoutPanel5.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tableLayoutPanel5.ColumnCount = 2;
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 58.97436F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 41.02564F));
+            this.tableLayoutPanel5.Controls.Add(this.label15, 0, 0);
+            this.tableLayoutPanel5.Controls.Add(this.checkBoxAuto, 1, 0);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(799, 44);
+            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
+            this.tableLayoutPanel5.RowCount = 1;
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(67, 50);
+            this.tableLayoutPanel5.TabIndex = 10;
+            // 
+            // label15
+            // 
+            this.label15.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label15.AutoSize = true;
+            this.label15.ForeColor = System.Drawing.Color.White;
+            this.label15.Location = new System.Drawing.Point(7, 18);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(29, 13);
+            this.label15.TabIndex = 3;
+            this.label15.Text = "Auto";
+            // 
+            // checkBoxAuto
+            // 
+            this.checkBoxAuto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.checkBoxAuto.AutoSize = true;
+            this.checkBoxAuto.Location = new System.Drawing.Point(42, 18);
+            this.checkBoxAuto.Name = "checkBoxAuto";
+            this.checkBoxAuto.Size = new System.Drawing.Size(22, 14);
+            this.checkBoxAuto.TabIndex = 4;
+            this.checkBoxAuto.UseVisualStyleBackColor = true;
+            // 
             // FormEvaluateGroup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -807,6 +848,8 @@
             this.panelTop.ResumeLayout(false);
             this.panelTop.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewScoresGroup)).EndInit();
+            this.tableLayoutPanel5.ResumeLayout(false);
+            this.tableLayoutPanel5.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -868,5 +911,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn TotalFemaleTeacher1;
         private System.Windows.Forms.DataGridViewTextBoxColumn TotalGoodMember1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Note1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.CheckBox checkBoxAuto;
     }
 }

@@ -54,6 +54,7 @@
             this.textBoxAchievement = new System.Windows.Forms.RichTextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.textBoxNote = new System.Windows.Forms.RichTextBox();
+            this.comboBoxRank = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label5 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -73,12 +74,6 @@
             this.buttonUpdate = new System.Windows.Forms.Button();
             this.panelData = new System.Windows.Forms.Panel();
             this.dataGridViewStudent = new System.Windows.Forms.DataGridView();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.comboBoxGroup = new System.Windows.Forms.ComboBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.comboBoxSemester = new System.Windows.Forms.ComboBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.comboBoxRank = new System.Windows.Forms.ComboBox();
             this.Id1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IdStudent1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PointSemester11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -92,6 +87,14 @@
             this.GoodMember1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Note1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IdScoresGroup1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.comboBoxGroup = new System.Windows.Forms.ComboBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.comboBoxSemester = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.label15 = new System.Windows.Forms.Label();
+            this.checkBoxAuto = new System.Windows.Forms.CheckBox();
             this.panelTop.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -99,11 +102,13 @@
             this.panelData.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStudent)).BeginInit();
             this.panel1.SuspendLayout();
+            this.tableLayoutPanel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelTop
             // 
             this.panelTop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(54)))), ((int)(((byte)(75)))));
+            this.panelTop.Controls.Add(this.tableLayoutPanel4);
             this.panelTop.Controls.Add(this.tableLayoutPanel3);
             this.panelTop.Controls.Add(this.tableLayoutPanel2);
             this.panelTop.Controls.Add(this.tableLayoutPanel1);
@@ -272,6 +277,23 @@
             this.textBoxNote.TabIndex = 9;
             this.textBoxNote.Text = "";
             // 
+            // comboBoxRank
+            // 
+            this.comboBoxRank.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBoxRank.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxRank.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBoxRank.FormattingEnabled = true;
+            this.comboBoxRank.Items.AddRange(new object[] {
+            "",
+            "Xuất sắc",
+            "Khá",
+            "Trung bình",
+            "Yếu kém"});
+            this.comboBoxRank.Location = new System.Drawing.Point(116, 53);
+            this.comboBoxRank.Name = "comboBoxRank";
+            this.comboBoxRank.Size = new System.Drawing.Size(245, 21);
+            this.comboBoxRank.TabIndex = 10;
+            // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -428,7 +450,7 @@
             this.buttonSaveAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSaveAll.ForeColor = System.Drawing.Color.White;
             this.buttonSaveAll.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonSaveAll.Location = new System.Drawing.Point(775, 49);
+            this.buttonSaveAll.Location = new System.Drawing.Point(877, 50);
             this.buttonSaveAll.Name = "buttonSaveAll";
             this.buttonSaveAll.Size = new System.Drawing.Size(111, 39);
             this.buttonSaveAll.TabIndex = 4;
@@ -442,7 +464,7 @@
             this.buttonSaveSelect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSaveSelect.ForeColor = System.Drawing.Color.White;
             this.buttonSaveSelect.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonSaveSelect.Location = new System.Drawing.Point(775, 88);
+            this.buttonSaveSelect.Location = new System.Drawing.Point(877, 88);
             this.buttonSaveSelect.Name = "buttonSaveSelect";
             this.buttonSaveSelect.Size = new System.Drawing.Size(111, 39);
             this.buttonSaveSelect.TabIndex = 4;
@@ -474,7 +496,7 @@
             this.buttonUpdate.ForeColor = System.Drawing.Color.White;
             this.buttonUpdate.Image = ((System.Drawing.Image)(resources.GetObject("buttonUpdate.Image")));
             this.buttonUpdate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonUpdate.Location = new System.Drawing.Point(775, 10);
+            this.buttonUpdate.Location = new System.Drawing.Point(877, 12);
             this.buttonUpdate.Name = "buttonUpdate";
             this.buttonUpdate.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
             this.buttonUpdate.Size = new System.Drawing.Size(111, 39);
@@ -522,90 +544,6 @@
             this.dataGridViewStudent.TabIndex = 0;
             this.dataGridViewStudent.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewStudent_CellClick);
             this.dataGridViewStudent.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dataGridViewStudent_EditingControlShowing);
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(105)))), ((int)(((byte)(146)))));
-            this.panel1.Controls.Add(this.comboBoxGroup);
-            this.panel1.Controls.Add(this.label11);
-            this.panel1.Controls.Add(this.comboBoxSemester);
-            this.panel1.Controls.Add(this.label10);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1000, 45);
-            this.panel1.TabIndex = 7;
-            // 
-            // comboBoxGroup
-            // 
-            this.comboBoxGroup.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.comboBoxGroup.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxGroup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBoxGroup.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBoxGroup.FormattingEnabled = true;
-            this.comboBoxGroup.Items.AddRange(new object[] {
-            "Tất cả"});
-            this.comboBoxGroup.Location = new System.Drawing.Point(611, 9);
-            this.comboBoxGroup.Name = "comboBoxGroup";
-            this.comboBoxGroup.Size = new System.Drawing.Size(283, 24);
-            this.comboBoxGroup.TabIndex = 7;
-            this.comboBoxGroup.SelectedIndexChanged += new System.EventHandler(this.comboBoxGroup_SelectedIndexChanged);
-            // 
-            // label11
-            // 
-            this.label11.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(537, 12);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(68, 17);
-            this.label11.TabIndex = 8;
-            this.label11.Text = "Chi đoàn:";
-            // 
-            // comboBoxSemester
-            // 
-            this.comboBoxSemester.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.comboBoxSemester.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxSemester.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBoxSemester.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBoxSemester.FormattingEnabled = true;
-            this.comboBoxSemester.Items.AddRange(new object[] {
-            "Tất cả"});
-            this.comboBoxSemester.Location = new System.Drawing.Point(181, 11);
-            this.comboBoxSemester.Name = "comboBoxSemester";
-            this.comboBoxSemester.Size = new System.Drawing.Size(283, 24);
-            this.comboBoxSemester.TabIndex = 7;
-            this.comboBoxSemester.SelectedIndexChanged += new System.EventHandler(this.comboBoxSemester_SelectedIndexChanged);
-            // 
-            // label10
-            // 
-            this.label10.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(107, 14);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(68, 17);
-            this.label10.TabIndex = 8;
-            this.label10.Text = "Năm học:";
-            // 
-            // comboBoxRank
-            // 
-            this.comboBoxRank.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBoxRank.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxRank.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBoxRank.FormattingEnabled = true;
-            this.comboBoxRank.Items.AddRange(new object[] {
-            "",
-            "Xuất sắc",
-            "Khá",
-            "Trung bình",
-            "Yếu kém"});
-            this.comboBoxRank.Location = new System.Drawing.Point(116, 53);
-            this.comboBoxRank.Name = "comboBoxRank";
-            this.comboBoxRank.Size = new System.Drawing.Size(245, 21);
-            this.comboBoxRank.TabIndex = 10;
             // 
             // Id1
             // 
@@ -745,6 +683,109 @@
             this.IdScoresGroup1.ReadOnly = true;
             this.IdScoresGroup1.Visible = false;
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(105)))), ((int)(((byte)(146)))));
+            this.panel1.Controls.Add(this.comboBoxGroup);
+            this.panel1.Controls.Add(this.label11);
+            this.panel1.Controls.Add(this.comboBoxSemester);
+            this.panel1.Controls.Add(this.label10);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1000, 45);
+            this.panel1.TabIndex = 7;
+            // 
+            // comboBoxGroup
+            // 
+            this.comboBoxGroup.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.comboBoxGroup.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxGroup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBoxGroup.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxGroup.FormattingEnabled = true;
+            this.comboBoxGroup.Items.AddRange(new object[] {
+            "Tất cả"});
+            this.comboBoxGroup.Location = new System.Drawing.Point(611, 9);
+            this.comboBoxGroup.Name = "comboBoxGroup";
+            this.comboBoxGroup.Size = new System.Drawing.Size(283, 24);
+            this.comboBoxGroup.TabIndex = 7;
+            this.comboBoxGroup.SelectedIndexChanged += new System.EventHandler(this.comboBoxGroup_SelectedIndexChanged);
+            // 
+            // label11
+            // 
+            this.label11.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.White;
+            this.label11.Location = new System.Drawing.Point(537, 12);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(68, 17);
+            this.label11.TabIndex = 8;
+            this.label11.Text = "Chi đoàn:";
+            // 
+            // comboBoxSemester
+            // 
+            this.comboBoxSemester.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.comboBoxSemester.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxSemester.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBoxSemester.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxSemester.FormattingEnabled = true;
+            this.comboBoxSemester.Items.AddRange(new object[] {
+            "Tất cả"});
+            this.comboBoxSemester.Location = new System.Drawing.Point(181, 11);
+            this.comboBoxSemester.Name = "comboBoxSemester";
+            this.comboBoxSemester.Size = new System.Drawing.Size(283, 24);
+            this.comboBoxSemester.TabIndex = 7;
+            this.comboBoxSemester.SelectedIndexChanged += new System.EventHandler(this.comboBoxSemester_SelectedIndexChanged);
+            // 
+            // label10
+            // 
+            this.label10.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.White;
+            this.label10.Location = new System.Drawing.Point(107, 14);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(68, 17);
+            this.label10.TabIndex = 8;
+            this.label10.Text = "Năm học:";
+            // 
+            // tableLayoutPanel4
+            // 
+            this.tableLayoutPanel4.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tableLayoutPanel4.ColumnCount = 2;
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 58.97436F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 41.02564F));
+            this.tableLayoutPanel4.Controls.Add(this.label15, 0, 0);
+            this.tableLayoutPanel4.Controls.Add(this.checkBoxAuto, 1, 0);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(804, 47);
+            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
+            this.tableLayoutPanel4.RowCount = 1;
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(67, 50);
+            this.tableLayoutPanel4.TabIndex = 5;
+            // 
+            // label15
+            // 
+            this.label15.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label15.AutoSize = true;
+            this.label15.ForeColor = System.Drawing.Color.White;
+            this.label15.Location = new System.Drawing.Point(7, 18);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(29, 13);
+            this.label15.TabIndex = 3;
+            this.label15.Text = "Auto";
+            // 
+            // checkBoxAuto
+            // 
+            this.checkBoxAuto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.checkBoxAuto.AutoSize = true;
+            this.checkBoxAuto.Location = new System.Drawing.Point(42, 18);
+            this.checkBoxAuto.Name = "checkBoxAuto";
+            this.checkBoxAuto.Size = new System.Drawing.Size(22, 14);
+            this.checkBoxAuto.TabIndex = 4;
+            this.checkBoxAuto.UseVisualStyleBackColor = true;
+            // 
             // FormEvaluateStudent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -768,6 +809,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStudent)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.tableLayoutPanel4.ResumeLayout(false);
+            this.tableLayoutPanel4.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -826,5 +869,8 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn GoodMember1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Note1;
         private System.Windows.Forms.DataGridViewTextBoxColumn IdScoresGroup1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.CheckBox checkBoxAuto;
     }
 }

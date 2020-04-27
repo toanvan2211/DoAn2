@@ -159,12 +159,17 @@ namespace DanhGiaDoanVien
             return result;
         }
 
-        bool CompareRankCondition(string evaluatedRank, string rankHope)
+        string CompareRankCondition(string evaluatedRank, string rankHope)
         {
-            bool result = false;
+            string result = evaluatedRank;
+            if (checkBoxAuto.Checked)
+            {
+                return result;
+            }
+
             if (rankHope == "")
             {
-                return true;
+                return rankHope;
             }
             else
             {
@@ -203,15 +208,18 @@ namespace DanhGiaDoanVien
                     }
                     if (compareRank[0] <= compareRank[1])
                     {
-                        result = true;
+                        return rankHope;
+                    }
+                    else
+                    {
+                        return null;
                     }
                 }
                 else
                 {
-                    result = true;
+                    return evaluatedRank;
                 }
             }
-            return result;
         }
 
         ScoresStudent CreateScoresStudentByRowIndex(int index)
@@ -415,9 +423,8 @@ namespace DanhGiaDoanVien
                     string rankHope = row.Cells["Rank1"].Value.ToString();
                     ScoresStudent st = new ScoresStudent(row);
                     st = Evaluate(st);
-                    if (CompareRankCondition(st.Rank, rankHope))
+                    if ((st.Rank = CompareRankCondition(st.Rank, rankHope)) != null)
                     {
-                        st.Rank = rankHope;
                         ScoresStudentDAO.Instance.UpdateScoresStudent(st);
                     }
                     else
@@ -457,9 +464,8 @@ namespace DanhGiaDoanVien
                 string rankHope = dataGridViewStudent.Rows[rowIndex].Cells["Rank1"].Value.ToString();
                 ScoresStudent st = Evaluate(CreateScoresStudentByRowIndex(rowIndex));
                 st = Evaluate(st);
-                if (CompareRankCondition(st.Rank, rankHope))
+                if ((st.Rank = CompareRankCondition(st.Rank, rankHope)) != null)
                 {
-                    st.Rank = rankHope;
                     ScoresStudentDAO.Instance.UpdateScoresStudent(st);
                 }
                 else
@@ -497,9 +503,8 @@ namespace DanhGiaDoanVien
             {
                 string rankHope = comboBoxRank.Text;
                 student = Evaluate(student);
-                if (CompareRankCondition(student.Rank, rankHope))
+                if ((student.Rank = CompareRankCondition(student.Rank, rankHope)) != null)
                 {
-                    student.Rank = rankHope;
                     if (checkBoxGoodMember.Checked) // Nếu sinh viên đc chọn là DVUT thì phải check điều kiện
                     {
                         if (CheckConditionGoodMember(student))
@@ -534,170 +539,561 @@ namespace DanhGiaDoanVien
         }
 
         #region KeyPress   
+        [STAThread]
         private void textBoxPoint1_KeyPress(object sender, KeyPressEventArgs e)
         {
             TextBox tb = textBoxPoint1;
-            float x;
-            string test = tb.Text + e.KeyChar;
+            string test = tb.Text;
 
-            if (test[test.Length - 1] == '.')
-                test = test + "00";
-            
-            float.TryParse(test, out x);
-
-            if (x > 4) // Nếu lớn hơn 4 thì chặn
+            if (e.KeyChar == '\u007f') // Chặn Ctrl back
             {
                 e.Handled = true;
+                return;
             }
 
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.')) //Nếu k phải là số, control, '.' thì chặn
+            if (e.KeyChar == '\u0016' || e.KeyChar == '\u0003') //Copy or paste
             {
-                e.Handled = true;
+                if (e.KeyChar == '\u0016')
+                {
+                    if (Clipboard.ContainsText())
+                    {
+                        float check;
+                        if (float.TryParse(Clipboard.GetText(), out check))
+                        {
+                            if (check <= 4)
+                                return;
+                        }
+                    }
+                    e.Handled = true;
+                }
+                else
+                {
+                    return;
+                }
             }
-            else if (char.IsDigit(e.KeyChar) && tb.Text.Length == 1) // Nếu là số và đc nhập vào ở vị trí thứ 2 thì chặn
+            if (test.Length == 0)
             {
-                e.Handled = true;
+                if (char.IsDigit(e.KeyChar) && float.Parse(e.KeyChar.ToString()) <= 4)
+                {
+                    return;
+                }
             }
-
-            if ((e.KeyChar == '.') && (tb.Text.Length == 0 || tb.Text.Length > 1)) // Nếu là dấu '.' và nhập vào ở vị trí đầu tiên hoặc sau 2 thì chặn
+            else if (test.Length == 1)
             {
-                e.Handled = true;
+                if (tb.SelectionLength == 1)
+                {
+                    if (char.IsControl(e.KeyChar)|| (char.IsDigit(e.KeyChar) && Convert.ToInt32(e.KeyChar.ToString()) <= 4))
+                    {
+                        return;
+                    }
+                    else
+                    {
+                        e.Handled = true;
+                    }
+                }
+                if (e.KeyChar == '.' || char.IsControl(e.KeyChar))
+                {
+                    return;
+                }
             }
-
-            if (tb.Text.Length == 4 && !char.IsControl(e.KeyChar)) // Nếu quá 4 kí tự thì chặn
+            else if (test.Length == 2)
             {
-                e.Handled = true;
+                if (tb.SelectionLength == 2)
+                {
+                    if (char.IsControl(e.KeyChar)|| (char.IsDigit(e.KeyChar) && Convert.ToInt32(e.KeyChar.ToString()) <= 4))
+                    {
+                        return;
+                    }
+                }
+                if (char.IsControl(e.KeyChar)|| (char.IsDigit(e.KeyChar) && Convert.ToInt32(test[0].ToString()) < 4))
+                {
+                    return;
+                }
+                else if (Convert.ToInt32(test[0].ToString()) == 4 && e.KeyChar != '.')
+                {
+                    if (Convert.ToInt32(e.KeyChar.ToString()) == 0)
+                    {
+                        return;
+                    }
+                }
             }
+            else if (test.Length == 3)
+            {
+                if (tb.SelectionLength == 3)
+                {
+                    if (char.IsControl(e.KeyChar)|| (char.IsDigit(e.KeyChar) && Convert.ToInt32(e.KeyChar.ToString()) <= 4))
+                    {
+                        return;
+                    }
+                }
+                if (char.IsControl(e.KeyChar)|| (char.IsDigit(e.KeyChar) && Convert.ToInt32(test[0].ToString()) < 4))
+                {
+                    return;
+                }
+                else if (Convert.ToInt32(test[0].ToString()) == 4 && e.KeyChar != '.')
+                {
+                    if (Convert.ToInt32(e.KeyChar.ToString()) == 0)
+                    {
+                        return;
+                    }
+                }
+            }
+            else if (test.Length == 4)
+            {
+                if (tb.SelectionLength == 4)
+                {
+                    if (char.IsControl(e.KeyChar)|| (char.IsDigit(e.KeyChar) && Convert.ToInt32(e.KeyChar.ToString()) <= 4))
+                    {
+                        return;
+                    }
+                }
+                if (char.IsControl(e.KeyChar))
+                {
+                    return;
+                }
+            }
+            e.Handled = true;
         }
 
         private void textBoxPoint2_KeyPress(object sender, KeyPressEventArgs e)
         {
             TextBox tb = textBoxPoint2;
-            float x;
-            string test = tb.Text + e.KeyChar;
+            string test = tb.Text;
 
-            if (test[test.Length - 1] == '.')
-                test = test + "00";
-
-            float.TryParse(test, out x);
-
-            if (x > 4) // Nếu lớn hơn 4 thì chặn
+            if (e.KeyChar == '\u007f') // Chặn Ctrl back
             {
                 e.Handled = true;
+                return;
             }
 
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.')) //Nếu k phải là số, control, '.' thì chặn
+            if (e.KeyChar == '\u0016' || e.KeyChar == '\u0003') //Copy or paste
             {
-                e.Handled = true;
+                if (e.KeyChar == '\u0016')
+                {
+                    if (Clipboard.ContainsText())
+                    {
+                        float check;
+                        if (float.TryParse(Clipboard.GetText(), out check))
+                        {
+                            if (check <= 4)
+                                return;
+                        }
+                    }
+                    e.Handled = true;
+                }
+                else
+                {
+                    return;
+                }
             }
-            else if (char.IsDigit(e.KeyChar) && tb.Text.Length == 1) // Nếu là số và đc nhập vào ở vị trí thứ 2 thì chặn
+            if (test.Length == 0)
             {
-                e.Handled = true;
+                if (char.IsDigit(e.KeyChar) && float.Parse(e.KeyChar.ToString()) <= 4)
+                {
+                    return;
+                }
             }
-
-            if ((e.KeyChar == '.') && (tb.Text.Length == 0 || tb.Text.Length > 1)) // Nếu là dấu '.' và nhập vào ở vị trí đầu tiên hoặc sau 2 thì chặn
+            else if (test.Length == 1)
             {
-                e.Handled = true;
+                if (tb.SelectionLength == 1)
+                {
+                    if (char.IsControl(e.KeyChar) || (char.IsDigit(e.KeyChar) && Convert.ToInt32(e.KeyChar.ToString()) <= 4))
+                    {
+                        return;
+                    }
+                    else
+                    {
+                        e.Handled = true;
+                    }
+                }
+                if (e.KeyChar == '.' || char.IsControl(e.KeyChar))
+                {
+                    return;
+                }
             }
-
-            if (tb.Text.Length == 4 && !char.IsControl(e.KeyChar)) // Nếu quá 4 kí tự thì chặn
+            else if (test.Length == 2)
             {
-                e.Handled = true;
+                if (tb.SelectionLength == 2)
+                {
+                    if (char.IsControl(e.KeyChar) || (char.IsDigit(e.KeyChar) && Convert.ToInt32(e.KeyChar.ToString()) <= 4))
+                    {
+                        return;
+                    }
+                }
+                if (char.IsControl(e.KeyChar) || (char.IsDigit(e.KeyChar) && Convert.ToInt32(test[0].ToString()) < 4))
+                {
+                    return;
+                }
+                else if (Convert.ToInt32(test[0].ToString()) == 4 && e.KeyChar != '.')
+                {
+                    if (Convert.ToInt32(e.KeyChar.ToString()) == 0)
+                    {
+                        return;
+                    }
+                }
             }
+            else if (test.Length == 3)
+            {
+                if (tb.SelectionLength == 3)
+                {
+                    if (char.IsControl(e.KeyChar) || (char.IsDigit(e.KeyChar) && Convert.ToInt32(e.KeyChar.ToString()) <= 4))
+                    {
+                        return;
+                    }
+                }
+                if (char.IsControl(e.KeyChar) || (char.IsDigit(e.KeyChar) && Convert.ToInt32(test[0].ToString()) < 4))
+                {
+                    return;
+                }
+                else if (Convert.ToInt32(test[0].ToString()) == 4 && e.KeyChar != '.')
+                {
+                    if (Convert.ToInt32(e.KeyChar.ToString()) == 0)
+                    {
+                        return;
+                    }
+                }
+            }
+            else if (test.Length == 4)
+            {
+                if (tb.SelectionLength == 4)
+                {
+                    if (char.IsControl(e.KeyChar) || (char.IsDigit(e.KeyChar) && Convert.ToInt32(e.KeyChar.ToString()) <= 4))
+                    {
+                        return;
+                    }
+                }
+                if (char.IsControl(e.KeyChar))
+                {
+                    return;
+                }
+            }
+            e.Handled = true;
         }
 
         private void textBoxTrain1_KeyPress(object sender, KeyPressEventArgs e)
         {
             TextBox tb = textBoxTrain1;
-            int x;
-            string test = tb.Text + e.KeyChar;
+            string test = tb.Text;
 
-            int.TryParse(test, out x);
-
-            if (x > 100) // Nếu lớn hơn 100 thì chặn
+            if (e.KeyChar == '\u007f') // Chặn Ctrl back
             {
                 e.Handled = true;
+                return;
             }
 
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar)) //Nếu k phải là số, control, '.' thì chặn
+            if (e.KeyChar == '\u0016' || e.KeyChar == '\u0003') //Copy or paste
             {
+                if (e.KeyChar == '\u0016')
+                {
+                    if (Clipboard.ContainsText())
+                    {
+                        int check;
+                        if (int.TryParse(Clipboard.GetText(), out check))
+                        {
+                            if (check <= 100)
+                                return;
+                        }
+                    }
+                    e.Handled = true;
+                }
+                else
+                {
+                    return;
+                }
+            }
+
+            if (test.Length <= 3)
+            {
+                if (char.IsDigit(e.KeyChar) || char.IsControl(e.KeyChar))
+                {
+                    if (e.KeyChar == '0' && test.Length == 0)
+                        e.Handled = true;
+                    if (test.Length == 0)
+                    {
+                        return;
+                    }
+                    if (test.Length == 2)
+                    {
+                        if (tb.SelectionLength == 2) return;
+                        if (((test[0].ToString() + test[1].ToString()) == "10" && e.KeyChar == '0') || char.IsControl(e.KeyChar))
+                            return;
+                    }
+                    else
+                    {
+                        if (tb.SelectionLength == 3) return;
+                        if (char.IsControl(e.KeyChar)) return;
+                        if (test.Length == 3) { }
+                        else
+                            return;
+                    }
+                    e.Handled = true;
+                }
+            }
+            else
+            {
+                if (char.IsControl(e.KeyChar))
+                {
+                    return;
+                }
                 e.Handled = true;
             }
+            e.Handled = true;
         }
 
         private void textBoxTrain2_KeyPress(object sender, KeyPressEventArgs e)
         {
             TextBox tb = textBoxTrain2;
-            int x;
-            string test = tb.Text + e.KeyChar;
-            
-            int.TryParse(test, out x);
+            string test = tb.Text;
 
-            if (x > 100) // Nếu lớn hơn 100 thì chặn
+            if (e.KeyChar == '\u007f') // Chặn Ctrl back
             {
                 e.Handled = true;
+                return;
             }
 
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar)) //Nếu k phải là số, control, '.' thì chặn
+            if (e.KeyChar == '\u0016' || e.KeyChar == '\u0003') //Copy or paste
             {
+                if (e.KeyChar == '\u0016')
+                {
+                    if (Clipboard.ContainsText())
+                    {
+                        int check;
+                        if (int.TryParse(Clipboard.GetText(), out check))
+                        {
+                            if (check <= 100)
+                                return;
+                        }
+                    }
+                    e.Handled = true;
+                }
+                else
+                {
+                    return;
+                }
+            }
+
+            if (test.Length <= 3)
+            {
+                if (char.IsDigit(e.KeyChar) || char.IsControl(e.KeyChar))
+                {
+                    if (e.KeyChar == '0' && test.Length == 0)
+                        e.Handled = true;
+                    if (test.Length == 0)
+                    {
+                        return;
+                    }
+                    if (test.Length == 2)
+                    {
+                        if (tb.SelectionLength == 2) return;
+                        if (((test[0].ToString() + test[1].ToString()) == "10" && e.KeyChar == '0') || char.IsControl(e.KeyChar))
+                            return;
+                    }
+                    else
+                    {
+                        if (tb.SelectionLength == 3) return;
+                        if (char.IsControl(e.KeyChar)) return;
+                        if (test.Length == 3) { }
+                        else
+                            return;
+                    }
+                    e.Handled = true;
+                }
+            }
+            else
+            {
+                if (char.IsControl(e.KeyChar))
+                {
+                    return;
+                }
                 e.Handled = true;
             }
+            e.Handled = true;
         }
 
 
         private void KeyPress_Column3(object sender, KeyPressEventArgs e)
         {
-            TextBox tb = (TextBox)sender;
-            float x;
-            string test = tb.Text + e.KeyChar;
+            TextBox tb = sender as TextBox;
+            string test = tb.Text;
 
-            if (test[test.Length - 1] == '.')
-                test = test + "00";
-
-            float.TryParse(test, out x);
-
-            if (x > 4) // Nếu lớn hơn 4 thì chặn
+            if (e.KeyChar == '\u007f') // Chặn Ctrl back
             {
                 e.Handled = true;
+                return;
             }
 
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.')) //Nếu k phải là số, control, '.' thì chặn
+            if (e.KeyChar == '\u0016' || e.KeyChar == '\u0003') //Copy or paste
             {
-                e.Handled = true;
+                if (e.KeyChar == '\u0016')
+                {
+                    if (Clipboard.ContainsText())
+                    {
+                        float check;
+                        if (float.TryParse(Clipboard.GetText(), out check))
+                        {
+                            if (check <= 4)
+                                return;
+                        }
+                    }
+                    e.Handled = true;
+                }
+                else
+                {
+                    return;
+                }
             }
-            else if (char.IsDigit(e.KeyChar) && tb.Text.Length == 1) // Nếu là số và đc nhập vào ở vị trí thứ 2 thì chặn
+            if (test.Length == 0)
             {
-                e.Handled = true;
+                if (char.IsDigit(e.KeyChar) && float.Parse(e.KeyChar.ToString()) <= 4)
+                {
+                    return;
+                }
             }
-
-            if ((e.KeyChar == '.') && (tb.Text.Length == 0 || tb.Text.Length > 1)) // Nếu là dấu '.' và nhập vào ở vị trí đầu tiên hoặc sau 2 thì chặn
+            else if (test.Length == 1)
             {
-                e.Handled = true;
+                if (tb.SelectionLength == 1)
+                {
+                    if (char.IsControl(e.KeyChar) || (char.IsDigit(e.KeyChar) && Convert.ToInt32(e.KeyChar.ToString()) <= 4))
+                    {
+                        return;
+                    }
+                    else
+                    {
+                        e.Handled = true;
+                    }
+                }
+                if (e.KeyChar == '.' || char.IsControl(e.KeyChar))
+                {
+                    return;
+                }
             }
-
-            if (tb.Text.Length == 4 && !char.IsControl(e.KeyChar)) // Nếu quá 4 kí tự thì chặn
+            else if (test.Length == 2)
             {
-                e.Handled = true;
+                if (tb.SelectionLength == 2)
+                {
+                    if (char.IsControl(e.KeyChar) || (char.IsDigit(e.KeyChar) && Convert.ToInt32(e.KeyChar.ToString()) <= 4))
+                    {
+                        return;
+                    }
+                }
+                if (char.IsControl(e.KeyChar) || (char.IsDigit(e.KeyChar) && Convert.ToInt32(test[0].ToString()) < 4))
+                {
+                    return;
+                }
+                else if (Convert.ToInt32(test[0].ToString()) == 4 && e.KeyChar != '.')
+                {
+                    if (Convert.ToInt32(e.KeyChar.ToString()) == 0)
+                    {
+                        return;
+                    }
+                }
             }
+            else if (test.Length == 3)
+            {
+                if (tb.SelectionLength == 3)
+                {
+                    if (char.IsControl(e.KeyChar) || (char.IsDigit(e.KeyChar) && Convert.ToInt32(e.KeyChar.ToString()) <= 4))
+                    {
+                        return;
+                    }
+                }
+                if (char.IsControl(e.KeyChar) || (char.IsDigit(e.KeyChar) && Convert.ToInt32(test[0].ToString()) < 4))
+                {
+                    return;
+                }
+                else if (Convert.ToInt32(test[0].ToString()) == 4 && e.KeyChar != '.')
+                {
+                    if (Convert.ToInt32(e.KeyChar.ToString()) == 0)
+                    {
+                        return;
+                    }
+                }
+            }
+            else if (test.Length == 4)
+            {
+                if (tb.SelectionLength == 4)
+                {
+                    if (char.IsControl(e.KeyChar) || (char.IsDigit(e.KeyChar) && Convert.ToInt32(e.KeyChar.ToString()) <= 4))
+                    {
+                        return;
+                    }
+                }
+                if (char.IsControl(e.KeyChar))
+                {
+                    return;
+                }
+            }
+            e.Handled = true;
         }
 
         private void KeyPress_Column5(object sender, KeyPressEventArgs e)
         {
-            TextBox tb = (TextBox)sender;
-            int x;
-            string test = tb.Text + e.KeyChar;
+            TextBox tb = sender as TextBox;
+            string test = tb.Text;
 
-            int.TryParse(test, out x);
-
-            if (x > 100) // Nếu lớn hơn 100 thì chặn
+            if (e.KeyChar == '\u007f') // Chặn Ctrl back
             {
                 e.Handled = true;
+                return;
             }
 
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar)) //Nếu k phải là số, control, '.' thì chặn
+            if (e.KeyChar == '\u0016' || e.KeyChar == '\u0003') //Copy or paste
             {
+                if (e.KeyChar == '\u0016')
+                {
+                    if (Clipboard.ContainsText())
+                    {
+                        int check;
+                        if (int.TryParse(Clipboard.GetText(), out check))
+                        {
+                            if (check <= 100)
+                                return;
+                        }
+                    }
+                    e.Handled = true;
+                }
+                else
+                {
+                    return;
+                }
+            }
+
+            if (test.Length <= 3)
+            {
+                if (char.IsDigit(e.KeyChar) || char.IsControl(e.KeyChar))
+                {
+                    if (e.KeyChar == '0' && test.Length == 0)
+                        e.Handled = true;
+                    if (test.Length == 0)
+                    {
+                        return;
+                    }
+                    if (test.Length == 2)
+                    {
+                        if (tb.SelectionLength == 2) return;
+                        if (((test[0].ToString() + test[1].ToString()) == "10" && e.KeyChar == '0') || char.IsControl(e.KeyChar))
+                            return;
+                    }
+                    else
+                    {
+                        if (tb.SelectionLength == 3) return;
+                        if (char.IsControl(e.KeyChar)) return;
+                        if (test.Length == 3) { }
+                        else
+                            return;
+                    }
+                    e.Handled = true;
+                }
+            }
+            else
+            {
+                if (char.IsControl(e.KeyChar))
+                {
+                    return;
+                }
                 e.Handled = true;
             }
+            e.Handled = true;
         }
         #endregion
 
@@ -705,7 +1101,7 @@ namespace DanhGiaDoanVien
         {
             e.Control.KeyPress -= new KeyPressEventHandler(KeyPress_Column3);
             e.Control.KeyPress -= new KeyPressEventHandler(KeyPress_Column5);
-            if (dataGridViewStudent.CurrentCell.ColumnIndex == 3 || dataGridViewStudent.CurrentCell.ColumnIndex == 4)
+            if (dataGridViewStudent.CurrentCell.ColumnIndex == 2 || dataGridViewStudent.CurrentCell.ColumnIndex == 3)
             {
                 TextBox tb = e.Control as TextBox;
                 if (tb != null)
@@ -713,7 +1109,7 @@ namespace DanhGiaDoanVien
                     tb.KeyPress += new KeyPressEventHandler(KeyPress_Column3);
                 }
             }
-            else if (dataGridViewStudent.CurrentCell.ColumnIndex == 5 || dataGridViewStudent.CurrentCell.ColumnIndex == 6)
+            else if (dataGridViewStudent.CurrentCell.ColumnIndex == 4 || dataGridViewStudent.CurrentCell.ColumnIndex == 5)
             {
                 TextBox tb = e.Control as TextBox;
                 if (tb != null)

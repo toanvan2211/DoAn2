@@ -127,12 +127,17 @@ namespace DanhGiaDoanVien
             return result;
         }
 
-        bool CompareRankCondition(string evaluatedRank, string rankHope)
+        string CompareRankCondition(string evaluatedRank, string rankHope)
         {
-            bool result = false;
+            string result = evaluatedRank;
+            if (checkBoxAuto.Checked)
+            {
+                return result;
+            }
+
             if (rankHope == "")
             {
-                return true;
+                return rankHope;
             }
             else
             {
@@ -171,12 +176,16 @@ namespace DanhGiaDoanVien
                     }
                     if (compareRank[0] <= compareRank[1])
                     {
-                        result = true;
+                        result = rankHope;
+                    }
+                    else
+                    {
+                        return null;
                     }
                 }
                 else
                 {
-                    result = true;
+                    result = evaluatedRank;
                 }
             }
             return result;
@@ -333,9 +342,8 @@ namespace DanhGiaDoanVien
             {
                 string rankHope = comboBoxRank.Text;
                 teacher = Evaluation(teacher);
-                if (CompareRankCondition(teacher.Rank, rankHope)) //Kiểm tra xem coi rankHope có lớn hơn rank điều kiện k, nếu nhỏ hơn thì duyệt
+                if ((teacher.Rank = CompareRankCondition(teacher.Rank, rankHope)) != null) //Kiểm tra xem coi rankHope có lớn hơn rank điều kiện k, nếu nhỏ hơn thì duyệt
                 {
-                    teacher.Rank = rankHope;
                     if (checkBoxGoodMember.Checked) // Nếu giảng viên đc chọn là DVUT thì phải check điều kiện
                     {
                         if (CheckConditionGoodTeacher(teacher))
@@ -397,9 +405,8 @@ namespace DanhGiaDoanVien
                     string rankHope = row.Cells["Rank1"].Value.ToString();
                     ScoresTeacher tc = new ScoresTeacher(row);
                     tc = Evaluation(tc);
-                    if (CompareRankCondition(tc.Rank, rankHope)) //Đủ điều kiện xếp loại thì duyệt
+                    if ((tc.Rank = CompareRankCondition(tc.Rank, rankHope)) != null) //Đủ điều kiện xếp loại thì duyệt
                     {
-                        tc.Rank = rankHope;
                         ScoresTeacherDAO.Instance.UpdateScoresTeacher(tc);
                     }
                     else
@@ -439,9 +446,8 @@ namespace DanhGiaDoanVien
                 string rankHope = dataGridViewScoresTeacher.Rows[rowIndex].Cells["Rank1"].Value.ToString();
                 ScoresTeacher tc = CreateScoresTeacherByRowIndex(rowIndex);
                 tc = Evaluation(tc);
-                if (CompareRankCondition(tc.Rank, rankHope)) //Đủ điều kiện xếp loại thì duyệt
+                if ((tc.Rank = CompareRankCondition(tc.Rank, rankHope)) != null) //Đủ điều kiện xếp loại thì duyệt
                 {
-                    tc.Rank = rankHope;
                     ScoresTeacherDAO.Instance.UpdateScoresTeacher(tc);
                 }
                 else

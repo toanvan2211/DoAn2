@@ -151,12 +151,17 @@ namespace DanhGiaDoanVien
             return scoresGroup;
         }
 
-        bool CompareRankCondition(string evaluatedRank, string rankHope)
+        string CompareRankCondition(string evaluatedRank, string rankHope)
         {
-            bool result = false;
+            string result = evaluatedRank;
+            if (checkBoxAuto.Checked)
+            {
+                return result;
+            }
+
             if (rankHope == "")
             {
-                return true;
+                return rankHope;
             }
             else
             {
@@ -195,12 +200,16 @@ namespace DanhGiaDoanVien
                     }
                     if (compareRank[0] <= compareRank[1])
                     {
-                        result = true;
+                        result = rankHope;
+                    }
+                    else
+                    {
+                        return null;
                     }
                 }
                 else
                 {
-                    result = true;
+                    result = evaluatedRank;
                 }
             }
             return result;
@@ -284,9 +293,13 @@ namespace DanhGiaDoanVien
         {
             if (idCurrentScoresGroup != -1)
             {
-                ScoresGroupDAO.Instance.DeleteScoresGroup(idCurrentScoresGroup);
-                LoadListScoresGroup();
-                LoadListGroup();
+                DialogResult dlr = MessageBox.Show("Bạn có thật sự muốn xóa?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dlr == DialogResult.Yes)
+                {
+                    ScoresGroupDAO.Instance.DeleteScoresGroup(idCurrentScoresGroup);
+                    LoadListScoresGroup();
+                    LoadListGroup();
+                }
             }
             else
             {
@@ -296,15 +309,15 @@ namespace DanhGiaDoanVien
 
         private void buttonUpdate_Click(object sender, EventArgs e)
         {
-            ScoresGroup sc = new ScoresGroup(dataGridViewScoresGroup.Rows[currentIndex]);
+            ScoresGroup sg = new ScoresGroup(dataGridViewScoresGroup.Rows[currentIndex]);
             string rankHope = comboBoxRank.Text;
-            if (sc.Rank != "")
+            if (sg.Rank != "")
             {
-                sc = EvaluateGroup(sc);
-                if (CompareRankCondition(sc.Rank, rankHope)) // Nếu rank đủ điểu kiện lớn hơn rank mong muốn thì duyệt, ngược lại thì thông báo
+                sg = EvaluateGroup(sg);
+                if ((sg.Rank = CompareRankCondition(sg.Rank, rankHope)) != null) // Nếu rank đủ điểu kiện lớn hơn rank mong muốn thì duyệt, ngược lại thì thông báo
                 {
-                    sc.Note = textBoxNote.Text;
-                    ScoresGroupDAO.Instance.UpdateScoresGroup(sc.Id, rankHope, sc.Note);
+                    sg.Note = textBoxNote.Text;
+                    ScoresGroupDAO.Instance.UpdateScoresGroup(sg.Id, sg.Rank, sg.Note);
                     LoadListScoresGroup();
                 }
                 else
@@ -322,9 +335,9 @@ namespace DanhGiaDoanVien
                 ScoresGroup sg = EvaluateGroup(CreateScoresGroupByRowIndex(rowIndex));
 
                 string rankHope = dataGridViewScoresGroup.Rows[rowIndex].Cells["Rank1"].Value.ToString();
-                if (CompareRankCondition(sg.Rank, rankHope)) //Đủ điều kiện xếp loại thì duyệt
+                if ((sg.Rank = CompareRankCondition(sg.Rank, rankHope)) != null) //Đủ điều kiện xếp loại thì duyệt
                 {
-                    ScoresGroupDAO.Instance.UpdateScoresGroup(sg.Id, rankHope, sg.Note);
+                    ScoresGroupDAO.Instance.UpdateScoresGroup(sg.Id, sg.Rank, sg.Note);
                 }
                 else //Không thì lưu lại id kết quả để báo lỗi
                 {
@@ -365,9 +378,9 @@ namespace DanhGiaDoanVien
                     string rankHope = row.Cells["Rank1"].Value.ToString();
                     ScoresGroup sg = new ScoresGroup(row);
                     sg = EvaluateGroup(sg);
-                    if (CompareRankCondition(sg.Rank, rankHope)) //Đủ điều kiện xếp loại thì duyệt
+                    if ((sg.Rank = CompareRankCondition(sg.Rank, rankHope)) != null) //Đủ điều kiện xếp loại thì duyệt
                     {
-                        ScoresGroupDAO.Instance.UpdateScoresGroup(sg.Id, rankHope, sg.Note);
+                        ScoresGroupDAO.Instance.UpdateScoresGroup(sg.Id, sg.Rank, sg.Note);
                     }
                     else //Không thì lưu lại id kết quả để báo lỗi
                     {
