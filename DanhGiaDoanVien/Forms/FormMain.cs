@@ -7,7 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DanhGiaDoanVien.DAO;
+using DanhGiaDoanVien.DTO;
 using DanhGiaDoanVien.Forms;
+using DanhGiaDoanVien.Other_Class;
 
 namespace DanhGiaDoanVien
 {
@@ -17,9 +20,29 @@ namespace DanhGiaDoanVien
         private Button currentBtn;
         private Panel leftBorderBtn;
         private Form currentChildForm;
+        private bool checkLogOut = false;
+        private InfoAccount infoAccount;
+        public string userName;
+        public string password;
+        
         public FormMain()
         {
             InitializeComponent();
+        }
+
+        public FormMain(InfoAccount info)
+        {
+            InitializeComponent();
+            this.infoAccount = info;
+            
+            if (!string.IsNullOrEmpty(infoAccount.Name))
+            {
+                labelName.Text = infoAccount.Name;
+            }
+            else
+            {
+                labelName.Text = "Không tên";
+            }
         }
 
         private struct RGBColors
@@ -33,14 +56,25 @@ namespace DanhGiaDoanVien
         }
 
         #region method
-
-        private void ActivateButton(object senderBtn, Color color, Image img)
+        void ActivateButton(object senderBtn, Color color, Image img)
         {
+            bool check = false;
+            if (currentBtn != null)
+            {
+                if (currentBtn.Tag.ToString() == "not")
+                {
+                    DisableButton(2);
+                    panelSubMenuEvaluate.Visible = false;
+
+                    check = true;
+                }
+            }
             if (senderBtn != null)
             {
-                DisableButton();
+                if (check == false)
+                    DisableButton(1);
                 currentBtn = (Button)senderBtn;
-                currentBtn.BackColor = Color.FromArgb(58, 59, 85);
+                currentBtn.BackColor = Color.FromArgb(16, 18, 20);
                 currentBtn.ForeColor = color;
                 currentBtn.TextAlign = ContentAlignment.MiddleCenter;
                 currentBtn.Image = img;
@@ -56,39 +90,58 @@ namespace DanhGiaDoanVien
                 //Label Title current child form
                 labelCurrentChildForm.Text = currentBtn.Text;
                 labelCurrentChildForm.ForeColor = color;
+
+                //panel shadow
+                panelShadow1.BackColor = color;
             }
         }
 
-        private void ActivateButton(object senderBtn, Color color)
+        void ActivateButton(object senderBtn, Color color)
         {
-            if (senderBtn != null)
+            if (senderBtn != null && currentBtn.Tag.ToString() == "not")
             {
-                currentBtn.ForeColor = Color.White;
+                DisableButton(2);
                 currentBtn = (Button)senderBtn;
-                currentBtn.BackColor = Color.FromArgb(58, 59, 85);
+                currentBtn.BackColor = Color.FromArgb(22, 25, 29);
                 currentBtn.ForeColor = color;
+
                 //Label Title current child form
                 labelCurrentChildForm.Text = currentBtn.Text;
                 labelCurrentChildForm.ForeColor = color;
             }
+            else if (((Button)senderBtn).Tag.ToString() == "not")
+            {
+                currentBtn = (Button)senderBtn;
+                //Label Title current child form
+                currentBtn.BackColor = Color.FromArgb(22, 25, 29);
+                currentBtn.ForeColor = color;
+                labelCurrentChildForm.Text = currentBtn.Text;
+                labelCurrentChildForm.ForeColor = color;
+            }
+            //Panel Shadow
+            panelShadow1.BackColor = color;
         }
 
-        private void DisableButton()
+        void DisableButton(int type)
         {
-            if (currentBtn != null)
+            if (currentBtn != null && type == 1)
             {
-                currentBtn.BackColor = Color.FromArgb(43, 44, 63);
+                currentBtn.BackColor = Color.FromArgb(26, 30, 34);
                 currentBtn.ForeColor = Color.White;
                 currentBtn.TextAlign = ContentAlignment.MiddleLeft;
-                if (currentBtn.Tag.ToString() != "not")
-                    currentBtn.Image = (Image)currentBtn.Tag;
+                currentBtn.Image = (Image)currentBtn.Tag;
                 currentBtn.TextImageRelation = TextImageRelation.ImageBeforeText;
                 currentBtn.ImageAlign = ContentAlignment.MiddleLeft;
                 //Borderleft
                 leftBorderBtn.Visible = false;
             }
+            else if (currentBtn != null && type == 2)
+            {
+                currentBtn.BackColor = Color.FromArgb(33, 38, 43);
+                currentBtn.ForeColor = Color.White;
+            }
         }
-        private void OpenChildForm(Form childForm)
+        void OpenChildForm(Form childForm)
         {
             if (currentChildForm != null)
             {
@@ -103,6 +156,19 @@ namespace DanhGiaDoanVien
             panelChildForm.Tag = childForm;
             childForm.BringToFront();
             childForm.Show();
+        }
+
+        void LoadStatistical()
+        {
+            int[] statis = new int[6];
+            statis = DataProvider.Instance.GetStatistical();
+
+            labelTeacher.Text = statis[0].ToString();
+            labelStudent.Text = statis[1].ToString();
+            labelGroup.Text = statis[2].ToString();
+            labelSemester.Text = statis[3].ToString();
+            labelEvaluation.Text = statis[4].ToString();
+            labelDoneScores.Text = statis[5].ToString();
         }
 
         #endregion
@@ -124,6 +190,8 @@ namespace DanhGiaDoanVien
             buttonSemester.Tag = Properties.Resources.icons8_year_view_35px_1;
             //Visible
             panelSubMenuEvaluate.Visible = false;
+
+            LoadStatistical();
         }
 
         private void buttonTeacher_Click(object sender, EventArgs e)
@@ -151,9 +219,12 @@ namespace DanhGiaDoanVien
         {
             if (panelSubMenuEvaluate.Visible == true)
             {
-                DisableButton();
+                if (currentBtn.Tag.ToString() != "not")
+                    DisableButton(1);
+                else
+                    DisableButton(2);
                 currentBtn = (Button)sender;
-                DisableButton();
+                DisableButton(1);
                 panelSubMenuEvaluate.Visible = false;
             }
             else
@@ -165,37 +236,49 @@ namespace DanhGiaDoanVien
 
         private void buttonEvaluateTeacher_Click(object sender, EventArgs e)
         {
-            ActivateButton(sender, Color.FromArgb(255, 167, 51));
+            ActivateButton(sender, Color.FromArgb(255, 213, 77));
             OpenChildForm(new FormEvaluateTeacher());
         }
 
         private void buttonEvaluateStudent_Click(object sender, EventArgs e)
         {
-            ActivateButton(sender, Color.FromArgb(255, 167, 51));
+            ActivateButton(sender, Color.FromArgb(255, 213, 77));
             OpenChildForm(new FormEvaluateStudent());
         }
 
         private void buttonEvaluateGroup_Click(object sender, EventArgs e)
         {
-            ActivateButton(sender, Color.FromArgb(255, 167, 51));
+            ActivateButton(sender, Color.FromArgb(255, 213, 77));
             OpenChildForm(new FormEvaluateGroup());
+        }
+
+        private void buttonOldScores_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender, Color.FromArgb(255, 213, 77));
+            OpenChildForm(new FormOldScores());
         }
 
         private void pictureBoxLogo_Click(object sender, EventArgs e)
         {
-            DisableButton();
-            panelSubMenuEvaluate.Visible = false;
-            if (currentChildForm != null)
-                currentChildForm.Close();
-            pictureBoxIconCurrent.Image = Properties.Resources.icons8_home_35px_1;
-            labelCurrentChildForm.ForeColor = Color.White;
-            labelCurrentChildForm.Text = "Trang chủ";
+            if (currentBtn != null)
+            {
+                if (currentBtn.Tag.ToString() != "not")
+                    DisableButton(1);
+                else
+                    DisableButton(2);
+                panelSubMenuEvaluate.Visible = false;
+                if (currentChildForm != null)
+                    currentChildForm.Close();
+                pictureBoxIconCurrent.Image = Properties.Resources.icons8_home_35px_1;
+                labelCurrentChildForm.ForeColor = Color.White;
+                labelCurrentChildForm.Text = "Trang chủ";
+            }
         }
         private void panelSubMenuEvaluate_VisibleChanged(object sender, EventArgs e)
         {
             if (panelSubMenuEvaluate.Visible == false)
             {
-                buttonEvaluate.BackColor = Color.FromArgb(43, 44, 63);
+                buttonEvaluate.BackColor = Color.FromArgb(26, 30, 34);
                 buttonEvaluate.ForeColor = Color.White;
                 buttonEvaluate.TextAlign = ContentAlignment.MiddleLeft;
                 buttonEvaluate.Image = (Image)buttonEvaluate.Tag;
@@ -213,5 +296,100 @@ namespace DanhGiaDoanVien
             OpenChildForm(new FormSemester());
         }
 
+        private void FormMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (checkLogOut == false)
+            {
+                Properties.Settings.Default.UserName = userName;
+                Properties.Settings.Default.Password = password;
+                Properties.Settings.Default.IsLogOut = false;
+                Properties.Settings.Default.Save();
+            }
+        }
+
+        private void buttonLogout_Click(object sender, EventArgs e)
+        {
+            checkLogOut = true;
+
+            if (Properties.Settings.Default.RememberPW == false)
+            {
+                Properties.Settings.Default.UserName = null;
+                Properties.Settings.Default.Password = null;
+            }
+
+            Properties.Settings.Default.IsLogOut = true;
+            Properties.Settings.Default.Save();
+
+            this.Close();
+        }
+
+        private void pictureBoxRefesh_Click(object sender, EventArgs e)
+        {
+            LoadStatistical();
+        }
+
+        private void buttonChangePassword_Click(object sender, EventArgs e)
+        {
+            labelChangePWNotifed.Text = "";
+            panelChangePassword.Visible = true;
+            panelMain.Visible = false;
+        }
+
+        private void buttonCancel_Click(object sender, EventArgs e)
+        {
+            panelChangePassword.Visible = false;
+            panelMain.Visible = true;
+        }
+
+        private void buttonAccept_Click(object sender, EventArgs e)
+        {
+            if (LoginDAO.Instance.CheckPassword(userName, textBoxOldPassword.Text))
+            {
+                if (textBoxNewPassword.Text == textBoxReEnterNewPassword.Text)
+                {
+                    AccountDAO.Instance.ChangePassword(userName, textBoxNewPassword.Text);
+                    textBoxOldPassword.ResetText();
+                    textBoxNewPassword.ResetText();
+                    textBoxReEnterNewPassword.ResetText();
+                    labelChangePWNotifed.ForeColor = Color.Gold;
+
+                    labelError1.Visible = false;
+                    labelError2.Visible = false;
+                    labelError3.Visible = false;
+                    labelChangePWNotifed.Text = "Đổi mật khẩu thành công!";
+
+                    password = textBoxNewPassword.Text;
+                }
+                else
+                {
+                    labelChangePWNotifed.ForeColor = Color.Red;
+                    labelChangePWNotifed.Text = "Mật khẩu mới không trùng khớp";
+                    labelError2.Visible = true;
+                    labelError3.Visible = true;
+                }
+            }
+            else
+            {
+                labelChangePWNotifed.ForeColor = Color.Red;
+                labelChangePWNotifed.Text = "Mật khẩu cũ không đúng";
+                textBoxOldPassword.ResetText();
+                labelError1.Visible = true;
+            }
+        }
+
+        private void textBoxOldPassword_MouseClick(object sender, MouseEventArgs e)
+        {
+            labelError1.Visible = false;
+        }
+
+        private void textBoxNewPassword_MouseClick(object sender, MouseEventArgs e)
+        {
+            labelError2.Visible = false;
+        }
+
+        private void textBoxReEnterNewPassword_MouseClick(object sender, MouseEventArgs e)
+        {
+            labelError3.Visible = false;
+        }
     }
 }

@@ -39,6 +39,7 @@ create table KetQuaChiDoan
 	tongNuSV int not null default 0,
 	tongNuGV int not null default 0,
 	tongDVUT int not null default 0,
+	daXong bit not null default 0,
 	ghiChu nvarchar(1000)
 )
 go
@@ -381,49 +382,6 @@ begin
 end
 go
 
-create proc USP_ChangeGroupStudent
-@idStudent varchar(10), @idGroup varchar(10), @idOldGroup varchar(10), @sex nvarchar(3), @oldSex nvarchar(3)
-as
-begin
-	--Trừ tổng GV trong chi đoàn cũ ra 1
-	if @idOldGroup != null or @idOldGroup != ''
-	begin
-		exec USP_MinusStudent @idOldGroup, 1
-		if @oldSex = N'Nữ'
-		begin
-			update ChiDoan set tongNuSV -= 1
-			where id = @idOldGroup
-		end
-	end
-	--Cộng tổng GV trong chi đoàn mới
-	exec USP_PlusStudent @idGroup, 1
-	if @sex = N'Nữ'
-	begin
-		update ChiDoan set tongNuSV += 1
-		where id = @idGroup
-	end
-	--Nếu là sinh viên nữ  thì trừ tổng nữ SV ra và thêm vào chi đoàn mới
-end
-go
-
-create proc USP_ChangeSexStudent
-@idGroup varchar(10), @sex nvarchar(3), @oldSex nvarchar(3)
-as
-begin
-	if @oldSex = N'Nữ' and @sex = 'Nam'
-	begin
-		update ChiDoan set tongNuSV -= 1
-		where id = @idGroup
-	end
-	else if @oldSex = 'Nam' and @sex = N'Nữ'
-	begin
-		update ChiDoan set tongNuSv += 1
-		where id = @idGroup
-	end
-end
-go
-
-
 create trigger UTG_DeleteStudent
 on SinhVien after delete
 as
@@ -524,48 +482,6 @@ begin
 			update ChiDoan set tongNuSV -= 1
 			where id = @group
 		end
-end
-go
-
-create proc USP_ChangeGroupTeacher
-@idTeacher varchar(10), @idGroup varchar(10), @idOldGroup varchar(10), @sex nvarchar(3), @oldSex nvarchar(3)
-as
-begin
-	--Trừ tổng GV trong chi đoàn cũ ra 1
-	if @idOldGroup != null or @idOldGroup != ''
-	begin
-		exec USP_MinusTeacher @idOldGroup, 1
-		if @oldSex = N'Nữ'
-		begin
-			update ChiDoan set tongNuGV -= 1
-			where id = @idOldGroup
-		end
-	end	
-	--Cộng tổng GV trong chi đoàn mới
-	exec USP_PlusTeacher @idGroup, 1
-	if @sex = N'Nữ' 
-		begin
-			update ChiDoan set tongNuGV += 1
-			where id = @idGroup
-		end
-	--Nếu là sinh viên nữ  thì trừ tổng nữ SV ra và thêm vào chi đoàn mới
-end
-go
-
-create proc USP_ChangeSexTeacher
-@idGroup varchar(10), @sex nvarchar(3), @oldSex nvarchar(3)
-as
-begin
-	if @oldSex = N'Nữ' and @sex = 'Nam'
-	begin
-		update ChiDoan set tongNuGV -= 1
-		where id = @idGroup
-	end
-	else if @oldSex = 'Nam' and @sex = N'Nữ'
-	begin
-		update ChiDoan set tongNuGv += 1
-		where id = @idGroup
-	end
 end
 go
 

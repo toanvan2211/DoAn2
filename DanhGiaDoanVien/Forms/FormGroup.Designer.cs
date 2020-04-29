@@ -30,13 +30,13 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormGroup));
             this.tabapanel = new System.Windows.Forms.TableLayoutPanel();
-            this.buttonExitEdit = new System.Windows.Forms.Button();
-            this.buttonResetText = new System.Windows.Forms.Button();
-            this.buttonEdit = new System.Windows.Forms.Button();
             this.textBoxNameEdit = new System.Windows.Forms.TextBox();
             this.textBoxMCDEdit = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.buttonExitEdit = new System.Windows.Forms.Button();
+            this.buttonResetText = new System.Windows.Forms.Button();
+            this.buttonEdit = new System.Windows.Forms.Button();
             this.panelGroup = new System.Windows.Forms.Panel();
             this.dataGridViewGroup = new System.Windows.Forms.DataGridView();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -60,11 +60,11 @@
             this.buttonDelete = new System.Windows.Forms.Button();
             this.panelBottom = new System.Windows.Forms.Panel();
             this.panelDefault = new System.Windows.Forms.Panel();
+            this.labelName = new System.Windows.Forms.Label();
+            this.labelID = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.labelID = new System.Windows.Forms.Label();
-            this.labelName = new System.Windows.Forms.Label();
             this.tabapanel.SuspendLayout();
             this.panelGroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGroup)).BeginInit();
@@ -94,6 +94,46 @@
             this.tabapanel.Size = new System.Drawing.Size(301, 80);
             this.tabapanel.TabIndex = 9;
             // 
+            // textBoxNameEdit
+            // 
+            this.textBoxNameEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxNameEdit.Location = new System.Drawing.Point(88, 50);
+            this.textBoxNameEdit.MaxLength = 100;
+            this.textBoxNameEdit.Name = "textBoxNameEdit";
+            this.textBoxNameEdit.Size = new System.Drawing.Size(210, 20);
+            this.textBoxNameEdit.TabIndex = 2;
+            // 
+            // textBoxMCDEdit
+            // 
+            this.textBoxMCDEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxMCDEdit.Location = new System.Drawing.Point(88, 10);
+            this.textBoxMCDEdit.MaxLength = 10;
+            this.textBoxMCDEdit.Name = "textBoxMCDEdit";
+            this.textBoxMCDEdit.Size = new System.Drawing.Size(210, 20);
+            this.textBoxMCDEdit.TabIndex = 1;
+            // 
+            // label2
+            // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(12, 13);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(70, 13);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Mã chi đoàn:";
+            // 
+            // label4
+            // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(53, 53);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(29, 13);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "Tên:";
+            // 
             // buttonExitEdit
             // 
             this.buttonExitEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -111,7 +151,9 @@
             // buttonResetText
             // 
             this.buttonResetText.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.buttonResetText.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.buttonResetText.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.buttonResetText.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red;
+            this.buttonResetText.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.buttonResetText.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonResetText.ForeColor = System.Drawing.Color.White;
             this.buttonResetText.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -140,44 +182,6 @@
             this.buttonEdit.UseVisualStyleBackColor = true;
             this.buttonEdit.Click += new System.EventHandler(this.buttonEdit_Click);
             // 
-            // textBoxNameEdit
-            // 
-            this.textBoxNameEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxNameEdit.Location = new System.Drawing.Point(88, 50);
-            this.textBoxNameEdit.Name = "textBoxNameEdit";
-            this.textBoxNameEdit.Size = new System.Drawing.Size(210, 20);
-            this.textBoxNameEdit.TabIndex = 2;
-            // 
-            // textBoxMCDEdit
-            // 
-            this.textBoxMCDEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxMCDEdit.Location = new System.Drawing.Point(88, 10);
-            this.textBoxMCDEdit.Name = "textBoxMCDEdit";
-            this.textBoxMCDEdit.Size = new System.Drawing.Size(210, 20);
-            this.textBoxMCDEdit.TabIndex = 1;
-            // 
-            // label2
-            // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label2.AutoSize = true;
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(12, 13);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(70, 13);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Mã chi đoàn:";
-            // 
-            // label4
-            // 
-            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label4.AutoSize = true;
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(53, 53);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(29, 13);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Tên:";
-            // 
             // panelGroup
             // 
             this.panelGroup.AutoScroll = true;
@@ -193,7 +197,7 @@
             this.dataGridViewGroup.AllowUserToAddRows = false;
             this.dataGridViewGroup.AllowUserToDeleteRows = false;
             this.dataGridViewGroup.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridViewGroup.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(77)))), ((int)(((byte)(108)))));
+            this.dataGridViewGroup.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(87)))), ((int)(((byte)(95)))));
             this.dataGridViewGroup.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewGroup.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
@@ -283,7 +287,7 @@
             this.dataGridViewMember.AllowUserToAddRows = false;
             this.dataGridViewMember.AllowUserToDeleteRows = false;
             this.dataGridViewMember.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridViewMember.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(77)))), ((int)(((byte)(108)))));
+            this.dataGridViewMember.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(43)))), ((int)(((byte)(47)))));
             this.dataGridViewMember.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewMember.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
@@ -331,6 +335,7 @@
             // 
             // panelEdit
             // 
+            this.panelEdit.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panelEdit.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panelEdit.Controls.Add(this.tabapanel);
             this.panelEdit.Controls.Add(this.buttonExitEdit);
@@ -351,7 +356,7 @@
             this.buttonUpdate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonUpdate.Location = new System.Drawing.Point(872, 78);
             this.buttonUpdate.Name = "buttonUpdate";
-            this.buttonUpdate.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.buttonUpdate.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.buttonUpdate.Size = new System.Drawing.Size(91, 39);
             this.buttonUpdate.TabIndex = 4;
             this.buttonUpdate.Tag = "update";
@@ -370,7 +375,7 @@
             this.buttonAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonAdd.Location = new System.Drawing.Point(872, 26);
             this.buttonAdd.Name = "buttonAdd";
-            this.buttonAdd.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.buttonAdd.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.buttonAdd.Size = new System.Drawing.Size(91, 39);
             this.buttonAdd.TabIndex = 4;
             this.buttonAdd.Tag = "add";
@@ -389,7 +394,7 @@
             this.buttonDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonDelete.Location = new System.Drawing.Point(872, 130);
             this.buttonDelete.Name = "buttonDelete";
-            this.buttonDelete.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.buttonDelete.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
             this.buttonDelete.Size = new System.Drawing.Size(91, 39);
             this.buttonDelete.TabIndex = 4;
             this.buttonDelete.Tag = "delete";
@@ -401,7 +406,7 @@
             // 
             // panelBottom
             // 
-            this.panelBottom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(54)))), ((int)(((byte)(75)))));
+            this.panelBottom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(45)))));
             this.panelBottom.Controls.Add(this.panelEdit);
             this.panelBottom.Controls.Add(this.panelDefault);
             this.panelBottom.Controls.Add(this.buttonDelete);
@@ -415,6 +420,7 @@
             // 
             // panelDefault
             // 
+            this.panelDefault.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panelDefault.Controls.Add(this.labelName);
             this.panelDefault.Controls.Add(this.labelID);
             this.panelDefault.Controls.Add(this.tableLayoutPanel1);
@@ -422,6 +428,30 @@
             this.panelDefault.Name = "panelDefault";
             this.panelDefault.Size = new System.Drawing.Size(488, 156);
             this.panelDefault.TabIndex = 5;
+            // 
+            // labelName
+            // 
+            this.labelName.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelName.AutoSize = true;
+            this.labelName.ForeColor = System.Drawing.Color.Gold;
+            this.labelName.Location = new System.Drawing.Point(125, 91);
+            this.labelName.Name = "labelName";
+            this.labelName.Size = new System.Drawing.Size(0, 13);
+            this.labelName.TabIndex = 5;
+            // 
+            // labelID
+            // 
+            this.labelID.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelID.AutoSize = true;
+            this.labelID.ForeColor = System.Drawing.Color.Gold;
+            this.labelID.Location = new System.Drawing.Point(125, 52);
+            this.labelID.Name = "labelID";
+            this.labelID.Size = new System.Drawing.Size(0, 13);
+            this.labelID.TabIndex = 4;
             // 
             // tableLayoutPanel1
             // 
@@ -458,30 +488,6 @@
             this.label3.Size = new System.Drawing.Size(29, 13);
             this.label3.TabIndex = 3;
             this.label3.Text = "Tên:";
-            // 
-            // labelID
-            // 
-            this.labelID.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelID.AutoSize = true;
-            this.labelID.ForeColor = System.Drawing.Color.Gold;
-            this.labelID.Location = new System.Drawing.Point(125, 52);
-            this.labelID.Name = "labelID";
-            this.labelID.Size = new System.Drawing.Size(0, 13);
-            this.labelID.TabIndex = 4;
-            // 
-            // labelName
-            // 
-            this.labelName.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelName.AutoSize = true;
-            this.labelName.ForeColor = System.Drawing.Color.Gold;
-            this.labelName.Location = new System.Drawing.Point(125, 91);
-            this.labelName.Name = "labelName";
-            this.labelName.Size = new System.Drawing.Size(0, 13);
-            this.labelName.TabIndex = 5;
             // 
             // FormGroup
             // 

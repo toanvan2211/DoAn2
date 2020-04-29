@@ -26,53 +26,58 @@ namespace DanhGiaDoanVien.DAO
 
         public DataTable GetListStudent(string group, string sex, string isMember)
         {
-            string query = "";
+            StringBuilder sbd = new StringBuilder();
+            string query = "select * from SinhVien";
+            sbd.Append(query);
 
-            if (group == "Tất cả" && sex == "Tất cả" && isMember == "Tất cả")
+            int[] input = new int[3] { 1, 1, 1 };
+            if (group == "Tất cả")
+                input[0] = 0;
+            if (sex == "Tất cả")
+                input[1] = 0;
+            if (isMember == "Tất cả")
+                input[2] = 0;
+
+            if (group == "")
+                input[0] = 2;
+
+            if (isMember == "Có")
+                isMember = "True";
+            else if (isMember == "Không")
+                isMember = "False";
+
+            if ((input[0] + input[1] + input[2]) == 0)
             {
-                query = "USP_GetListStudent";
+                return DataProvider.Instance.ExecuteQuery(query);
             }
-            else if (group == "Tất cả")
+            else if (input[0] == 1)
             {
-                if (sex == "Tất cả")
-                {
-                    if (isMember == "Có")
-                        query = "select * from SinhVien where doanVien = 'True'";
-                    else
-                        query = "select * from SinhVien where doanVien = 'False'";
-                }
-                if (sex != "Tất cả")
-                {
-                    if (isMember == "Có")
-                        query = "select * from SinhVien where doanVien = 'True' and gioiTinh = N'" + sex + "'";
-                    else if (isMember == "Không")
-                        query = "select * from SinhVien where doanVien = 'False' and gioiTinh = N'" + sex + "'";
-                    else
-                        query = "select * from SinhVien where gioiTinh = N'" + sex + "'";
-                }
+                sbd.Append(" where chiDoan = '" + group + "'");
+                if (input[1] == 1)
+                    sbd.Append(" and gioiTinh = N'" + sex + "'");
+                if (input[2] == 1)
+                    sbd.Append(" and doanVien = '" + isMember + "'");
             }
-            else if (group != "Tất cả")
+            else if (input[1] == 1)
             {
-                if (sex == "Tất cả")
-                {
-                    if (isMember == "Có")
-                        query = "select * from SinhVien where doanVien = 'True' and chiDoan = '" + group + "'";
-                    else if (isMember == "Không")
-                        query = "select * from SinhVien where doanVien = 'False' and chiDoan = '" + group + "'";
-                    else
-                        query = "select * from SinhVien where chiDoan = '" + group + "'";
-                }
-                if (sex != "Tất cả")
-                {
-                    if (isMember == "Có")
-                        query = "select * from SinhVien where doanVien = 'True' and gioiTinh = N'" + sex + "' and chiDoan = '" + group + "'";
-                    else if (isMember == "Không")
-                        query = "select * from SinhVien where doanVien = 'False' and gioiTinh = N'" + sex + "' and chiDoan = '" + group + "'";
-                    else
-                        query = "select * from SinhVien where gioiTinh = N'" + sex + "' and chiDoan = '" + group + "'";
-                }
+                sbd.Append(" where gioiTinh = N'" + sex + "'");
+                if (input[2] == 1)
+                    sbd.Append(" and doanVien = '" + isMember + "'");
+                if (input[0] == 2)
+                    sbd.Append(" and chiDoan is null");
+            }
+            else if (input[2] == 1)
+            {
+                sbd.Append(" where doanVien = '" + isMember + "'");
+                if (input[0] == 2)
+                    sbd.Append(" and chiDoan is null");
+            }
+            else if (input[0] == 2)
+            {
+                sbd.Append(" where chiDoan is null");
             }
 
+            query = sbd.ToString();
             return DataProvider.Instance.ExecuteQuery(query);
         }
 
@@ -83,8 +88,8 @@ namespace DanhGiaDoanVien.DAO
             {
                 try
                 {
-                    query = "insert into SinhVien (MSSV, ten, gioiTinh, doanVien)" +
-                    "values ('" + idStudent + "', '" + name + "', '" + sex + "', '" + isMember + "')";
+                    query = "insert into SinhVien " +
+                    "values ('" + idStudent + "', '" + name + "', '" + sex + "', default, '" + isMember + "')";
                     return DataProvider.Instance.ExecuteNonQuery(query);
                 }
                 catch (System.Data.SqlClient.SqlException)
@@ -200,14 +205,61 @@ namespace DanhGiaDoanVien.DAO
                 sb.Append(" where MSSV = '" + student.IdStudent + "'");
                 query = sb.ToString();
 
-                if (check[1] == true)
-                {
-                    DataProvider.Instance.ExecuteNonQuery("USP_ChangeSexStudent @idGroup , @sex , @oldSex", new object[] { student.Group, sex, student.Sex });
-                }
-
+                string temp = "";
+                
+                //Only thay đổi group
                 if (check[2] == true)
                 {
-                    DataProvider.Instance.ExecuteNonQuery("USP_ChangeGroupStudent @idStudent , @idGroup , @idOldGroup , @sex , @oldSex", new object[] { student.IdStudent, group, student.Group, sex, student.Sex });
+                    temp = "select * from SinhVien sv, KetQuaChiDoan kqcd where sv.ChiDoan = kqcd.idChiDoan and daXong = 0 and sv.MSSV = '" + student.IdStudent + "'";
+
+                    DataTable data = DataProvider.Instance.ExecuteQuery(temp);
+                    if (data.Rows.Count != 0)
+                    {
+                        return -696;
+                    }
+
+                    temp = "update ChiDoan set soThanhVien -= 1, tongSV -= 1 where id = '" + student.Group + "'";
+                    DataProvider.Instance.ExecuteNonQuery(temp);
+                    temp = "update ChiDoan set soThanhVien += 1, tongSV += 1 where id = '" + group + "'";
+                    DataProvider.Instance.ExecuteNonQuery(temp);
+                }
+
+                //Only thay đổi giới tính
+                if (check[1] == true && check[2] == false)
+                {
+                    if (student.Sex == "Nam")
+                    {
+                        temp = "update chiDoan set tongNuSV += 1 where id = '" + student.Group + "'";
+                        DataProvider.Instance.ExecuteNonQuery(temp);
+                    }
+                    else
+                    {
+                        temp = "update chiDoan set tongNuSV -= 1 where id = '" + student.Group + "'";
+                        DataProvider.Instance.ExecuteNonQuery(temp);
+                    }
+                }
+                else if (check[1] == true && check[2] == true)
+                {
+                    if (student.Sex == "Nam")
+                    {
+                        temp = "update chiDoan set tongNuSV += 1 where id = '" + group + "'";
+                        DataProvider.Instance.ExecuteNonQuery(temp);
+                    }
+                    else
+                    {
+                        temp = "update chiDoan set tongNuSV -= 1 where id = '" + student.Group + "'";
+                        DataProvider.Instance.ExecuteNonQuery(temp);
+                    }
+                }
+                else if (check[1] == false && check[2] == true)
+                {
+                    if (student.Sex == "Nữ")
+                    {
+                        temp = "update chiDoan set tongNuSV -= 1 where id = '" + student.Group + "'";
+                        DataProvider.Instance.ExecuteNonQuery(temp);
+                        temp = "update chiDoan set tongNuSV += 1 where id = '" + group + "'";
+                        DataProvider.Instance.ExecuteNonQuery(temp);
+                    }
                 }
 
                 return DataProvider.Instance.ExecuteNonQuery(query);

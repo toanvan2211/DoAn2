@@ -35,7 +35,17 @@ namespace DanhGiaDoanVien.DAO
         {
             string query = "select id from KetQuaChiDoan where idChiDoan = '" + idGroup + "' and idNamHoc = '" + idSemester + "'";
 
-            int id = Convert.ToInt32(DataProvider.Instance.ExecuteQuery(query).Rows[0]["id"]);
+            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+
+            int id;
+            if (data.Rows.Count == 0)
+            {
+                id = -1;
+            }
+            else
+            {
+                id = Convert.ToInt32(data.Rows[0]["id"]);
+            }
 
             query = "select id, MSGV, ketQuaDanhGia, xepLoai, thanhTichTieuBieu, doanVienUuTu, ghiChu, idKetQuaChiDoan from KetQuaGiangVien where idKetQuaChiDoan = " + id;
 

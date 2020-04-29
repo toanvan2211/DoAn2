@@ -1,5 +1,6 @@
 ﻿using DanhGiaDoanVien.DAO;
 using DanhGiaDoanVien.DTO;
+using DanhGiaDoanVien.Forms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -36,22 +37,17 @@ namespace DanhGiaDoanVien
 
         private void FormTeacher_Load(object sender, EventArgs e)
         {
-            comboBoxSex.SelectedIndex = 0;
             LoadGroup();
+            comboBoxSex.SelectedIndex = 0;
             comboBoxSexEdit.SelectedIndex = 0;
-            currentGroup = "Tất cả";
-            currentSex = "Tất cả";
+            comboBoxMember.SelectedIndex = 0;
+            comboBoxGroup.SelectedIndex = 0;
             LoadListTeacher();
         }
         //ComboBox
         private void comboBoxGroup_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (comboBoxGroup.SelectedIndex == 0)
-                currentGroup = "Tất cả";
-            else
-            {
-                currentGroup = comboBoxGroup.Text;
-            }
+            currentGroup = comboBoxGroup.Text;
             LoadListTeacher();
         }
 
@@ -59,24 +55,6 @@ namespace DanhGiaDoanVien
         {
             currentSex = comboBoxSex.Text;
             LoadListTeacher();
-        }
-
-        //RadioButton
-        private void radioButtonHave_CheckedChanged(object sender, EventArgs e)
-        {
-            GetCurrentRadio(panelRadio);
-            LoadListTeacher();
-        }
-
-        private void radioButtonAllMember_CheckedChanged(object sender, EventArgs e)
-        {
-            GetCurrentRadio(panelRadio);
-            LoadListTeacher();
-        }
-        private void radioButtonHaveEdit_CheckedChanged(object sender, EventArgs e)
-        {
-            GetCurrentRadio(panelRadioEdit);
-            LoadListTeacher();  
         }
         //DataGridView
         private void dataGridViewTeacher_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -124,6 +102,9 @@ namespace DanhGiaDoanVien
                     //Main panel
                     labelMSGV.Text = currentTeacher.IdTeacher;
                     labelName.Text = currentTeacher.Name;
+                    labelSex.Text = currentTeacher.Sex;
+                    labelGroup.Text = currentTeacher.Group;
+                    labelIsMember.Text = currentTeacher.IsMember.ToString();
                 }
             }
         }
@@ -180,6 +161,7 @@ namespace DanhGiaDoanVien
         void LoadGroup()
         {
             DataTable dataGroup = GroupDAO.Instance.GetListGroup();
+            comboBoxGroup.Items.Add("Tất cả");
             comboBoxGroup.Items.Add("");
             comboBoxGroupEdit.Items.Add("");
             foreach (DataRow item in dataGroup.Rows)
@@ -193,7 +175,7 @@ namespace DanhGiaDoanVien
         {
             //Show the panel
             panelEdit.Visible = true;
-            panelEdit.Location = new Point(143, 15);
+            panelEdit.Location = new Point(144, 78);
             panelDefault.Visible = false;
             //Button in panel
             AcceptButton = buttonEdit;
@@ -241,13 +223,13 @@ namespace DanhGiaDoanVien
                     }
                 }
 
-                GetCurrentRadio(panelRadioEdit);
-                SetCurrent(comboBoxGroupEdit.Text, comboBoxSexEdit.Text, currentIsMember);
-
                 if (btn.Tag.ToString() == "add")
                 {
                     panelDefault.Visible = false;
                     currentEditState = EditState.add;
+                    buttonEdit.FlatAppearance.BorderColor = Color.MediumSeaGreen;
+                    buttonEdit.FlatAppearance.MouseOverBackColor = default;
+                    buttonEdit.FlatAppearance.MouseDownBackColor = Color.FromArgb(128, 255, 128);
                     AddAndUpdateState();
                 }
                 else if (btn.Tag.ToString() == "update")
@@ -255,6 +237,9 @@ namespace DanhGiaDoanVien
                     panelDefault.Visible = false;
                     currentEditState = EditState.update;
                     AddAndUpdateState();
+                    buttonEdit.FlatAppearance.BorderColor = Color.Aqua;
+                    buttonEdit.FlatAppearance.MouseOverBackColor = default;
+                    buttonEdit.FlatAppearance.MouseDownBackColor = Color.FromArgb(128, 128, 255);
                     textBoxMSGVEdit.Enabled = false;
                 }
                 else if (btn.Tag.ToString() == "delete")
@@ -263,12 +248,15 @@ namespace DanhGiaDoanVien
                     currentEditState = EditState.delete;
                     //Show the panel
                     panelEdit.Visible = true;
-                    panelEdit.Location = new Point(143, 15);
+                    panelEdit.Location = new Point(144, 78);
                     panelDefault.Visible = false;
                     //Button in panel
                     AcceptButton = buttonEdit;
                     buttonResetText.Visible = false;
                     buttonEdit.Text = currentEditState;
+                    buttonEdit.FlatAppearance.BorderColor = Color.Red;
+                    buttonEdit.FlatAppearance.MouseOverBackColor = Color.FromArgb(255, 128, 128);
+                    buttonEdit.FlatAppearance.MouseDownBackColor = Color.Red;
                     //Change Location button
                     buttonEdit.Location = buttonResetText.Location;
                     //Other controls
@@ -281,9 +269,6 @@ namespace DanhGiaDoanVien
             }
             else
             {
-                GetCurrentRadio(panelRadio);
-                SetCurrent(comboBoxGroup.Text, comboBoxSex.Text, currentIsMember);
-
                 panelDefault.Visible = true;
                 currentEditState = EditState.none;
                 //AcceptButton
@@ -294,6 +279,13 @@ namespace DanhGiaDoanVien
                 panelEdit.Location = new Point(panelDefault.Location.X, panelDefault.Location.Y + panelDefault.Size.Height + 6);
             }
         }
+
+        public void Alert(string msg, FormNotified.enmType type)
+        {
+            FormNotified frm = new FormNotified();
+            frm.ShowAlert(msg, type);
+        }
+
         void ExecuteEditCommand()
         {
             if (currentEditState == EditState.add)
@@ -320,9 +312,13 @@ namespace DanhGiaDoanVien
                     int result = TeacherDAO.Instance.AddTeacher(textBoxMSGVEdit.Text, textBoxNameEdit.Text, comboBoxSexEdit.Text, comboBoxGroupEdit.Text, getIsMember);
                     if (result >= 0)
                     {
+                        string stringNotification = "giảng viên có mã: " + textBoxMSGVEdit.Text;
+
                         textBoxMSGVEdit.ResetText();
                         textBoxNameEdit.ResetText();
                         LoadListTeacher();
+
+                        Alert(stringNotification, FormNotified.enmType.Insert);
                     }
                     else if (result == -1)
                     {
@@ -330,12 +326,12 @@ namespace DanhGiaDoanVien
                     }
                     else
                     {
-                        MessageBox.Show("Thất bại, thử lại sau", "Đã xảy ra lỗi");
+                        MessageBox.Show("Thất bại, thử lại sau", "Đã xảy ra lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Chưa điền đủ thông tin", "Đã xảy ra lỗi");
+                    MessageBox.Show("Chưa điền đủ thông tin", "Đã xảy ra lỗi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             else if (currentEditState == EditState.update)
@@ -361,22 +357,35 @@ namespace DanhGiaDoanVien
                         }
                     }
                     int result = TeacherDAO.Instance.UpdateTeacher(currentTeacher, textBoxNameEdit.Text, comboBoxSexEdit.Text, comboBoxGroupEdit.Text, getIsMember);
+
                     if (result > 0)
                     {
-                        LoadListTeacher(); 
+                        string stringNotification = "giảng viên có mã: " + textBoxMSGVEdit.Text;
+
+                        currentTeacher.Name = textBoxNameEdit.Text;
+                        currentTeacher.Sex = comboBoxSexEdit.Text;
+                        currentTeacher.Group = comboBoxGroupEdit.Text;
+                        currentTeacher.IsMember = getIsMember;
+                        LoadListTeacher();
+
+                        Alert(stringNotification, FormNotified.enmType.Edit);
                     }
                     else if (result == -1)
                     {
-                        MessageBox.Show("Thông tin không có sự thay đổi", "Đã xảy ra lỗi");
+                        MessageBox.Show("Thông tin không có sự thay đổi", "Đã xảy ra lỗi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else if (result == -696)
+                    {
+                        MessageBox.Show("Giảng viên này đang có trong kết quả đánh giá của chi đoàn. Không thể thay đổi chi đoàn vào lúc này!", "Đã xảy ra lỗi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
                     {
-                        MessageBox.Show("Thất bại, thử lại sau", "Đã xảy ra lỗi");
+                        MessageBox.Show("Thất bại, thử lại sau", "Đã xảy ra lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Chưa điền đủ thông tin", "Đã xảy ra lỗi");
+                    MessageBox.Show("Chưa điền đủ thông tin", "Đã xảy ra lỗi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             else if (currentEditState == EditState.delete)
@@ -386,10 +395,17 @@ namespace DanhGiaDoanVien
                     DialogResult rs = MessageBox.Show("Bạn có chắc muốn xóa?", "Cảnh báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                     if (rs == DialogResult.Yes)
                     {
-                        if (TeacherDAO.Instance.DeleteTeacher(textBoxMSGVEdit.Text) != 0) { LoadListTeacher(); }
+                        if (TeacherDAO.Instance.DeleteTeacher(textBoxMSGVEdit.Text) != 0) 
+                        {
+                            string stringNotification = "giảng viên có mã: " + textBoxMSGVEdit.Text;
+
+                            LoadListTeacher();
+
+                            Alert(stringNotification, FormNotified.enmType.Delete);
+                        }
                         else
                         {
-                            MessageBox.Show("Thất bại, thử lại sau", "Đã xảy ra lỗi");
+                            MessageBox.Show("Thất bại, thử lại sau", "Đã xảy ra lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                 }
@@ -410,21 +426,15 @@ namespace DanhGiaDoanVien
         }
         #endregion
 
-        private void comboBoxGroupEdit_SelectedIndexChanged(object sender, EventArgs e)
+        private void comboBoxMember_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (comboBoxGroupEdit.SelectedIndex == 0)
-                currentGroup = "Tất cả";
-            else
-            {
-                currentGroup = comboBoxGroupEdit.Text;
-            }
+            currentIsMember = comboBoxMember.Text;
             LoadListTeacher();
         }
 
-        private void comboBoxSexEdit_SelectedIndexChanged(object sender, EventArgs e)
+        private void panelEdit_Paint(object sender, PaintEventArgs e)
         {
-            currentSex = comboBoxSexEdit.Text;
-            LoadListTeacher();
+
         }
     }
 }

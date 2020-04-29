@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormEvaluateGroup));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -43,9 +42,12 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormEvaluateGroup));
             this.panelBottom = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.label15 = new System.Windows.Forms.Label();
+            this.checkBoxAuto = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.buttonCreateList = new System.Windows.Forms.Button();
             this.comboBoxGroupEmpty = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.label3 = new System.Windows.Forms.Label();
@@ -73,16 +75,13 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxIdGroup = new System.Windows.Forms.TextBox();
-            this.buttonSaveAll = new System.Windows.Forms.Button();
-            this.buttonDelete = new System.Windows.Forms.Button();
-            this.buttonSaveSelect = new System.Windows.Forms.Button();
-            this.buttonUpdate = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.comboBoxSemester = new System.Windows.Forms.ComboBox();
             this.panelTop = new System.Windows.Forms.Panel();
             this.comboBoxGroup = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
             this.dataGridViewScoresGroup = new System.Windows.Forms.DataGridView();
+            this.buttonCheckDone = new System.Windows.Forms.Button();
             this.Id1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Semester1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idGroup1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -98,10 +97,14 @@
             this.TotalFemaleTeacher1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TotalGoodMember1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Note1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
-            this.label15 = new System.Windows.Forms.Label();
-            this.checkBoxAuto = new System.Windows.Forms.CheckBox();
+            this.CheckDone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.buttonCreateList = new System.Windows.Forms.Button();
+            this.buttonSaveAll = new System.Windows.Forms.Button();
+            this.buttonDelete = new System.Windows.Forms.Button();
+            this.buttonSaveSelect = new System.Windows.Forms.Button();
+            this.buttonUpdate = new System.Windows.Forms.Button();
             this.panelBottom.SuspendLayout();
+            this.tableLayoutPanel5.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -109,17 +112,17 @@
             this.tableLayoutPanel1.SuspendLayout();
             this.panelTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewScoresGroup)).BeginInit();
-            this.tableLayoutPanel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelBottom
             // 
-            this.panelBottom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(54)))), ((int)(((byte)(75)))));
+            this.panelBottom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(45)))));
             this.panelBottom.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panelBottom.Controls.Add(this.tableLayoutPanel5);
             this.panelBottom.Controls.Add(this.tableLayoutPanel4);
             this.panelBottom.Controls.Add(this.tableLayoutPanel3);
             this.panelBottom.Controls.Add(this.panel1);
+            this.panelBottom.Controls.Add(this.buttonCheckDone);
             this.panelBottom.Controls.Add(this.buttonSaveAll);
             this.panelBottom.Controls.Add(this.buttonDelete);
             this.panelBottom.Controls.Add(this.buttonSaveSelect);
@@ -129,6 +132,42 @@
             this.panelBottom.Name = "panelBottom";
             this.panelBottom.Size = new System.Drawing.Size(1000, 197);
             this.panelBottom.TabIndex = 5;
+            // 
+            // tableLayoutPanel5
+            // 
+            this.tableLayoutPanel5.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tableLayoutPanel5.ColumnCount = 2;
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 58.97436F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 41.02564F));
+            this.tableLayoutPanel5.Controls.Add(this.label15, 0, 0);
+            this.tableLayoutPanel5.Controls.Add(this.checkBoxAuto, 1, 0);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(800, 73);
+            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
+            this.tableLayoutPanel5.RowCount = 1;
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(67, 50);
+            this.tableLayoutPanel5.TabIndex = 10;
+            // 
+            // label15
+            // 
+            this.label15.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label15.AutoSize = true;
+            this.label15.ForeColor = System.Drawing.Color.White;
+            this.label15.Location = new System.Drawing.Point(7, 18);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(29, 13);
+            this.label15.TabIndex = 3;
+            this.label15.Text = "Auto";
+            // 
+            // checkBoxAuto
+            // 
+            this.checkBoxAuto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.checkBoxAuto.AutoSize = true;
+            this.checkBoxAuto.Location = new System.Drawing.Point(42, 18);
+            this.checkBoxAuto.Name = "checkBoxAuto";
+            this.checkBoxAuto.Size = new System.Drawing.Size(22, 14);
+            this.checkBoxAuto.TabIndex = 4;
+            this.checkBoxAuto.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel4
             // 
@@ -144,23 +183,6 @@
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel4.Size = new System.Drawing.Size(324, 68);
             this.tableLayoutPanel4.TabIndex = 9;
-            // 
-            // buttonCreateList
-            // 
-            this.buttonCreateList.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonCreateList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonCreateList.ForeColor = System.Drawing.Color.White;
-            this.buttonCreateList.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonCreateList.Location = new System.Drawing.Point(200, 14);
-            this.buttonCreateList.Name = "buttonCreateList";
-            this.buttonCreateList.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.buttonCreateList.Size = new System.Drawing.Size(121, 39);
-            this.buttonCreateList.TabIndex = 4;
-            this.buttonCreateList.Text = "Tạo danh sách";
-            this.buttonCreateList.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonCreateList.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonCreateList.UseVisualStyleBackColor = true;
-            this.buttonCreateList.Click += new System.EventHandler(this.buttonCreateList_Click);
             // 
             // comboBoxGroupEmpty
             // 
@@ -478,64 +500,6 @@
             this.textBoxIdGroup.Size = new System.Drawing.Size(239, 20);
             this.textBoxIdGroup.TabIndex = 1;
             // 
-            // buttonSaveAll
-            // 
-            this.buttonSaveAll.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonSaveAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSaveAll.ForeColor = System.Drawing.Color.White;
-            this.buttonSaveAll.Location = new System.Drawing.Point(882, 47);
-            this.buttonSaveAll.Name = "buttonSaveAll";
-            this.buttonSaveAll.Size = new System.Drawing.Size(104, 39);
-            this.buttonSaveAll.TabIndex = 4;
-            this.buttonSaveAll.Text = "Lưu toàn bộ";
-            this.buttonSaveAll.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonSaveAll.UseVisualStyleBackColor = true;
-            this.buttonSaveAll.Click += new System.EventHandler(this.buttonSaveAll_Click);
-            // 
-            // buttonDelete
-            // 
-            this.buttonDelete.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonDelete.ForeColor = System.Drawing.Color.White;
-            this.buttonDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonDelete.Location = new System.Drawing.Point(762, 135);
-            this.buttonDelete.Name = "buttonDelete";
-            this.buttonDelete.Size = new System.Drawing.Size(91, 39);
-            this.buttonDelete.TabIndex = 4;
-            this.buttonDelete.Text = "Xóa";
-            this.buttonDelete.UseVisualStyleBackColor = true;
-            this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
-            // 
-            // buttonSaveSelect
-            // 
-            this.buttonSaveSelect.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonSaveSelect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSaveSelect.ForeColor = System.Drawing.Color.White;
-            this.buttonSaveSelect.Location = new System.Drawing.Point(882, 85);
-            this.buttonSaveSelect.Name = "buttonSaveSelect";
-            this.buttonSaveSelect.Size = new System.Drawing.Size(104, 39);
-            this.buttonSaveSelect.TabIndex = 4;
-            this.buttonSaveSelect.Text = "Lưu những hàng chọn";
-            this.buttonSaveSelect.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonSaveSelect.UseVisualStyleBackColor = true;
-            this.buttonSaveSelect.Click += new System.EventHandler(this.buttonSaveSelect_Click);
-            // 
-            // buttonUpdate
-            // 
-            this.buttonUpdate.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonUpdate.ForeColor = System.Drawing.Color.White;
-            this.buttonUpdate.Image = ((System.Drawing.Image)(resources.GetObject("buttonUpdate.Image")));
-            this.buttonUpdate.Location = new System.Drawing.Point(882, 9);
-            this.buttonUpdate.Name = "buttonUpdate";
-            this.buttonUpdate.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.buttonUpdate.Size = new System.Drawing.Size(104, 39);
-            this.buttonUpdate.TabIndex = 4;
-            this.buttonUpdate.Text = "Sửa";
-            this.buttonUpdate.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonUpdate.UseVisualStyleBackColor = true;
-            this.buttonUpdate.Click += new System.EventHandler(this.buttonUpdate_Click);
-            // 
             // label4
             // 
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -563,7 +527,7 @@
             // 
             // panelTop
             // 
-            this.panelTop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(105)))), ((int)(((byte)(146)))));
+            this.panelTop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(87)))), ((int)(((byte)(95)))));
             this.panelTop.Controls.Add(this.comboBoxGroup);
             this.panelTop.Controls.Add(this.label13);
             this.panelTop.Controls.Add(this.comboBoxSemester);
@@ -581,6 +545,8 @@
             this.comboBoxGroup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBoxGroup.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxGroup.FormattingEnabled = true;
+            this.comboBoxGroup.Items.AddRange(new object[] {
+            "Tất cả"});
             this.comboBoxGroup.Location = new System.Drawing.Point(572, 12);
             this.comboBoxGroup.Name = "comboBoxGroup";
             this.comboBoxGroup.Size = new System.Drawing.Size(283, 24);
@@ -604,7 +570,7 @@
             this.dataGridViewScoresGroup.AllowUserToAddRows = false;
             this.dataGridViewScoresGroup.AllowUserToDeleteRows = false;
             this.dataGridViewScoresGroup.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridViewScoresGroup.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(77)))), ((int)(((byte)(108)))));
+            this.dataGridViewScoresGroup.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(43)))), ((int)(((byte)(47)))));
             this.dataGridViewScoresGroup.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewScoresGroup.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Id1,
@@ -621,13 +587,29 @@
             this.TotalFemaleStudent1,
             this.TotalFemaleTeacher1,
             this.TotalGoodMember1,
-            this.Note1});
+            this.Note1,
+            this.CheckDone});
             this.dataGridViewScoresGroup.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewScoresGroup.Location = new System.Drawing.Point(0, 242);
             this.dataGridViewScoresGroup.Name = "dataGridViewScoresGroup";
             this.dataGridViewScoresGroup.Size = new System.Drawing.Size(1000, 393);
             this.dataGridViewScoresGroup.TabIndex = 7;
             this.dataGridViewScoresGroup.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewScoresGroup_CellClick);
+            // 
+            // buttonCheckDone
+            // 
+            this.buttonCheckDone.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonCheckDone.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonCheckDone.ForeColor = System.Drawing.Color.White;
+            this.buttonCheckDone.Location = new System.Drawing.Point(870, 9);
+            this.buttonCheckDone.Name = "buttonCheckDone";
+            this.buttonCheckDone.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.buttonCheckDone.Size = new System.Drawing.Size(116, 44);
+            this.buttonCheckDone.TabIndex = 4;
+            this.buttonCheckDone.Text = "Đánh dấu là đã xong";
+            this.buttonCheckDone.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonCheckDone.UseVisualStyleBackColor = true;
+            this.buttonCheckDone.Click += new System.EventHandler(this.buttonCheckDone_Click);
             // 
             // Id1
             // 
@@ -664,7 +646,7 @@
             // 
             // Rank1
             // 
-            this.Rank1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Rank1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Rank1.DataPropertyName = "xepLoai";
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.Rank1.DefaultCellStyle = dataGridViewCellStyle4;
@@ -678,108 +660,89 @@
             this.Rank1.Name = "Rank1";
             this.Rank1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Rank1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Rank1.Width = 70;
             // 
             // Excellent1
             // 
-            this.Excellent1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Excellent1.DataPropertyName = "xuatSac";
             dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.Excellent1.DefaultCellStyle = dataGridViewCellStyle5;
             this.Excellent1.HeaderText = "Xuất sắc";
             this.Excellent1.Name = "Excellent1";
-            this.Excellent1.Width = 74;
             // 
             // Great1
             // 
-            this.Great1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Great1.DataPropertyName = "kha";
             dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.Great1.DefaultCellStyle = dataGridViewCellStyle6;
             this.Great1.HeaderText = "Khá";
             this.Great1.Name = "Great1";
-            this.Great1.Width = 51;
             // 
             // Medium1
             // 
-            this.Medium1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Medium1.DataPropertyName = "trungBinh";
             dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.Medium1.DefaultCellStyle = dataGridViewCellStyle7;
             this.Medium1.HeaderText = "Trung bình";
             this.Medium1.Name = "Medium1";
-            this.Medium1.Width = 83;
             // 
             // Bad1
             // 
-            this.Bad1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Bad1.DataPropertyName = "yeuKem";
             dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.Bad1.DefaultCellStyle = dataGridViewCellStyle8;
             this.Bad1.HeaderText = "Yếu kém";
             this.Bad1.Name = "Bad1";
-            this.Bad1.Width = 74;
             // 
             // TotalMember1
             // 
-            this.TotalMember1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.TotalMember1.DataPropertyName = "soThanhVien";
             dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.TotalMember1.DefaultCellStyle = dataGridViewCellStyle9;
             this.TotalMember1.HeaderText = "Số thành viên";
             this.TotalMember1.Name = "TotalMember1";
             this.TotalMember1.ReadOnly = true;
-            this.TotalMember1.Width = 98;
             // 
             // TotalStudent1
             // 
-            this.TotalStudent1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.TotalStudent1.DataPropertyName = "tongSV";
             dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.TotalStudent1.DefaultCellStyle = dataGridViewCellStyle10;
             this.TotalStudent1.HeaderText = "Sinh viên";
             this.TotalStudent1.Name = "TotalStudent1";
             this.TotalStudent1.ReadOnly = true;
-            this.TotalStudent1.Width = 76;
             // 
             // TotalTeacher1
             // 
-            this.TotalTeacher1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.TotalTeacher1.DataPropertyName = "tongGV";
             dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.TotalTeacher1.DefaultCellStyle = dataGridViewCellStyle11;
             this.TotalTeacher1.HeaderText = "Giảng viên";
             this.TotalTeacher1.Name = "TotalTeacher1";
-            this.TotalTeacher1.Width = 83;
             // 
             // TotalFemaleStudent1
             // 
-            this.TotalFemaleStudent1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.TotalFemaleStudent1.DataPropertyName = "tongNuSV";
             dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.TotalFemaleStudent1.DefaultCellStyle = dataGridViewCellStyle12;
-            this.TotalFemaleStudent1.HeaderText = "Nữ SV";
+            this.TotalFemaleStudent1.HeaderText = "Sinh viên nữ";
             this.TotalFemaleStudent1.Name = "TotalFemaleStudent1";
-            this.TotalFemaleStudent1.Width = 63;
             // 
             // TotalFemaleTeacher1
             // 
-            this.TotalFemaleTeacher1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.TotalFemaleTeacher1.DataPropertyName = "tongNuGV";
             dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.TotalFemaleTeacher1.DefaultCellStyle = dataGridViewCellStyle13;
-            this.TotalFemaleTeacher1.HeaderText = "Nữ GV";
+            this.TotalFemaleTeacher1.HeaderText = "Giảng viên nữ";
             this.TotalFemaleTeacher1.Name = "TotalFemaleTeacher1";
-            this.TotalFemaleTeacher1.Width = 64;
             // 
             // TotalGoodMember1
             // 
-            this.TotalGoodMember1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.TotalGoodMember1.DataPropertyName = "tongDVUT";
             dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.TotalGoodMember1.DefaultCellStyle = dataGridViewCellStyle14;
-            this.TotalGoodMember1.HeaderText = "ĐVUT";
+            this.TotalGoodMember1.HeaderText = "Đoàn viên ưu tú";
             this.TotalGoodMember1.Name = "TotalGoodMember1";
-            this.TotalGoodMember1.Width = 62;
             // 
             // Note1
             // 
@@ -788,41 +751,94 @@
             this.Note1.Name = "Note1";
             this.Note1.Visible = false;
             // 
-            // tableLayoutPanel5
+            // CheckDone
             // 
-            this.tableLayoutPanel5.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tableLayoutPanel5.ColumnCount = 2;
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 58.97436F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 41.02564F));
-            this.tableLayoutPanel5.Controls.Add(this.label15, 0, 0);
-            this.tableLayoutPanel5.Controls.Add(this.checkBoxAuto, 1, 0);
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(799, 44);
-            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
-            this.tableLayoutPanel5.RowCount = 1;
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(67, 50);
-            this.tableLayoutPanel5.TabIndex = 10;
+            this.CheckDone.DataPropertyName = "daXong";
+            this.CheckDone.HeaderText = "Đã xong";
+            this.CheckDone.Name = "CheckDone";
+            this.CheckDone.ReadOnly = true;
+            this.CheckDone.Visible = false;
             // 
-            // label15
+            // buttonCreateList
             // 
-            this.label15.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label15.AutoSize = true;
-            this.label15.ForeColor = System.Drawing.Color.White;
-            this.label15.Location = new System.Drawing.Point(7, 18);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(29, 13);
-            this.label15.TabIndex = 3;
-            this.label15.Text = "Auto";
+            this.buttonCreateList.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonCreateList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonCreateList.ForeColor = System.Drawing.Color.White;
+            this.buttonCreateList.Image = ((System.Drawing.Image)(resources.GetObject("buttonCreateList.Image")));
+            this.buttonCreateList.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonCreateList.Location = new System.Drawing.Point(200, 14);
+            this.buttonCreateList.Name = "buttonCreateList";
+            this.buttonCreateList.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.buttonCreateList.Size = new System.Drawing.Size(121, 39);
+            this.buttonCreateList.TabIndex = 4;
+            this.buttonCreateList.Text = "Tạo danh sách";
+            this.buttonCreateList.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonCreateList.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonCreateList.UseVisualStyleBackColor = true;
+            this.buttonCreateList.Click += new System.EventHandler(this.buttonCreateList_Click);
             // 
-            // checkBoxAuto
+            // buttonSaveAll
             // 
-            this.checkBoxAuto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.checkBoxAuto.AutoSize = true;
-            this.checkBoxAuto.Location = new System.Drawing.Point(42, 18);
-            this.checkBoxAuto.Name = "checkBoxAuto";
-            this.checkBoxAuto.Size = new System.Drawing.Size(22, 14);
-            this.checkBoxAuto.TabIndex = 4;
-            this.checkBoxAuto.UseVisualStyleBackColor = true;
+            this.buttonSaveAll.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonSaveAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSaveAll.ForeColor = System.Drawing.Color.White;
+            this.buttonSaveAll.Image = ((System.Drawing.Image)(resources.GetObject("buttonSaveAll.Image")));
+            this.buttonSaveAll.Location = new System.Drawing.Point(870, 59);
+            this.buttonSaveAll.Name = "buttonSaveAll";
+            this.buttonSaveAll.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.buttonSaveAll.Size = new System.Drawing.Size(116, 39);
+            this.buttonSaveAll.TabIndex = 4;
+            this.buttonSaveAll.Text = "Lưu toàn bộ";
+            this.buttonSaveAll.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonSaveAll.UseVisualStyleBackColor = true;
+            this.buttonSaveAll.Click += new System.EventHandler(this.buttonSaveAll_Click);
+            // 
+            // buttonDelete
+            // 
+            this.buttonDelete.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonDelete.ForeColor = System.Drawing.Color.White;
+            this.buttonDelete.Image = ((System.Drawing.Image)(resources.GetObject("buttonDelete.Image")));
+            this.buttonDelete.Location = new System.Drawing.Point(870, 135);
+            this.buttonDelete.Name = "buttonDelete";
+            this.buttonDelete.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.buttonDelete.Size = new System.Drawing.Size(116, 39);
+            this.buttonDelete.TabIndex = 4;
+            this.buttonDelete.Text = "Xóa";
+            this.buttonDelete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonDelete.UseVisualStyleBackColor = true;
+            this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
+            // 
+            // buttonSaveSelect
+            // 
+            this.buttonSaveSelect.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonSaveSelect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSaveSelect.ForeColor = System.Drawing.Color.White;
+            this.buttonSaveSelect.Image = ((System.Drawing.Image)(resources.GetObject("buttonSaveSelect.Image")));
+            this.buttonSaveSelect.Location = new System.Drawing.Point(870, 97);
+            this.buttonSaveSelect.Name = "buttonSaveSelect";
+            this.buttonSaveSelect.Size = new System.Drawing.Size(116, 39);
+            this.buttonSaveSelect.TabIndex = 4;
+            this.buttonSaveSelect.Text = "Lưu hàng chọn";
+            this.buttonSaveSelect.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonSaveSelect.UseVisualStyleBackColor = true;
+            this.buttonSaveSelect.Click += new System.EventHandler(this.buttonSaveSelect_Click);
+            // 
+            // buttonUpdate
+            // 
+            this.buttonUpdate.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonUpdate.ForeColor = System.Drawing.Color.White;
+            this.buttonUpdate.Image = ((System.Drawing.Image)(resources.GetObject("buttonUpdate.Image")));
+            this.buttonUpdate.Location = new System.Drawing.Point(767, 9);
+            this.buttonUpdate.Name = "buttonUpdate";
+            this.buttonUpdate.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.buttonUpdate.Size = new System.Drawing.Size(90, 44);
+            this.buttonUpdate.TabIndex = 4;
+            this.buttonUpdate.Text = "Sửa";
+            this.buttonUpdate.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonUpdate.UseVisualStyleBackColor = true;
+            this.buttonUpdate.Click += new System.EventHandler(this.buttonUpdate_Click);
             // 
             // FormEvaluateGroup
             // 
@@ -837,6 +853,8 @@
             this.Text = "FormEvaluteGroup";
             this.Load += new System.EventHandler(this.FormEvaluateGroup_Load);
             this.panelBottom.ResumeLayout(false);
+            this.tableLayoutPanel5.ResumeLayout(false);
+            this.tableLayoutPanel5.PerformLayout();
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
@@ -848,8 +866,6 @@
             this.panelTop.ResumeLayout(false);
             this.panelTop.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewScoresGroup)).EndInit();
-            this.tableLayoutPanel5.ResumeLayout(false);
-            this.tableLayoutPanel5.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -896,6 +912,10 @@
         private System.Windows.Forms.ComboBox comboBoxGroup;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Button buttonSaveSelect;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.CheckBox checkBoxAuto;
+        private System.Windows.Forms.Button buttonCheckDone;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Semester1;
         private System.Windows.Forms.DataGridViewTextBoxColumn idGroup1;
@@ -911,8 +931,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn TotalFemaleTeacher1;
         private System.Windows.Forms.DataGridViewTextBoxColumn TotalGoodMember1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Note1;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.CheckBox checkBoxAuto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CheckDone;
     }
 }

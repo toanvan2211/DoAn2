@@ -47,6 +47,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>LogoForApp.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Bunifu_UI_v1.5.3">
       <HintPath>..\..\..\..\..\..\..\DLL\Bunifu_UI_v1.5.3.dll</HintPath>
@@ -75,12 +78,26 @@
     <Compile Include="DAO\GoodStudentDAO.cs" />
     <Compile Include="DAO\GoodTeacherDAO.cs" />
     <Compile Include="DAO\GroupDAO.cs" />
+    <Compile Include="DAO\LoginDAO.cs" />
     <Compile Include="DAO\ScoresGroupDAO.cs" />
     <Compile Include="DAO\ScoresStudentDAO.cs" />
     <Compile Include="DAO\ScoresTeacherDAO.cs" />
     <Compile Include="DAO\SemesterDAO.cs" />
     <Compile Include="DAO\StudentDAO.cs" />
     <Compile Include="DAO\TeacherDAO.cs" />
+    <Compile Include="DTO\InfoAccount.cs" />
+    <Compile Include="Forms\FormNotified.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormNotified.Designer.cs">
+      <DependentUpon>FormNotified.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormOldScores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormOldScores.Designer.cs">
+      <DependentUpon>FormOldScores.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FormSemester.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -180,6 +197,12 @@
     <EmbeddedResource Include="Forms\FormGroup.resx">
       <DependentUpon>FormGroup.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormNotified.resx">
+      <DependentUpon>FormNotified.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormOldScores.resx">
+      <DependentUpon>FormOldScores.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormSemester.resx">
       <DependentUpon>FormSemester.cs</DependentUpon>
     </EmbeddedResource>
@@ -247,6 +270,15 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Refresh1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Refresh2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="LogoForApp.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

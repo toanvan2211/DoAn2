@@ -30,12 +30,12 @@ namespace DanhGiaDoanVien.Other_Class
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-    partial void InsertChiDoan(ChiDoan instance);
-    partial void UpdateChiDoan(ChiDoan instance);
-    partial void DeleteChiDoan(ChiDoan instance);
     partial void InsertTaiKhoan(TaiKhoan instance);
     partial void UpdateTaiKhoan(TaiKhoan instance);
     partial void DeleteTaiKhoan(TaiKhoan instance);
+    partial void InsertChiDoan(ChiDoan instance);
+    partial void UpdateChiDoan(ChiDoan instance);
+    partial void DeleteChiDoan(ChiDoan instance);
     partial void InsertDoanVienUuTuGV(DoanVienUuTuGV instance);
     partial void UpdateDoanVienUuTuGV(DoanVienUuTuGV instance);
     partial void DeleteDoanVienUuTuGV(DoanVienUuTuGV instance);
@@ -92,19 +92,19 @@ namespace DanhGiaDoanVien.Other_Class
 			OnCreated();
 		}
 		
-		public System.Data.Linq.Table<ChiDoan> ChiDoans
-		{
-			get
-			{
-				return this.GetTable<ChiDoan>();
-			}
-		}
-		
 		public System.Data.Linq.Table<TaiKhoan> TaiKhoans
 		{
 			get
 			{
 				return this.GetTable<TaiKhoan>();
+			}
+		}
+		
+		public System.Data.Linq.Table<ChiDoan> ChiDoans
+		{
+			get
+			{
+				return this.GetTable<ChiDoan>();
 			}
 		}
 		
@@ -169,6 +169,157 @@ namespace DanhGiaDoanVien.Other_Class
 			get
 			{
 				return this.GetTable<SinhVien>();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TaiKhoan")]
+	public partial class TaiKhoan : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _taiKhoan1;
+		
+		private string _matKhau;
+		
+		private string _MSGV;
+		
+		private EntityRef<GiangVien> _GiangVien;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OntaiKhoan1Changing(string value);
+    partial void OntaiKhoan1Changed();
+    partial void OnmatKhauChanging(string value);
+    partial void OnmatKhauChanged();
+    partial void OnMSGVChanging(string value);
+    partial void OnMSGVChanged();
+    #endregion
+		
+		public TaiKhoan()
+		{
+			this._GiangVien = default(EntityRef<GiangVien>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="taiKhoan", Storage="_taiKhoan1", DbType="VarChar(100) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string taiKhoan1
+		{
+			get
+			{
+				return this._taiKhoan1;
+			}
+			set
+			{
+				if ((this._taiKhoan1 != value))
+				{
+					this.OntaiKhoan1Changing(value);
+					this.SendPropertyChanging();
+					this._taiKhoan1 = value;
+					this.SendPropertyChanged("taiKhoan1");
+					this.OntaiKhoan1Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_matKhau", DbType="VarChar(32) NOT NULL", CanBeNull=false)]
+		public string matKhau
+		{
+			get
+			{
+				return this._matKhau;
+			}
+			set
+			{
+				if ((this._matKhau != value))
+				{
+					this.OnmatKhauChanging(value);
+					this.SendPropertyChanging();
+					this._matKhau = value;
+					this.SendPropertyChanged("matKhau");
+					this.OnmatKhauChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MSGV", DbType="VarChar(10)")]
+		public string MSGV
+		{
+			get
+			{
+				return this._MSGV;
+			}
+			set
+			{
+				if ((this._MSGV != value))
+				{
+					if (this._GiangVien.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnMSGVChanging(value);
+					this.SendPropertyChanging();
+					this._MSGV = value;
+					this.SendPropertyChanged("MSGV");
+					this.OnMSGVChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="GiangVien_TaiKhoan", Storage="_GiangVien", ThisKey="MSGV", OtherKey="MSGV", IsForeignKey=true, DeleteRule="CASCADE")]
+		public GiangVien GiangVien
+		{
+			get
+			{
+				return this._GiangVien.Entity;
+			}
+			set
+			{
+				GiangVien previousValue = this._GiangVien.Entity;
+				if (((previousValue != value) 
+							|| (this._GiangVien.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._GiangVien.Entity = null;
+						previousValue.TaiKhoans.Remove(this);
+					}
+					this._GiangVien.Entity = value;
+					if ((value != null))
+					{
+						value.TaiKhoans.Add(this);
+						this._MSGV = value.MSGV;
+					}
+					else
+					{
+						this._MSGV = default(string);
+					}
+					this.SendPropertyChanged("GiangVien");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
 	}
@@ -463,157 +614,6 @@ namespace DanhGiaDoanVien.Other_Class
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TaiKhoan")]
-	public partial class TaiKhoan : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _taiKhoan1;
-		
-		private string _matKhau;
-		
-		private string _MSGV;
-		
-		private EntityRef<GiangVien> _GiangVien;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OntaiKhoan1Changing(string value);
-    partial void OntaiKhoan1Changed();
-    partial void OnmatKhauChanging(string value);
-    partial void OnmatKhauChanged();
-    partial void OnMSGVChanging(string value);
-    partial void OnMSGVChanged();
-    #endregion
-		
-		public TaiKhoan()
-		{
-			this._GiangVien = default(EntityRef<GiangVien>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="taiKhoan", Storage="_taiKhoan1", DbType="VarChar(100) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string taiKhoan1
-		{
-			get
-			{
-				return this._taiKhoan1;
-			}
-			set
-			{
-				if ((this._taiKhoan1 != value))
-				{
-					this.OntaiKhoan1Changing(value);
-					this.SendPropertyChanging();
-					this._taiKhoan1 = value;
-					this.SendPropertyChanged("taiKhoan1");
-					this.OntaiKhoan1Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_matKhau", DbType="VarChar(32) NOT NULL", CanBeNull=false)]
-		public string matKhau
-		{
-			get
-			{
-				return this._matKhau;
-			}
-			set
-			{
-				if ((this._matKhau != value))
-				{
-					this.OnmatKhauChanging(value);
-					this.SendPropertyChanging();
-					this._matKhau = value;
-					this.SendPropertyChanged("matKhau");
-					this.OnmatKhauChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MSGV", DbType="VarChar(10)")]
-		public string MSGV
-		{
-			get
-			{
-				return this._MSGV;
-			}
-			set
-			{
-				if ((this._MSGV != value))
-				{
-					if (this._GiangVien.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnMSGVChanging(value);
-					this.SendPropertyChanging();
-					this._MSGV = value;
-					this.SendPropertyChanged("MSGV");
-					this.OnMSGVChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="GiangVien_TaiKhoan", Storage="_GiangVien", ThisKey="MSGV", OtherKey="MSGV", IsForeignKey=true, DeleteRule="CASCADE")]
-		public GiangVien GiangVien
-		{
-			get
-			{
-				return this._GiangVien.Entity;
-			}
-			set
-			{
-				GiangVien previousValue = this._GiangVien.Entity;
-				if (((previousValue != value) 
-							|| (this._GiangVien.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._GiangVien.Entity = null;
-						previousValue.TaiKhoans.Remove(this);
-					}
-					this._GiangVien.Entity = value;
-					if ((value != null))
-					{
-						value.TaiKhoans.Add(this);
-						this._MSGV = value.MSGV;
-					}
-					else
-					{
-						this._MSGV = default(string);
-					}
-					this.SendPropertyChanged("GiangVien");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.DoanVienUuTuGV")]
 	public partial class DoanVienUuTuGV : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -677,7 +677,7 @@ namespace DanhGiaDoanVien.Other_Class
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MSGV", DbType="VarChar(10)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MSGV", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
 		public string MSGV
 		{
 			get
@@ -765,7 +765,7 @@ namespace DanhGiaDoanVien.Other_Class
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="GiangVien_DoanVienUuTuGV", Storage="_GiangVien", ThisKey="MSGV", OtherKey="MSGV", IsForeignKey=true, DeleteRule="CASCADE")]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="GiangVien_DoanVienUuTuGV", Storage="_GiangVien", ThisKey="MSGV", OtherKey="MSGV", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
 		public GiangVien GiangVien
 		{
 			get
@@ -917,7 +917,7 @@ namespace DanhGiaDoanVien.Other_Class
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MSSV", DbType="VarChar(10)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MSSV", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
 		public string MSSV
 		{
 			get
@@ -1039,7 +1039,7 @@ namespace DanhGiaDoanVien.Other_Class
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SinhVien_DoanVienUuTuSV", Storage="_SinhVien", ThisKey="MSSV", OtherKey="MSSV", IsForeignKey=true, DeleteRule="CASCADE")]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SinhVien_DoanVienUuTuSV", Storage="_SinhVien", ThisKey="MSSV", OtherKey="MSSV", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
 		public SinhVien SinhVien
 		{
 			get
@@ -1411,6 +1411,8 @@ namespace DanhGiaDoanVien.Other_Class
 		
 		private int _tongDVUT;
 		
+		private bool _daXong;
+		
 		private string _ghiChu;
 		
 		private EntitySet<DoanVienUuTuGV> _DoanVienUuTuGVs;
@@ -1457,6 +1459,8 @@ namespace DanhGiaDoanVien.Other_Class
     partial void OntongNuGVChanged();
     partial void OntongDVUTChanging(int value);
     partial void OntongDVUTChanged();
+    partial void OndaXongChanging(bool value);
+    partial void OndaXongChanged();
     partial void OnghiChuChanging(string value);
     partial void OnghiChuChanged();
     #endregion
@@ -1756,6 +1760,26 @@ namespace DanhGiaDoanVien.Other_Class
 					this._tongDVUT = value;
 					this.SendPropertyChanged("tongDVUT");
 					this.OntongDVUTChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_daXong", DbType="Bit NOT NULL")]
+		public bool daXong
+		{
+			get
+			{
+				return this._daXong;
+			}
+			set
+			{
+				if ((this._daXong != value))
+				{
+					this.OndaXongChanging(value);
+					this.SendPropertyChanging();
+					this._daXong = value;
+					this.SendPropertyChanged("daXong");
+					this.OndaXongChanged();
 				}
 			}
 		}

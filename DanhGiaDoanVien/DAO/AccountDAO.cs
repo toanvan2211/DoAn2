@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DanhGiaDoanVien.Other_Class;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,5 +16,13 @@ namespace DanhGiaDoanVien.DAO
             private set { instance = value; }
         }
         public AccountDAO() { }
+
+        public int ChangePassword(string userName, string password)
+        {
+            password = PasswordEncryption.Instance.GetHash(password);
+            string query = "update taiKhoan set matKhau = '" + password + "' where taiKhoan = '" + userName + "'";
+
+            return DataProvider.Instance.ExecuteNonQuery(query);
+        }
     }
 }

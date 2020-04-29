@@ -21,14 +21,56 @@ namespace DanhGiaDoanVien.DAO
 
         public DataTable GetListScoresGroup()
         {
-            string query = "select * from KetQuaChiDoan";
+            string query = "select * from KetQuaChiDoan where daXong = 0";
 
             return DataProvider.Instance.ExecuteQuery(query);
         }
 
+        public DataTable GetListGroupHaveScores()
+        {
+            string query = "select distinct idChiDoan from KetQuaChiDoan";
+
+            return DataProvider.Instance.ExecuteQuery(query);
+        }
+
+        public DataTable GetListOldScores(string semester, string group)
+        {
+            StringBuilder sb = new StringBuilder();
+            string query = "select * from KetQuaChiDoan where";
+
+            sb.Append(query);
+
+            int[] input = new int[2] { 1, 1 };
+
+            if (semester == "Tất cả")
+                input[0] = 0;
+            if (group == "Tất cả")
+                input[1] = 0;
+
+            if ((input[0] + input[1]) == 0)
+            {
+                sb.Append(" daXong = 1");
+            }
+            else if (input[0] == 1)
+            {
+                sb.Append(" idNamHoc = '" + semester + "'");
+                if (input[1] == 1)
+                    sb.Append(" and idChiDoan = '" + group + "'");
+
+                sb.Append(" and daXong = 1");
+            }
+            else if (input[1] == 1)
+            {
+                sb.Append(" idChiDoan = '" + group + "'");
+                sb.Append(" and daXong = 1");
+            }
+
+            return DataProvider.Instance.ExecuteQuery(sb.ToString());
+        }
+
         public DataTable GetListScoresGroup(string idSemester, string idGroup)
         {
-            string query = "select * from KetQuaChiDoan where idChiDoan = '" + idGroup + "' and idNamHoc = '" + idSemester + "'";
+            string query = "select * from KetQuaChiDoan where idChiDoan = '" + idGroup + "' and idNamHoc = '" + idSemester + "' and daXong = 0";
 
             return DataProvider.Instance.ExecuteQuery(query);
         }
@@ -37,15 +79,21 @@ namespace DanhGiaDoanVien.DAO
         {
             if (a == 1)
             {
-                string query = "select * from KetQuaChiDoan where idChiDoan = '" + id + "'";
+                string query = "select * from KetQuaChiDoan where idChiDoan = '" + id + "' and daXong = 0";
                 return DataProvider.Instance.ExecuteQuery(query);
             }
             else if (a == 2)
             {
-                string query = "select * from KetQuaChiDoan where idNamHoc = '" + id + "'";
+                string query = "select * from KetQuaChiDoan where idNamHoc = '" + id + "' and daXong = 0";
                 return DataProvider.Instance.ExecuteQuery(query);
             }
             return null;
+        }
+
+        public int CheckDoneScoresGroup(int id)
+        {
+            string query = "update KetQuaChiDoan set daXong = 1 where id = " + id;
+            return DataProvider.Instance.ExecuteNonQuery(query);
         }
 
         public void AddScoresGroup(string idGroup, string idSemester)
@@ -58,7 +106,7 @@ namespace DanhGiaDoanVien.DAO
 
             id = DataProvider.Instance.ExecuteQuery(query).Rows[0]["id"].ToString();
 
-            query = "select * from SinhVien where chiDoan = '" + idGroup + "'";
+            query = "select * from SinhVien where chiDoan = '" + idGroup + "' and doanVien = 1";
             DataTable dt = DataProvider.Instance.ExecuteQuery(query);
             
             if (dt.Rows.Count > 0)
@@ -71,7 +119,7 @@ namespace DanhGiaDoanVien.DAO
                 }
             }
 
-            query = "select * from GiangVien where chiDoan = '" + idGroup + "'";
+            query = "select * from GiangVien where chiDoan = '" + idGroup + "' and doanVien = 1";
             dt = DataProvider.Instance.ExecuteQuery(query);
             if (dt.Rows.Count > 0)
             {

@@ -1,5 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="danhGiaDoanVien" Class="DanhGiaDoanVienDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="AppSettings" ConnectionString="Data Source=.\SQLExpress;Initial Catalog=danhGiaDoanVien;Integrated Security=True" SettingsObjectName="DanhGiaDoanVien.Properties.Settings" SettingsPropertyName="danhGiaDoanVienConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.TaiKhoan" Member="TaiKhoans">
+    <Type Name="TaiKhoan">
+      <Column Name="taiKhoan" Member="taiKhoan1" Type="System.String" DbType="VarChar(100) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="matKhau" Type="System.String" DbType="VarChar(32) NOT NULL" CanBeNull="false" />
+      <Column Name="MSGV" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Association Name="GiangVien_TaiKhoan" Member="GiangVien" ThisKey="MSGV" OtherKey="MSGV" Type="GiangVien" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
   <Table Name="dbo.ChiDoan" Member="ChiDoans">
     <Type Name="ChiDoan">
       <Column Name="id" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -14,34 +22,26 @@
       <Association Name="ChiDoan_SinhVien" Member="SinhViens" ThisKey="id" OtherKey="chiDoan" Type="SinhVien" />
     </Type>
   </Table>
-  <Table Name="dbo.TaiKhoan" Member="TaiKhoans">
-    <Type Name="TaiKhoan">
-      <Column Name="taiKhoan" Member="taiKhoan1" Type="System.String" DbType="VarChar(100) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="matKhau" Type="System.String" DbType="VarChar(32) NOT NULL" CanBeNull="false" />
-      <Column Name="MSGV" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
-      <Association Name="GiangVien_TaiKhoan" Member="GiangVien" ThisKey="MSGV" OtherKey="MSGV" Type="GiangVien" IsForeignKey="true" DeleteRule="CASCADE" />
-    </Type>
-  </Table>
   <Table Name="dbo.DoanVienUuTuGV" Member="DoanVienUuTuGVs">
     <Type Name="DoanVienUuTuGV">
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="MSGV" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="MSGV" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
       <Column Name="idKetQuaChiDoan" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="phieuBau" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="tongPhieu" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Association Name="GiangVien_DoanVienUuTuGV" Member="GiangVien" ThisKey="MSGV" OtherKey="MSGV" Type="GiangVien" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="GiangVien_DoanVienUuTuGV" Member="GiangVien" ThisKey="MSGV" OtherKey="MSGV" Type="GiangVien" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
       <Association Name="KetQuaChiDoan_DoanVienUuTuGV" Member="KetQuaChiDoan" ThisKey="idKetQuaChiDoan" OtherKey="id" Type="KetQuaChiDoan" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.DoanVienUuTuSV" Member="DoanVienUuTuSVs">
     <Type Name="DoanVienUuTuSV">
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="MSSV" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="MSSV" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
       <Column Name="idKetQuaChiDoan" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="phieuBau" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="tongPhieu" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Association Name="KetQuaChiDoan_DoanVienUuTuSV" Member="KetQuaChiDoan" ThisKey="idKetQuaChiDoan" OtherKey="id" Type="KetQuaChiDoan" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
-      <Association Name="SinhVien_DoanVienUuTuSV" Member="SinhVien" ThisKey="MSSV" OtherKey="MSSV" Type="SinhVien" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="SinhVien_DoanVienUuTuSV" Member="SinhVien" ThisKey="MSSV" OtherKey="MSSV" Type="SinhVien" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.GiangVien" Member="GiangViens">
@@ -73,6 +73,7 @@
       <Column Name="tongNuSV" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="tongNuGV" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="tongDVUT" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="daXong" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="ghiChu" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
       <Association Name="KetQuaChiDoan_DoanVienUuTuGV" Member="DoanVienUuTuGVs" ThisKey="id" OtherKey="idKetQuaChiDoan" Type="DoanVienUuTuGV" />
       <Association Name="KetQuaChiDoan_DoanVienUuTuSV" Member="DoanVienUuTuSVs" ThisKey="id" OtherKey="idKetQuaChiDoan" Type="DoanVienUuTuSV" />

@@ -326,7 +326,7 @@ namespace DanhGiaDoanVien
             }
             else if (scores.AverageSemester1 >= 1.0 && scores.AverageSemester2 >= 1.0 && scores.TotalAverage >= 1.5)
             {
-                if (scores.PointTraning1 >= 50 && scores.PointTraning2 >= 50)
+                if (scores.AverageTrainingPoint >= 50 && scores.PointTraning2 >= 30 && scores.PointTraning1 >= 30)
                 {
                     scores.Rank = Rank.rank3;
                 }
@@ -436,7 +436,7 @@ namespace DanhGiaDoanVien
                 if (listRankError.Count != 0)
                 {
                     StringBuilder sbd = new StringBuilder();
-                    sbd.Append("Danh sách các kết quả sinh viên không đủ điều kiện xếp loại: ");
+                    sbd.Append("Danh sách id các kết quả sinh viên không đủ điều kiện xếp loại: ");
                     for (int i = 0; i < listRankError.Count; i++)
                     {
                         if (i < listRankError.Count - 1)
@@ -463,7 +463,6 @@ namespace DanhGiaDoanVien
             {
                 string rankHope = dataGridViewStudent.Rows[rowIndex].Cells["Rank1"].Value.ToString();
                 ScoresStudent st = Evaluate(CreateScoresStudentByRowIndex(rowIndex));
-                st = Evaluate(st);
                 if ((st.Rank = CompareRankCondition(st.Rank, rankHope)) != null)
                 {
                     ScoresStudentDAO.Instance.UpdateScoresStudent(st);
@@ -477,7 +476,7 @@ namespace DanhGiaDoanVien
             if (listRankError.Count != 0)
             {
                 StringBuilder sbd = new StringBuilder();
-                sbd.Append("Danh sách các kết quả sinh viên không đủ điều kiện xếp loại: ");
+                sbd.Append("Danh sách id các kết quả sinh viên không đủ điều kiện xếp loại: ");
                 for (int i = 0; i < listRankError.Count; i++)
                 {
                     if (i < listRankError.Count - 1)

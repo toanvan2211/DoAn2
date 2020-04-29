@@ -1,4 +1,6 @@
-﻿using DanhGiaDoanVien.Other_Class;
+﻿using DanhGiaDoanVien.DAO;
+using DanhGiaDoanVien.DTO;
+using DanhGiaDoanVien.Other_Class;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,20 +15,121 @@ namespace DanhGiaDoanVien
 {
     public partial class FormLogin : Form
     {
-        public static string accountType;
+        private int wrongPassword = 0;
+        private int countdown = 300;
+        
         public FormLogin()
         {
             InitializeComponent();
         }
 
+        bool CheckPassword(string userName, string password)
+        {
+            return LoginDAO.Instance.CheckPassword(userName, password);
+        }
+
+        void OpenFormMain(InfoAccount info)
+        {
+            using (FormMain fm = new FormMain(info))
+            {
+                fm.userName = textBoxUserName.Text;
+                fm.password = textBoxPassword.Text;
+
+                this.Hide();
+                fm.ShowDialog();
+            }
+            if (Properties.Settings.Default.IsLogOut == false)
+            {
+                this.Close();
+            }
+            else
+            {
+                if (Properties.Settings.Default.RememberPW == false)
+                    textBoxPassword.ResetText();
+                this.Show();
+            }
+        }
+
         private void buttonLogin_Click(object sender, EventArgs e)
         {
+            if (wrongPassword == 3)
+            {
+                labelNotified.Text = "Bạn nhập sai mật khẩu quá 3 lần. Vui lòng thử lại sau 5p!";
+                timer1.Start();
+            }
 
+            if (CheckPassword(textBoxUserName.Text, textBoxPassword.Text))
+            {
+                if (checkBoxRemember.Checked)
+                {
+                    Properties.Settings.Default.RememberPW = true;
+                    Properties.Settings.Default.UserName = textBoxUserName.Text;
+                    Properties.Settings.Default.Password = textBoxPassword.Text;
+                    Properties.Settings.Default.Save();
+                }
+                else
+                {
+                    Properties.Settings.Default.RememberPW = false;
+                    Properties.Settings.Default.Save();
+                }
+
+                InfoAccount info = LoginDAO.Instance.GetInfo(textBoxUserName.Text);
+
+                OpenFormMain(info);
+
+                labelNotified.Text = "";
+            }
+            else
+            {
+                labelNotified.Text = "Sai tài khoản hoặc mật khẩu, vui lòng kiểm tra lại!";
+                wrongPassword++;
+            }            
         }
+
+
 
         private void buttonExit_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void FormLogin_Load(object sender, EventArgs e)
+        {
+            if (Properties.Settings.Default.UserName != string.Empty)
+            {
+                textBoxUserName.Text = Properties.Settings.Default.UserName;
+                textBoxPassword.Text = Properties.Settings.Default.Password;
+
+                if (Properties.Settings.Default.RememberPW)
+                    checkBoxRemember.Checked = true;
+            }
+
+            if (Properties.Settings.Default.IsLogOut == false)
+            {
+                InfoAccount info = LoginDAO.Instance.GetInfo(Properties.Settings.Default.UserName);
+                if (info == null)
+                {
+                    MessageBox.Show("Tài khoản của bạn không tồn tại, hoặc đã bị xóa!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    OpenFormMain(info);
+                }
+            }
+            labelNotified.Text = "";
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (countdown > 0)
+            {
+                countdown--;
+            }
+            if (countdown == 0)
+            {
+                timer1.Stop();
+                wrongPassword = 0;
+            }
         }
     }
 }

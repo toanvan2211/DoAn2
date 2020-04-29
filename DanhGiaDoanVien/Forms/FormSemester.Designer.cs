@@ -30,12 +30,21 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSemester));
             this.panelBottom = new System.Windows.Forms.Panel();
+            this.panelEdit = new System.Windows.Forms.Panel();
             this.buttonExitEdit = new System.Windows.Forms.Button();
-            this.buttonResetText = new System.Windows.Forms.Button();
-            this.textBoxNameEdit = new System.Windows.Forms.TextBox();
-            this.buttonEdit = new System.Windows.Forms.Button();
-            this.textBoxIdSemester = new System.Windows.Forms.TextBox();
+            this.tabapanel = new System.Windows.Forms.TableLayoutPanel();
             this.label11 = new System.Windows.Forms.Label();
+            this.textBoxIdSemester = new System.Windows.Forms.TextBox();
+            this.textBoxNameEdit = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.buttonResetText = new System.Windows.Forms.Button();
+            this.buttonEdit = new System.Windows.Forms.Button();
+            this.panelDefault = new System.Windows.Forms.Panel();
+            this.labelName = new System.Windows.Forms.Label();
+            this.labelID = new System.Windows.Forms.Label();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.buttonDelete = new System.Windows.Forms.Button();
             this.buttonAdd = new System.Windows.Forms.Button();
             this.buttonUpdate = new System.Windows.Forms.Button();
@@ -43,34 +52,25 @@
             this.dataGridViewSemester = new System.Windows.Forms.DataGridView();
             this.Id1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Name1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panelDefault = new System.Windows.Forms.Panel();
-            this.labelName = new System.Windows.Forms.Label();
-            this.labelID = new System.Windows.Forms.Label();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.panelEdit = new System.Windows.Forms.Panel();
-            this.tabapanel = new System.Windows.Forms.TableLayoutPanel();
-            this.label4 = new System.Windows.Forms.Label();
             this.panelGroupInSemester = new System.Windows.Forms.Panel();
             this.dataGridViewGroup = new System.Windows.Forms.DataGridView();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TotalMember = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelBottom.SuspendLayout();
-            this.panelData.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSemester)).BeginInit();
-            this.panelDefault.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
             this.panelEdit.SuspendLayout();
             this.tabapanel.SuspendLayout();
+            this.panelDefault.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
+            this.panelData.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSemester)).BeginInit();
             this.panelGroupInSemester.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGroup)).BeginInit();
             this.SuspendLayout();
             // 
             // panelBottom
             // 
-            this.panelBottom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(54)))), ((int)(((byte)(75)))));
+            this.panelBottom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(45)))));
             this.panelBottom.Controls.Add(this.panelEdit);
             this.panelBottom.Controls.Add(this.panelDefault);
             this.panelBottom.Controls.Add(this.buttonDelete);
@@ -81,6 +81,20 @@
             this.panelBottom.Name = "panelBottom";
             this.panelBottom.Size = new System.Drawing.Size(1000, 197);
             this.panelBottom.TabIndex = 3;
+            // 
+            // panelEdit
+            // 
+            this.panelEdit.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panelEdit.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panelEdit.Controls.Add(this.buttonExitEdit);
+            this.panelEdit.Controls.Add(this.tabapanel);
+            this.panelEdit.Controls.Add(this.buttonResetText);
+            this.panelEdit.Controls.Add(this.buttonEdit);
+            this.panelEdit.Location = new System.Drawing.Point(256, 182);
+            this.panelEdit.Name = "panelEdit";
+            this.panelEdit.Size = new System.Drawing.Size(488, 145);
+            this.panelEdit.TabIndex = 12;
+            this.panelEdit.Visible = false;
             // 
             // buttonExitEdit
             // 
@@ -96,10 +110,69 @@
             this.buttonExitEdit.UseVisualStyleBackColor = true;
             this.buttonExitEdit.Click += new System.EventHandler(this.buttonExitEdit_Click);
             // 
+            // tabapanel
+            // 
+            this.tabapanel.ColumnCount = 2;
+            this.tabapanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22.58064F));
+            this.tabapanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 56.45161F));
+            this.tabapanel.Controls.Add(this.label11, 0, 0);
+            this.tabapanel.Controls.Add(this.textBoxIdSemester, 1, 0);
+            this.tabapanel.Controls.Add(this.textBoxNameEdit, 1, 1);
+            this.tabapanel.Controls.Add(this.label4, 0, 1);
+            this.tabapanel.Location = new System.Drawing.Point(14, 18);
+            this.tabapanel.Name = "tabapanel";
+            this.tabapanel.RowCount = 2;
+            this.tabapanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tabapanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tabapanel.Size = new System.Drawing.Size(301, 80);
+            this.tabapanel.TabIndex = 9;
+            // 
+            // label11
+            // 
+            this.label11.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label11.AutoSize = true;
+            this.label11.ForeColor = System.Drawing.Color.White;
+            this.label11.Location = new System.Drawing.Point(13, 13);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(69, 13);
+            this.label11.TabIndex = 3;
+            this.label11.Text = "Mã năm học:";
+            // 
+            // textBoxIdSemester
+            // 
+            this.textBoxIdSemester.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxIdSemester.Location = new System.Drawing.Point(88, 10);
+            this.textBoxIdSemester.MaxLength = 10;
+            this.textBoxIdSemester.Name = "textBoxIdSemester";
+            this.textBoxIdSemester.Size = new System.Drawing.Size(210, 20);
+            this.textBoxIdSemester.TabIndex = 1;
+            // 
+            // textBoxNameEdit
+            // 
+            this.textBoxNameEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxNameEdit.Location = new System.Drawing.Point(88, 50);
+            this.textBoxNameEdit.MaxLength = 100;
+            this.textBoxNameEdit.Name = "textBoxNameEdit";
+            this.textBoxNameEdit.Size = new System.Drawing.Size(210, 20);
+            this.textBoxNameEdit.TabIndex = 2;
+            // 
+            // label4
+            // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(53, 53);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(29, 13);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "Tên:";
+            // 
             // buttonResetText
             // 
             this.buttonResetText.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonResetText.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.buttonResetText.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.buttonResetText.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red;
+            this.buttonResetText.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.buttonResetText.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonResetText.ForeColor = System.Drawing.Color.White;
             this.buttonResetText.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -111,14 +184,6 @@
             this.buttonResetText.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonResetText.UseVisualStyleBackColor = true;
             this.buttonResetText.Click += new System.EventHandler(this.buttonResetText_Click);
-            // 
-            // textBoxNameEdit
-            // 
-            this.textBoxNameEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxNameEdit.Location = new System.Drawing.Point(88, 50);
-            this.textBoxNameEdit.Name = "textBoxNameEdit";
-            this.textBoxNameEdit.Size = new System.Drawing.Size(210, 20);
-            this.textBoxNameEdit.TabIndex = 2;
             // 
             // buttonEdit
             // 
@@ -136,125 +201,9 @@
             this.buttonEdit.UseVisualStyleBackColor = true;
             this.buttonEdit.Click += new System.EventHandler(this.buttonEdit_Click);
             // 
-            // textBoxIdSemester
-            // 
-            this.textBoxIdSemester.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxIdSemester.Location = new System.Drawing.Point(88, 10);
-            this.textBoxIdSemester.Name = "textBoxIdSemester";
-            this.textBoxIdSemester.Size = new System.Drawing.Size(210, 20);
-            this.textBoxIdSemester.TabIndex = 1;
-            // 
-            // label11
-            // 
-            this.label11.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label11.AutoSize = true;
-            this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(13, 13);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(69, 13);
-            this.label11.TabIndex = 3;
-            this.label11.Text = "Mã năm học:";
-            // 
-            // buttonDelete
-            // 
-            this.buttonDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonDelete.ForeColor = System.Drawing.Color.White;
-            this.buttonDelete.Image = ((System.Drawing.Image)(resources.GetObject("buttonDelete.Image")));
-            this.buttonDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonDelete.Location = new System.Drawing.Point(872, 130);
-            this.buttonDelete.Name = "buttonDelete";
-            this.buttonDelete.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.buttonDelete.Size = new System.Drawing.Size(91, 39);
-            this.buttonDelete.TabIndex = 4;
-            this.buttonDelete.Tag = "delete";
-            this.buttonDelete.Text = "Xóa";
-            this.buttonDelete.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonDelete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonDelete.UseVisualStyleBackColor = true;
-            this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
-            // 
-            // buttonAdd
-            // 
-            this.buttonAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonAdd.ForeColor = System.Drawing.Color.White;
-            this.buttonAdd.Image = ((System.Drawing.Image)(resources.GetObject("buttonAdd.Image")));
-            this.buttonAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonAdd.Location = new System.Drawing.Point(872, 26);
-            this.buttonAdd.Name = "buttonAdd";
-            this.buttonAdd.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.buttonAdd.Size = new System.Drawing.Size(91, 39);
-            this.buttonAdd.TabIndex = 4;
-            this.buttonAdd.Tag = "add";
-            this.buttonAdd.Text = "Thêm";
-            this.buttonAdd.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonAdd.UseVisualStyleBackColor = true;
-            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
-            // 
-            // buttonUpdate
-            // 
-            this.buttonUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonUpdate.ForeColor = System.Drawing.Color.White;
-            this.buttonUpdate.Image = ((System.Drawing.Image)(resources.GetObject("buttonUpdate.Image")));
-            this.buttonUpdate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonUpdate.Location = new System.Drawing.Point(872, 78);
-            this.buttonUpdate.Name = "buttonUpdate";
-            this.buttonUpdate.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.buttonUpdate.Size = new System.Drawing.Size(91, 39);
-            this.buttonUpdate.TabIndex = 4;
-            this.buttonUpdate.Tag = "update";
-            this.buttonUpdate.Text = "Sửa";
-            this.buttonUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonUpdate.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonUpdate.UseVisualStyleBackColor = true;
-            this.buttonUpdate.Click += new System.EventHandler(this.buttonUpdate_Click);
-            // 
-            // panelData
-            // 
-            this.panelData.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(77)))), ((int)(((byte)(108)))));
-            this.panelData.Controls.Add(this.dataGridViewSemester);
-            this.panelData.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelData.Location = new System.Drawing.Point(0, 197);
-            this.panelData.Name = "panelData";
-            this.panelData.Size = new System.Drawing.Size(319, 438);
-            this.panelData.TabIndex = 4;
-            // 
-            // dataGridViewSemester
-            // 
-            this.dataGridViewSemester.AllowUserToAddRows = false;
-            this.dataGridViewSemester.AllowUserToDeleteRows = false;
-            this.dataGridViewSemester.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridViewSemester.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(77)))), ((int)(((byte)(108)))));
-            this.dataGridViewSemester.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewSemester.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Id1,
-            this.Name1});
-            this.dataGridViewSemester.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewSemester.Location = new System.Drawing.Point(0, 0);
-            this.dataGridViewSemester.Name = "dataGridViewSemester";
-            this.dataGridViewSemester.Size = new System.Drawing.Size(319, 438);
-            this.dataGridViewSemester.TabIndex = 0;
-            this.dataGridViewSemester.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSemester_CellClick);
-            // 
-            // Id1
-            // 
-            this.Id1.DataPropertyName = "id";
-            this.Id1.HeaderText = "ID";
-            this.Id1.Name = "Id1";
-            this.Id1.ReadOnly = true;
-            // 
-            // Name1
-            // 
-            this.Name1.DataPropertyName = "ten";
-            this.Name1.HeaderText = "Năm học";
-            this.Name1.Name = "Name1";
-            this.Name1.ReadOnly = true;
-            // 
             // panelDefault
             // 
+            this.panelDefault.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panelDefault.Controls.Add(this.labelName);
             this.panelDefault.Controls.Add(this.labelID);
             this.panelDefault.Controls.Add(this.tableLayoutPanel2);
@@ -323,46 +272,103 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "Mã năm học:";
             // 
-            // panelEdit
+            // buttonDelete
             // 
-            this.panelEdit.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panelEdit.Controls.Add(this.buttonExitEdit);
-            this.panelEdit.Controls.Add(this.tabapanel);
-            this.panelEdit.Controls.Add(this.buttonResetText);
-            this.panelEdit.Controls.Add(this.buttonEdit);
-            this.panelEdit.Location = new System.Drawing.Point(256, 182);
-            this.panelEdit.Name = "panelEdit";
-            this.panelEdit.Size = new System.Drawing.Size(488, 145);
-            this.panelEdit.TabIndex = 12;
-            this.panelEdit.Visible = false;
+            this.buttonDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonDelete.ForeColor = System.Drawing.Color.White;
+            this.buttonDelete.Image = ((System.Drawing.Image)(resources.GetObject("buttonDelete.Image")));
+            this.buttonDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonDelete.Location = new System.Drawing.Point(872, 130);
+            this.buttonDelete.Name = "buttonDelete";
+            this.buttonDelete.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
+            this.buttonDelete.Size = new System.Drawing.Size(91, 39);
+            this.buttonDelete.TabIndex = 4;
+            this.buttonDelete.Tag = "delete";
+            this.buttonDelete.Text = "Xóa";
+            this.buttonDelete.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonDelete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonDelete.UseVisualStyleBackColor = true;
+            this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
             // 
-            // tabapanel
+            // buttonAdd
             // 
-            this.tabapanel.ColumnCount = 2;
-            this.tabapanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22.58064F));
-            this.tabapanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 56.45161F));
-            this.tabapanel.Controls.Add(this.label11, 0, 0);
-            this.tabapanel.Controls.Add(this.textBoxIdSemester, 1, 0);
-            this.tabapanel.Controls.Add(this.textBoxNameEdit, 1, 1);
-            this.tabapanel.Controls.Add(this.label4, 0, 1);
-            this.tabapanel.Location = new System.Drawing.Point(14, 18);
-            this.tabapanel.Name = "tabapanel";
-            this.tabapanel.RowCount = 2;
-            this.tabapanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tabapanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tabapanel.Size = new System.Drawing.Size(301, 80);
-            this.tabapanel.TabIndex = 9;
+            this.buttonAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonAdd.ForeColor = System.Drawing.Color.White;
+            this.buttonAdd.Image = ((System.Drawing.Image)(resources.GetObject("buttonAdd.Image")));
+            this.buttonAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonAdd.Location = new System.Drawing.Point(872, 26);
+            this.buttonAdd.Name = "buttonAdd";
+            this.buttonAdd.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.buttonAdd.Size = new System.Drawing.Size(91, 39);
+            this.buttonAdd.TabIndex = 4;
+            this.buttonAdd.Tag = "add";
+            this.buttonAdd.Text = "Thêm";
+            this.buttonAdd.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonAdd.UseVisualStyleBackColor = true;
+            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
             // 
-            // label4
+            // buttonUpdate
             // 
-            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label4.AutoSize = true;
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(53, 53);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(29, 13);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Tên:";
+            this.buttonUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonUpdate.ForeColor = System.Drawing.Color.White;
+            this.buttonUpdate.Image = ((System.Drawing.Image)(resources.GetObject("buttonUpdate.Image")));
+            this.buttonUpdate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonUpdate.Location = new System.Drawing.Point(872, 78);
+            this.buttonUpdate.Name = "buttonUpdate";
+            this.buttonUpdate.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.buttonUpdate.Size = new System.Drawing.Size(91, 39);
+            this.buttonUpdate.TabIndex = 4;
+            this.buttonUpdate.Tag = "update";
+            this.buttonUpdate.Text = "Sửa";
+            this.buttonUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonUpdate.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonUpdate.UseVisualStyleBackColor = true;
+            this.buttonUpdate.Click += new System.EventHandler(this.buttonUpdate_Click);
+            // 
+            // panelData
+            // 
+            this.panelData.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(77)))), ((int)(((byte)(108)))));
+            this.panelData.Controls.Add(this.dataGridViewSemester);
+            this.panelData.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panelData.Location = new System.Drawing.Point(0, 197);
+            this.panelData.Name = "panelData";
+            this.panelData.Size = new System.Drawing.Size(319, 438);
+            this.panelData.TabIndex = 4;
+            // 
+            // dataGridViewSemester
+            // 
+            this.dataGridViewSemester.AllowUserToAddRows = false;
+            this.dataGridViewSemester.AllowUserToDeleteRows = false;
+            this.dataGridViewSemester.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewSemester.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(87)))), ((int)(((byte)(95)))));
+            this.dataGridViewSemester.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewSemester.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Id1,
+            this.Name1});
+            this.dataGridViewSemester.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewSemester.Location = new System.Drawing.Point(0, 0);
+            this.dataGridViewSemester.Name = "dataGridViewSemester";
+            this.dataGridViewSemester.Size = new System.Drawing.Size(319, 438);
+            this.dataGridViewSemester.TabIndex = 0;
+            this.dataGridViewSemester.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSemester_CellClick);
+            // 
+            // Id1
+            // 
+            this.Id1.DataPropertyName = "id";
+            this.Id1.HeaderText = "ID";
+            this.Id1.Name = "Id1";
+            this.Id1.ReadOnly = true;
+            // 
+            // Name1
+            // 
+            this.Name1.DataPropertyName = "ten";
+            this.Name1.HeaderText = "Năm học";
+            this.Name1.Name = "Name1";
+            this.Name1.ReadOnly = true;
             // 
             // panelGroupInSemester
             // 
@@ -378,7 +384,7 @@
             this.dataGridViewGroup.AllowUserToAddRows = false;
             this.dataGridViewGroup.AllowUserToDeleteRows = false;
             this.dataGridViewGroup.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridViewGroup.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(77)))), ((int)(((byte)(108)))));
+            this.dataGridViewGroup.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(43)))), ((int)(((byte)(47)))));
             this.dataGridViewGroup.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewGroup.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
@@ -424,15 +430,15 @@
             this.Text = "FormSemester";
             this.Load += new System.EventHandler(this.FormSemester_Load);
             this.panelBottom.ResumeLayout(false);
-            this.panelData.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSemester)).EndInit();
+            this.panelEdit.ResumeLayout(false);
+            this.tabapanel.ResumeLayout(false);
+            this.tabapanel.PerformLayout();
             this.panelDefault.ResumeLayout(false);
             this.panelDefault.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
-            this.panelEdit.ResumeLayout(false);
-            this.tabapanel.ResumeLayout(false);
-            this.tabapanel.PerformLayout();
+            this.panelData.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSemester)).EndInit();
             this.panelGroupInSemester.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGroup)).EndInit();
             this.ResumeLayout(false);

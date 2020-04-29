@@ -61,11 +61,17 @@ namespace DanhGiaDoanVien
             {
                 currentEditState = EditState.add;
                 AddAndUpdateState();
+                buttonEdit.FlatAppearance.BorderColor = Color.MediumSeaGreen;
+                buttonEdit.FlatAppearance.MouseOverBackColor = default;
+                buttonEdit.FlatAppearance.MouseDownBackColor = Color.FromArgb(128, 255, 128);
             }
             else if (btn.Tag.ToString() == "update")
             {
                 currentEditState = EditState.update;
                 AddAndUpdateState();
+                buttonEdit.FlatAppearance.BorderColor = Color.Aqua;
+                buttonEdit.FlatAppearance.MouseOverBackColor = default;
+                buttonEdit.FlatAppearance.MouseDownBackColor = Color.FromArgb(128, 128, 255);
                 textBoxMCDEdit.Enabled = false;
             }
             else if (btn.Tag.ToString() == "delete")
@@ -77,6 +83,9 @@ namespace DanhGiaDoanVien
                 //Position
                 panelEdit.Location = panelDefault.Location;
                 //Button in panel
+                buttonEdit.FlatAppearance.BorderColor = Color.Red;
+                buttonEdit.FlatAppearance.MouseOverBackColor = Color.FromArgb(255, 128, 128);
+                buttonEdit.FlatAppearance.MouseDownBackColor = Color.Red;
                 AcceptButton = buttonEdit;
                 buttonResetText.Visible = false;
                 buttonEdit.Text = currentEditState;

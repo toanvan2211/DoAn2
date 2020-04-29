@@ -418,7 +418,7 @@ namespace DanhGiaDoanVien
                 if (listRankError.Count != 0)
                 {
                     StringBuilder sbd = new StringBuilder();
-                    sbd.Append("Danh sách các kết quả giảng viên không đủ điều kiện xếp loại: ");
+                    sbd.Append("Danh sách id các kết quả giảng viên không đủ điều kiện xếp loại: ");
                     for (int i = 0; i < listRankError.Count; i++)
                     {
                         if (i < listRankError.Count - 1)
@@ -459,7 +459,7 @@ namespace DanhGiaDoanVien
             if (listRankError.Count != 0)
             {
                 StringBuilder sbd = new StringBuilder();
-                sbd.Append("Danh sách các kết quả giảng viên không đủ điều kiện xếp loại: ");
+                sbd.Append("Danh sách id các kết quả giảng viên không đủ điều kiện xếp loại: ");
                 for (int i = 0; i < listRankError.Count; i++)
                 {
                     if (i < listRankError.Count - 1)

@@ -30,6 +30,14 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormStudent));
             this.panelBottom = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.comboBoxSex = new System.Windows.Forms.ComboBox();
+            this.comboBoxGroup = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.comboBoxMember = new System.Windows.Forms.ComboBox();
             this.panelEdit = new System.Windows.Forms.Panel();
             this.buttonExitEdit = new System.Windows.Forms.Button();
             this.panelRadioEdit = new System.Windows.Forms.Panel();
@@ -49,19 +57,17 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.panelDefault = new System.Windows.Forms.Panel();
-            this.panelRadio = new System.Windows.Forms.Panel();
-            this.radioButtonNot = new System.Windows.Forms.RadioButton();
-            this.radioButtonHave = new System.Windows.Forms.RadioButton();
-            this.radioButtonAllMember = new System.Windows.Forms.RadioButton();
-            this.comboBoxSex = new System.Windows.Forms.ComboBox();
-            this.comboBoxGroup = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.labelName = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.labelIsMember = new System.Windows.Forms.Label();
+            this.labelGroup = new System.Windows.Forms.Label();
             this.labelMSSV = new System.Windows.Forms.Label();
+            this.labelSex = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.labelName = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
             this.buttonDelete = new System.Windows.Forms.Button();
             this.buttonAdd = new System.Windows.Forms.Button();
             this.buttonUpdate = new System.Windows.Forms.Button();
@@ -72,20 +78,21 @@
             this.Sex1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Group1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IsMember1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panelBottom.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             this.panelEdit.SuspendLayout();
             this.panelRadioEdit.SuspendLayout();
             this.panelDefault.SuspendLayout();
-            this.panelRadio.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
             this.panelData.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStudent)).BeginInit();
-            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelBottom
             // 
-            this.panelBottom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(54)))), ((int)(((byte)(75)))));
+            this.panelBottom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(45)))));
+            this.panelBottom.Controls.Add(this.panel1);
             this.panelBottom.Controls.Add(this.panelEdit);
             this.panelBottom.Controls.Add(this.panelDefault);
             this.panelBottom.Controls.Add(this.buttonDelete);
@@ -94,8 +101,117 @@
             this.panelBottom.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelBottom.Location = new System.Drawing.Point(0, 0);
             this.panelBottom.Name = "panelBottom";
-            this.panelBottom.Size = new System.Drawing.Size(1000, 197);
+            this.panelBottom.Size = new System.Drawing.Size(1000, 275);
             this.panelBottom.TabIndex = 1;
+            // 
+            // panel1
+            // 
+            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.tableLayoutPanel1);
+            this.panel1.Location = new System.Drawing.Point(59, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(764, 51);
+            this.panel1.TabIndex = 7;
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 6;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.38354F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 39.05429F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.03327F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 38.87916F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 75F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 174F));
+            this.tableLayoutPanel1.Controls.Add(this.label2, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.comboBoxSex, 3, 0);
+            this.tableLayoutPanel1.Controls.Add(this.comboBoxGroup, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.label4, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.label3, 4, 0);
+            this.tableLayoutPanel1.Controls.Add(this.comboBoxMember, 5, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(7, 3);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(754, 38);
+            this.tableLayoutPanel1.TabIndex = 6;
+            // 
+            // label2
+            // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(19, 6);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(35, 26);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Chi đoàn:";
+            // 
+            // comboBoxSex
+            // 
+            this.comboBoxSex.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBoxSex.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxSex.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBoxSex.FormattingEnabled = true;
+            this.comboBoxSex.Items.AddRange(new object[] {
+            "Tất cả",
+            "Nam",
+            "Nữ"});
+            this.comboBoxSex.Location = new System.Drawing.Point(311, 8);
+            this.comboBoxSex.Name = "comboBoxSex";
+            this.comboBoxSex.Size = new System.Drawing.Size(189, 21);
+            this.comboBoxSex.TabIndex = 0;
+            this.comboBoxSex.SelectedIndexChanged += new System.EventHandler(this.comboBoxSex_SelectedIndexChanged);
+            // 
+            // comboBoxGroup
+            // 
+            this.comboBoxGroup.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBoxGroup.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxGroup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBoxGroup.FormattingEnabled = true;
+            this.comboBoxGroup.Location = new System.Drawing.Point(60, 8);
+            this.comboBoxGroup.Name = "comboBoxGroup";
+            this.comboBoxGroup.Size = new System.Drawing.Size(190, 21);
+            this.comboBoxGroup.TabIndex = 0;
+            this.comboBoxGroup.SelectedIndexChanged += new System.EventHandler(this.comboBoxGroup_SelectedIndexChanged);
+            // 
+            // label4
+            // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(276, 6);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(29, 26);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "Giới tính:";
+            // 
+            // label3
+            // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(516, 12);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(59, 13);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "Đoàn viên:";
+            // 
+            // comboBoxMember
+            // 
+            this.comboBoxMember.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBoxMember.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxMember.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBoxMember.FormattingEnabled = true;
+            this.comboBoxMember.Items.AddRange(new object[] {
+            "Tất cả",
+            "Có",
+            "Không"});
+            this.comboBoxMember.Location = new System.Drawing.Point(581, 8);
+            this.comboBoxMember.Name = "comboBoxMember";
+            this.comboBoxMember.Size = new System.Drawing.Size(170, 21);
+            this.comboBoxMember.TabIndex = 0;
+            this.comboBoxMember.SelectedIndexChanged += new System.EventHandler(this.comboBoxMember_SelectedIndexChanged);
             // 
             // panelEdit
             // 
@@ -116,7 +232,7 @@
             this.panelEdit.Controls.Add(this.label10);
             this.panelEdit.Controls.Add(this.label11);
             this.panelEdit.Controls.Add(this.label12);
-            this.panelEdit.Location = new System.Drawing.Point(143, 184);
+            this.panelEdit.Location = new System.Drawing.Point(169, 229);
             this.panelEdit.Name = "panelEdit";
             this.panelEdit.Size = new System.Drawing.Size(594, 163);
             this.panelEdit.TabIndex = 6;
@@ -174,7 +290,6 @@
             this.radioButtonHaveEdit.Tag = "True";
             this.radioButtonHaveEdit.Text = "Có";
             this.radioButtonHaveEdit.UseVisualStyleBackColor = true;
-            this.radioButtonHaveEdit.CheckedChanged += new System.EventHandler(this.radioButtonHaveEdit_CheckedChanged);
             // 
             // comboBoxSexEdit
             // 
@@ -191,12 +306,13 @@
             this.comboBoxSexEdit.Name = "comboBoxSexEdit";
             this.comboBoxSexEdit.Size = new System.Drawing.Size(96, 21);
             this.comboBoxSexEdit.TabIndex = 0;
-            this.comboBoxSexEdit.SelectedIndexChanged += new System.EventHandler(this.comboBoxSexEdit_SelectedIndexChanged);
             // 
             // buttonResetText
             // 
             this.buttonResetText.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonResetText.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.buttonResetText.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.buttonResetText.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red;
+            this.buttonResetText.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.buttonResetText.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonResetText.ForeColor = System.Drawing.Color.White;
             this.buttonResetText.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -237,11 +353,11 @@
             this.comboBoxGroupEdit.Name = "comboBoxGroupEdit";
             this.comboBoxGroupEdit.Size = new System.Drawing.Size(117, 21);
             this.comboBoxGroupEdit.TabIndex = 0;
-            this.comboBoxGroupEdit.SelectedIndexChanged += new System.EventHandler(this.comboBoxGroupEdit_SelectedIndexChanged);
             // 
             // textBoxNameEdit
             // 
             this.textBoxNameEdit.Location = new System.Drawing.Point(78, 108);
+            this.textBoxNameEdit.MaxLength = 100;
             this.textBoxNameEdit.Name = "textBoxNameEdit";
             this.textBoxNameEdit.Size = new System.Drawing.Size(258, 20);
             this.textBoxNameEdit.TabIndex = 2;
@@ -249,6 +365,7 @@
             // textBoxMSSVEdit
             // 
             this.textBoxMSSVEdit.Location = new System.Drawing.Point(78, 82);
+            this.textBoxMSSVEdit.MaxLength = 10;
             this.textBoxMSSVEdit.Name = "textBoxMSSVEdit";
             this.textBoxMSSVEdit.Size = new System.Drawing.Size(114, 20);
             this.textBoxMSSVEdit.TabIndex = 1;
@@ -345,185 +462,142 @@
             // panelDefault
             // 
             this.panelDefault.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.panelDefault.Controls.Add(this.tableLayoutPanel1);
-            this.panelDefault.Controls.Add(this.panelRadio);
-            this.panelDefault.Controls.Add(this.label3);
-            this.panelDefault.Controls.Add(this.labelName);
-            this.panelDefault.Controls.Add(this.label1);
-            this.panelDefault.Controls.Add(this.labelMSSV);
-            this.panelDefault.Controls.Add(this.label5);
-            this.panelDefault.Location = new System.Drawing.Point(59, 15);
+            this.panelDefault.Controls.Add(this.tableLayoutPanel2);
+            this.panelDefault.Location = new System.Drawing.Point(59, 60);
             this.panelDefault.Name = "panelDefault";
             this.panelDefault.Size = new System.Drawing.Size(764, 163);
             this.panelDefault.TabIndex = 1;
             // 
-            // panelRadio
+            // tableLayoutPanel2
             // 
-            this.panelRadio.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelRadio.Controls.Add(this.radioButtonNot);
-            this.panelRadio.Controls.Add(this.radioButtonHave);
-            this.panelRadio.Controls.Add(this.radioButtonAllMember);
-            this.panelRadio.Location = new System.Drawing.Point(665, 15);
-            this.panelRadio.Name = "panelRadio";
-            this.panelRadio.Size = new System.Drawing.Size(96, 100);
-            this.panelRadio.TabIndex = 5;
+            this.tableLayoutPanel2.ColumnCount = 2;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 21.00592F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 78.99408F));
+            this.tableLayoutPanel2.Controls.Add(this.labelIsMember, 1, 4);
+            this.tableLayoutPanel2.Controls.Add(this.labelGroup, 1, 3);
+            this.tableLayoutPanel2.Controls.Add(this.labelMSSV, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.labelSex, 1, 2);
+            this.tableLayoutPanel2.Controls.Add(this.label5, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.labelName, 1, 1);
+            this.tableLayoutPanel2.Controls.Add(this.label14, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.label16, 0, 2);
+            this.tableLayoutPanel2.Controls.Add(this.label17, 0, 3);
+            this.tableLayoutPanel2.Controls.Add(this.label18, 0, 4);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(234, 6);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 5;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(338, 148);
+            this.tableLayoutPanel2.TabIndex = 2;
             // 
-            // radioButtonNot
+            // labelIsMember
             // 
-            this.radioButtonNot.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.radioButtonNot.AutoSize = true;
-            this.radioButtonNot.ForeColor = System.Drawing.Color.White;
-            this.radioButtonNot.Location = new System.Drawing.Point(13, 59);
-            this.radioButtonNot.Name = "radioButtonNot";
-            this.radioButtonNot.Size = new System.Drawing.Size(56, 17);
-            this.radioButtonNot.TabIndex = 2;
-            this.radioButtonNot.Tag = "False";
-            this.radioButtonNot.Text = "Không";
-            this.radioButtonNot.UseVisualStyleBackColor = true;
+            this.labelIsMember.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.labelIsMember.AutoSize = true;
+            this.labelIsMember.ForeColor = System.Drawing.Color.Gold;
+            this.labelIsMember.Location = new System.Drawing.Point(74, 125);
+            this.labelIsMember.Name = "labelIsMember";
+            this.labelIsMember.Size = new System.Drawing.Size(0, 13);
+            this.labelIsMember.TabIndex = 6;
             // 
-            // radioButtonHave
+            // labelGroup
             // 
-            this.radioButtonHave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.radioButtonHave.AutoSize = true;
-            this.radioButtonHave.ForeColor = System.Drawing.Color.White;
-            this.radioButtonHave.Location = new System.Drawing.Point(13, 37);
-            this.radioButtonHave.Name = "radioButtonHave";
-            this.radioButtonHave.Size = new System.Drawing.Size(38, 17);
-            this.radioButtonHave.TabIndex = 2;
-            this.radioButtonHave.Tag = "True";
-            this.radioButtonHave.Text = "Có";
-            this.radioButtonHave.UseVisualStyleBackColor = true;
-            this.radioButtonHave.CheckedChanged += new System.EventHandler(this.radioButtonHave_CheckedChanged);
-            // 
-            // radioButtonAllMember
-            // 
-            this.radioButtonAllMember.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.radioButtonAllMember.AutoSize = true;
-            this.radioButtonAllMember.Checked = true;
-            this.radioButtonAllMember.ForeColor = System.Drawing.Color.White;
-            this.radioButtonAllMember.Location = new System.Drawing.Point(13, 14);
-            this.radioButtonAllMember.Name = "radioButtonAllMember";
-            this.radioButtonAllMember.Size = new System.Drawing.Size(56, 17);
-            this.radioButtonAllMember.TabIndex = 2;
-            this.radioButtonAllMember.TabStop = true;
-            this.radioButtonAllMember.Text = "Tất cả";
-            this.radioButtonAllMember.UseVisualStyleBackColor = true;
-            this.radioButtonAllMember.CheckedChanged += new System.EventHandler(this.radioButtonAllMember_CheckedChanged);
-            // 
-            // comboBoxSex
-            // 
-            this.comboBoxSex.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBoxSex.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxSex.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBoxSex.FormattingEnabled = true;
-            this.comboBoxSex.Items.AddRange(new object[] {
-            "Tất cả",
-            "Nam",
-            "Nữ"});
-            this.comboBoxSex.Location = new System.Drawing.Point(351, 8);
-            this.comboBoxSex.Name = "comboBoxSex";
-            this.comboBoxSex.Size = new System.Drawing.Size(217, 21);
-            this.comboBoxSex.TabIndex = 0;
-            this.comboBoxSex.SelectedIndexChanged += new System.EventHandler(this.comboBoxSex_SelectedIndexChanged);
-            // 
-            // comboBoxGroup
-            // 
-            this.comboBoxGroup.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBoxGroup.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxGroup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBoxGroup.FormattingEnabled = true;
-            this.comboBoxGroup.Location = new System.Drawing.Point(67, 8);
-            this.comboBoxGroup.Name = "comboBoxGroup";
-            this.comboBoxGroup.Size = new System.Drawing.Size(216, 21);
-            this.comboBoxGroup.TabIndex = 0;
-            this.comboBoxGroup.SelectedIndexChanged += new System.EventHandler(this.comboBoxGroup_SelectedIndexChanged);
-            // 
-            // label3
-            // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label3.AutoSize = true;
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(600, 31);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(59, 13);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "Đoàn viên:";
-            // 
-            // labelName
-            // 
-            this.labelName.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelName.AutoSize = true;
-            this.labelName.ForeColor = System.Drawing.Color.Gold;
-            this.labelName.Location = new System.Drawing.Point(81, 111);
-            this.labelName.Name = "labelName";
-            this.labelName.Size = new System.Drawing.Size(0, 13);
-            this.labelName.TabIndex = 3;
-            // 
-            // label1
-            // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(36, 111);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(29, 13);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Tên:";
-            // 
-            // label4
-            // 
-            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label4.AutoSize = true;
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(295, 12);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(50, 13);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Giới tính:";
+            this.labelGroup.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.labelGroup.AutoSize = true;
+            this.labelGroup.ForeColor = System.Drawing.Color.Gold;
+            this.labelGroup.Location = new System.Drawing.Point(74, 95);
+            this.labelGroup.Name = "labelGroup";
+            this.labelGroup.Size = new System.Drawing.Size(0, 13);
+            this.labelGroup.TabIndex = 5;
             // 
             // labelMSSV
             // 
-            this.labelMSSV.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelMSSV.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.labelMSSV.AutoSize = true;
             this.labelMSSV.ForeColor = System.Drawing.Color.Gold;
-            this.labelMSSV.Location = new System.Drawing.Point(81, 85);
+            this.labelMSSV.Location = new System.Drawing.Point(74, 8);
             this.labelMSSV.Name = "labelMSSV";
             this.labelMSSV.Size = new System.Drawing.Size(0, 13);
             this.labelMSSV.TabIndex = 3;
             // 
+            // labelSex
+            // 
+            this.labelSex.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.labelSex.AutoSize = true;
+            this.labelSex.ForeColor = System.Drawing.Color.Gold;
+            this.labelSex.Location = new System.Drawing.Point(74, 66);
+            this.labelSex.Name = "labelSex";
+            this.labelSex.Size = new System.Drawing.Size(0, 13);
+            this.labelSex.TabIndex = 4;
+            // 
             // label5
             // 
-            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label5.AutoSize = true;
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(24, 85);
+            this.label5.Location = new System.Drawing.Point(28, 8);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(40, 13);
             this.label5.TabIndex = 3;
             this.label5.Text = "MSSV:";
             // 
-            // label2
+            // labelName
             // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label2.AutoSize = true;
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(8, 12);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 13);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Chi đoàn:";
+            this.labelName.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.labelName.AutoSize = true;
+            this.labelName.ForeColor = System.Drawing.Color.Gold;
+            this.labelName.Location = new System.Drawing.Point(74, 37);
+            this.labelName.Name = "labelName";
+            this.labelName.Size = new System.Drawing.Size(0, 13);
+            this.labelName.TabIndex = 3;
+            // 
+            // label14
+            // 
+            this.label14.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label14.AutoSize = true;
+            this.label14.ForeColor = System.Drawing.Color.White;
+            this.label14.Location = new System.Drawing.Point(39, 37);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(29, 13);
+            this.label14.TabIndex = 3;
+            this.label14.Text = "Tên:";
+            // 
+            // label16
+            // 
+            this.label16.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label16.AutoSize = true;
+            this.label16.ForeColor = System.Drawing.Color.White;
+            this.label16.Location = new System.Drawing.Point(18, 66);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(50, 13);
+            this.label16.TabIndex = 3;
+            this.label16.Text = "Giới tính:";
+            // 
+            // label17
+            // 
+            this.label17.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label17.AutoSize = true;
+            this.label17.ForeColor = System.Drawing.Color.White;
+            this.label17.Location = new System.Drawing.Point(15, 95);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(53, 13);
+            this.label17.TabIndex = 3;
+            this.label17.Text = "Chi đoàn:";
+            // 
+            // label18
+            // 
+            this.label18.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label18.AutoSize = true;
+            this.label18.ForeColor = System.Drawing.Color.White;
+            this.label18.Location = new System.Drawing.Point(9, 125);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(59, 13);
+            this.label18.TabIndex = 3;
+            this.label18.Text = "Đoàn viên:";
             // 
             // buttonDelete
             // 
@@ -532,9 +606,9 @@
             this.buttonDelete.ForeColor = System.Drawing.Color.White;
             this.buttonDelete.Image = ((System.Drawing.Image)(resources.GetObject("buttonDelete.Image")));
             this.buttonDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonDelete.Location = new System.Drawing.Point(872, 130);
+            this.buttonDelete.Location = new System.Drawing.Point(838, 169);
             this.buttonDelete.Name = "buttonDelete";
-            this.buttonDelete.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.buttonDelete.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
             this.buttonDelete.Size = new System.Drawing.Size(91, 39);
             this.buttonDelete.TabIndex = 4;
             this.buttonDelete.Tag = "delete";
@@ -551,9 +625,9 @@
             this.buttonAdd.ForeColor = System.Drawing.Color.White;
             this.buttonAdd.Image = ((System.Drawing.Image)(resources.GetObject("buttonAdd.Image")));
             this.buttonAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonAdd.Location = new System.Drawing.Point(872, 26);
+            this.buttonAdd.Location = new System.Drawing.Point(838, 65);
             this.buttonAdd.Name = "buttonAdd";
-            this.buttonAdd.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.buttonAdd.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.buttonAdd.Size = new System.Drawing.Size(91, 39);
             this.buttonAdd.TabIndex = 2;
             this.buttonAdd.Tag = "add";
@@ -570,9 +644,9 @@
             this.buttonUpdate.ForeColor = System.Drawing.Color.White;
             this.buttonUpdate.Image = ((System.Drawing.Image)(resources.GetObject("buttonUpdate.Image")));
             this.buttonUpdate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonUpdate.Location = new System.Drawing.Point(872, 78);
+            this.buttonUpdate.Location = new System.Drawing.Point(838, 117);
             this.buttonUpdate.Name = "buttonUpdate";
-            this.buttonUpdate.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.buttonUpdate.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.buttonUpdate.Size = new System.Drawing.Size(91, 39);
             this.buttonUpdate.TabIndex = 3;
             this.buttonUpdate.Tag = "update";
@@ -586,9 +660,9 @@
             // 
             this.panelData.Controls.Add(this.dataGridViewStudent);
             this.panelData.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelData.Location = new System.Drawing.Point(0, 197);
+            this.panelData.Location = new System.Drawing.Point(0, 275);
             this.panelData.Name = "panelData";
-            this.panelData.Size = new System.Drawing.Size(1000, 438);
+            this.panelData.Size = new System.Drawing.Size(1000, 360);
             this.panelData.TabIndex = 2;
             // 
             // dataGridViewStudent
@@ -596,7 +670,8 @@
             this.dataGridViewStudent.AllowUserToAddRows = false;
             this.dataGridViewStudent.AllowUserToDeleteRows = false;
             this.dataGridViewStudent.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridViewStudent.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(77)))), ((int)(((byte)(108)))));
+            this.dataGridViewStudent.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(43)))), ((int)(((byte)(47)))));
+            this.dataGridViewStudent.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dataGridViewStudent.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewStudent.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MSSV,
@@ -607,7 +682,7 @@
             this.dataGridViewStudent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewStudent.Location = new System.Drawing.Point(0, 0);
             this.dataGridViewStudent.Name = "dataGridViewStudent";
-            this.dataGridViewStudent.Size = new System.Drawing.Size(1000, 438);
+            this.dataGridViewStudent.Size = new System.Drawing.Size(1000, 360);
             this.dataGridViewStudent.TabIndex = 0;
             this.dataGridViewStudent.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewStudent_CellClick);
             // 
@@ -647,24 +722,6 @@
             this.IsMember1.Name = "IsMember1";
             this.IsMember1.ReadOnly = true;
             // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.ColumnCount = 4;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.38354F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 39.05429F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.03327F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 38.87916F));
-            this.tableLayoutPanel1.Controls.Add(this.label2, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.comboBoxSex, 3, 0);
-            this.tableLayoutPanel1.Controls.Add(this.comboBoxGroup, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label4, 2, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(22, 20);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(571, 38);
-            this.tableLayoutPanel1.TabIndex = 6;
-            // 
             // FormStudent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -677,18 +734,18 @@
             this.Text = "FormStudent";
             this.Load += new System.EventHandler(this.FormStudent_Load);
             this.panelBottom.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
             this.panelEdit.ResumeLayout(false);
             this.panelEdit.PerformLayout();
             this.panelRadioEdit.ResumeLayout(false);
             this.panelRadioEdit.PerformLayout();
             this.panelDefault.ResumeLayout(false);
-            this.panelDefault.PerformLayout();
-            this.panelRadio.ResumeLayout(false);
-            this.panelRadio.PerformLayout();
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel2.PerformLayout();
             this.panelData.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStudent)).EndInit();
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -702,14 +759,9 @@
         private System.Windows.Forms.Panel panelData;
         private System.Windows.Forms.DataGridView dataGridViewStudent;
         private System.Windows.Forms.Panel panelDefault;
-        private System.Windows.Forms.Panel panelRadio;
-        private System.Windows.Forms.RadioButton radioButtonNot;
-        private System.Windows.Forms.RadioButton radioButtonHave;
-        private System.Windows.Forms.RadioButton radioButtonAllMember;
         private System.Windows.Forms.ComboBox comboBoxSex;
         private System.Windows.Forms.ComboBox comboBoxGroup;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label2;
@@ -718,7 +770,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Sex1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Group1;
         private System.Windows.Forms.DataGridViewTextBoxColumn IsMember1;
-        private System.Windows.Forms.Label labelName;
         private System.Windows.Forms.Label labelMSSV;
         private System.Windows.Forms.Panel panelEdit;
         private System.Windows.Forms.Button buttonExitEdit;
@@ -739,5 +790,16 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.ComboBox comboBoxMember;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.Label labelIsMember;
+        private System.Windows.Forms.Label labelGroup;
+        private System.Windows.Forms.Label labelSex;
+        private System.Windows.Forms.Label labelName;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label18;
     }
 }

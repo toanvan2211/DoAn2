@@ -111,5 +111,38 @@ namespace DanhGiaDoanVien.DAO
             return data;
         }
 
+        public int[] GetStatistical()
+        {
+            string query = "";
+            DataTable data = new DataTable();
+            int[] result = new int[6] { 0, 0, 0, 0, 0, 0 };
+
+            query = "select count(*) as GV from GiangVien";
+            data = DataProvider.Instance.ExecuteQuery(query);
+            result[0] = Convert.ToInt32(data.Rows[0]["GV"].ToString());
+
+            query = "select count(*) as SV from SinhVien";
+            data = DataProvider.Instance.ExecuteQuery(query);
+            result[1] = Convert.ToInt32(data.Rows[0]["SV"].ToString());
+
+            query = "select count(*) as CD from ChiDoan";
+            data = DataProvider.Instance.ExecuteQuery(query);
+            result[2] = Convert.ToInt32(data.Rows[0]["CD"].ToString());
+
+            query = "select count(*) as n from nam";
+            data = DataProvider.Instance.ExecuteQuery(query);
+            result[3] = Convert.ToInt32(data.Rows[0]["n"].ToString());
+
+            query = "select count(*) as KQCD from KetQuaChiDoan";
+            data = DataProvider.Instance.ExecuteQuery(query);
+            result[4] = Convert.ToInt32(data.Rows[0]["KQCD"].ToString());
+
+            query = "select count(*) as done from KetQuaChiDoan where daXong = 1";
+            data = DataProvider.Instance.ExecuteQuery(query);
+            result[5] = Convert.ToInt32(data.Rows[0]["done"].ToString());
+
+            return result;
+        }
+
     }
 }
