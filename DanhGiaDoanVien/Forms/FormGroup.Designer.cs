@@ -143,7 +143,7 @@
             this.buttonExitEdit.Location = new System.Drawing.Point(461, 0);
             this.buttonExitEdit.Name = "buttonExitEdit";
             this.buttonExitEdit.Size = new System.Drawing.Size(20, 20);
-            this.buttonExitEdit.TabIndex = 7;
+            this.buttonExitEdit.TabIndex = 5;
             this.buttonExitEdit.Tag = "exitEdit";
             this.buttonExitEdit.UseVisualStyleBackColor = true;
             this.buttonExitEdit.Click += new System.EventHandler(this.buttonExitEdit_Click);
@@ -190,7 +190,7 @@
             this.panelGroup.Location = new System.Drawing.Point(0, 0);
             this.panelGroup.Name = "panelGroup";
             this.panelGroup.Size = new System.Drawing.Size(491, 438);
-            this.panelGroup.TabIndex = 0;
+            this.panelGroup.TabIndex = 4;
             // 
             // dataGridViewGroup
             // 
@@ -271,7 +271,7 @@
             this.panelData.Location = new System.Drawing.Point(0, 197);
             this.panelData.Name = "panelData";
             this.panelData.Size = new System.Drawing.Size(1000, 438);
-            this.panelData.TabIndex = 3;
+            this.panelData.TabIndex = 5;
             // 
             // panel1
             // 
@@ -344,7 +344,7 @@
             this.panelEdit.Location = new System.Drawing.Point(213, 177);
             this.panelEdit.Name = "panelEdit";
             this.panelEdit.Size = new System.Drawing.Size(488, 145);
-            this.panelEdit.TabIndex = 11;
+            this.panelEdit.TabIndex = 3;
             this.panelEdit.Visible = false;
             // 
             // buttonUpdate
@@ -358,7 +358,7 @@
             this.buttonUpdate.Name = "buttonUpdate";
             this.buttonUpdate.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.buttonUpdate.Size = new System.Drawing.Size(91, 39);
-            this.buttonUpdate.TabIndex = 4;
+            this.buttonUpdate.TabIndex = 2;
             this.buttonUpdate.Tag = "update";
             this.buttonUpdate.Text = "Sửa";
             this.buttonUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -377,7 +377,7 @@
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.buttonAdd.Size = new System.Drawing.Size(91, 39);
-            this.buttonAdd.TabIndex = 4;
+            this.buttonAdd.TabIndex = 1;
             this.buttonAdd.Tag = "add";
             this.buttonAdd.Text = "Thêm";
             this.buttonAdd.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -396,7 +396,7 @@
             this.buttonDelete.Name = "buttonDelete";
             this.buttonDelete.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
             this.buttonDelete.Size = new System.Drawing.Size(91, 39);
-            this.buttonDelete.TabIndex = 4;
+            this.buttonDelete.TabIndex = 3;
             this.buttonDelete.Tag = "delete";
             this.buttonDelete.Text = "Xóa";
             this.buttonDelete.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -416,7 +416,7 @@
             this.panelBottom.Location = new System.Drawing.Point(0, 0);
             this.panelBottom.Name = "panelBottom";
             this.panelBottom.Size = new System.Drawing.Size(1000, 197);
-            this.panelBottom.TabIndex = 2;
+            this.panelBottom.TabIndex = 1;
             // 
             // panelDefault
             // 
@@ -427,7 +427,7 @@
             this.panelDefault.Location = new System.Drawing.Point(213, 15);
             this.panelDefault.Name = "panelDefault";
             this.panelDefault.Size = new System.Drawing.Size(488, 156);
-            this.panelDefault.TabIndex = 5;
+            this.panelDefault.TabIndex = 2;
             // 
             // labelName
             // 

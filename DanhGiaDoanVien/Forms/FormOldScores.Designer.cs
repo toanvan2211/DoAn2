@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormOldScores));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -42,15 +43,16 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormOldScores));
             this.panelTop = new System.Windows.Forms.Panel();
             this.comboBoxGroup = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
             this.comboBoxSemester = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.panelBottom = new System.Windows.Forms.Panel();
+            this.buttonDelete = new System.Windows.Forms.Button();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.label3 = new System.Windows.Forms.Label();
+            this.textBoxRank = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.textBoxNote = new System.Windows.Forms.RichTextBox();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -91,8 +93,6 @@
             this.TotalGoodMember1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Note1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CheckDone = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.textBoxRank = new System.Windows.Forms.TextBox();
-            this.buttonDelete = new System.Windows.Forms.Button();
             this.panelTop.SuspendLayout();
             this.panelBottom.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -113,7 +113,7 @@
             this.panelTop.Location = new System.Drawing.Point(0, 0);
             this.panelTop.Name = "panelTop";
             this.panelTop.Size = new System.Drawing.Size(1000, 45);
-            this.panelTop.TabIndex = 7;
+            this.panelTop.TabIndex = 1;
             // 
             // comboBoxGroup
             // 
@@ -127,7 +127,7 @@
             this.comboBoxGroup.Location = new System.Drawing.Point(572, 12);
             this.comboBoxGroup.Name = "comboBoxGroup";
             this.comboBoxGroup.Size = new System.Drawing.Size(283, 24);
-            this.comboBoxGroup.TabIndex = 7;
+            this.comboBoxGroup.TabIndex = 2;
             this.comboBoxGroup.SelectedIndexChanged += new System.EventHandler(this.comboBoxGroup_SelectedIndexChanged);
             // 
             // label13
@@ -154,7 +154,7 @@
             this.comboBoxSemester.Location = new System.Drawing.Point(157, 12);
             this.comboBoxSemester.Name = "comboBoxSemester";
             this.comboBoxSemester.Size = new System.Drawing.Size(283, 24);
-            this.comboBoxSemester.TabIndex = 7;
+            this.comboBoxSemester.TabIndex = 1;
             this.comboBoxSemester.SelectedIndexChanged += new System.EventHandler(this.comboBoxSemester_SelectedIndexChanged);
             // 
             // label4
@@ -180,7 +180,23 @@
             this.panelBottom.Location = new System.Drawing.Point(0, 45);
             this.panelBottom.Name = "panelBottom";
             this.panelBottom.Size = new System.Drawing.Size(1000, 197);
-            this.panelBottom.TabIndex = 8;
+            this.panelBottom.TabIndex = 2;
+            // 
+            // buttonDelete
+            // 
+            this.buttonDelete.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonDelete.ForeColor = System.Drawing.Color.White;
+            this.buttonDelete.Image = ((System.Drawing.Image)(resources.GetObject("buttonDelete.Image")));
+            this.buttonDelete.Location = new System.Drawing.Point(870, 145);
+            this.buttonDelete.Name = "buttonDelete";
+            this.buttonDelete.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.buttonDelete.Size = new System.Drawing.Size(116, 39);
+            this.buttonDelete.TabIndex = 3;
+            this.buttonDelete.Text = "Xóa";
+            this.buttonDelete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonDelete.UseVisualStyleBackColor = true;
+            this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
             // 
             // tableLayoutPanel3
             // 
@@ -198,7 +214,7 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(327, 181);
-            this.tableLayoutPanel3.TabIndex = 7;
+            this.tableLayoutPanel3.TabIndex = 2;
             // 
             // label3
             // 
@@ -210,6 +226,15 @@
             this.label3.Size = new System.Drawing.Size(93, 13);
             this.label3.TabIndex = 6;
             this.label3.Text = "Xếp loại chi đoàn:";
+            // 
+            // textBoxRank
+            // 
+            this.textBoxRank.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxRank.Location = new System.Drawing.Point(114, 35);
+            this.textBoxRank.Name = "textBoxRank";
+            this.textBoxRank.ReadOnly = true;
+            this.textBoxRank.Size = new System.Drawing.Size(210, 20);
+            this.textBoxRank.TabIndex = 1;
             // 
             // label2
             // 
@@ -229,7 +254,7 @@
             this.textBoxNote.Name = "textBoxNote";
             this.textBoxNote.ReadOnly = true;
             this.textBoxNote.Size = new System.Drawing.Size(210, 85);
-            this.textBoxNote.TabIndex = 7;
+            this.textBoxNote.TabIndex = 2;
             this.textBoxNote.Text = "";
             // 
             // panel1
@@ -274,7 +299,7 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(326, 150);
-            this.tableLayoutPanel2.TabIndex = 9;
+            this.tableLayoutPanel2.TabIndex = 1;
             // 
             // textBoxBad
             // 
@@ -283,7 +308,7 @@
             this.textBoxBad.Name = "textBoxBad";
             this.textBoxBad.ReadOnly = true;
             this.textBoxBad.Size = new System.Drawing.Size(77, 20);
-            this.textBoxBad.TabIndex = 1;
+            this.textBoxBad.TabIndex = 9;
             // 
             // label12
             // 
@@ -303,7 +328,7 @@
             this.textBoxMedium.Name = "textBoxMedium";
             this.textBoxMedium.ReadOnly = true;
             this.textBoxMedium.Size = new System.Drawing.Size(77, 20);
-            this.textBoxMedium.TabIndex = 1;
+            this.textBoxMedium.TabIndex = 8;
             // 
             // textBoxGreate
             // 
@@ -312,7 +337,7 @@
             this.textBoxGreate.Name = "textBoxGreate";
             this.textBoxGreate.ReadOnly = true;
             this.textBoxGreate.Size = new System.Drawing.Size(77, 20);
-            this.textBoxGreate.TabIndex = 1;
+            this.textBoxGreate.TabIndex = 7;
             // 
             // label10
             // 
@@ -332,7 +357,7 @@
             this.textBoxExcellent.Name = "textBoxExcellent";
             this.textBoxExcellent.ReadOnly = true;
             this.textBoxExcellent.Size = new System.Drawing.Size(77, 20);
-            this.textBoxExcellent.TabIndex = 1;
+            this.textBoxExcellent.TabIndex = 6;
             // 
             // label11
             // 
@@ -374,7 +399,7 @@
             this.textBoxMember.Name = "textBoxMember";
             this.textBoxMember.ReadOnly = true;
             this.textBoxMember.Size = new System.Drawing.Size(75, 20);
-            this.textBoxMember.TabIndex = 1;
+            this.textBoxMember.TabIndex = 2;
             // 
             // textBoxTeacher
             // 
@@ -383,7 +408,7 @@
             this.textBoxTeacher.Name = "textBoxTeacher";
             this.textBoxTeacher.ReadOnly = true;
             this.textBoxTeacher.Size = new System.Drawing.Size(75, 20);
-            this.textBoxTeacher.TabIndex = 1;
+            this.textBoxTeacher.TabIndex = 3;
             // 
             // textBoxStudent
             // 
@@ -392,7 +417,7 @@
             this.textBoxStudent.Name = "textBoxStudent";
             this.textBoxStudent.ReadOnly = true;
             this.textBoxStudent.Size = new System.Drawing.Size(75, 20);
-            this.textBoxStudent.TabIndex = 1;
+            this.textBoxStudent.TabIndex = 4;
             // 
             // label7
             // 
@@ -423,7 +448,7 @@
             this.textBoxGoodMember.Name = "textBoxGoodMember";
             this.textBoxGoodMember.ReadOnly = true;
             this.textBoxGoodMember.Size = new System.Drawing.Size(75, 20);
-            this.textBoxGoodMember.TabIndex = 1;
+            this.textBoxGoodMember.TabIndex = 5;
             // 
             // label8
             // 
@@ -499,7 +524,7 @@
             this.dataGridViewOldScores.Location = new System.Drawing.Point(0, 242);
             this.dataGridViewOldScores.Name = "dataGridViewOldScores";
             this.dataGridViewOldScores.Size = new System.Drawing.Size(1000, 393);
-            this.dataGridViewOldScores.TabIndex = 9;
+            this.dataGridViewOldScores.TabIndex = 3;
             this.dataGridViewOldScores.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewOldScores_CellClick);
             // 
             // Id1
@@ -649,31 +674,6 @@
             this.CheckDone.Name = "CheckDone";
             this.CheckDone.ReadOnly = true;
             this.CheckDone.Visible = false;
-            // 
-            // textBoxRank
-            // 
-            this.textBoxRank.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxRank.Location = new System.Drawing.Point(114, 35);
-            this.textBoxRank.Name = "textBoxRank";
-            this.textBoxRank.ReadOnly = true;
-            this.textBoxRank.Size = new System.Drawing.Size(210, 20);
-            this.textBoxRank.TabIndex = 1;
-            // 
-            // buttonDelete
-            // 
-            this.buttonDelete.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonDelete.ForeColor = System.Drawing.Color.White;
-            this.buttonDelete.Image = ((System.Drawing.Image)(resources.GetObject("buttonDelete.Image")));
-            this.buttonDelete.Location = new System.Drawing.Point(870, 145);
-            this.buttonDelete.Name = "buttonDelete";
-            this.buttonDelete.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.buttonDelete.Size = new System.Drawing.Size(116, 39);
-            this.buttonDelete.TabIndex = 9;
-            this.buttonDelete.Text = "Xóa";
-            this.buttonDelete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonDelete.UseVisualStyleBackColor = true;
-            this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
             // 
             // FormOldScores
             // 

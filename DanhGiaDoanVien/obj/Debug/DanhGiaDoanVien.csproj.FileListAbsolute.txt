@@ -41,7 +41,6 @@ E:\Dữ liệu\Môn học\Trường\Học kỳ 2 (2019 - 2020)\Đồ án 2\Softw
 E:\Dữ liệu\Môn học\Trường\Học kỳ 2 (2019 - 2020)\Đồ án 2\Software\DoAn2\DanhGiaDoanVien\bin\Debug\DanhGiaDoanVien.pdb
 E:\Dữ liệu\Môn học\Trường\Học kỳ 2 (2019 - 2020)\Đồ án 2\Software\DoAn2\DanhGiaDoanVien\bin\Debug\Bunifu_UI_v1.5.3.dll
 E:\Dữ liệu\Môn học\Trường\Học kỳ 2 (2019 - 2020)\Đồ án 2\Software\DoAn2\DanhGiaDoanVien\bin\Debug\FontAwesome.Sharp.dll
-E:\Dữ liệu\Môn học\Trường\Học kỳ 2 (2019 - 2020)\Đồ án 2\Software\DoAn2\DanhGiaDoanVien\obj\Debug\DanhGiaDoanVien.csprojAssemblyReference.cache
 E:\Dữ liệu\Môn học\Trường\Học kỳ 2 (2019 - 2020)\Đồ án 2\Software\DoAn2\DanhGiaDoanVien\obj\Debug\DanhGiaDoanVien.FormLogin.resources
 E:\Dữ liệu\Môn học\Trường\Học kỳ 2 (2019 - 2020)\Đồ án 2\Software\DoAn2\DanhGiaDoanVien\obj\Debug\DanhGiaDoanVien.FormEvaluateGroup.resources
 E:\Dữ liệu\Môn học\Trường\Học kỳ 2 (2019 - 2020)\Đồ án 2\Software\DoAn2\DanhGiaDoanVien\obj\Debug\DanhGiaDoanVien.FormMain.resources
@@ -59,3 +58,5 @@ E:\Dữ liệu\Môn học\Trường\Học kỳ 2 (2019 - 2020)\Đồ án 2\Softw
 E:\Dữ liệu\Môn học\Trường\Học kỳ 2 (2019 - 2020)\Đồ án 2\Software\DoAn2\DanhGiaDoanVien\obj\Debug\DanhGiaDoanVien.Forms.FormVote.resources
 E:\Dữ liệu\Môn học\Trường\Học kỳ 2 (2019 - 2020)\Đồ án 2\Software\DoAn2\DanhGiaDoanVien\obj\Debug\DanhGiaDoanVien.Forms.FormNotified.resources
 E:\Dữ liệu\Môn học\Trường\Học kỳ 2 (2019 - 2020)\Đồ án 2\Software\DoAn2\DanhGiaDoanVien\obj\Debug\DanhGiaDoanVien.Forms.FormOldScores.resources
+E:\Dữ liệu\Môn học\Trường\Học kỳ 2 (2019 - 2020)\Đồ án 2\Software\DoAn2\DanhGiaDoanVien\obj\Debug\DanhGiaDoanVien.csprojAssemblyReference.cache
+E:\Dữ liệu\Môn học\Trường\Học kỳ 2 (2019 - 2020)\Đồ án 2\Software\DoAn2\DanhGiaDoanVien\obj\Debug\DanhGiaDoanVien.Forms.FormHelp.resources

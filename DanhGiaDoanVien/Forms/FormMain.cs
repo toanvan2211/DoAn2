@@ -391,5 +391,13 @@ namespace DanhGiaDoanVien
         {
             labelError3.Visible = false;
         }
+
+        private void pictureBoxHelp_Click(object sender, EventArgs e)
+        {
+            using (FormHelp fh = new FormHelp())
+            {
+                fh.ShowDialog();
+            }
+        }
     }
 }

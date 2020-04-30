@@ -31,51 +31,52 @@ namespace DanhGiaDoanVien.DAO
             return DataProvider.Instance.ExecuteQuery(query);
         }
 
-        public DataTable GetListScoresTeacherByID(string idGroup, string idSemester)
+        public DataTable GetListScoresTeacher(string typeScores, string semester, string group)
         {
-            string query = "select id from KetQuaChiDoan where idChiDoan = '" + idGroup + "' and idNamHoc = '" + idSemester + "'";
-
-            DataTable data = DataProvider.Instance.ExecuteQuery(query);
-
-            int id;
-            if (data.Rows.Count == 0)
-            {
-                id = -1;
-            }
-            else
-            {
-                id = Convert.ToInt32(data.Rows[0]["id"]);
-            }
-
-            query = "select id, MSGV, ketQuaDanhGia, xepLoai, thanhTichTieuBieu, doanVienUuTu, ghiChu, idKetQuaChiDoan from KetQuaGiangVien where idKetQuaChiDoan = " + id;
-
-            return DataProvider.Instance.ExecuteQuery(query);
-        }
-
-        public DataTable GetListScoresTeacherByID(string id, int a) //a = 1 idGroup, a = 2 idSemester
-        {
-            if (a == 1)
-            {
-                string query = "select id, MSGV, ketQuaDanhGia, xepLoai, thanhTichTieuBieu, doanVienUuTu, ghiChu, idKetQuaChiDoan from KetQuaGiangVien where idKetQuaChiDoan in (select id from KetQuaChiDoan where idChiDoan = '" + id + "')";
-                return DataProvider.Instance.ExecuteQuery(query);
-            }
-            else if (a == 2)
-            {
-                string query = "select id, MSGV, ketQuaDanhGia, xepLoai, thanhTichTieuBieu, doanVienUuTu, ghiChu, idKetQuaChiDoan from KetQuaGiangVien where idKetQuaChiDoan in (select id from KetQuaChiDoan where idNamHoc = '" + id + "')";
-                return DataProvider.Instance.ExecuteQuery(query);
-            }
-            return null;
-        }
-
-        public DataTable GetListScoresTeacher()
-        {
+            StringBuilder sb = new StringBuilder();
             string query = "select id, MSGV, ketQuaDanhGia, xepLoai, thanhTichTieuBieu, doanVienUuTu, ghiChu, idKetQuaChiDoan from KetQuaGiangVien";
-            return DataProvider.Instance.ExecuteQuery(query);
-        }
-        public int AddScoresTeacher(string idTeacher, string idScoresGroup)
-        {
-            string query = "USP_AddScoresTeacher @idTeacher, @idScoresGroup";
-            return DataProvider.Instance.ExecuteNonQuery(query, new object[] { idTeacher, idScoresGroup });
+            sb.Append(query);
+            int[] input = new int[3] { 1, 1, 1 };
+
+            if (typeScores == "Chưa hoàn thành")
+                input[0] = 0;
+            if (semester == "")
+                input[1] = 0;
+            if (group == "")
+                input[2] = 0;
+
+            if ((input[0] + input[1] + input[2]) == 0)
+            {
+                sb.Append(" where idKetQuaChiDoan in (select id from KetQuaChiDoan where daXong = 0)");
+            }
+            else if (input[0] == 1)
+            {
+                sb.Append(" where idKetQuaChiDoan in (select id from KetQuaChiDoan where");
+                if (input[1] == 1)
+                {
+                    sb.Append(" idNamHoc = '" + semester + "' and");
+                }
+                if (input[2] == 1)
+                {
+                    sb.Append(" idChiDoan = '" + group + "' and");
+                }
+                sb.Append(" daXong = 1)");
+            }
+            else if (input[1] == 1)
+            {
+                sb.Append(" where idKetQuaChiDoan in (select id from KetQuaChiDoan where");
+                if (input[2] == 1)
+                {
+                    sb.Append(" idChiDoan = '" + group + "' and");
+                }
+                sb.Append(" daXong = 0)");
+            }
+            else if (input[2] == 1)
+            {
+                sb.Append(" where idKetQuaChiDoan in (select id from KetQuaChiDoan where idChiDoan = '" + group + "' and daXong = 0)");
+            }
+
+            return DataProvider.Instance.ExecuteQuery(sb.ToString());
         }
 
         public int UpdateScoresTeacher(ScoresTeacher tc)

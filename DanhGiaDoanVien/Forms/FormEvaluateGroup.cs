@@ -321,21 +321,28 @@ namespace DanhGiaDoanVien
 
         private void buttonUpdate_Click(object sender, EventArgs e)
         {
-            ScoresGroup sg = new ScoresGroup(dataGridViewScoresGroup.Rows[currentIndex]);
-            string rankHope = comboBoxRank.Text;
-            if (sg.Rank != "")
+            if (currentIndex != -1)
             {
-                sg = EvaluateGroup(sg);
-                if ((sg.Rank = CompareRankCondition(sg.Rank, rankHope)) != null) // Nếu rank đủ điểu kiện lớn hơn rank mong muốn thì duyệt, ngược lại thì thông báo
+                ScoresGroup sg = new ScoresGroup(dataGridViewScoresGroup.Rows[currentIndex]);
+                string rankHope = comboBoxRank.Text;
+                if (sg.Rank != "")
                 {
-                    sg.Note = textBoxNote.Text;
-                    ScoresGroupDAO.Instance.UpdateScoresGroup(sg.Id, sg.Rank, sg.Note);
-                    LoadListScoresGroup();
+                    sg = EvaluateGroup(sg);
+                    if ((sg.Rank = CompareRankCondition(sg.Rank, rankHope)) != null) // Nếu rank đủ điểu kiện lớn hơn rank mong muốn thì duyệt, ngược lại thì thông báo
+                    {
+                        sg.Note = textBoxNote.Text;
+                        ScoresGroupDAO.Instance.UpdateScoresGroup(sg.Id, sg.Rank, sg.Note);
+                        LoadListScoresGroup();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Chi đoàn này không đủ điều kiện để được xếp loại \"" + rankHope + "\". Vui lòng xem xét lại!", "Không đủ điều kiện", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
                 }
-                else
-                {
-                    MessageBox.Show("Chi đoàn này không đủ điều kiện để được xếp loại \"" + rankHope + "\". Vui lòng xem xét lại!", "Không đủ điều kiện", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn đánh giá muốn sửa!", "Chưa chọn đánh giá", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -441,6 +448,10 @@ namespace DanhGiaDoanVien
                         LoadListScoresGroup();
                     }
                 }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn đánh giá bạn muốn hoàn thành!", "Chưa chọn đánh giá", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
     }

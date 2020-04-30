@@ -101,7 +101,7 @@
             this.textBoxName.Name = "textBoxName";
             this.textBoxName.ReadOnly = true;
             this.textBoxName.Size = new System.Drawing.Size(153, 20);
-            this.textBoxName.TabIndex = 1;
+            this.textBoxName.TabIndex = 3;
             // 
             // label2
             // 
@@ -121,7 +121,7 @@
             this.textBoxIdMember.Name = "textBoxIdMember";
             this.textBoxIdMember.ReadOnly = true;
             this.textBoxIdMember.Size = new System.Drawing.Size(153, 20);
-            this.textBoxIdMember.TabIndex = 1;
+            this.textBoxIdMember.TabIndex = 2;
             // 
             // labelId
             // 
@@ -160,7 +160,7 @@
             this.textBoxVoteFor.Location = new System.Drawing.Point(86, 103);
             this.textBoxVoteFor.Name = "textBoxVoteFor";
             this.textBoxVoteFor.Size = new System.Drawing.Size(153, 20);
-            this.textBoxVoteFor.TabIndex = 1;
+            this.textBoxVoteFor.TabIndex = 5;
             this.textBoxVoteFor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxTotalVote_KeyPress);
             // 
             // textBoxTotalVote
@@ -169,7 +169,7 @@
             this.textBoxTotalVote.Location = new System.Drawing.Point(86, 78);
             this.textBoxTotalVote.Name = "textBoxTotalVote";
             this.textBoxTotalVote.Size = new System.Drawing.Size(153, 20);
-            this.textBoxTotalVote.TabIndex = 1;
+            this.textBoxTotalVote.TabIndex = 4;
             this.textBoxTotalVote.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxTotalVote_KeyPress);
             // 
             // buttonSave
@@ -184,7 +184,7 @@
             this.buttonSave.Location = new System.Drawing.Point(99, 174);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(91, 39);
-            this.buttonSave.TabIndex = 5;
+            this.buttonSave.TabIndex = 6;
             this.buttonSave.Text = "Lưu";
             this.buttonSave.UseVisualStyleBackColor = true;
             this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
@@ -201,7 +201,7 @@
             this.buttonExit.Location = new System.Drawing.Point(196, 174);
             this.buttonExit.Name = "buttonExit";
             this.buttonExit.Size = new System.Drawing.Size(91, 39);
-            this.buttonExit.TabIndex = 5;
+            this.buttonExit.TabIndex = 7;
             this.buttonExit.Text = "Hủy";
             this.buttonExit.UseVisualStyleBackColor = true;
             this.buttonExit.Click += new System.EventHandler(this.buttonExit_Click);

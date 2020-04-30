@@ -81,5 +81,52 @@ namespace DanhGiaDoanVien.Properties {
                 this["RememberPW"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.DateTime TimeBlock {
+            get {
+                return ((global::System.DateTime)(this["TimeBlock"]));
+            }
+            set {
+                this["TimeBlock"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool IsBlockLogin {
+            get {
+                return ((bool)(this["IsBlockLogin"]));
+            }
+            set {
+                this["IsBlockLogin"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Se {
+            get {
+                return ((string)(this["Se"]));
+            }
+            set {
+                this["Se"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string d {
+            get {
+                return ((string)(this["d"]));
+            }
+            set {
+                this["d"] = value;
+            }
+        }
     }
 }

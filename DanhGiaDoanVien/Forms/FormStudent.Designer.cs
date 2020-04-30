@@ -112,7 +112,7 @@
             this.panel1.Location = new System.Drawing.Point(59, 3);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(764, 51);
-            this.panel1.TabIndex = 7;
+            this.panel1.TabIndex = 1;
             // 
             // tableLayoutPanel1
             // 
@@ -122,7 +122,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.03327F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 38.87916F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 75F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 174F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 176F));
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.comboBoxSex, 3, 0);
             this.tableLayoutPanel1.Controls.Add(this.comboBoxGroup, 1, 0);
@@ -157,10 +157,10 @@
             "Tất cả",
             "Nam",
             "Nữ"});
-            this.comboBoxSex.Location = new System.Drawing.Point(311, 8);
+            this.comboBoxSex.Location = new System.Drawing.Point(310, 8);
             this.comboBoxSex.Name = "comboBoxSex";
-            this.comboBoxSex.Size = new System.Drawing.Size(189, 21);
-            this.comboBoxSex.TabIndex = 0;
+            this.comboBoxSex.Size = new System.Drawing.Size(188, 21);
+            this.comboBoxSex.TabIndex = 2;
             this.comboBoxSex.SelectedIndexChanged += new System.EventHandler(this.comboBoxSex_SelectedIndexChanged);
             // 
             // comboBoxGroup
@@ -171,8 +171,8 @@
             this.comboBoxGroup.FormattingEnabled = true;
             this.comboBoxGroup.Location = new System.Drawing.Point(60, 8);
             this.comboBoxGroup.Name = "comboBoxGroup";
-            this.comboBoxGroup.Size = new System.Drawing.Size(190, 21);
-            this.comboBoxGroup.TabIndex = 0;
+            this.comboBoxGroup.Size = new System.Drawing.Size(189, 21);
+            this.comboBoxGroup.TabIndex = 1;
             this.comboBoxGroup.SelectedIndexChanged += new System.EventHandler(this.comboBoxGroup_SelectedIndexChanged);
             // 
             // label4
@@ -180,7 +180,7 @@
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(276, 6);
+            this.label4.Location = new System.Drawing.Point(275, 6);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(29, 26);
             this.label4.TabIndex = 3;
@@ -191,7 +191,7 @@
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(516, 12);
+            this.label3.Location = new System.Drawing.Point(514, 12);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(59, 13);
             this.label3.TabIndex = 3;
@@ -207,10 +207,10 @@
             "Tất cả",
             "Có",
             "Không"});
-            this.comboBoxMember.Location = new System.Drawing.Point(581, 8);
+            this.comboBoxMember.Location = new System.Drawing.Point(579, 8);
             this.comboBoxMember.Name = "comboBoxMember";
-            this.comboBoxMember.Size = new System.Drawing.Size(170, 21);
-            this.comboBoxMember.TabIndex = 0;
+            this.comboBoxMember.Size = new System.Drawing.Size(172, 21);
+            this.comboBoxMember.TabIndex = 3;
             this.comboBoxMember.SelectedIndexChanged += new System.EventHandler(this.comboBoxMember_SelectedIndexChanged);
             // 
             // panelEdit
@@ -232,10 +232,10 @@
             this.panelEdit.Controls.Add(this.label10);
             this.panelEdit.Controls.Add(this.label11);
             this.panelEdit.Controls.Add(this.label12);
-            this.panelEdit.Location = new System.Drawing.Point(169, 229);
+            this.panelEdit.Location = new System.Drawing.Point(174, 229);
             this.panelEdit.Name = "panelEdit";
             this.panelEdit.Size = new System.Drawing.Size(594, 163);
-            this.panelEdit.TabIndex = 6;
+            this.panelEdit.TabIndex = 2;
             this.panelEdit.Visible = false;
             // 
             // buttonExitEdit
@@ -246,7 +246,7 @@
             this.buttonExitEdit.Location = new System.Drawing.Point(567, 3);
             this.buttonExitEdit.Name = "buttonExitEdit";
             this.buttonExitEdit.Size = new System.Drawing.Size(20, 20);
-            this.buttonExitEdit.TabIndex = 7;
+            this.buttonExitEdit.TabIndex = 9;
             this.buttonExitEdit.Tag = "exitEdit";
             this.buttonExitEdit.UseVisualStyleBackColor = true;
             this.buttonExitEdit.Click += new System.EventHandler(this.buttonExitEdit_Click);
@@ -271,7 +271,7 @@
             this.radioButtonNoEdit.Location = new System.Drawing.Point(3, 38);
             this.radioButtonNoEdit.Name = "radioButtonNoEdit";
             this.radioButtonNoEdit.Size = new System.Drawing.Size(56, 17);
-            this.radioButtonNoEdit.TabIndex = 2;
+            this.radioButtonNoEdit.TabIndex = 6;
             this.radioButtonNoEdit.Tag = "False";
             this.radioButtonNoEdit.Text = "Không";
             this.radioButtonNoEdit.UseVisualStyleBackColor = true;
@@ -285,7 +285,7 @@
             this.radioButtonHaveEdit.Location = new System.Drawing.Point(3, 15);
             this.radioButtonHaveEdit.Name = "radioButtonHaveEdit";
             this.radioButtonHaveEdit.Size = new System.Drawing.Size(38, 17);
-            this.radioButtonHaveEdit.TabIndex = 1;
+            this.radioButtonHaveEdit.TabIndex = 5;
             this.radioButtonHaveEdit.TabStop = true;
             this.radioButtonHaveEdit.Tag = "True";
             this.radioButtonHaveEdit.Text = "Có";
@@ -305,7 +305,7 @@
             this.comboBoxSexEdit.Location = new System.Drawing.Point(282, 37);
             this.comboBoxSexEdit.Name = "comboBoxSexEdit";
             this.comboBoxSexEdit.Size = new System.Drawing.Size(96, 21);
-            this.comboBoxSexEdit.TabIndex = 0;
+            this.comboBoxSexEdit.TabIndex = 2;
             // 
             // buttonResetText
             // 
@@ -319,7 +319,7 @@
             this.buttonResetText.Location = new System.Drawing.Point(498, 111);
             this.buttonResetText.Name = "buttonResetText";
             this.buttonResetText.Size = new System.Drawing.Size(77, 35);
-            this.buttonResetText.TabIndex = 4;
+            this.buttonResetText.TabIndex = 8;
             this.buttonResetText.Text = "Xóa";
             this.buttonResetText.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonResetText.UseVisualStyleBackColor = true;
@@ -335,7 +335,7 @@
             this.buttonEdit.Location = new System.Drawing.Point(415, 111);
             this.buttonEdit.Name = "buttonEdit";
             this.buttonEdit.Size = new System.Drawing.Size(77, 35);
-            this.buttonEdit.TabIndex = 3;
+            this.buttonEdit.TabIndex = 7;
             this.buttonEdit.Text = "Thêm";
             this.buttonEdit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonEdit.UseVisualStyleBackColor = true;
@@ -352,7 +352,7 @@
             this.comboBoxGroupEdit.Location = new System.Drawing.Point(78, 38);
             this.comboBoxGroupEdit.Name = "comboBoxGroupEdit";
             this.comboBoxGroupEdit.Size = new System.Drawing.Size(117, 21);
-            this.comboBoxGroupEdit.TabIndex = 0;
+            this.comboBoxGroupEdit.TabIndex = 1;
             // 
             // textBoxNameEdit
             // 
@@ -360,7 +360,7 @@
             this.textBoxNameEdit.MaxLength = 100;
             this.textBoxNameEdit.Name = "textBoxNameEdit";
             this.textBoxNameEdit.Size = new System.Drawing.Size(258, 20);
-            this.textBoxNameEdit.TabIndex = 2;
+            this.textBoxNameEdit.TabIndex = 4;
             // 
             // textBoxMSSVEdit
             // 
@@ -368,7 +368,7 @@
             this.textBoxMSSVEdit.MaxLength = 10;
             this.textBoxMSSVEdit.Name = "textBoxMSSVEdit";
             this.textBoxMSSVEdit.Size = new System.Drawing.Size(114, 20);
-            this.textBoxMSSVEdit.TabIndex = 1;
+            this.textBoxMSSVEdit.TabIndex = 3;
             // 
             // label6
             // 
@@ -610,7 +610,7 @@
             this.buttonDelete.Name = "buttonDelete";
             this.buttonDelete.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
             this.buttonDelete.Size = new System.Drawing.Size(91, 39);
-            this.buttonDelete.TabIndex = 4;
+            this.buttonDelete.TabIndex = 3;
             this.buttonDelete.Tag = "delete";
             this.buttonDelete.Text = "Xóa";
             this.buttonDelete.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -629,7 +629,7 @@
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.buttonAdd.Size = new System.Drawing.Size(91, 39);
-            this.buttonAdd.TabIndex = 2;
+            this.buttonAdd.TabIndex = 1;
             this.buttonAdd.Tag = "add";
             this.buttonAdd.Text = "Thêm";
             this.buttonAdd.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -648,7 +648,7 @@
             this.buttonUpdate.Name = "buttonUpdate";
             this.buttonUpdate.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.buttonUpdate.Size = new System.Drawing.Size(91, 39);
-            this.buttonUpdate.TabIndex = 3;
+            this.buttonUpdate.TabIndex = 2;
             this.buttonUpdate.Tag = "update";
             this.buttonUpdate.Text = "Sửa";
             this.buttonUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -683,7 +683,7 @@
             this.dataGridViewStudent.Location = new System.Drawing.Point(0, 0);
             this.dataGridViewStudent.Name = "dataGridViewStudent";
             this.dataGridViewStudent.Size = new System.Drawing.Size(1000, 360);
-            this.dataGridViewStudent.TabIndex = 0;
+            this.dataGridViewStudent.TabIndex = 1;
             this.dataGridViewStudent.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewStudent_CellClick);
             // 
             // MSSV

@@ -16,7 +16,6 @@ namespace DanhGiaDoanVien
     public partial class FormLogin : Form
     {
         private int wrongPassword = 0;
-        private int countdown = 300;
         
         public FormLogin()
         {
@@ -54,11 +53,18 @@ namespace DanhGiaDoanVien
         {
             if (wrongPassword == 3)
             {
-                labelNotified.Text = "Bạn nhập sai mật khẩu quá 3 lần. Vui lòng thử lại sau 5p!";
+                Properties.Settings.Default.TimeBlock = DateTime.Now.AddMinutes(30);
+                Properties.Settings.Default.IsBlockLogin = true;
+                Properties.Settings.Default.Save();
+
+                MessageBox.Show("Bạn đăng nhập sai quá 3 lần! Chức năng đăng nhập sẽ bị khóa đến " + Properties.Settings.Default.TimeBlock, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                panelControlLogin.Visible = false; 
+                labelBlockLogin.Text = "Bạn đăng nhập sai quá 3 lần! Chức năng đăng nhập sẽ bị khóa đến " + Properties.Settings.Default.TimeBlock;
+
                 timer1.Start();
             }
-
-            if (CheckPassword(textBoxUserName.Text, textBoxPassword.Text))
+            else if (CheckPassword(textBoxUserName.Text, textBoxPassword.Text))
             {
                 if (checkBoxRemember.Checked)
                 {
@@ -86,13 +92,6 @@ namespace DanhGiaDoanVien
             }            
         }
 
-
-
-        private void buttonExit_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         private void FormLogin_Load(object sender, EventArgs e)
         {
             if (Properties.Settings.Default.UserName != string.Empty)
@@ -116,19 +115,25 @@ namespace DanhGiaDoanVien
                     OpenFormMain(info);
                 }
             }
+
+            if (Properties.Settings.Default.IsBlockLogin)
+            {
+                panelControlLogin.Visible = false;
+                labelBlockLogin.Text = "Bạn đăng nhập sai quá 3 lần! Chức năng đăng nhập sẽ bị khóa đến " + Properties.Settings.Default.TimeBlock;
+            }
             labelNotified.Text = "";
+            timer1.Start();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if (countdown > 0)
+            if (DateTime.Now >= Properties.Settings.Default.TimeBlock)
             {
-                countdown--;
-            }
-            if (countdown == 0)
-            {
-                timer1.Stop();
-                wrongPassword = 0;
+                panelControlLogin.Visible = true;
+                Properties.Settings.Default.IsBlockLogin = false;
+                Properties.Settings.Default.Save();
+
+                labelBlockLogin.Text = "";
             }
         }
     }

@@ -17,7 +17,9 @@ namespace DanhGiaDoanVien
     {
         private string idCurrentSemester = "";
         private string idCurrentGroup = "";
+        private string typeScores = "Chưa hoàn thành";
         private int currentIndex = -1;
+        private List<Semester> listSemester = new List<Semester>();
         GoodTeacher gtc;
 
         public FormEvaluateTeacher()
@@ -44,22 +46,7 @@ namespace DanhGiaDoanVien
         #region method
         void LoadScoresTeacher()
         {
-            if (idCurrentSemester == "" && idCurrentGroup == "")
-            {
-                dataGridViewScoresTeacher.DataSource = ScoresTeacherDAO.Instance.GetListScoresTeacher();
-            }
-            else if (idCurrentSemester != "" && idCurrentGroup == "")
-            {
-                dataGridViewScoresTeacher.DataSource = ScoresTeacherDAO.Instance.GetListScoresTeacherByID(idCurrentSemester, 2);
-            }
-            else if (idCurrentSemester == "" && idCurrentGroup != "")
-            {
-                dataGridViewScoresTeacher.DataSource = ScoresTeacherDAO.Instance.GetListScoresTeacherByID(idCurrentGroup, 1);
-            }
-            else
-            {
-                dataGridViewScoresTeacher.DataSource = ScoresTeacherDAO.Instance.GetListScoresTeacherByID(idCurrentGroup, idCurrentSemester);
-            }
+            dataGridViewScoresTeacher.DataSource = ScoresTeacherDAO.Instance.GetListScoresTeacher(typeScores, idCurrentSemester, idCurrentGroup);
         }
 
         bool CheckConditionGoodTeacher(ScoresTeacher tc)
@@ -280,6 +267,8 @@ namespace DanhGiaDoanVien
             DataTable dataGroup = SemesterDAO.Instance.GetListSemester();
             foreach (DataRow item in dataGroup.Rows)
             {
+                Semester sm = new Semester(item);
+                listSemester.Add(sm);
                 comboBoxSemester.Items.Add(item["ten"]);
             }
         }
@@ -292,6 +281,7 @@ namespace DanhGiaDoanVien
 
             comboBoxSemester.SelectedIndex = 0;
             comboBoxGroup.SelectedIndex = 0;
+            comboBoxScores.SelectedIndex = 0;
 
             LoadScoresTeacher();
         }
@@ -304,7 +294,7 @@ namespace DanhGiaDoanVien
             }
             else
             {
-                idCurrentSemester = comboBoxSemester.Text;
+                idCurrentSemester = listSemester[comboBoxSemester.SelectedIndex - 1].Id;
             }
             LoadScoresTeacher();
         }
@@ -374,6 +364,10 @@ namespace DanhGiaDoanVien
                 {
                     MessageBox.Show("Giảng viên này không đủ điều kiện để được xếp loại \"" + rankHope + "\". Vui lòng xem xét lại!", "Không đủ điều kiện", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn sinh viên mà bạn muốn sửa!", "Chưa chọn sinh viên", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -476,6 +470,21 @@ namespace DanhGiaDoanVien
             }
             LoadScoresTeacher();
             CellClick();
+        }
+
+        private void comboBoxScores_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBoxScores.SelectedIndex == 0)
+            {
+                typeScores = "Chưa hoàn thành";
+                panelEditTool.Visible = true;
+            }
+            else
+            {
+                typeScores = "Hoàn thành";
+                panelEditTool.Visible = false;
+            }
+            LoadScoresTeacher();
         }
     }
 }

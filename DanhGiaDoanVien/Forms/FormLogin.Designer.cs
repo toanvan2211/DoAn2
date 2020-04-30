@@ -35,27 +35,28 @@
             this.textBoxPassword = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.buttonLogin = new System.Windows.Forms.Button();
-            this.buttonExit = new System.Windows.Forms.Button();
             this.labelNotified = new System.Windows.Forms.Label();
             this.checkBoxRemember = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panelControlLogin = new System.Windows.Forms.Panel();
+            this.lbWelcome = new System.Windows.Forms.Label();
+            this.labelBlockLogin = new System.Windows.Forms.Label();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.panelControlLogin.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBoxLogo
             // 
             this.pictureBoxLogo.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBoxLogo.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxLogo.Image")));
-            this.pictureBoxLogo.Location = new System.Drawing.Point(554, 20);
+            this.pictureBoxLogo.Location = new System.Drawing.Point(84, 3);
             this.pictureBoxLogo.Name = "pictureBoxLogo";
             this.pictureBoxLogo.Size = new System.Drawing.Size(242, 179);
             this.pictureBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -66,19 +67,19 @@
             // 
             this.textBoxUserName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxUserName.Location = new System.Drawing.Point(93, 9);
+            this.textBoxUserName.Location = new System.Drawing.Point(94, 9);
             this.textBoxUserName.Name = "textBoxUserName";
-            this.textBoxUserName.Size = new System.Drawing.Size(269, 23);
-            this.textBoxUserName.TabIndex = 3;
+            this.textBoxUserName.Size = new System.Drawing.Size(268, 23);
+            this.textBoxUserName.TabIndex = 1;
             // 
             // textBoxPassword
             // 
             this.textBoxPassword.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxPassword.Location = new System.Drawing.Point(93, 50);
+            this.textBoxPassword.Location = new System.Drawing.Point(94, 50);
             this.textBoxPassword.Name = "textBoxPassword";
-            this.textBoxPassword.Size = new System.Drawing.Size(269, 23);
-            this.textBoxPassword.TabIndex = 3;
+            this.textBoxPassword.Size = new System.Drawing.Size(268, 23);
+            this.textBoxPassword.TabIndex = 2;
             this.textBoxPassword.UseSystemPasswordChar = true;
             // 
             // label1
@@ -87,7 +88,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(5, 10);
+            this.label1.Location = new System.Drawing.Point(6, 10);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(82, 20);
             this.label1.TabIndex = 4;
@@ -99,57 +100,27 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(8, 51);
+            this.label2.Location = new System.Drawing.Point(9, 51);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(79, 20);
             this.label2.TabIndex = 4;
             this.label2.Text = "Mật khẩu:";
             // 
-            // label3
-            // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Moccasin;
-            this.label3.Location = new System.Drawing.Point(564, 289);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(229, 25);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Vui Lòng Đăng Nhập";
-            // 
             // buttonLogin
             // 
             this.buttonLogin.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonLogin.FlatAppearance.BorderColor = System.Drawing.Color.Lime;
-            this.buttonLogin.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Lime;
-            this.buttonLogin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.buttonLogin.BackColor = System.Drawing.Color.DodgerBlue;
+            this.buttonLogin.FlatAppearance.BorderSize = 0;
             this.buttonLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonLogin.ForeColor = System.Drawing.Color.Beige;
-            this.buttonLogin.Location = new System.Drawing.Point(547, 500);
+            this.buttonLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonLogin.ForeColor = System.Drawing.Color.White;
+            this.buttonLogin.Location = new System.Drawing.Point(25, 171);
             this.buttonLogin.Name = "buttonLogin";
-            this.buttonLogin.Size = new System.Drawing.Size(122, 49);
-            this.buttonLogin.TabIndex = 5;
+            this.buttonLogin.Size = new System.Drawing.Size(352, 49);
+            this.buttonLogin.TabIndex = 4;
             this.buttonLogin.Text = "Đăng nhập";
-            this.buttonLogin.UseVisualStyleBackColor = true;
+            this.buttonLogin.UseVisualStyleBackColor = false;
             this.buttonLogin.Click += new System.EventHandler(this.buttonLogin_Click);
-            // 
-            // buttonExit
-            // 
-            this.buttonExit.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonExit.FlatAppearance.BorderColor = System.Drawing.Color.Orange;
-            this.buttonExit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.buttonExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.buttonExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonExit.ForeColor = System.Drawing.Color.Beige;
-            this.buttonExit.Location = new System.Drawing.Point(675, 500);
-            this.buttonExit.Name = "buttonExit";
-            this.buttonExit.Size = new System.Drawing.Size(122, 49);
-            this.buttonExit.TabIndex = 5;
-            this.buttonExit.Text = "Thoát";
-            this.buttonExit.UseVisualStyleBackColor = true;
-            this.buttonExit.Click += new System.EventHandler(this.buttonExit_Click);
             // 
             // labelNotified
             // 
@@ -157,7 +128,7 @@
             this.labelNotified.AutoSize = true;
             this.labelNotified.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelNotified.ForeColor = System.Drawing.Color.Yellow;
-            this.labelNotified.Location = new System.Drawing.Point(503, 428);
+            this.labelNotified.Location = new System.Drawing.Point(29, 120);
             this.labelNotified.Name = "labelNotified";
             this.labelNotified.Size = new System.Drawing.Size(74, 16);
             this.labelNotified.TabIndex = 4;
@@ -169,10 +140,10 @@
             this.checkBoxRemember.AutoSize = true;
             this.checkBoxRemember.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBoxRemember.ForeColor = System.Drawing.Color.White;
-            this.checkBoxRemember.Location = new System.Drawing.Point(608, 455);
+            this.checkBoxRemember.Location = new System.Drawing.Point(131, 143);
             this.checkBoxRemember.Name = "checkBoxRemember";
             this.checkBoxRemember.Size = new System.Drawing.Size(128, 22);
-            this.checkBoxRemember.TabIndex = 6;
+            this.checkBoxRemember.TabIndex = 3;
             this.checkBoxRemember.Text = "Nhớ mật khẩu?";
             this.checkBoxRemember.UseVisualStyleBackColor = true;
             // 
@@ -180,13 +151,13 @@
             // 
             this.tableLayoutPanel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 24.71591F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 75.28409F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 24.93151F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 75.0685F));
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.textBoxUserName, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.textBoxPassword, 1, 1);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(490, 329);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(15, 24);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -199,85 +170,76 @@
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // panel1
+            // panel2
             // 
-            this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(465, 595);
-            this.panel1.TabIndex = 8;
+            this.panel2.BackColor = System.Drawing.Color.Transparent;
+            this.panel2.Controls.Add(this.panelControlLogin);
+            this.panel2.Controls.Add(this.tableLayoutPanel2);
+            this.panel2.Controls.Add(this.pictureBoxLogo);
+            this.panel2.Controls.Add(this.lbWelcome);
+            this.panel2.Location = new System.Drawing.Point(475, 27);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(400, 554);
+            this.panel2.TabIndex = 9;
             // 
-            // label4
+            // panelControlLogin
             // 
-            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.Aquamarine;
-            this.label4.Location = new System.Drawing.Point(552, 206);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(245, 25);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "HỆ THỐNG ĐÁNH GIÁ";
+            this.panelControlLogin.Controls.Add(this.tableLayoutPanel1);
+            this.panelControlLogin.Controls.Add(this.labelNotified);
+            this.panelControlLogin.Controls.Add(this.buttonLogin);
+            this.panelControlLogin.Controls.Add(this.checkBoxRemember);
+            this.panelControlLogin.Location = new System.Drawing.Point(3, 247);
+            this.panelControlLogin.Name = "panelControlLogin";
+            this.panelControlLogin.Size = new System.Drawing.Size(394, 252);
+            this.panelControlLogin.TabIndex = 8;
             // 
-            // label5
+            // lbWelcome
             // 
-            this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.Aquamarine;
-            this.label5.Location = new System.Drawing.Point(474, 247);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(262, 25);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "PHÂN LOẠI ĐOÀN VIÊN";
+            this.lbWelcome.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lbWelcome.AutoSize = true;
+            this.lbWelcome.BackColor = System.Drawing.Color.Transparent;
+            this.lbWelcome.Font = new System.Drawing.Font("UTM Aircona", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbWelcome.ForeColor = System.Drawing.Color.Cyan;
+            this.lbWelcome.Location = new System.Drawing.Point(93, 200);
+            this.lbWelcome.Name = "lbWelcome";
+            this.lbWelcome.Size = new System.Drawing.Size(216, 44);
+            this.lbWelcome.TabIndex = 4;
+            this.lbWelcome.Text = "WELCOME";
             // 
-            // label6
+            // labelBlockLogin
             // 
-            this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.Aquamarine;
-            this.label6.Location = new System.Drawing.Point(750, 247);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(121, 25);
-            this.label6.TabIndex = 4;
-            this.label6.Text = "CHI ĐOÀN";
+            this.labelBlockLogin.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.labelBlockLogin.AutoSize = true;
+            this.labelBlockLogin.BackColor = System.Drawing.Color.Transparent;
+            this.labelBlockLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelBlockLogin.ForeColor = System.Drawing.Color.Orange;
+            this.labelBlockLogin.Location = new System.Drawing.Point(85, 0);
+            this.labelBlockLogin.Name = "labelBlockLogin";
+            this.labelBlockLogin.Size = new System.Drawing.Size(188, 29);
+            this.labelBlockLogin.TabIndex = 4;
+            this.labelBlockLogin.Text = "Khóa đăng nhập";
             // 
-            // label7
+            // tableLayoutPanel2
             // 
-            this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.Aquamarine;
-            this.label7.Location = new System.Drawing.Point(731, 247);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(27, 25);
-            this.label7.TabIndex = 4;
-            this.label7.Text = "&&";
+            this.tableLayoutPanel2.ColumnCount = 1;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Controls.Add(this.labelBlockLogin, 0, 0);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(21, 276);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 1;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(359, 262);
+            this.tableLayoutPanel2.TabIndex = 5;
             // 
             // FormLogin
             // 
             this.AcceptButton = this.buttonLogin;
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(45)))));
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(875, 595);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.tableLayoutPanel1);
-            this.Controls.Add(this.checkBoxRemember);
-            this.Controls.Add(this.buttonExit);
-            this.Controls.Add(this.buttonLogin);
-            this.Controls.Add(this.labelNotified);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.pictureBoxLogo);
+            this.Controls.Add(this.panel2);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(891, 634);
             this.MinimumSize = new System.Drawing.Size(891, 634);
             this.Name = "FormLogin";
@@ -286,8 +248,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            this.panelControlLogin.ResumeLayout(false);
+            this.panelControlLogin.PerformLayout();
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel2.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -298,17 +265,15 @@
         private System.Windows.Forms.TextBox textBoxPassword;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button buttonLogin;
-        private System.Windows.Forms.Button buttonExit;
         private System.Windows.Forms.Label labelNotified;
         private System.Windows.Forms.CheckBox checkBoxRemember;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label lbWelcome;
+        private System.Windows.Forms.Panel panelControlLogin;
+        private System.Windows.Forms.Label labelBlockLogin;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
     }
 }

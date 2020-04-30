@@ -80,7 +80,7 @@
             this.panelBottom.Location = new System.Drawing.Point(0, 0);
             this.panelBottom.Name = "panelBottom";
             this.panelBottom.Size = new System.Drawing.Size(1000, 197);
-            this.panelBottom.TabIndex = 3;
+            this.panelBottom.TabIndex = 1;
             // 
             // panelEdit
             // 
@@ -93,7 +93,7 @@
             this.panelEdit.Location = new System.Drawing.Point(256, 182);
             this.panelEdit.Name = "panelEdit";
             this.panelEdit.Size = new System.Drawing.Size(488, 145);
-            this.panelEdit.TabIndex = 12;
+            this.panelEdit.TabIndex = 3;
             this.panelEdit.Visible = false;
             // 
             // buttonExitEdit
@@ -105,7 +105,7 @@
             this.buttonExitEdit.Location = new System.Drawing.Point(461, 3);
             this.buttonExitEdit.Name = "buttonExitEdit";
             this.buttonExitEdit.Size = new System.Drawing.Size(20, 20);
-            this.buttonExitEdit.TabIndex = 7;
+            this.buttonExitEdit.TabIndex = 5;
             this.buttonExitEdit.Tag = "exitEdit";
             this.buttonExitEdit.UseVisualStyleBackColor = true;
             this.buttonExitEdit.Click += new System.EventHandler(this.buttonExitEdit_Click);
@@ -210,7 +210,7 @@
             this.panelDefault.Location = new System.Drawing.Point(256, 20);
             this.panelDefault.Name = "panelDefault";
             this.panelDefault.Size = new System.Drawing.Size(488, 156);
-            this.panelDefault.TabIndex = 12;
+            this.panelDefault.TabIndex = 2;
             // 
             // labelName
             // 
@@ -283,7 +283,7 @@
             this.buttonDelete.Name = "buttonDelete";
             this.buttonDelete.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
             this.buttonDelete.Size = new System.Drawing.Size(91, 39);
-            this.buttonDelete.TabIndex = 4;
+            this.buttonDelete.TabIndex = 3;
             this.buttonDelete.Tag = "delete";
             this.buttonDelete.Text = "Xóa";
             this.buttonDelete.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -302,7 +302,7 @@
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.buttonAdd.Size = new System.Drawing.Size(91, 39);
-            this.buttonAdd.TabIndex = 4;
+            this.buttonAdd.TabIndex = 1;
             this.buttonAdd.Tag = "add";
             this.buttonAdd.Text = "Thêm";
             this.buttonAdd.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -321,7 +321,7 @@
             this.buttonUpdate.Name = "buttonUpdate";
             this.buttonUpdate.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.buttonUpdate.Size = new System.Drawing.Size(91, 39);
-            this.buttonUpdate.TabIndex = 4;
+            this.buttonUpdate.TabIndex = 2;
             this.buttonUpdate.Tag = "update";
             this.buttonUpdate.Text = "Sửa";
             this.buttonUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -353,7 +353,7 @@
             this.dataGridViewSemester.Location = new System.Drawing.Point(0, 0);
             this.dataGridViewSemester.Name = "dataGridViewSemester";
             this.dataGridViewSemester.Size = new System.Drawing.Size(319, 438);
-            this.dataGridViewSemester.TabIndex = 0;
+            this.dataGridViewSemester.TabIndex = 4;
             this.dataGridViewSemester.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSemester_CellClick);
             // 
             // Id1
@@ -394,7 +394,7 @@
             this.dataGridViewGroup.Location = new System.Drawing.Point(0, 0);
             this.dataGridViewGroup.Name = "dataGridViewGroup";
             this.dataGridViewGroup.Size = new System.Drawing.Size(681, 438);
-            this.dataGridViewGroup.TabIndex = 2;
+            this.dataGridViewGroup.TabIndex = 5;
             // 
             // id
             // 

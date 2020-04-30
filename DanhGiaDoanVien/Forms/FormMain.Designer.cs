@@ -38,6 +38,7 @@
             this.buttonEvaluate = new System.Windows.Forms.Button();
             this.buttonSemester = new System.Windows.Forms.Button();
             this.buttonGroup = new System.Windows.Forms.Button();
+            this.pictureBoxHelp = new System.Windows.Forms.PictureBox();
             this.buttonStudent = new System.Windows.Forms.Button();
             this.buttonTeacher = new System.Windows.Forms.Button();
             this.panelLogo = new System.Windows.Forms.Panel();
@@ -88,6 +89,7 @@
             this.dragControl1 = new QuanLiDienThoai.DragControl();
             this.panelMenu.SuspendLayout();
             this.panelSubMenuEvaluate.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHelp)).BeginInit();
             this.panelLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             this.panelTop.SuspendLayout();
@@ -107,6 +109,7 @@
             this.panelMenu.Controls.Add(this.buttonEvaluate);
             this.panelMenu.Controls.Add(this.buttonSemester);
             this.panelMenu.Controls.Add(this.buttonGroup);
+            this.panelMenu.Controls.Add(this.pictureBoxHelp);
             this.panelMenu.Controls.Add(this.buttonStudent);
             this.panelMenu.Controls.Add(this.buttonTeacher);
             this.panelMenu.Controls.Add(this.panelLogo);
@@ -114,7 +117,7 @@
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Size = new System.Drawing.Size(248, 801);
-            this.panelMenu.TabIndex = 0;
+            this.panelMenu.TabIndex = 1;
             // 
             // panelSubMenuEvaluate
             // 
@@ -126,7 +129,7 @@
             this.panelSubMenuEvaluate.Location = new System.Drawing.Point(0, 520);
             this.panelSubMenuEvaluate.Name = "panelSubMenuEvaluate";
             this.panelSubMenuEvaluate.Size = new System.Drawing.Size(248, 222);
-            this.panelSubMenuEvaluate.TabIndex = 5;
+            this.panelSubMenuEvaluate.TabIndex = 6;
             this.panelSubMenuEvaluate.Visible = false;
             this.panelSubMenuEvaluate.VisibleChanged += new System.EventHandler(this.panelSubMenuEvaluate_VisibleChanged);
             // 
@@ -142,7 +145,7 @@
             this.buttonOldScores.Location = new System.Drawing.Point(0, 153);
             this.buttonOldScores.Name = "buttonOldScores";
             this.buttonOldScores.Size = new System.Drawing.Size(248, 51);
-            this.buttonOldScores.TabIndex = 8;
+            this.buttonOldScores.TabIndex = 4;
             this.buttonOldScores.Tag = "not";
             this.buttonOldScores.Text = "Đánh giá đã hoàn tất";
             this.buttonOldScores.UseVisualStyleBackColor = false;
@@ -160,7 +163,7 @@
             this.buttonEvaluateGroup.Location = new System.Drawing.Point(0, 102);
             this.buttonEvaluateGroup.Name = "buttonEvaluateGroup";
             this.buttonEvaluateGroup.Size = new System.Drawing.Size(248, 51);
-            this.buttonEvaluateGroup.TabIndex = 7;
+            this.buttonEvaluateGroup.TabIndex = 3;
             this.buttonEvaluateGroup.Tag = "not";
             this.buttonEvaluateGroup.Text = "Chi đoàn";
             this.buttonEvaluateGroup.UseVisualStyleBackColor = false;
@@ -178,7 +181,7 @@
             this.buttonEvaluateStudent.Location = new System.Drawing.Point(0, 51);
             this.buttonEvaluateStudent.Name = "buttonEvaluateStudent";
             this.buttonEvaluateStudent.Size = new System.Drawing.Size(248, 51);
-            this.buttonEvaluateStudent.TabIndex = 6;
+            this.buttonEvaluateStudent.TabIndex = 2;
             this.buttonEvaluateStudent.Tag = "not";
             this.buttonEvaluateStudent.Text = "Sinh viên";
             this.buttonEvaluateStudent.UseVisualStyleBackColor = false;
@@ -196,7 +199,7 @@
             this.buttonEvaluateTeacher.Location = new System.Drawing.Point(0, 0);
             this.buttonEvaluateTeacher.Name = "buttonEvaluateTeacher";
             this.buttonEvaluateTeacher.Size = new System.Drawing.Size(248, 51);
-            this.buttonEvaluateTeacher.TabIndex = 5;
+            this.buttonEvaluateTeacher.TabIndex = 1;
             this.buttonEvaluateTeacher.Tag = "not";
             this.buttonEvaluateTeacher.Text = "Giảng viên";
             this.buttonEvaluateTeacher.UseVisualStyleBackColor = false;
@@ -215,7 +218,7 @@
             this.buttonEvaluate.Name = "buttonEvaluate";
             this.buttonEvaluate.Padding = new System.Windows.Forms.Padding(15, 0, 20, 0);
             this.buttonEvaluate.Size = new System.Drawing.Size(248, 60);
-            this.buttonEvaluate.TabIndex = 4;
+            this.buttonEvaluate.TabIndex = 5;
             this.buttonEvaluate.Tag = "icons8_report_card_35px";
             this.buttonEvaluate.Text = "Đánh giá";
             this.buttonEvaluate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -236,7 +239,7 @@
             this.buttonSemester.Name = "buttonSemester";
             this.buttonSemester.Padding = new System.Windows.Forms.Padding(15, 0, 20, 0);
             this.buttonSemester.Size = new System.Drawing.Size(248, 60);
-            this.buttonSemester.TabIndex = 3;
+            this.buttonSemester.TabIndex = 4;
             this.buttonSemester.Tag = "";
             this.buttonSemester.Text = "Năm học";
             this.buttonSemester.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -264,6 +267,18 @@
             this.buttonGroup.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonGroup.UseVisualStyleBackColor = true;
             this.buttonGroup.Click += new System.EventHandler(this.buttonGroup_Click);
+            // 
+            // pictureBoxHelp
+            // 
+            this.pictureBoxHelp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.pictureBoxHelp.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxHelp.Image")));
+            this.pictureBoxHelp.Location = new System.Drawing.Point(12, 760);
+            this.pictureBoxHelp.Name = "pictureBoxHelp";
+            this.pictureBoxHelp.Size = new System.Drawing.Size(31, 28);
+            this.pictureBoxHelp.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxHelp.TabIndex = 1;
+            this.pictureBoxHelp.TabStop = false;
+            this.pictureBoxHelp.Click += new System.EventHandler(this.pictureBoxHelp_Click);
             // 
             // buttonStudent
             // 
@@ -352,7 +367,7 @@
             this.panelTop.Location = new System.Drawing.Point(248, 0);
             this.panelTop.Name = "panelTop";
             this.panelTop.Size = new System.Drawing.Size(1016, 117);
-            this.panelTop.TabIndex = 1;
+            this.panelTop.TabIndex = 2;
             // 
             // tableLayoutPanel1
             // 
@@ -376,7 +391,7 @@
             this.tableLayoutPanel1.Controls.Add(this.labelSemester, 3, 1);
             this.tableLayoutPanel1.Controls.Add(this.labelEvaluation, 4, 1);
             this.tableLayoutPanel1.Controls.Add(this.labelDoneScores, 5, 1);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(272, 8);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(348, 8);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -537,7 +552,7 @@
             this.buttonLogout.Location = new System.Drawing.Point(931, 3);
             this.buttonLogout.Name = "buttonLogout";
             this.buttonLogout.Size = new System.Drawing.Size(82, 35);
-            this.buttonLogout.TabIndex = 3;
+            this.buttonLogout.TabIndex = 1;
             this.buttonLogout.Text = "Đăng xuất";
             this.buttonLogout.UseVisualStyleBackColor = true;
             this.buttonLogout.Click += new System.EventHandler(this.buttonLogout_Click);
@@ -548,7 +563,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Wheat;
-            this.label1.Location = new System.Drawing.Point(186, 72);
+            this.label1.Location = new System.Drawing.Point(262, 71);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(85, 20);
             this.label1.TabIndex = 2;
@@ -569,7 +584,7 @@
             // 
             this.pictureBoxRefesh.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBoxRefesh.Image = global::DanhGiaDoanVien.Properties.Resources.Refresh2;
-            this.pictureBoxRefesh.Location = new System.Drawing.Point(822, 62);
+            this.pictureBoxRefesh.Location = new System.Drawing.Point(898, 62);
             this.pictureBoxRefesh.Name = "pictureBoxRefesh";
             this.pictureBoxRefesh.Size = new System.Drawing.Size(40, 40);
             this.pictureBoxRefesh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -612,6 +627,8 @@
             // 
             // panelMain
             // 
+            this.panelMain.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panelMain.AutoSize = true;
             this.panelMain.Controls.Add(this.label14);
             this.panelMain.Controls.Add(this.label12);
             this.panelMain.Location = new System.Drawing.Point(25, 93);
@@ -643,6 +660,8 @@
             // 
             // panelChangePassword
             // 
+            this.panelChangePassword.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panelChangePassword.AutoSize = true;
             this.panelChangePassword.Controls.Add(this.buttonCancel);
             this.panelChangePassword.Controls.Add(this.buttonAccept);
             this.panelChangePassword.Controls.Add(this.tableLayoutPanel2);
@@ -838,6 +857,7 @@
             // 
             // buttonChangePassword
             // 
+            this.buttonChangePassword.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonChangePassword.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonChangePassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonChangePassword.ForeColor = System.Drawing.Color.White;
@@ -845,7 +865,7 @@
             this.buttonChangePassword.Location = new System.Drawing.Point(851, 15);
             this.buttonChangePassword.Name = "buttonChangePassword";
             this.buttonChangePassword.Size = new System.Drawing.Size(153, 33);
-            this.buttonChangePassword.TabIndex = 3;
+            this.buttonChangePassword.TabIndex = 1;
             this.buttonChangePassword.Tag = "";
             this.buttonChangePassword.Text = "Đổi mật khẩu";
             this.buttonChangePassword.UseVisualStyleBackColor = true;
@@ -886,13 +906,15 @@
             this.Controls.Add(this.panelShadow1);
             this.Controls.Add(this.panelTop);
             this.Controls.Add(this.panelMenu);
-            this.MinimumSize = new System.Drawing.Size(750, 750);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MinimumSize = new System.Drawing.Size(1280, 840);
             this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormMain_FormClosing);
             this.Load += new System.EventHandler(this.FormMain_Load);
             this.panelMenu.ResumeLayout(false);
             this.panelSubMenuEvaluate.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHelp)).EndInit();
             this.panelLogo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
             this.panelTop.ResumeLayout(false);
@@ -972,6 +994,7 @@
         private System.Windows.Forms.Panel panelMain;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.PictureBox pictureBoxHelp;
     }
 }
 

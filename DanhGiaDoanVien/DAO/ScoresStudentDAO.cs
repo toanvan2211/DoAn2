@@ -19,47 +19,52 @@ namespace DanhGiaDoanVien.DAO
         }
         public ScoresStudentDAO() { }
 
-        public DataTable GetListScoresStudent()
+        public DataTable GetListScoresStudent(string typeScores, string semester, string group)
         {
-            //string query = "select * from KetQuaSinhVien";
+            StringBuilder sb = new StringBuilder();
             string query = "select id, MSSV, diemHK1, diemHK2, DRLHK1, DRLHK2, tongHK, DRL, xepLoai, thanhTichTieuBieu, doanVienUuTu, ghiChu, idKetQuaChiDoan from KetQuaSinhVien";
+            sb.Append(query);
+            int[] input = new int[3] { 1, 1, 1 };
 
-            return DataProvider.Instance.ExecuteQuery(query);
-        }
+            if (typeScores == "Chưa hoàn thành")
+                input[0] = 0;
+            if (semester == "")
+                input[1] = 0;
+            if (group == "")
+                input[2] = 0;
 
-        public DataTable GetListScoresStudentByID(string idGroup, string idSemester)
-        {
-            string query = "select id from KetQuaChiDoan where idChiDoan = '" + idGroup + "' and idNamHoc = '" + idSemester + "'";
-
-            DataTable data = DataProvider.Instance.ExecuteQuery(query);
-            int id;
-            if (data.Rows.Count == 0)
+            if ((input[0] + input[1] + input[2]) == 0)
             {
-                id = -1;
+                sb.Append(" where idKetQuaChiDoan in (select id from KetQuaChiDoan where daXong = 0)");
             }
-            else
+            else if (input[0] == 1)
             {
-                id = Convert.ToInt32(data.Rows[0]["id"]);
+                sb.Append(" where idKetQuaChiDoan in (select id from KetQuaChiDoan where");
+                if (input[1] == 1)
+                {
+                    sb.Append(" idNamHoc = '" + semester + "' and");
+                }
+                if (input[2] == 1)
+                {
+                    sb.Append(" idChiDoan = '" + group + "' and");
+                }
+                sb.Append(" daXong = 1)");
+            }
+            else if (input[1] == 1)
+            {
+                sb.Append(" where idKetQuaChiDoan in (select id from KetQuaChiDoan where");
+                if (input[2] == 1)
+                {
+                    sb.Append(" idChiDoan = '" + group + "' and");
+                }
+                sb.Append(" daXong = 0)");
+            }
+            else if (input[2] == 1)
+            {
+                sb.Append(" where idKetQuaChiDoan in (select id from KetQuaChiDoan where idChiDoan = '" + group + "' and daXong = 0)");
             }
 
-            query = "select id, MSSV, diemHK1, diemHK2, DRLHK1, DRLHK2, tongHK, DRL, xepLoai, thanhTichTieuBieu, doanVienUuTu, ghiChu, idKetQuaChiDoan from KetQuaSinhVien where idKetQuaChiDoan = " + id;
-
-            return DataProvider.Instance.ExecuteQuery(query);
-        }
-
-        public DataTable GetListScoresStudentByID(string id, int a) //a = 1 idGroup, a = 2 idSemester
-        {
-            if (a == 1)
-            {
-                string query = "select id, MSSV, diemHK1, diemHK2, DRLHK1, DRLHK2, tongHK, DRL, xepLoai, thanhTichTieuBieu, doanVienUuTu, ghiChu, idKetQuaChiDoan from KetQuaSinhVien where idKetQuaChiDoan in (select id from KetQuaChiDoan where idChiDoan = '" + id + "')";
-                return DataProvider.Instance.ExecuteQuery(query);
-            }
-            else if (a == 2)
-            {
-                string query = "select id, MSSV, diemHK1, diemHK2, DRLHK1, DRLHK2, tongHK, DRL, xepLoai, thanhTichTieuBieu, doanVienUuTu, ghiChu, idKetQuaChiDoan from KetQuaSinhVien where idKetQuaChiDoan in (select id from KetQuaChiDoan where idNamHoc = '" + id + "')";
-                return DataProvider.Instance.ExecuteQuery(query);
-            }
-            return null;
+            return DataProvider.Instance.ExecuteQuery(sb.ToString());
         }
 
         public DataTable GetInfo(int idScoresGroup, string MSSV)

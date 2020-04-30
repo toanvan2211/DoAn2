@@ -18,6 +18,7 @@ namespace DanhGiaDoanVien
     {
         private string idCurrentSemester = "";
         private string idCurrentGroup = "";
+        private string typeScores = "Chưa hoành thành";
         private int currentIndex = -1;
         private List<Semester> listSemester = new List<Semester>();
         GoodStudent gst;
@@ -74,22 +75,7 @@ namespace DanhGiaDoanVien
 
         void LoadScoresStudent()
         {
-            if (idCurrentSemester == "" && idCurrentGroup == "")
-            {
-                dataGridViewStudent.DataSource = ScoresStudentDAO.Instance.GetListScoresStudent();
-            }
-            else if (idCurrentSemester != "" && idCurrentGroup == "" )
-            {
-                dataGridViewStudent.DataSource = ScoresStudentDAO.Instance.GetListScoresStudentByID(idCurrentSemester, 2);
-            }
-            else if (idCurrentSemester == "" && idCurrentGroup != "")
-            {
-                dataGridViewStudent.DataSource = ScoresStudentDAO.Instance.GetListScoresStudentByID(idCurrentGroup, 1);
-            }
-            else
-            {
-                dataGridViewStudent.DataSource = ScoresStudentDAO.Instance.GetListScoresStudentByID(idCurrentGroup, idCurrentSemester);
-            }
+            dataGridViewStudent.DataSource = ScoresStudentDAO.Instance.GetListScoresStudent(typeScores, idCurrentSemester, idCurrentGroup);
         }
 
         void LoadComboBoxGroup()
@@ -369,6 +355,7 @@ namespace DanhGiaDoanVien
 
             comboBoxSemester.SelectedIndex = 0;
             comboBoxGroup.SelectedIndex = 0;
+            comboBoxScores.SelectedIndex = 0;
 
             LoadScoresStudent();
         }
@@ -534,6 +521,10 @@ namespace DanhGiaDoanVien
                 {
                     MessageBox.Show("Sinh viên này không đủ điều kiện để được xếp loại \"" + rankHope + "\". Vui lòng xem xét lại!", "Không đủ điều kiện", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn sinh viên mà bạn muốn sửa!", "Chưa chọn sinh viên", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -1133,6 +1124,21 @@ namespace DanhGiaDoanVien
             {
                 MessageBox.Show("Chưa chọn sinh viên, hoặc sinh viên này không phải là đoàn viên ưu tú!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+        }
+
+        private void comboBoxScores_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBoxScores.SelectedIndex == 0)
+            {
+                typeScores = "Chưa hoàn thành";
+                panelEditTool.Visible = true;
+            }
+            else
+            {
+                typeScores = "Hoàn thành";
+                panelEditTool.Visible = false;
+            }
+            LoadScoresStudent();
         }
     }
 }

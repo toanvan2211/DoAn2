@@ -28,26 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormEvaluateGroup));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelBottom = new System.Windows.Forms.Panel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.label15 = new System.Windows.Forms.Label();
             this.checkBoxAuto = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.buttonCreateList = new System.Windows.Forms.Button();
             this.comboBoxGroupEmpty = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.label3 = new System.Windows.Forms.Label();
@@ -75,13 +76,17 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxIdGroup = new System.Windows.Forms.TextBox();
+            this.buttonCheckDone = new System.Windows.Forms.Button();
+            this.buttonSaveAll = new System.Windows.Forms.Button();
+            this.buttonDelete = new System.Windows.Forms.Button();
+            this.buttonSaveSelect = new System.Windows.Forms.Button();
+            this.buttonUpdate = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.comboBoxSemester = new System.Windows.Forms.ComboBox();
             this.panelTop = new System.Windows.Forms.Panel();
             this.comboBoxGroup = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
             this.dataGridViewScoresGroup = new System.Windows.Forms.DataGridView();
-            this.buttonCheckDone = new System.Windows.Forms.Button();
             this.Id1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Semester1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idGroup1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -98,11 +103,6 @@
             this.TotalGoodMember1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Note1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CheckDone = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.buttonCreateList = new System.Windows.Forms.Button();
-            this.buttonSaveAll = new System.Windows.Forms.Button();
-            this.buttonDelete = new System.Windows.Forms.Button();
-            this.buttonSaveSelect = new System.Windows.Forms.Button();
-            this.buttonUpdate = new System.Windows.Forms.Button();
             this.panelBottom.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
@@ -118,20 +118,20 @@
             // 
             this.panelBottom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(45)))));
             this.panelBottom.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panelBottom.Controls.Add(this.tableLayoutPanel5);
+            this.panelBottom.Controls.Add(this.buttonSaveSelect);
             this.panelBottom.Controls.Add(this.tableLayoutPanel4);
             this.panelBottom.Controls.Add(this.tableLayoutPanel3);
             this.panelBottom.Controls.Add(this.panel1);
             this.panelBottom.Controls.Add(this.buttonCheckDone);
             this.panelBottom.Controls.Add(this.buttonSaveAll);
             this.panelBottom.Controls.Add(this.buttonDelete);
-            this.panelBottom.Controls.Add(this.buttonSaveSelect);
             this.panelBottom.Controls.Add(this.buttonUpdate);
+            this.panelBottom.Controls.Add(this.tableLayoutPanel5);
             this.panelBottom.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelBottom.Location = new System.Drawing.Point(0, 45);
             this.panelBottom.Name = "panelBottom";
             this.panelBottom.Size = new System.Drawing.Size(1000, 197);
-            this.panelBottom.TabIndex = 5;
+            this.panelBottom.TabIndex = 2;
             // 
             // tableLayoutPanel5
             // 
@@ -141,12 +141,12 @@
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 41.02564F));
             this.tableLayoutPanel5.Controls.Add(this.label15, 0, 0);
             this.tableLayoutPanel5.Controls.Add(this.checkBoxAuto, 1, 0);
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(800, 73);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(755, 68);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 1;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel5.Size = new System.Drawing.Size(67, 50);
-            this.tableLayoutPanel5.TabIndex = 10;
+            this.tableLayoutPanel5.TabIndex = 4;
             // 
             // label15
             // 
@@ -182,7 +182,25 @@
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel4.Size = new System.Drawing.Size(324, 68);
-            this.tableLayoutPanel4.TabIndex = 9;
+            this.tableLayoutPanel4.TabIndex = 3;
+            // 
+            // buttonCreateList
+            // 
+            this.buttonCreateList.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonCreateList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonCreateList.ForeColor = System.Drawing.Color.White;
+            this.buttonCreateList.Image = ((System.Drawing.Image)(resources.GetObject("buttonCreateList.Image")));
+            this.buttonCreateList.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonCreateList.Location = new System.Drawing.Point(200, 14);
+            this.buttonCreateList.Name = "buttonCreateList";
+            this.buttonCreateList.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.buttonCreateList.Size = new System.Drawing.Size(121, 39);
+            this.buttonCreateList.TabIndex = 2;
+            this.buttonCreateList.Text = "Tạo danh sách";
+            this.buttonCreateList.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonCreateList.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonCreateList.UseVisualStyleBackColor = true;
+            this.buttonCreateList.Click += new System.EventHandler(this.buttonCreateList_Click);
             // 
             // comboBoxGroupEmpty
             // 
@@ -193,7 +211,7 @@
             this.comboBoxGroupEmpty.Location = new System.Drawing.Point(3, 23);
             this.comboBoxGroupEmpty.Name = "comboBoxGroupEmpty";
             this.comboBoxGroupEmpty.Size = new System.Drawing.Size(191, 21);
-            this.comboBoxGroupEmpty.TabIndex = 5;
+            this.comboBoxGroupEmpty.TabIndex = 1;
             // 
             // tableLayoutPanel3
             // 
@@ -211,7 +229,7 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(327, 112);
-            this.tableLayoutPanel3.TabIndex = 7;
+            this.tableLayoutPanel3.TabIndex = 2;
             // 
             // label3
             // 
@@ -239,7 +257,7 @@
             this.comboBoxRank.Location = new System.Drawing.Point(114, 17);
             this.comboBoxRank.Name = "comboBoxRank";
             this.comboBoxRank.Size = new System.Drawing.Size(210, 21);
-            this.comboBoxRank.TabIndex = 5;
+            this.comboBoxRank.TabIndex = 2;
             // 
             // label2
             // 
@@ -258,7 +276,7 @@
             this.textBoxNote.Location = new System.Drawing.Point(114, 59);
             this.textBoxNote.Name = "textBoxNote";
             this.textBoxNote.Size = new System.Drawing.Size(210, 50);
-            this.textBoxNote.TabIndex = 7;
+            this.textBoxNote.TabIndex = 1;
             this.textBoxNote.Text = "";
             // 
             // panel1
@@ -303,7 +321,7 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(326, 150);
-            this.tableLayoutPanel2.TabIndex = 9;
+            this.tableLayoutPanel2.TabIndex = 1;
             // 
             // textBoxBad
             // 
@@ -500,6 +518,72 @@
             this.textBoxIdGroup.Size = new System.Drawing.Size(239, 20);
             this.textBoxIdGroup.TabIndex = 1;
             // 
+            // buttonCheckDone
+            // 
+            this.buttonCheckDone.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonCheckDone.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonCheckDone.ForeColor = System.Drawing.Color.White;
+            this.buttonCheckDone.Image = ((System.Drawing.Image)(resources.GetObject("buttonCheckDone.Image")));
+            this.buttonCheckDone.Location = new System.Drawing.Point(759, 131);
+            this.buttonCheckDone.Name = "buttonCheckDone";
+            this.buttonCheckDone.Size = new System.Drawing.Size(53, 44);
+            this.buttonCheckDone.TabIndex = 6;
+            this.buttonCheckDone.UseVisualStyleBackColor = true;
+            this.buttonCheckDone.Click += new System.EventHandler(this.buttonCheckDone_Click);
+            // 
+            // buttonSaveAll
+            // 
+            this.buttonSaveAll.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonSaveAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSaveAll.ForeColor = System.Drawing.Color.White;
+            this.buttonSaveAll.Image = ((System.Drawing.Image)(resources.GetObject("buttonSaveAll.Image")));
+            this.buttonSaveAll.Location = new System.Drawing.Point(877, 69);
+            this.buttonSaveAll.Name = "buttonSaveAll";
+            this.buttonSaveAll.Size = new System.Drawing.Size(53, 44);
+            this.buttonSaveAll.TabIndex = 7;
+            this.buttonSaveAll.UseVisualStyleBackColor = true;
+            this.buttonSaveAll.Click += new System.EventHandler(this.buttonSaveAll_Click);
+            // 
+            // buttonDelete
+            // 
+            this.buttonDelete.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonDelete.ForeColor = System.Drawing.Color.White;
+            this.buttonDelete.Image = ((System.Drawing.Image)(resources.GetObject("buttonDelete.Image")));
+            this.buttonDelete.Location = new System.Drawing.Point(818, 131);
+            this.buttonDelete.Name = "buttonDelete";
+            this.buttonDelete.Size = new System.Drawing.Size(53, 44);
+            this.buttonDelete.TabIndex = 9;
+            this.buttonDelete.UseVisualStyleBackColor = true;
+            this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
+            // 
+            // buttonSaveSelect
+            // 
+            this.buttonSaveSelect.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonSaveSelect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSaveSelect.ForeColor = System.Drawing.Color.White;
+            this.buttonSaveSelect.Image = ((System.Drawing.Image)(resources.GetObject("buttonSaveSelect.Image")));
+            this.buttonSaveSelect.Location = new System.Drawing.Point(818, 69);
+            this.buttonSaveSelect.Name = "buttonSaveSelect";
+            this.buttonSaveSelect.Size = new System.Drawing.Size(53, 44);
+            this.buttonSaveSelect.TabIndex = 8;
+            this.buttonSaveSelect.UseVisualStyleBackColor = true;
+            this.buttonSaveSelect.Click += new System.EventHandler(this.buttonSaveSelect_Click);
+            // 
+            // buttonUpdate
+            // 
+            this.buttonUpdate.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonUpdate.ForeColor = System.Drawing.Color.White;
+            this.buttonUpdate.Image = ((System.Drawing.Image)(resources.GetObject("buttonUpdate.Image")));
+            this.buttonUpdate.Location = new System.Drawing.Point(877, 131);
+            this.buttonUpdate.Name = "buttonUpdate";
+            this.buttonUpdate.Padding = new System.Windows.Forms.Padding(5, 0, 0, 2);
+            this.buttonUpdate.Size = new System.Drawing.Size(53, 45);
+            this.buttonUpdate.TabIndex = 5;
+            this.buttonUpdate.UseVisualStyleBackColor = true;
+            this.buttonUpdate.Click += new System.EventHandler(this.buttonUpdate_Click);
+            // 
             // label4
             // 
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -522,7 +606,7 @@
             this.comboBoxSemester.Location = new System.Drawing.Point(157, 12);
             this.comboBoxSemester.Name = "comboBoxSemester";
             this.comboBoxSemester.Size = new System.Drawing.Size(283, 24);
-            this.comboBoxSemester.TabIndex = 7;
+            this.comboBoxSemester.TabIndex = 1;
             this.comboBoxSemester.SelectedIndexChanged += new System.EventHandler(this.comboBoxSemester_SelectedIndexChanged);
             // 
             // panelTop
@@ -536,7 +620,7 @@
             this.panelTop.Location = new System.Drawing.Point(0, 0);
             this.panelTop.Name = "panelTop";
             this.panelTop.Size = new System.Drawing.Size(1000, 45);
-            this.panelTop.TabIndex = 6;
+            this.panelTop.TabIndex = 1;
             // 
             // comboBoxGroup
             // 
@@ -550,7 +634,7 @@
             this.comboBoxGroup.Location = new System.Drawing.Point(572, 12);
             this.comboBoxGroup.Name = "comboBoxGroup";
             this.comboBoxGroup.Size = new System.Drawing.Size(283, 24);
-            this.comboBoxGroup.TabIndex = 7;
+            this.comboBoxGroup.TabIndex = 2;
             this.comboBoxGroup.SelectedIndexChanged += new System.EventHandler(this.comboBoxGroup_SelectedIndexChanged);
             // 
             // label13
@@ -593,30 +677,15 @@
             this.dataGridViewScoresGroup.Location = new System.Drawing.Point(0, 242);
             this.dataGridViewScoresGroup.Name = "dataGridViewScoresGroup";
             this.dataGridViewScoresGroup.Size = new System.Drawing.Size(1000, 393);
-            this.dataGridViewScoresGroup.TabIndex = 7;
+            this.dataGridViewScoresGroup.TabIndex = 3;
             this.dataGridViewScoresGroup.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewScoresGroup_CellClick);
-            // 
-            // buttonCheckDone
-            // 
-            this.buttonCheckDone.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonCheckDone.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonCheckDone.ForeColor = System.Drawing.Color.White;
-            this.buttonCheckDone.Location = new System.Drawing.Point(870, 9);
-            this.buttonCheckDone.Name = "buttonCheckDone";
-            this.buttonCheckDone.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.buttonCheckDone.Size = new System.Drawing.Size(116, 44);
-            this.buttonCheckDone.TabIndex = 4;
-            this.buttonCheckDone.Text = "Đánh dấu là đã xong";
-            this.buttonCheckDone.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonCheckDone.UseVisualStyleBackColor = true;
-            this.buttonCheckDone.Click += new System.EventHandler(this.buttonCheckDone_Click);
             // 
             // Id1
             // 
             this.Id1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Id1.DataPropertyName = "id";
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.Id1.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.Id1.DefaultCellStyle = dataGridViewCellStyle15;
             this.Id1.HeaderText = "ID";
             this.Id1.Name = "Id1";
             this.Id1.ReadOnly = true;
@@ -626,30 +695,30 @@
             // 
             this.Semester1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Semester1.DataPropertyName = "idNamHoc";
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.Semester1.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.Semester1.DefaultCellStyle = dataGridViewCellStyle16;
             this.Semester1.HeaderText = "Năm học";
             this.Semester1.Name = "Semester1";
             this.Semester1.ReadOnly = true;
-            this.Semester1.Width = 75;
+            this.Semester1.Width = 69;
             // 
             // idGroup1
             // 
             this.idGroup1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.idGroup1.DataPropertyName = "idChiDoan";
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.idGroup1.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.idGroup1.DefaultCellStyle = dataGridViewCellStyle17;
             this.idGroup1.HeaderText = "Chi đoàn";
             this.idGroup1.Name = "idGroup1";
             this.idGroup1.ReadOnly = true;
-            this.idGroup1.Width = 75;
+            this.idGroup1.Width = 69;
             // 
             // Rank1
             // 
             this.Rank1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Rank1.DataPropertyName = "xepLoai";
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.Rank1.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.Rank1.DefaultCellStyle = dataGridViewCellStyle18;
             this.Rank1.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
             this.Rank1.HeaderText = "Xếp loại";
             this.Rank1.Items.AddRange(new object[] {
@@ -660,45 +729,45 @@
             this.Rank1.Name = "Rank1";
             this.Rank1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Rank1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.Rank1.Width = 70;
+            this.Rank1.Width = 51;
             // 
             // Excellent1
             // 
             this.Excellent1.DataPropertyName = "xuatSac";
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.Excellent1.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.Excellent1.DefaultCellStyle = dataGridViewCellStyle19;
             this.Excellent1.HeaderText = "Xuất sắc";
             this.Excellent1.Name = "Excellent1";
             // 
             // Great1
             // 
             this.Great1.DataPropertyName = "kha";
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.Great1.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.Great1.DefaultCellStyle = dataGridViewCellStyle20;
             this.Great1.HeaderText = "Khá";
             this.Great1.Name = "Great1";
             // 
             // Medium1
             // 
             this.Medium1.DataPropertyName = "trungBinh";
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.Medium1.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.Medium1.DefaultCellStyle = dataGridViewCellStyle21;
             this.Medium1.HeaderText = "Trung bình";
             this.Medium1.Name = "Medium1";
             // 
             // Bad1
             // 
             this.Bad1.DataPropertyName = "yeuKem";
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.Bad1.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.Bad1.DefaultCellStyle = dataGridViewCellStyle22;
             this.Bad1.HeaderText = "Yếu kém";
             this.Bad1.Name = "Bad1";
             // 
             // TotalMember1
             // 
             this.TotalMember1.DataPropertyName = "soThanhVien";
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.TotalMember1.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle23.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.TotalMember1.DefaultCellStyle = dataGridViewCellStyle23;
             this.TotalMember1.HeaderText = "Số thành viên";
             this.TotalMember1.Name = "TotalMember1";
             this.TotalMember1.ReadOnly = true;
@@ -706,8 +775,8 @@
             // TotalStudent1
             // 
             this.TotalStudent1.DataPropertyName = "tongSV";
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.TotalStudent1.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle24.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.TotalStudent1.DefaultCellStyle = dataGridViewCellStyle24;
             this.TotalStudent1.HeaderText = "Sinh viên";
             this.TotalStudent1.Name = "TotalStudent1";
             this.TotalStudent1.ReadOnly = true;
@@ -715,32 +784,32 @@
             // TotalTeacher1
             // 
             this.TotalTeacher1.DataPropertyName = "tongGV";
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.TotalTeacher1.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle25.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.TotalTeacher1.DefaultCellStyle = dataGridViewCellStyle25;
             this.TotalTeacher1.HeaderText = "Giảng viên";
             this.TotalTeacher1.Name = "TotalTeacher1";
             // 
             // TotalFemaleStudent1
             // 
             this.TotalFemaleStudent1.DataPropertyName = "tongNuSV";
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.TotalFemaleStudent1.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle26.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.TotalFemaleStudent1.DefaultCellStyle = dataGridViewCellStyle26;
             this.TotalFemaleStudent1.HeaderText = "Sinh viên nữ";
             this.TotalFemaleStudent1.Name = "TotalFemaleStudent1";
             // 
             // TotalFemaleTeacher1
             // 
             this.TotalFemaleTeacher1.DataPropertyName = "tongNuGV";
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.TotalFemaleTeacher1.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle27.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.TotalFemaleTeacher1.DefaultCellStyle = dataGridViewCellStyle27;
             this.TotalFemaleTeacher1.HeaderText = "Giảng viên nữ";
             this.TotalFemaleTeacher1.Name = "TotalFemaleTeacher1";
             // 
             // TotalGoodMember1
             // 
             this.TotalGoodMember1.DataPropertyName = "tongDVUT";
-            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.TotalGoodMember1.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle28.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.TotalGoodMember1.DefaultCellStyle = dataGridViewCellStyle28;
             this.TotalGoodMember1.HeaderText = "Đoàn viên ưu tú";
             this.TotalGoodMember1.Name = "TotalGoodMember1";
             // 
@@ -758,87 +827,6 @@
             this.CheckDone.Name = "CheckDone";
             this.CheckDone.ReadOnly = true;
             this.CheckDone.Visible = false;
-            // 
-            // buttonCreateList
-            // 
-            this.buttonCreateList.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonCreateList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonCreateList.ForeColor = System.Drawing.Color.White;
-            this.buttonCreateList.Image = ((System.Drawing.Image)(resources.GetObject("buttonCreateList.Image")));
-            this.buttonCreateList.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonCreateList.Location = new System.Drawing.Point(200, 14);
-            this.buttonCreateList.Name = "buttonCreateList";
-            this.buttonCreateList.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.buttonCreateList.Size = new System.Drawing.Size(121, 39);
-            this.buttonCreateList.TabIndex = 4;
-            this.buttonCreateList.Text = "Tạo danh sách";
-            this.buttonCreateList.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonCreateList.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonCreateList.UseVisualStyleBackColor = true;
-            this.buttonCreateList.Click += new System.EventHandler(this.buttonCreateList_Click);
-            // 
-            // buttonSaveAll
-            // 
-            this.buttonSaveAll.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonSaveAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSaveAll.ForeColor = System.Drawing.Color.White;
-            this.buttonSaveAll.Image = ((System.Drawing.Image)(resources.GetObject("buttonSaveAll.Image")));
-            this.buttonSaveAll.Location = new System.Drawing.Point(870, 59);
-            this.buttonSaveAll.Name = "buttonSaveAll";
-            this.buttonSaveAll.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.buttonSaveAll.Size = new System.Drawing.Size(116, 39);
-            this.buttonSaveAll.TabIndex = 4;
-            this.buttonSaveAll.Text = "Lưu toàn bộ";
-            this.buttonSaveAll.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonSaveAll.UseVisualStyleBackColor = true;
-            this.buttonSaveAll.Click += new System.EventHandler(this.buttonSaveAll_Click);
-            // 
-            // buttonDelete
-            // 
-            this.buttonDelete.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonDelete.ForeColor = System.Drawing.Color.White;
-            this.buttonDelete.Image = ((System.Drawing.Image)(resources.GetObject("buttonDelete.Image")));
-            this.buttonDelete.Location = new System.Drawing.Point(870, 135);
-            this.buttonDelete.Name = "buttonDelete";
-            this.buttonDelete.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.buttonDelete.Size = new System.Drawing.Size(116, 39);
-            this.buttonDelete.TabIndex = 4;
-            this.buttonDelete.Text = "Xóa";
-            this.buttonDelete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonDelete.UseVisualStyleBackColor = true;
-            this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
-            // 
-            // buttonSaveSelect
-            // 
-            this.buttonSaveSelect.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonSaveSelect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSaveSelect.ForeColor = System.Drawing.Color.White;
-            this.buttonSaveSelect.Image = ((System.Drawing.Image)(resources.GetObject("buttonSaveSelect.Image")));
-            this.buttonSaveSelect.Location = new System.Drawing.Point(870, 97);
-            this.buttonSaveSelect.Name = "buttonSaveSelect";
-            this.buttonSaveSelect.Size = new System.Drawing.Size(116, 39);
-            this.buttonSaveSelect.TabIndex = 4;
-            this.buttonSaveSelect.Text = "Lưu hàng chọn";
-            this.buttonSaveSelect.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonSaveSelect.UseVisualStyleBackColor = true;
-            this.buttonSaveSelect.Click += new System.EventHandler(this.buttonSaveSelect_Click);
-            // 
-            // buttonUpdate
-            // 
-            this.buttonUpdate.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonUpdate.ForeColor = System.Drawing.Color.White;
-            this.buttonUpdate.Image = ((System.Drawing.Image)(resources.GetObject("buttonUpdate.Image")));
-            this.buttonUpdate.Location = new System.Drawing.Point(767, 9);
-            this.buttonUpdate.Name = "buttonUpdate";
-            this.buttonUpdate.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.buttonUpdate.Size = new System.Drawing.Size(90, 44);
-            this.buttonUpdate.TabIndex = 4;
-            this.buttonUpdate.Text = "Sửa";
-            this.buttonUpdate.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonUpdate.UseVisualStyleBackColor = true;
-            this.buttonUpdate.Click += new System.EventHandler(this.buttonUpdate_Click);
             // 
             // FormEvaluateGroup
             // 

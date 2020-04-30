@@ -125,7 +125,7 @@ go
 
 -----------------------------TaiKhoan------------------------------------
 
-create proc  USP_Login
+create proc  USP_Login --V
 @user varchar(100), @password varchar(32)
 as
 begin
@@ -133,35 +133,9 @@ begin
 end
 go
 
-create proc USP_AddAccount
-@user varchar(100), @password varchar(32), @idTeacher varchar(10)
-as
-begin
-	insert into taiKhoan
-	values (@user, @password, @idTeacher)
-end
-go
-
-create proc USP_UpdateAccount
-@user varchar(100), @password varchar(32), @idTeacher varchar(10)
-as
-begin
-	update taiKhoan set matKhau = @password, MSGV = @idTeacher
-	where taiKhoan = @user
-end
-go
-
-create proc USP_DeleteAccount
-@user varchar(100)
-as
-begin
-	delete TaiKhoan where taiKhoan = @user
-end
-go
-
 -----------------------------Nam------------------------------------
 
-create proc USP_AddSemester
+create proc USP_AddSemester -- V
 @idSemester varchar(10), @name nvarchar(100)
 as
 begin
@@ -170,7 +144,7 @@ begin
 end
 go
 
-create proc USP_UpdateSemester
+create proc USP_UpdateSemester -- V
 @idSemester varchar(10), @name nvarchar(100)
 as
 begin
@@ -179,7 +153,7 @@ begin
 end
 go
 
-create proc USP_DeleteSemester
+create proc USP_DeleteSemester -- V
 @idSemester varchar(10)
 as
 begin
@@ -190,14 +164,14 @@ go
 
 -----------------------------ChiDoan------------------------------------
 
-create proc USP_GetListGroup
+create proc USP_GetListGroup -- V
 as
 begin
 	select * from ChiDoan
 end
 go
 
-create proc USP_AddGroup
+create proc USP_AddGroup -- v
 @idGroup varchar(10), @name nvarchar(100)
 as
 begin
