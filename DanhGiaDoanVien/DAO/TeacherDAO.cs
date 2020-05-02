@@ -113,13 +113,6 @@ namespace DanhGiaDoanVien.DAO
             }
         }
 
-        public int UpdateTeacher(string idTeacher, string name, string sex, string group, bool isMember)
-        {
-            string query = "USP_UpdateTeacher @idTeacher , @name , @sex , @group , @isMember";
-
-            return DataProvider.Instance.ExecuteNonQuery(query, new object[] { idTeacher, name, sex, null, isMember });
-        }
-
         public int UpdateTeacher(Teacher teacher, string name, string sex, string group, bool isMember)
         {
             string query = "update GiangVien set ";

@@ -94,6 +94,9 @@ namespace DanhGiaDoanVien
 
         private void FormLogin_Load(object sender, EventArgs e)
         {
+            //Properties.Settings.Default.IsBlockLogin = false;
+            //Properties.Settings.Default.Save();
+
             if (Properties.Settings.Default.UserName != string.Empty)
             {
                 textBoxUserName.Text = Properties.Settings.Default.UserName;
