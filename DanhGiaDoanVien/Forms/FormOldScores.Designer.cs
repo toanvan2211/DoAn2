@@ -547,7 +547,7 @@
             this.Semester1.HeaderText = "Năm học";
             this.Semester1.Name = "Semester1";
             this.Semester1.ReadOnly = true;
-            this.Semester1.Width = 69;
+            this.Semester1.Width = 75;
             // 
             // idGroup1
             // 
@@ -558,7 +558,7 @@
             this.idGroup1.HeaderText = "Chi đoàn";
             this.idGroup1.Name = "idGroup1";
             this.idGroup1.ReadOnly = true;
-            this.idGroup1.Width = 69;
+            this.idGroup1.Width = 75;
             // 
             // Rank1
             // 
@@ -574,9 +574,10 @@
             "Chi đoàn trung bình",
             "Chi đoàn yếu kém"});
             this.Rank1.Name = "Rank1";
+            this.Rank1.ReadOnly = true;
             this.Rank1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Rank1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.Rank1.Width = 51;
+            this.Rank1.Width = 70;
             // 
             // Excellent1
             // 
@@ -734,6 +735,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBoxIdGroup;
         private System.Windows.Forms.DataGridView dataGridViewOldScores;
+        private System.Windows.Forms.TextBox textBoxRank;
+        private System.Windows.Forms.Button buttonDelete;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Semester1;
         private System.Windows.Forms.DataGridViewTextBoxColumn idGroup1;
@@ -750,7 +753,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn TotalGoodMember1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Note1;
         private System.Windows.Forms.DataGridViewTextBoxColumn CheckDone;
-        private System.Windows.Forms.TextBox textBoxRank;
-        private System.Windows.Forms.Button buttonDelete;
     }
 }

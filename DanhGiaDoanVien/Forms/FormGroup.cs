@@ -236,5 +236,13 @@ namespace DanhGiaDoanVien
         {
             dataGridViewMember.CurrentRow.Selected = true;
         }
+
+        private void textBoxMCDEdit_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == ' ')
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

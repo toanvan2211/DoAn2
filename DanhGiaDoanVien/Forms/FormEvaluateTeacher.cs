@@ -439,14 +439,21 @@ namespace DanhGiaDoanVien
             {
                 string rankHope = dataGridViewScoresTeacher.Rows[rowIndex].Cells["Rank1"].Value.ToString();
                 ScoresTeacher tc = CreateScoresTeacherByRowIndex(rowIndex);
-                tc = Evaluation(tc);
-                if ((tc.Rank = CompareRankCondition(tc.Rank, rankHope)) != null) //Đủ điều kiện xếp loại thì duyệt
+                if (tc != null)
                 {
-                    ScoresTeacherDAO.Instance.UpdateScoresTeacher(tc);
+                    tc = Evaluation(tc);
+                    if ((tc.Rank = CompareRankCondition(tc.Rank, rankHope)) != null) //Đủ điều kiện xếp loại thì duyệt
+                    {
+                        ScoresTeacherDAO.Instance.UpdateScoresTeacher(tc);
+                    }
+                    else
+                    {
+                        listRankError.Add(tc.Id);
+                    }
                 }
                 else
                 {
-                    listRankError.Add(tc.Id);
+                    MessageBox.Show("Vui lòng chọn đánh giá muốn lưu!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
 

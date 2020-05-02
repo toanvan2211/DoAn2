@@ -42,9 +42,9 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel2 = new System.Windows.Forms.Panel();
             this.panelControlLogin = new System.Windows.Forms.Panel();
-            this.lbWelcome = new System.Windows.Forms.Label();
-            this.labelBlockLogin = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.labelBlockLogin = new System.Windows.Forms.Label();
+            this.lbWelcome = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -71,6 +71,7 @@
             this.textBoxUserName.Name = "textBoxUserName";
             this.textBoxUserName.Size = new System.Drawing.Size(268, 23);
             this.textBoxUserName.TabIndex = 1;
+            this.textBoxUserName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxUserName_KeyPress);
             // 
             // textBoxPassword
             // 
@@ -193,18 +194,17 @@
             this.panelControlLogin.Size = new System.Drawing.Size(394, 252);
             this.panelControlLogin.TabIndex = 8;
             // 
-            // lbWelcome
+            // tableLayoutPanel2
             // 
-            this.lbWelcome.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lbWelcome.AutoSize = true;
-            this.lbWelcome.BackColor = System.Drawing.Color.Transparent;
-            this.lbWelcome.Font = new System.Drawing.Font("UTM Aircona", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbWelcome.ForeColor = System.Drawing.Color.Cyan;
-            this.lbWelcome.Location = new System.Drawing.Point(93, 200);
-            this.lbWelcome.Name = "lbWelcome";
-            this.lbWelcome.Size = new System.Drawing.Size(216, 44);
-            this.lbWelcome.TabIndex = 4;
-            this.lbWelcome.Text = "WELCOME";
+            this.tableLayoutPanel2.ColumnCount = 1;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Controls.Add(this.labelBlockLogin, 0, 0);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(21, 276);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 1;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(359, 262);
+            this.tableLayoutPanel2.TabIndex = 5;
             // 
             // labelBlockLogin
             // 
@@ -219,17 +219,18 @@
             this.labelBlockLogin.TabIndex = 4;
             this.labelBlockLogin.Text = "Khóa đăng nhập";
             // 
-            // tableLayoutPanel2
+            // lbWelcome
             // 
-            this.tableLayoutPanel2.ColumnCount = 1;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Controls.Add(this.labelBlockLogin, 0, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(21, 276);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 1;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(359, 262);
-            this.tableLayoutPanel2.TabIndex = 5;
+            this.lbWelcome.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lbWelcome.AutoSize = true;
+            this.lbWelcome.BackColor = System.Drawing.Color.Transparent;
+            this.lbWelcome.Font = new System.Drawing.Font("UTM Aircona", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbWelcome.ForeColor = System.Drawing.Color.Cyan;
+            this.lbWelcome.Location = new System.Drawing.Point(93, 200);
+            this.lbWelcome.Name = "lbWelcome";
+            this.lbWelcome.Size = new System.Drawing.Size(216, 44);
+            this.lbWelcome.TabIndex = 4;
+            this.lbWelcome.Text = "WELCOME";
             // 
             // FormLogin
             // 

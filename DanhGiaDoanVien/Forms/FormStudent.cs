@@ -429,5 +429,13 @@ namespace DanhGiaDoanVien
             currentIsMember = comboBoxMember.Text;
             LoadListStudent();
         }
+
+        private void textBoxMSSVEdit_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == ' ')
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

@@ -111,6 +111,7 @@
             this.textBoxMCDEdit.Name = "textBoxMCDEdit";
             this.textBoxMCDEdit.Size = new System.Drawing.Size(210, 20);
             this.textBoxMCDEdit.TabIndex = 1;
+            this.textBoxMCDEdit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxMCDEdit_KeyPress);
             // 
             // label2
             // 
@@ -435,10 +436,11 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.labelName.AutoSize = true;
+            this.labelName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelName.ForeColor = System.Drawing.Color.Gold;
-            this.labelName.Location = new System.Drawing.Point(125, 91);
+            this.labelName.Location = new System.Drawing.Point(155, 91);
             this.labelName.Name = "labelName";
-            this.labelName.Size = new System.Drawing.Size(0, 13);
+            this.labelName.Size = new System.Drawing.Size(0, 16);
             this.labelName.TabIndex = 5;
             // 
             // labelID
@@ -447,10 +449,11 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.labelID.AutoSize = true;
+            this.labelID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelID.ForeColor = System.Drawing.Color.Gold;
-            this.labelID.Location = new System.Drawing.Point(125, 52);
+            this.labelID.Location = new System.Drawing.Point(155, 52);
             this.labelID.Name = "labelID";
-            this.labelID.Size = new System.Drawing.Size(0, 13);
+            this.labelID.Size = new System.Drawing.Size(0, 16);
             this.labelID.TabIndex = 4;
             // 
             // tableLayoutPanel1
@@ -459,12 +462,13 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.label3, 0, 1);
+            this.tableLayoutPanel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tableLayoutPanel1.Location = new System.Drawing.Point(36, 39);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(83, 78);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(113, 78);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // label1
@@ -472,9 +476,9 @@
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(10, 13);
+            this.label1.Location = new System.Drawing.Point(26, 11);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(70, 13);
+            this.label1.Size = new System.Drawing.Size(84, 16);
             this.label1.TabIndex = 3;
             this.label1.Text = "Mã chi đoàn:";
             // 
@@ -483,9 +487,9 @@
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(51, 52);
+            this.label3.Location = new System.Drawing.Point(75, 50);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(29, 13);
+            this.label3.Size = new System.Drawing.Size(35, 16);
             this.label3.TabIndex = 3;
             this.label3.Text = "Tên:";
             // 

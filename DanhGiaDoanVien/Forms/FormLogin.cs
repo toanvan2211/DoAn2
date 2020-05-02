@@ -51,16 +51,16 @@ namespace DanhGiaDoanVien
 
         private void buttonLogin_Click(object sender, EventArgs e)
         {
-            if (wrongPassword == 3)
+            if (wrongPassword == 5)
             {
                 Properties.Settings.Default.TimeBlock = DateTime.Now.AddMinutes(30);
                 Properties.Settings.Default.IsBlockLogin = true;
                 Properties.Settings.Default.Save();
 
-                MessageBox.Show("Bạn đăng nhập sai quá 3 lần! Chức năng đăng nhập sẽ bị khóa đến " + Properties.Settings.Default.TimeBlock, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Bạn đăng nhập sai quá 5 lần! Chức năng đăng nhập sẽ bị khóa đến " + Properties.Settings.Default.TimeBlock, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
                 panelControlLogin.Visible = false; 
-                labelBlockLogin.Text = "Bạn đăng nhập sai quá 3 lần! Chức năng đăng nhập sẽ bị khóa đến " + Properties.Settings.Default.TimeBlock;
+                labelBlockLogin.Text = "Bạn đăng nhập sai quá 5 lần! Chức năng đăng nhập sẽ bị khóa đến " + Properties.Settings.Default.TimeBlock;
 
                 timer1.Start();
             }
@@ -119,7 +119,7 @@ namespace DanhGiaDoanVien
             if (Properties.Settings.Default.IsBlockLogin)
             {
                 panelControlLogin.Visible = false;
-                labelBlockLogin.Text = "Bạn đăng nhập sai quá 3 lần! Chức năng đăng nhập sẽ bị khóa đến " + Properties.Settings.Default.TimeBlock;
+                labelBlockLogin.Text = "Bạn đăng nhập sai quá 5 lần! Chức năng đăng nhập sẽ bị khóa đến " + Properties.Settings.Default.TimeBlock;
             }
             labelNotified.Text = "";
             timer1.Start();
@@ -134,6 +134,14 @@ namespace DanhGiaDoanVien
                 Properties.Settings.Default.Save();
 
                 labelBlockLogin.Text = "";
+            }
+        }
+
+        private void textBoxUserName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == ' ')
+            {
+                e.Handled = true;
             }
         }
     }

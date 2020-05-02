@@ -524,8 +524,13 @@ create trigger UTG_DeleteGoodStudent
 on DoanVienUuTuSV after delete
 as
 begin
-	update KetQuaChiDoan set tongDVUT -= 1
-	where id = (select idKetQuaChiDoan from deleted)
+	declare @id int = (select top(1) idKetQuaChiDoan from deleted)
+	declare @count int = (select count(*) from KetQuaChiDoan where id = @id)
+	if @count = 1
+	begin
+		update KetQuaChiDoan set tongDVUT -= 1
+		where id = (select idKetQuaChiDoan from deleted)
+	end
 end
 go
 
@@ -577,8 +582,13 @@ create trigger UTG_DeleteGoodTeacher
 on DoanVienUuTuGV after delete
 as
 begin
-	update KetQuaChiDoan set tongDVUT -= 1
-	where id = (select idKetQuaChiDoan from deleted)
+	declare @id int = (select top(1) idKetQuaChiDoan from deleted)
+	declare @count int = (select count(*) from KetQuaChiDoan where id = @id)
+	if @count = 1
+	begin
+		update KetQuaChiDoan set tongDVUT -= 1
+		where id = (select idKetQuaChiDoan from deleted)
+	end
 end
 go
 

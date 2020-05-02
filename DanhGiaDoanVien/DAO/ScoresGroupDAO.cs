@@ -90,6 +90,19 @@ namespace DanhGiaDoanVien.DAO
             return null;
         }
 
+        public void ResetGoodMember(int id)
+        {
+            string query = "delete DoanVienUuTuGV where idKetQuaChiDoan = " + id;
+            DataProvider.Instance.ExecuteNonQuery(query);
+            query = "update KetQuaGiangVien set doanVienUuTu = 0 where idKetQuaChiDoan = " + id + " and doanVienUuTu = 1";
+            DataProvider.Instance.ExecuteNonQuery(query);
+
+            query = "delete DoanVienUuTuSV where idKetQuaChiDoan = " + id;
+            DataProvider.Instance.ExecuteNonQuery(query);
+            query = "update KetQuaSinhVien set doanVienUuTu = 0 where idKetQuaChiDoan = " + id + " and doanVienUuTu = 1";
+            DataProvider.Instance.ExecuteNonQuery(query);
+        }
+
         public int CheckDoneScoresGroup(int id)
         {
             string query = "update KetQuaChiDoan set daXong = 1 where id = " + id;

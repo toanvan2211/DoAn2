@@ -257,5 +257,11 @@ namespace DanhGiaDoanVien.Forms
         {
             LoadListSemester();
         }
+
+        private void textBoxIdSemester_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == ' ')
+                e.Handled = true;
+        }
     }
 }

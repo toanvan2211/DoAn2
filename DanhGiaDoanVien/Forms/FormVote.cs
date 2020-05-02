@@ -66,6 +66,7 @@ namespace DanhGiaDoanVien.Forms
         private void buttonSave_Click(object sender, EventArgs e)
         {
             SaveVote();
+            this.Close();
         }
 
         private void buttonExit_Click(object sender, EventArgs e)

@@ -432,9 +432,10 @@ namespace DanhGiaDoanVien
             LoadListTeacher();
         }
 
-        private void panelEdit_Paint(object sender, PaintEventArgs e)
+        private void textBoxMSGVEdit_KeyPress(object sender, KeyPressEventArgs e)
         {
-
+            if (e.KeyChar == ' ')
+                e.Handled = true;
         }
     }
 }

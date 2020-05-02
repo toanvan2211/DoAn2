@@ -20,6 +20,7 @@ namespace DanhGiaDoanVien
         private int idCurrentScoresGroup = -1;
         private int currentIndex = -1;
         private string idCurrentGroup = "";
+        private bool checkDownRank = false;
         
         public FormEvaluateGroup()
         {
@@ -211,6 +212,8 @@ namespace DanhGiaDoanVien
                     }
                     if (compareRank[0] <= compareRank[1])
                     {
+                        if (compareRank[0] < compareRank[1])
+                            checkDownRank = true;
                         result = rankHope;
                     }
                     else
@@ -332,6 +335,12 @@ namespace DanhGiaDoanVien
                     {
                         sg.Note = textBoxNote.Text;
                         ScoresGroupDAO.Instance.UpdateScoresGroup(sg.Id, sg.Rank, sg.Note);
+
+                        if (checkDownRank)
+                        {
+                            ScoresGroupDAO.Instance.ResetGoodMember(sg.Id);
+                            checkDownRank = false;
+                        }
                         LoadListScoresGroup();
                     }
                     else
@@ -357,6 +366,12 @@ namespace DanhGiaDoanVien
                 if ((sg.Rank = CompareRankCondition(sg.Rank, rankHope)) != null) //Đủ điều kiện xếp loại thì duyệt
                 {
                     ScoresGroupDAO.Instance.UpdateScoresGroup(sg.Id, sg.Rank, sg.Note);
+
+                    if (checkDownRank)
+                    {
+                        ScoresGroupDAO.Instance.ResetGoodMember(sg.Id);
+                        checkDownRank = false;
+                    }
                 }
                 else //Không thì lưu lại id kết quả để báo lỗi
                 {
@@ -400,6 +415,12 @@ namespace DanhGiaDoanVien
                     if ((sg.Rank = CompareRankCondition(sg.Rank, rankHope)) != null) //Đủ điều kiện xếp loại thì duyệt
                     {
                         ScoresGroupDAO.Instance.UpdateScoresGroup(sg.Id, sg.Rank, sg.Note);
+                        
+                        if (checkDownRank)
+                        {
+                            ScoresGroupDAO.Instance.ResetGoodMember(sg.Id);
+                            checkDownRank = false;
+                        }
                     }
                     else //Không thì lưu lại id kết quả để báo lỗi
                     {

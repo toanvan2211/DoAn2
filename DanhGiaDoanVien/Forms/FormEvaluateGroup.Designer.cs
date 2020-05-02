@@ -29,24 +29,22 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormEvaluateGroup));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelBottom = new System.Windows.Forms.Panel();
-            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
-            this.label15 = new System.Windows.Forms.Label();
-            this.checkBoxAuto = new System.Windows.Forms.CheckBox();
+            this.buttonSaveSelect = new System.Windows.Forms.Button();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.buttonCreateList = new System.Windows.Forms.Button();
             this.comboBoxGroupEmpty = new System.Windows.Forms.ComboBox();
@@ -79,8 +77,10 @@
             this.buttonCheckDone = new System.Windows.Forms.Button();
             this.buttonSaveAll = new System.Windows.Forms.Button();
             this.buttonDelete = new System.Windows.Forms.Button();
-            this.buttonSaveSelect = new System.Windows.Forms.Button();
             this.buttonUpdate = new System.Windows.Forms.Button();
+            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.label15 = new System.Windows.Forms.Label();
+            this.checkBoxAuto = new System.Windows.Forms.CheckBox();
             this.label4 = new System.Windows.Forms.Label();
             this.comboBoxSemester = new System.Windows.Forms.ComboBox();
             this.panelTop = new System.Windows.Forms.Panel();
@@ -104,12 +104,12 @@
             this.Note1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CheckDone = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelBottom.SuspendLayout();
-            this.tableLayoutPanel5.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            this.tableLayoutPanel5.SuspendLayout();
             this.panelTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewScoresGroup)).BeginInit();
             this.SuspendLayout();
@@ -133,41 +133,18 @@
             this.panelBottom.Size = new System.Drawing.Size(1000, 197);
             this.panelBottom.TabIndex = 2;
             // 
-            // tableLayoutPanel5
+            // buttonSaveSelect
             // 
-            this.tableLayoutPanel5.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tableLayoutPanel5.ColumnCount = 2;
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 58.97436F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 41.02564F));
-            this.tableLayoutPanel5.Controls.Add(this.label15, 0, 0);
-            this.tableLayoutPanel5.Controls.Add(this.checkBoxAuto, 1, 0);
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(755, 68);
-            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
-            this.tableLayoutPanel5.RowCount = 1;
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(67, 50);
-            this.tableLayoutPanel5.TabIndex = 4;
-            // 
-            // label15
-            // 
-            this.label15.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label15.AutoSize = true;
-            this.label15.ForeColor = System.Drawing.Color.White;
-            this.label15.Location = new System.Drawing.Point(7, 18);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(29, 13);
-            this.label15.TabIndex = 3;
-            this.label15.Text = "Auto";
-            // 
-            // checkBoxAuto
-            // 
-            this.checkBoxAuto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.checkBoxAuto.AutoSize = true;
-            this.checkBoxAuto.Location = new System.Drawing.Point(42, 18);
-            this.checkBoxAuto.Name = "checkBoxAuto";
-            this.checkBoxAuto.Size = new System.Drawing.Size(22, 14);
-            this.checkBoxAuto.TabIndex = 4;
-            this.checkBoxAuto.UseVisualStyleBackColor = true;
+            this.buttonSaveSelect.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonSaveSelect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSaveSelect.ForeColor = System.Drawing.Color.White;
+            this.buttonSaveSelect.Image = ((System.Drawing.Image)(resources.GetObject("buttonSaveSelect.Image")));
+            this.buttonSaveSelect.Location = new System.Drawing.Point(818, 69);
+            this.buttonSaveSelect.Name = "buttonSaveSelect";
+            this.buttonSaveSelect.Size = new System.Drawing.Size(53, 44);
+            this.buttonSaveSelect.TabIndex = 8;
+            this.buttonSaveSelect.UseVisualStyleBackColor = true;
+            this.buttonSaveSelect.Click += new System.EventHandler(this.buttonSaveSelect_Click);
             // 
             // tableLayoutPanel4
             // 
@@ -557,19 +534,6 @@
             this.buttonDelete.UseVisualStyleBackColor = true;
             this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
             // 
-            // buttonSaveSelect
-            // 
-            this.buttonSaveSelect.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonSaveSelect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSaveSelect.ForeColor = System.Drawing.Color.White;
-            this.buttonSaveSelect.Image = ((System.Drawing.Image)(resources.GetObject("buttonSaveSelect.Image")));
-            this.buttonSaveSelect.Location = new System.Drawing.Point(818, 69);
-            this.buttonSaveSelect.Name = "buttonSaveSelect";
-            this.buttonSaveSelect.Size = new System.Drawing.Size(53, 44);
-            this.buttonSaveSelect.TabIndex = 8;
-            this.buttonSaveSelect.UseVisualStyleBackColor = true;
-            this.buttonSaveSelect.Click += new System.EventHandler(this.buttonSaveSelect_Click);
-            // 
             // buttonUpdate
             // 
             this.buttonUpdate.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -583,6 +547,42 @@
             this.buttonUpdate.TabIndex = 5;
             this.buttonUpdate.UseVisualStyleBackColor = true;
             this.buttonUpdate.Click += new System.EventHandler(this.buttonUpdate_Click);
+            // 
+            // tableLayoutPanel5
+            // 
+            this.tableLayoutPanel5.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tableLayoutPanel5.ColumnCount = 2;
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 58.97436F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 41.02564F));
+            this.tableLayoutPanel5.Controls.Add(this.label15, 0, 0);
+            this.tableLayoutPanel5.Controls.Add(this.checkBoxAuto, 1, 0);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(755, 68);
+            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
+            this.tableLayoutPanel5.RowCount = 1;
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(67, 50);
+            this.tableLayoutPanel5.TabIndex = 4;
+            // 
+            // label15
+            // 
+            this.label15.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label15.AutoSize = true;
+            this.label15.ForeColor = System.Drawing.Color.White;
+            this.label15.Location = new System.Drawing.Point(7, 18);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(29, 13);
+            this.label15.TabIndex = 3;
+            this.label15.Text = "Auto";
+            // 
+            // checkBoxAuto
+            // 
+            this.checkBoxAuto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.checkBoxAuto.AutoSize = true;
+            this.checkBoxAuto.Location = new System.Drawing.Point(42, 18);
+            this.checkBoxAuto.Name = "checkBoxAuto";
+            this.checkBoxAuto.Size = new System.Drawing.Size(22, 14);
+            this.checkBoxAuto.TabIndex = 4;
+            this.checkBoxAuto.UseVisualStyleBackColor = true;
             // 
             // label4
             // 
@@ -684,8 +684,8 @@
             // 
             this.Id1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Id1.DataPropertyName = "id";
-            dataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.Id1.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.Id1.DefaultCellStyle = dataGridViewCellStyle1;
             this.Id1.HeaderText = "ID";
             this.Id1.Name = "Id1";
             this.Id1.ReadOnly = true;
@@ -695,79 +695,83 @@
             // 
             this.Semester1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Semester1.DataPropertyName = "idNamHoc";
-            dataGridViewCellStyle16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.Semester1.DefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.Semester1.DefaultCellStyle = dataGridViewCellStyle2;
             this.Semester1.HeaderText = "Năm học";
             this.Semester1.Name = "Semester1";
             this.Semester1.ReadOnly = true;
-            this.Semester1.Width = 69;
+            this.Semester1.Width = 75;
             // 
             // idGroup1
             // 
             this.idGroup1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.idGroup1.DataPropertyName = "idChiDoan";
-            dataGridViewCellStyle17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.idGroup1.DefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.idGroup1.DefaultCellStyle = dataGridViewCellStyle3;
             this.idGroup1.HeaderText = "Chi đoàn";
             this.idGroup1.Name = "idGroup1";
             this.idGroup1.ReadOnly = true;
-            this.idGroup1.Width = 69;
+            this.idGroup1.Width = 75;
             // 
             // Rank1
             // 
-            this.Rank1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Rank1.DataPropertyName = "xepLoai";
-            dataGridViewCellStyle18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.Rank1.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.Rank1.DefaultCellStyle = dataGridViewCellStyle4;
             this.Rank1.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
+            this.Rank1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Rank1.HeaderText = "Xếp loại";
             this.Rank1.Items.AddRange(new object[] {
             "Chi đoàn vững mạnh",
             "Chi đoàn khá",
             "Chi đoàn trung bình",
             "Chi đoàn yếu kém"});
+            this.Rank1.MinimumWidth = 150;
             this.Rank1.Name = "Rank1";
             this.Rank1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Rank1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.Rank1.Width = 51;
             // 
             // Excellent1
             // 
             this.Excellent1.DataPropertyName = "xuatSac";
-            dataGridViewCellStyle19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.Excellent1.DefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.Excellent1.DefaultCellStyle = dataGridViewCellStyle5;
             this.Excellent1.HeaderText = "Xuất sắc";
+            this.Excellent1.MinimumWidth = 50;
             this.Excellent1.Name = "Excellent1";
             // 
             // Great1
             // 
             this.Great1.DataPropertyName = "kha";
-            dataGridViewCellStyle20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.Great1.DefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.Great1.DefaultCellStyle = dataGridViewCellStyle6;
             this.Great1.HeaderText = "Khá";
+            this.Great1.MinimumWidth = 50;
             this.Great1.Name = "Great1";
             // 
             // Medium1
             // 
             this.Medium1.DataPropertyName = "trungBinh";
-            dataGridViewCellStyle21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.Medium1.DefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.Medium1.DefaultCellStyle = dataGridViewCellStyle7;
             this.Medium1.HeaderText = "Trung bình";
+            this.Medium1.MinimumWidth = 50;
             this.Medium1.Name = "Medium1";
             // 
             // Bad1
             // 
             this.Bad1.DataPropertyName = "yeuKem";
-            dataGridViewCellStyle22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.Bad1.DefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.Bad1.DefaultCellStyle = dataGridViewCellStyle8;
             this.Bad1.HeaderText = "Yếu kém";
+            this.Bad1.MinimumWidth = 50;
             this.Bad1.Name = "Bad1";
             // 
             // TotalMember1
             // 
             this.TotalMember1.DataPropertyName = "soThanhVien";
-            dataGridViewCellStyle23.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.TotalMember1.DefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.TotalMember1.DefaultCellStyle = dataGridViewCellStyle9;
             this.TotalMember1.HeaderText = "Số thành viên";
             this.TotalMember1.Name = "TotalMember1";
             this.TotalMember1.ReadOnly = true;
@@ -775,8 +779,8 @@
             // TotalStudent1
             // 
             this.TotalStudent1.DataPropertyName = "tongSV";
-            dataGridViewCellStyle24.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.TotalStudent1.DefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.TotalStudent1.DefaultCellStyle = dataGridViewCellStyle10;
             this.TotalStudent1.HeaderText = "Sinh viên";
             this.TotalStudent1.Name = "TotalStudent1";
             this.TotalStudent1.ReadOnly = true;
@@ -784,32 +788,32 @@
             // TotalTeacher1
             // 
             this.TotalTeacher1.DataPropertyName = "tongGV";
-            dataGridViewCellStyle25.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.TotalTeacher1.DefaultCellStyle = dataGridViewCellStyle25;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.TotalTeacher1.DefaultCellStyle = dataGridViewCellStyle11;
             this.TotalTeacher1.HeaderText = "Giảng viên";
             this.TotalTeacher1.Name = "TotalTeacher1";
             // 
             // TotalFemaleStudent1
             // 
             this.TotalFemaleStudent1.DataPropertyName = "tongNuSV";
-            dataGridViewCellStyle26.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.TotalFemaleStudent1.DefaultCellStyle = dataGridViewCellStyle26;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.TotalFemaleStudent1.DefaultCellStyle = dataGridViewCellStyle12;
             this.TotalFemaleStudent1.HeaderText = "Sinh viên nữ";
             this.TotalFemaleStudent1.Name = "TotalFemaleStudent1";
             // 
             // TotalFemaleTeacher1
             // 
             this.TotalFemaleTeacher1.DataPropertyName = "tongNuGV";
-            dataGridViewCellStyle27.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.TotalFemaleTeacher1.DefaultCellStyle = dataGridViewCellStyle27;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.TotalFemaleTeacher1.DefaultCellStyle = dataGridViewCellStyle13;
             this.TotalFemaleTeacher1.HeaderText = "Giảng viên nữ";
             this.TotalFemaleTeacher1.Name = "TotalFemaleTeacher1";
             // 
             // TotalGoodMember1
             // 
             this.TotalGoodMember1.DataPropertyName = "tongDVUT";
-            dataGridViewCellStyle28.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.TotalGoodMember1.DefaultCellStyle = dataGridViewCellStyle28;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.TotalGoodMember1.DefaultCellStyle = dataGridViewCellStyle14;
             this.TotalGoodMember1.HeaderText = "Đoàn viên ưu tú";
             this.TotalGoodMember1.Name = "TotalGoodMember1";
             // 
@@ -841,8 +845,6 @@
             this.Text = "FormEvaluteGroup";
             this.Load += new System.EventHandler(this.FormEvaluateGroup_Load);
             this.panelBottom.ResumeLayout(false);
-            this.tableLayoutPanel5.ResumeLayout(false);
-            this.tableLayoutPanel5.PerformLayout();
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
@@ -851,6 +853,8 @@
             this.tableLayoutPanel2.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            this.tableLayoutPanel5.ResumeLayout(false);
+            this.tableLayoutPanel5.PerformLayout();
             this.panelTop.ResumeLayout(false);
             this.panelTop.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewScoresGroup)).EndInit();
