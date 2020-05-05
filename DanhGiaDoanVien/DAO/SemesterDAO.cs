@@ -52,7 +52,12 @@ namespace DanhGiaDoanVien.DAO
 
         public int DeleteSemester(string idSemester)
         {
-            string query = "USP_DeleteSemester @idSemester";
+            string query = "select * from KetQuaChiDoan where idNamHoc = '" + idSemester + "'";
+            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+            if (data.Rows.Count > 0)
+                return -797;
+
+            query = "USP_DeleteSemester @idSemester";
             return DataProvider.Instance.ExecuteNonQuery(query, new object[] { idSemester });
         }
     }

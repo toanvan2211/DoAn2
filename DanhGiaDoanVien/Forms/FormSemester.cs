@@ -101,6 +101,12 @@ namespace DanhGiaDoanVien.Forms
             }
         }
 
+        public void Alert(string msg, FormNotified.enmType type)
+        {
+            FormNotified frm = new FormNotified();
+            frm.ShowAlert(msg, type);
+        }
+
         void ExecuteEditCommand()
         {
             if (currentEditState == EditState.add)
@@ -110,7 +116,12 @@ namespace DanhGiaDoanVien.Forms
                     int result = SemesterDAO.Instance.AddSemester(textBoxIdSemester.Text, textBoxNameEdit.Text);
                     if (result > 0)
                     {
+                        string stringNotification = "năm học có mã: " + textBoxIdSemester.Text;
+                        textBoxIdSemester.ResetText();
+                        textBoxNameEdit.ResetText();
                         LoadListSemester();
+
+                        Alert(stringNotification, FormNotified.enmType.Insert);
                     }
                     else if (result == -1)
                     {
@@ -118,30 +129,39 @@ namespace DanhGiaDoanVien.Forms
                     }
                     else
                     {
-                        MessageBox.Show("Thất bại, thử lại sau", "Đã xảy ra lỗi");
+                        MessageBox.Show("Thất bại, thử lại sau", "Đã xảy ra lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Chưa điền đủ thông tin", "Đã xảy ra lỗi");
+                    MessageBox.Show("Chưa điền đủ thông tin", "Đã xảy ra lỗi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             else if (currentEditState == EditState.update)
             {
-                if (textBoxIdSemester.Text != "" && textBoxNameEdit.Text != "")
+                if (currentSemester.Name == textBoxNameEdit.Text)
+                {
+                    MessageBox.Show("Thông tin không có sự thay đổi!", "Đã xảy ra lỗi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else if (textBoxIdSemester.Text != "" && textBoxNameEdit.Text != "")
                 {
                     if (SemesterDAO.Instance.UpdateSemester(textBoxIdSemester.Text, textBoxNameEdit.Text) != 0) 
-                    { 
-                        LoadListSemester(); 
+                    {
+                        string stringNotification = "năm học có mã: " + textBoxIdSemester.Text;
+
+                        currentSemester.Name = textBoxNameEdit.Text;
+                        LoadListSemester();
+
+                        Alert(stringNotification, FormNotified.enmType.Edit);
                     }
                     else
                     {
-                        MessageBox.Show("Thất bại, thử lại sau", "Đã xảy ra lỗi");
+                        MessageBox.Show("Thất bại, thử lại sau", "Đã xảy ra lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Chưa điền đủ thông tin", "Đã xảy ra lỗi");
+                    MessageBox.Show("Chưa điền đủ thông tin", "Đã xảy ra lỗi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             else if (currentEditState == EditState.delete)
@@ -151,13 +171,21 @@ namespace DanhGiaDoanVien.Forms
                     DialogResult rs = MessageBox.Show("Bạn có chắc muốn xóa?", "Cảnh báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                     if (rs == DialogResult.Yes)
                     {
-                        if (SemesterDAO.Instance.DeleteSemester(textBoxIdSemester.Text) != 0)
+                        int result = SemesterDAO.Instance.DeleteSemester(textBoxIdSemester.Text);
+                        if (result > 0)
                         {
+                            string stringNotification = "năm học có mã: " + textBoxIdSemester.Text;
                             LoadListSemester();
+
+                            Alert(stringNotification, FormNotified.enmType.Delete);
+                        }
+                        else if (result == -797)
+                        {
+                            MessageBox.Show("Năm học này đã tồn tại đánh giá trong hệ thống, không thể xóa!", "Đã xảy ra lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                         else
                         {
-                            MessageBox.Show("Thất bại, thử lại sau", "Đã xảy ra lỗi");
+                            MessageBox.Show("Thất bại, thử lại sau", "Đã xảy ra lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                 }

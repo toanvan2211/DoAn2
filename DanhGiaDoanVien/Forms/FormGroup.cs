@@ -1,5 +1,6 @@
 ﻿using DanhGiaDoanVien.DAO;
 using DanhGiaDoanVien.DTO;
+using DanhGiaDoanVien.Forms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,6 +16,7 @@ namespace DanhGiaDoanVien
     public partial class FormGroup : Form
     {
         private string currentIdGroup = "";
+        private string currentNameGroup = "";
         private string currentEditState = EditState.none;
 
         private struct EditState
@@ -105,6 +107,12 @@ namespace DanhGiaDoanVien
             }
         }
 
+        public void Alert(string msg, FormNotified.enmType type)
+        {
+            FormNotified frm = new FormNotified();
+            frm.ShowAlert(msg, type);
+        }
+
         void ExecuteEditCommand()
         {
             if (currentEditState == EditState.add)
@@ -114,7 +122,12 @@ namespace DanhGiaDoanVien
                     int result = GroupDAO.Instance.AddGroup(textBoxMCDEdit.Text, textBoxNameEdit.Text);
                     if (result > 0)
                     {
+                        string stringNotification = "chi đoàn có mã: " + textBoxMCDEdit.Text;
+                        textBoxMCDEdit.ResetText();
+                        textBoxNameEdit.ResetText();
                         LoadListGroup();
+
+                        Alert(stringNotification, FormNotified.enmType.Insert);
                     }
                     else if (result == -1)
                     {
@@ -122,27 +135,38 @@ namespace DanhGiaDoanVien
                     }
                     else
                     {
-                        MessageBox.Show("Thất bại, thử lại sau", "Đã xảy ra lỗi");
+                        MessageBox.Show("Thất bại, thử lại sau!", "Đã xảy ra lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Chưa điền đủ thông tin", "Đã xảy ra lỗi");
+                    MessageBox.Show("Chưa điền đủ thông tin!", "Đã xảy ra lỗi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             else if (currentEditState == EditState.update)
             {
-                if (textBoxMCDEdit.Text != "" && textBoxNameEdit.Text != "")
+                if (textBoxNameEdit.Text == currentNameGroup)
                 {
-                    if (GroupDAO.Instance.UpdateGroup(textBoxMCDEdit.Text, textBoxNameEdit.Text) != 0) { LoadListGroup(); }
+                    MessageBox.Show("Thông tin không có sự thay đổi!", "Đã xảy ra lỗi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else if (textBoxMCDEdit.Text != "" && textBoxNameEdit.Text != "")
+                {
+                    if (GroupDAO.Instance.UpdateGroup(textBoxMCDEdit.Text, textBoxNameEdit.Text) > 0)
+                    {
+                        string stringNotification = "chi đoàn có mã: " + textBoxMCDEdit.Text;
+                        currentNameGroup = textBoxNameEdit.Text;
+                        LoadListGroup();
+                                                
+                        Alert(stringNotification, FormNotified.enmType.Edit);
+                    }
                     else
                     {
-                        MessageBox.Show("Thất bại, thử lại sau", "Đã xảy ra lỗi");
+                        MessageBox.Show("Thất bại, thử lại sau!", "Đã xảy ra lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Chưa điền đủ thông tin", "Đã xảy ra lỗi");
+                    MessageBox.Show("Chưa điền đủ thông tin!", "Đã xảy ra lỗi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             else if (currentEditState == EditState.delete)
@@ -152,10 +176,21 @@ namespace DanhGiaDoanVien
                     DialogResult rs = MessageBox.Show("Bạn có chắc muốn xóa?", "Cảnh báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                     if (rs == DialogResult.Yes)
                     {
-                        if (GroupDAO.Instance.DeleteGroup(textBoxMCDEdit.Text) != 0) { LoadListGroup(); }
+                        int result = GroupDAO.Instance.DeleteGroup(textBoxMCDEdit.Text);
+                        if (result > 0)
+                        {
+                            string stringNotification = "chi đoàn có mã: " + textBoxMCDEdit.Text;
+                            LoadListGroup();
+
+                            Alert(stringNotification, FormNotified.enmType.Delete);
+                        }
+                        else if (result == -797)
+                        {
+                            MessageBox.Show("Chi đoàn này đã tồn tại đánh giá trong hệ thống, không thể xóa!", "Đã xảy ra lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                         else
                         {
-                            MessageBox.Show("Thất bại, thử lại sau", "Đã xảy ra lỗi");
+                            MessageBox.Show("Thất bại, thử lại sau!", "Đã xảy ra lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                 }
@@ -197,6 +232,7 @@ namespace DanhGiaDoanVien
             try
             {
                 currentIdGroup = dataGridViewGroup.Rows[e.RowIndex].Cells["id"].Value.ToString();
+                currentNameGroup = dataGridViewGroup.Rows[e.RowIndex].Cells["Name1"].Value.ToString();
                 labelID.Text = dataGridViewGroup.Rows[e.RowIndex].Cells["id"].Value.ToString();
                 textBoxMCDEdit.Text = dataGridViewGroup.Rows[e.RowIndex].Cells["id"].Value.ToString();
                 labelName.Text = dataGridViewGroup.Rows[e.RowIndex].Cells["Name1"].Value.ToString();
@@ -210,16 +246,19 @@ namespace DanhGiaDoanVien
         private void buttonUpdate_Click(object sender, EventArgs e)
         {
             ChangeState((Button)sender);
+            LoadListGroup();
         }
 
         private void buttonDelete_Click(object sender, EventArgs e)
         {
             ChangeState((Button)sender);
+            LoadListGroup();
         }
 
         private void buttonResetText_Click(object sender, EventArgs e)
         {
             ResetTextEdit();
+            LoadListGroup();
         }
 
         private void buttonEdit_Click(object sender, EventArgs e)
@@ -230,6 +269,7 @@ namespace DanhGiaDoanVien
         private void buttonExitEdit_Click(object sender, EventArgs e)
         {
             ChangeState((Button)sender);
+            LoadListGroup();
         }
 
         private void dataGridViewMember_CellClick(object sender, DataGridViewCellEventArgs e)

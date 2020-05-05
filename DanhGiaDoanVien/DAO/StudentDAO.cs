@@ -267,9 +267,16 @@ namespace DanhGiaDoanVien.DAO
         }
 
         public int DeleteStudent(string idStudent)
-        {
-            string query = "USP_DeleteStudent @idStudent";
+        { 
+            string query = "select * from KetQuaSinhVien where MSSV = '" + idStudent + "'";
 
+            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+            if (data.Rows.Count > 0)
+            {
+                return -797;
+            }
+
+            query = "USP_DeleteStudent @idStudent";
             return DataProvider.Instance.ExecuteNonQuery(query, new object[] { idStudent });
         }
 

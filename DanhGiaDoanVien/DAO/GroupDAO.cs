@@ -51,7 +51,12 @@ namespace DanhGiaDoanVien.DAO
 
         public int DeleteGroup(string idGroup)
         {
-            string query = "USP_DeleteGroup @idGroup";
+            string query = "select * from KetQuaChiDoan where idChiDoan = '" + idGroup + "'";
+            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+            if (data.Rows.Count > 0)
+                return -797;
+
+            query = "USP_DeleteGroup @idGroup";
             return DataProvider.Instance.ExecuteNonQuery(query, new object[] { idGroup});
         }
 

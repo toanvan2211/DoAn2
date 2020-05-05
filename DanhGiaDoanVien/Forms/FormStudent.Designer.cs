@@ -122,7 +122,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.03327F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 38.87916F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 75F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 178F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 180F));
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.comboBoxSex, 3, 0);
             this.tableLayoutPanel1.Controls.Add(this.comboBoxGroup, 1, 0);
@@ -157,9 +157,9 @@
             "Tất cả",
             "Nam",
             "Nữ"});
-            this.comboBoxSex.Location = new System.Drawing.Point(308, 8);
+            this.comboBoxSex.Location = new System.Drawing.Point(307, 8);
             this.comboBoxSex.Name = "comboBoxSex";
-            this.comboBoxSex.Size = new System.Drawing.Size(188, 21);
+            this.comboBoxSex.Size = new System.Drawing.Size(187, 21);
             this.comboBoxSex.TabIndex = 2;
             this.comboBoxSex.SelectedIndexChanged += new System.EventHandler(this.comboBoxSex_SelectedIndexChanged);
             // 
@@ -180,7 +180,7 @@
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(273, 6);
+            this.label4.Location = new System.Drawing.Point(272, 6);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(29, 26);
             this.label4.TabIndex = 3;
@@ -191,7 +191,7 @@
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(512, 12);
+            this.label3.Location = new System.Drawing.Point(510, 12);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(59, 13);
             this.label3.TabIndex = 3;
@@ -207,9 +207,9 @@
             "Tất cả",
             "Có",
             "Không"});
-            this.comboBoxMember.Location = new System.Drawing.Point(577, 8);
+            this.comboBoxMember.Location = new System.Drawing.Point(575, 8);
             this.comboBoxMember.Name = "comboBoxMember";
-            this.comboBoxMember.Size = new System.Drawing.Size(174, 21);
+            this.comboBoxMember.Size = new System.Drawing.Size(176, 21);
             this.comboBoxMember.TabIndex = 3;
             this.comboBoxMember.SelectedIndexChanged += new System.EventHandler(this.comboBoxMember_SelectedIndexChanged);
             // 
@@ -232,7 +232,7 @@
             this.panelEdit.Controls.Add(this.label10);
             this.panelEdit.Controls.Add(this.label11);
             this.panelEdit.Controls.Add(this.label12);
-            this.panelEdit.Location = new System.Drawing.Point(154, 229);
+            this.panelEdit.Location = new System.Drawing.Point(166, 229);
             this.panelEdit.Name = "panelEdit";
             this.panelEdit.Size = new System.Drawing.Size(594, 163);
             this.panelEdit.TabIndex = 2;

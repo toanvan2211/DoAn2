@@ -372,7 +372,7 @@ namespace DanhGiaDoanVien
                     }
                     else if (result == -1)
                     {
-                        MessageBox.Show("Thông tin không có sự thay đổi", "Đã xảy ra lỗi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Thông tin không có sự thay đổi!", "Đã xảy ra lỗi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else if (result == -696)
                     {
@@ -380,12 +380,12 @@ namespace DanhGiaDoanVien
                     }
                     else
                     {
-                        MessageBox.Show("Thất bại, thử lại sau", "Đã xảy ra lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Thất bại, thử lại sau!", "Đã xảy ra lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Chưa điền đủ thông tin", "Đã xảy ra lỗi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Chưa điền đủ thông tin!", "Đã xảy ra lỗi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             else if (currentEditState == EditState.delete)
@@ -395,7 +395,8 @@ namespace DanhGiaDoanVien
                     DialogResult rs = MessageBox.Show("Bạn có chắc muốn xóa?", "Cảnh báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                     if (rs == DialogResult.Yes)
                     {
-                        if (TeacherDAO.Instance.DeleteTeacher(textBoxMSGVEdit.Text) != 0) 
+                        int result = TeacherDAO.Instance.DeleteTeacher(textBoxMSGVEdit.Text);
+                        if (result > 0) 
                         {
                             string stringNotification = "giảng viên có mã: " + textBoxMSGVEdit.Text;
 
@@ -403,9 +404,13 @@ namespace DanhGiaDoanVien
 
                             Alert(stringNotification, FormNotified.enmType.Delete);
                         }
+                        else if (result == -797)
+                        {
+                            MessageBox.Show("Giảng viên này đã tồn tại đánh giá trong hệ thống, không thể xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                         else
                         {
-                            MessageBox.Show("Thất bại, thử lại sau", "Đã xảy ra lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("Thất bại, thử lại sau!", "Đã xảy ra lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                 }

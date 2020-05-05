@@ -249,8 +249,15 @@ namespace DanhGiaDoanVien.DAO
 
         public int DeleteTeacher(string idTeacher)
         {
-            string query = "USP_DeleteTeacher @idTeacher";
+            string query = "select * from KetQuaGiangVien where MSGV = '" + idTeacher + "'";
 
+            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+            if (data.Rows.Count > 0)
+            {
+                return -797;
+            }
+
+            query = "USP_DeleteTeacher @idTeacher";
             return DataProvider.Instance.ExecuteNonQuery(query, new object[] { idTeacher});
         }
 
