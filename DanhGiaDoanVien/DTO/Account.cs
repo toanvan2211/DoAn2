@@ -22,8 +22,8 @@ namespace DanhGiaDoanVien.DTO
         public Account(DataRow row)
         {
             this.User = (string)row["taiKhoan"];
-            this.Password = (string)row["password"];
-            this.IdTeacher = (string)row["MSCB"];
+            this.Password = (string)row["matKhau"];
+            this.IdTeacher = (string)row["MSGV"];
             this.TypeAccount = (string)row["loaiTaiKhoan"];
         }
     }

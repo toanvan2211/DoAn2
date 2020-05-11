@@ -42,6 +42,7 @@ namespace DanhGiaDoanVien
             comboBoxGroup.SelectedIndex = 0;
             comboBoxMember.SelectedIndex = 0;
             LoadListStudent();
+            LoadInterface();
         }
         //ComboBox
         private void comboBoxGroup_SelectedIndexChanged(object sender, EventArgs e)
@@ -145,15 +146,10 @@ namespace DanhGiaDoanVien
         }
 
         #region method
-        void GetCurrentRadio(Panel pnl)
+        void LoadInterface()
         {
-            foreach (RadioButton item in pnl.Controls)
-            {
-                if (item.Checked)
-                {
-                    currentIsMember = item.Text;
-                }
-            }
+            if (FormMain.typeAccount == "giảng viên")
+                panelAdmin.Visible = false;
         }
         void LoadListStudent()
         {

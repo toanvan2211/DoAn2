@@ -103,6 +103,7 @@
             this.TotalGoodMember1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Note1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CheckDone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label14 = new System.Windows.Forms.Label();
             this.panelBottom.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -118,6 +119,7 @@
             // 
             this.panelBottom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(45)))));
             this.panelBottom.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panelBottom.Controls.Add(this.buttonCreateList);
             this.panelBottom.Controls.Add(this.buttonSaveSelect);
             this.panelBottom.Controls.Add(this.tableLayoutPanel4);
             this.panelBottom.Controls.Add(this.tableLayoutPanel3);
@@ -139,7 +141,7 @@
             this.buttonSaveSelect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSaveSelect.ForeColor = System.Drawing.Color.White;
             this.buttonSaveSelect.Image = ((System.Drawing.Image)(resources.GetObject("buttonSaveSelect.Image")));
-            this.buttonSaveSelect.Location = new System.Drawing.Point(818, 69);
+            this.buttonSaveSelect.Location = new System.Drawing.Point(818, 10);
             this.buttonSaveSelect.Name = "buttonSaveSelect";
             this.buttonSaveSelect.Size = new System.Drawing.Size(53, 44);
             this.buttonSaveSelect.TabIndex = 8;
@@ -150,11 +152,11 @@
             // 
             this.tableLayoutPanel4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tableLayoutPanel4.ColumnCount = 2;
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60.80247F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 39.19753F));
-            this.tableLayoutPanel4.Controls.Add(this.buttonCreateList, 1, 0);
-            this.tableLayoutPanel4.Controls.Add(this.comboBoxGroupEmpty, 0, 0);
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(429, 122);
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 34.87654F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 65.12346F));
+            this.tableLayoutPanel4.Controls.Add(this.comboBoxGroupEmpty, 1, 0);
+            this.tableLayoutPanel4.Controls.Add(this.label14, 0, 0);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(429, 118);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -168,7 +170,7 @@
             this.buttonCreateList.ForeColor = System.Drawing.Color.White;
             this.buttonCreateList.Image = ((System.Drawing.Image)(resources.GetObject("buttonCreateList.Image")));
             this.buttonCreateList.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonCreateList.Location = new System.Drawing.Point(200, 14);
+            this.buttonCreateList.Location = new System.Drawing.Point(759, 132);
             this.buttonCreateList.Name = "buttonCreateList";
             this.buttonCreateList.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.buttonCreateList.Size = new System.Drawing.Size(121, 39);
@@ -185,9 +187,9 @@
             this.comboBoxGroupEmpty.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxGroupEmpty.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBoxGroupEmpty.FormattingEnabled = true;
-            this.comboBoxGroupEmpty.Location = new System.Drawing.Point(3, 23);
+            this.comboBoxGroupEmpty.Location = new System.Drawing.Point(116, 23);
             this.comboBoxGroupEmpty.Name = "comboBoxGroupEmpty";
-            this.comboBoxGroupEmpty.Size = new System.Drawing.Size(191, 21);
+            this.comboBoxGroupEmpty.Size = new System.Drawing.Size(205, 21);
             this.comboBoxGroupEmpty.TabIndex = 1;
             // 
             // tableLayoutPanel3
@@ -501,7 +503,7 @@
             this.buttonCheckDone.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonCheckDone.ForeColor = System.Drawing.Color.White;
             this.buttonCheckDone.Image = ((System.Drawing.Image)(resources.GetObject("buttonCheckDone.Image")));
-            this.buttonCheckDone.Location = new System.Drawing.Point(759, 131);
+            this.buttonCheckDone.Location = new System.Drawing.Point(759, 72);
             this.buttonCheckDone.Name = "buttonCheckDone";
             this.buttonCheckDone.Size = new System.Drawing.Size(53, 44);
             this.buttonCheckDone.TabIndex = 6;
@@ -514,7 +516,7 @@
             this.buttonSaveAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSaveAll.ForeColor = System.Drawing.Color.White;
             this.buttonSaveAll.Image = ((System.Drawing.Image)(resources.GetObject("buttonSaveAll.Image")));
-            this.buttonSaveAll.Location = new System.Drawing.Point(877, 69);
+            this.buttonSaveAll.Location = new System.Drawing.Point(877, 10);
             this.buttonSaveAll.Name = "buttonSaveAll";
             this.buttonSaveAll.Size = new System.Drawing.Size(53, 44);
             this.buttonSaveAll.TabIndex = 7;
@@ -527,7 +529,7 @@
             this.buttonDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonDelete.ForeColor = System.Drawing.Color.White;
             this.buttonDelete.Image = ((System.Drawing.Image)(resources.GetObject("buttonDelete.Image")));
-            this.buttonDelete.Location = new System.Drawing.Point(818, 131);
+            this.buttonDelete.Location = new System.Drawing.Point(818, 72);
             this.buttonDelete.Name = "buttonDelete";
             this.buttonDelete.Size = new System.Drawing.Size(53, 44);
             this.buttonDelete.TabIndex = 9;
@@ -540,7 +542,7 @@
             this.buttonUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonUpdate.ForeColor = System.Drawing.Color.White;
             this.buttonUpdate.Image = ((System.Drawing.Image)(resources.GetObject("buttonUpdate.Image")));
-            this.buttonUpdate.Location = new System.Drawing.Point(877, 131);
+            this.buttonUpdate.Location = new System.Drawing.Point(877, 72);
             this.buttonUpdate.Name = "buttonUpdate";
             this.buttonUpdate.Padding = new System.Windows.Forms.Padding(5, 0, 0, 2);
             this.buttonUpdate.Size = new System.Drawing.Size(53, 45);
@@ -556,7 +558,7 @@
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 41.02564F));
             this.tableLayoutPanel5.Controls.Add(this.label15, 0, 0);
             this.tableLayoutPanel5.Controls.Add(this.checkBoxAuto, 1, 0);
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(755, 68);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(755, 9);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 1;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -700,7 +702,7 @@
             this.Semester1.HeaderText = "Năm học";
             this.Semester1.Name = "Semester1";
             this.Semester1.ReadOnly = true;
-            this.Semester1.Width = 75;
+            this.Semester1.Width = 69;
             // 
             // idGroup1
             // 
@@ -711,7 +713,7 @@
             this.idGroup1.HeaderText = "Chi đoàn";
             this.idGroup1.Name = "idGroup1";
             this.idGroup1.ReadOnly = true;
-            this.idGroup1.Width = 75;
+            this.idGroup1.Width = 69;
             // 
             // Rank1
             // 
@@ -832,6 +834,17 @@
             this.CheckDone.ReadOnly = true;
             this.CheckDone.Visible = false;
             // 
+            // label14
+            // 
+            this.label14.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label14.AutoSize = true;
+            this.label14.ForeColor = System.Drawing.Color.White;
+            this.label14.Location = new System.Drawing.Point(3, 27);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(107, 13);
+            this.label14.TabIndex = 6;
+            this.label14.Text = "Danh sách chi đoàn:";
+            // 
             // FormEvaluateGroup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -846,6 +859,7 @@
             this.Load += new System.EventHandler(this.FormEvaluateGroup_Load);
             this.panelBottom.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);
+            this.tableLayoutPanel4.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -924,5 +938,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn TotalGoodMember1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Note1;
         private System.Windows.Forms.DataGridViewTextBoxColumn CheckDone;
+        private System.Windows.Forms.Label label14;
     }
 }

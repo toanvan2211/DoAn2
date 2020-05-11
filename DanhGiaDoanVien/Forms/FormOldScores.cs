@@ -32,9 +32,15 @@ namespace DanhGiaDoanVien.Forms
             LoadListOldScores(currentSemester, currentGroup);
             comboBoxGroup.SelectedIndex = 0;
             comboBoxSemester.SelectedIndex = 0;
+            LoadInterface();
         }
 
         #region method
+        void LoadInterface()
+        {
+            if (FormMain.typeAccount == "giảng viên")
+                panelAdmin.Visible = false;
+        }
         void LoadComboBoxSemester()
         {
             DataTable data = SemesterDAO.Instance.GetListSemester();

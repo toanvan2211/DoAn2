@@ -24,6 +24,7 @@ namespace DanhGiaDoanVien
         private InfoAccount infoAccount;
         public string userName;
         public string password;
+        public static string typeAccount;
         
         public FormMain()
         {
@@ -34,7 +35,8 @@ namespace DanhGiaDoanVien
         {
             InitializeComponent();
             this.infoAccount = info;
-            
+            typeAccount = info.TypeAccount;
+
             if (!string.IsNullOrEmpty(infoAccount.Name))
             {
                 labelName.Text = infoAccount.Name;

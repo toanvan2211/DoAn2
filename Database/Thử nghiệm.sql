@@ -99,7 +99,8 @@ create table TaiKhoan
 (
 	taiKhoan varchar(100) primary key,
 	matKhau varchar(32) not null,
-	MSGV varchar(10) references GiangVien(MSGV) on delete cascade
+	MSGV varchar(10) references GiangVien(MSGV) on delete cascade,
+	loaiTaiKhoan nvarchar(10) not null default N'giảng viên'
 )
 go
 

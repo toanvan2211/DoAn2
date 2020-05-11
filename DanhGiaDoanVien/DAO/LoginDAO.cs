@@ -37,6 +37,7 @@ namespace DanhGiaDoanVien.DAO
                 data = DataProvider.Instance.ExecuteQuery(query);
                 info.Name = data.Rows[0]["ten"].ToString();
             }
+            info.TypeAccount = data.Rows[0]["loaiTaiKhoan"].ToString();
 
             return info;
         }

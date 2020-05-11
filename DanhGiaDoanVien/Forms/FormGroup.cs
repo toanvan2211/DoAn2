@@ -33,6 +33,11 @@ namespace DanhGiaDoanVien
             LoadForm();
         }
         #region method
+        void LoadInterface()
+        {
+            if (FormMain.typeAccount == "giảng viên")
+                panelAdmin.Visible = false;
+        }
         void LoadListGroup()
         {
             dataGridViewGroup.DataSource = GroupDAO.Instance.GetListGroup();
@@ -219,6 +224,7 @@ namespace DanhGiaDoanVien
         void LoadForm()
         {
             LoadListGroup();
+            LoadInterface();
         }
 
         private void buttonAdd_Click(object sender, EventArgs e)

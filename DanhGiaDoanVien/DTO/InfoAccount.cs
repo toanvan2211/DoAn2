@@ -13,6 +13,8 @@ namespace DanhGiaDoanVien.DTO
         public string IdMember { get; set; }
         public string Name { get; set; }
 
+        public string TypeAccount { get; set; }
+
         public InfoAccount() { }
 
         public InfoAccount(DataRow data)
@@ -20,6 +22,7 @@ namespace DanhGiaDoanVien.DTO
             UserName = data["taiKhoan"].ToString();
             IdMember = data["id"].ToString();
             Name = data["ten"].ToString();
+            TypeAccount = data["loaiTaiKhoan"].ToString();
         }
     }
 }

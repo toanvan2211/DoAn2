@@ -65,6 +65,7 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.panelAdmin = new System.Windows.Forms.Panel();
             this.tabapanel.SuspendLayout();
             this.panelGroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGroup)).BeginInit();
@@ -75,6 +76,7 @@
             this.panelBottom.SuspendLayout();
             this.panelDefault.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            this.panelAdmin.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabapanel
@@ -355,7 +357,7 @@
             this.buttonUpdate.ForeColor = System.Drawing.Color.White;
             this.buttonUpdate.Image = ((System.Drawing.Image)(resources.GetObject("buttonUpdate.Image")));
             this.buttonUpdate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonUpdate.Location = new System.Drawing.Point(872, 78);
+            this.buttonUpdate.Location = new System.Drawing.Point(28, 66);
             this.buttonUpdate.Name = "buttonUpdate";
             this.buttonUpdate.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.buttonUpdate.Size = new System.Drawing.Size(91, 39);
@@ -374,7 +376,7 @@
             this.buttonAdd.ForeColor = System.Drawing.Color.White;
             this.buttonAdd.Image = ((System.Drawing.Image)(resources.GetObject("buttonAdd.Image")));
             this.buttonAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonAdd.Location = new System.Drawing.Point(872, 26);
+            this.buttonAdd.Location = new System.Drawing.Point(28, 14);
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.buttonAdd.Size = new System.Drawing.Size(91, 39);
@@ -393,7 +395,7 @@
             this.buttonDelete.ForeColor = System.Drawing.Color.White;
             this.buttonDelete.Image = ((System.Drawing.Image)(resources.GetObject("buttonDelete.Image")));
             this.buttonDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonDelete.Location = new System.Drawing.Point(872, 130);
+            this.buttonDelete.Location = new System.Drawing.Point(28, 118);
             this.buttonDelete.Name = "buttonDelete";
             this.buttonDelete.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
             this.buttonDelete.Size = new System.Drawing.Size(91, 39);
@@ -408,11 +410,9 @@
             // panelBottom
             // 
             this.panelBottom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(45)))));
+            this.panelBottom.Controls.Add(this.panelAdmin);
             this.panelBottom.Controls.Add(this.panelEdit);
             this.panelBottom.Controls.Add(this.panelDefault);
-            this.panelBottom.Controls.Add(this.buttonDelete);
-            this.panelBottom.Controls.Add(this.buttonAdd);
-            this.panelBottom.Controls.Add(this.buttonUpdate);
             this.panelBottom.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelBottom.Location = new System.Drawing.Point(0, 0);
             this.panelBottom.Name = "panelBottom";
@@ -493,6 +493,17 @@
             this.label3.TabIndex = 3;
             this.label3.Text = "Tên:";
             // 
+            // panelAdmin
+            // 
+            this.panelAdmin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelAdmin.Controls.Add(this.buttonDelete);
+            this.panelAdmin.Controls.Add(this.buttonUpdate);
+            this.panelAdmin.Controls.Add(this.buttonAdd);
+            this.panelAdmin.Location = new System.Drawing.Point(833, 12);
+            this.panelAdmin.Name = "panelAdmin";
+            this.panelAdmin.Size = new System.Drawing.Size(155, 169);
+            this.panelAdmin.TabIndex = 11;
+            // 
             // FormGroup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -516,6 +527,7 @@
             this.panelDefault.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            this.panelAdmin.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -557,5 +569,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label labelName;
         private System.Windows.Forms.Label labelID;
+        private System.Windows.Forms.Panel panelAdmin;
     }
 }

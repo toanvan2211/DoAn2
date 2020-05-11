@@ -27,6 +27,11 @@ namespace DanhGiaDoanVien.Forms
         }
 
         #region method
+        void LoadInterface()
+        {
+            if (FormMain.typeAccount == "giảng viên")
+                panelAdmin.Visible = false;
+        }
         void LoadListSemester()
         {
             dataGridViewSemester.DataSource = SemesterDAO.Instance.GetListSemester();
@@ -284,6 +289,7 @@ namespace DanhGiaDoanVien.Forms
         private void FormSemester_Load(object sender, EventArgs e)
         {
             LoadListSemester();
+            LoadInterface();
         }
 
         private void textBoxIdSemester_KeyPress(object sender, KeyPressEventArgs e)

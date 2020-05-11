@@ -93,6 +93,7 @@
             this.TotalGoodMember1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Note1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CheckDone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panelAdmin = new System.Windows.Forms.Panel();
             this.panelTop.SuspendLayout();
             this.panelBottom.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -100,6 +101,7 @@
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOldScores)).BeginInit();
+            this.panelAdmin.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelTop
@@ -173,7 +175,7 @@
             // 
             this.panelBottom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(45)))));
             this.panelBottom.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panelBottom.Controls.Add(this.buttonDelete);
+            this.panelBottom.Controls.Add(this.panelAdmin);
             this.panelBottom.Controls.Add(this.tableLayoutPanel3);
             this.panelBottom.Controls.Add(this.panel1);
             this.panelBottom.Dock = System.Windows.Forms.DockStyle.Top;
@@ -188,7 +190,7 @@
             this.buttonDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonDelete.ForeColor = System.Drawing.Color.White;
             this.buttonDelete.Image = ((System.Drawing.Image)(resources.GetObject("buttonDelete.Image")));
-            this.buttonDelete.Location = new System.Drawing.Point(870, 145);
+            this.buttonDelete.Location = new System.Drawing.Point(15, 19);
             this.buttonDelete.Name = "buttonDelete";
             this.buttonDelete.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
             this.buttonDelete.Size = new System.Drawing.Size(116, 39);
@@ -547,7 +549,7 @@
             this.Semester1.HeaderText = "Năm học";
             this.Semester1.Name = "Semester1";
             this.Semester1.ReadOnly = true;
-            this.Semester1.Width = 75;
+            this.Semester1.Width = 69;
             // 
             // idGroup1
             // 
@@ -558,7 +560,7 @@
             this.idGroup1.HeaderText = "Chi đoàn";
             this.idGroup1.Name = "idGroup1";
             this.idGroup1.ReadOnly = true;
-            this.idGroup1.Width = 75;
+            this.idGroup1.Width = 69;
             // 
             // Rank1
             // 
@@ -577,7 +579,7 @@
             this.Rank1.ReadOnly = true;
             this.Rank1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Rank1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.Rank1.Width = 70;
+            this.Rank1.Width = 51;
             // 
             // Excellent1
             // 
@@ -676,6 +678,14 @@
             this.CheckDone.ReadOnly = true;
             this.CheckDone.Visible = false;
             // 
+            // panelAdmin
+            // 
+            this.panelAdmin.Controls.Add(this.buttonDelete);
+            this.panelAdmin.Location = new System.Drawing.Point(843, 100);
+            this.panelAdmin.Name = "panelAdmin";
+            this.panelAdmin.Size = new System.Drawing.Size(143, 78);
+            this.panelAdmin.TabIndex = 11;
+            // 
             // FormOldScores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -697,6 +707,7 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOldScores)).EndInit();
+            this.panelAdmin.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -753,5 +764,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn TotalGoodMember1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Note1;
         private System.Windows.Forms.DataGridViewTextBoxColumn CheckDone;
+        private System.Windows.Forms.Panel panelAdmin;
     }
 }

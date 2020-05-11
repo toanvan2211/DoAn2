@@ -37,6 +37,7 @@ namespace DanhGiaDoanVien
 
         private void FormTeacher_Load(object sender, EventArgs e)
         {
+            LoadInterface();
             LoadGroup();
             comboBoxSex.SelectedIndex = 0;
             comboBoxSexEdit.SelectedIndex = 0;
@@ -143,16 +144,12 @@ namespace DanhGiaDoanVien
             ResetTextEdit();
         }
         #region Method
-        void GetCurrentRadio(Panel pnl)
+        void LoadInterface()
         {
-            foreach (RadioButton item in pnl.Controls)
-            {
-                if (item.Checked)
-                {
-                    currentIsMember = item.Text;
-                }
-            }
+            if (FormMain.typeAccount == "giảng viên")
+                panelAdmin.Visible = false;
         }
+
         void LoadListTeacher()
         {
             dataGridViewTeacher.DataSource = TeacherDAO.Instance.GetListTeacher(currentGroup, currentSex, currentIsMember);

@@ -78,6 +78,7 @@
             this.Sex1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Group1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IsMember1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panelAdmin = new System.Windows.Forms.Panel();
             this.panelBottom.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -87,17 +88,16 @@
             this.tableLayoutPanel1.SuspendLayout();
             this.panelData.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTeacher)).BeginInit();
+            this.panelAdmin.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelBottom
             // 
             this.panelBottom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(45)))));
+            this.panelBottom.Controls.Add(this.panelAdmin);
             this.panelBottom.Controls.Add(this.panel1);
             this.panelBottom.Controls.Add(this.panelEdit);
             this.panelBottom.Controls.Add(this.panelDefault);
-            this.panelBottom.Controls.Add(this.buttonDelete);
-            this.panelBottom.Controls.Add(this.buttonAdd);
-            this.panelBottom.Controls.Add(this.buttonUpdate);
             this.panelBottom.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelBottom.Location = new System.Drawing.Point(0, 0);
             this.panelBottom.Name = "panelBottom";
@@ -122,7 +122,7 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.03327F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 38.87916F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 75F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 188F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 190F));
             this.tableLayoutPanel2.Controls.Add(this.label2, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.comboBoxGroup, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.comboBoxSex, 3, 0);
@@ -155,7 +155,7 @@
             this.comboBoxGroup.FormattingEnabled = true;
             this.comboBoxGroup.Location = new System.Drawing.Point(58, 8);
             this.comboBoxGroup.Name = "comboBoxGroup";
-            this.comboBoxGroup.Size = new System.Drawing.Size(185, 21);
+            this.comboBoxGroup.Size = new System.Drawing.Size(184, 21);
             this.comboBoxGroup.TabIndex = 1;
             this.comboBoxGroup.SelectedIndexChanged += new System.EventHandler(this.comboBoxGroup_SelectedIndexChanged);
             // 
@@ -169,9 +169,9 @@
             "Tất cả",
             "Nam",
             "Nữ"});
-            this.comboBoxSex.Location = new System.Drawing.Point(302, 8);
+            this.comboBoxSex.Location = new System.Drawing.Point(301, 8);
             this.comboBoxSex.Name = "comboBoxSex";
-            this.comboBoxSex.Size = new System.Drawing.Size(184, 21);
+            this.comboBoxSex.Size = new System.Drawing.Size(183, 21);
             this.comboBoxSex.TabIndex = 2;
             this.comboBoxSex.SelectedIndexChanged += new System.EventHandler(this.comboBoxSex_SelectedIndexChanged);
             // 
@@ -180,7 +180,7 @@
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(267, 6);
+            this.label4.Location = new System.Drawing.Point(266, 6);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(29, 26);
             this.label4.TabIndex = 3;
@@ -191,7 +191,7 @@
             this.label15.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label15.AutoSize = true;
             this.label15.ForeColor = System.Drawing.Color.White;
-            this.label15.Location = new System.Drawing.Point(502, 12);
+            this.label15.Location = new System.Drawing.Point(500, 12);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(59, 13);
             this.label15.TabIndex = 3;
@@ -207,9 +207,9 @@
             "Tất cả",
             "Có",
             "Không"});
-            this.comboBoxMember.Location = new System.Drawing.Point(567, 8);
+            this.comboBoxMember.Location = new System.Drawing.Point(565, 8);
             this.comboBoxMember.Name = "comboBoxMember";
-            this.comboBoxMember.Size = new System.Drawing.Size(184, 21);
+            this.comboBoxMember.Size = new System.Drawing.Size(186, 21);
             this.comboBoxMember.TabIndex = 3;
             this.comboBoxMember.SelectedIndexChanged += new System.EventHandler(this.comboBoxMember_SelectedIndexChanged);
             // 
@@ -232,7 +232,7 @@
             this.panelEdit.Controls.Add(this.label10);
             this.panelEdit.Controls.Add(this.label11);
             this.panelEdit.Controls.Add(this.label12);
-            this.panelEdit.Location = new System.Drawing.Point(21, 84);
+            this.panelEdit.Location = new System.Drawing.Point(144, 223);
             this.panelEdit.Name = "panelEdit";
             this.panelEdit.Size = new System.Drawing.Size(594, 163);
             this.panelEdit.TabIndex = 4;
@@ -607,7 +607,7 @@
             this.buttonDelete.ForeColor = System.Drawing.Color.White;
             this.buttonDelete.Image = ((System.Drawing.Image)(resources.GetObject("buttonDelete.Image")));
             this.buttonDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonDelete.Location = new System.Drawing.Point(838, 169);
+            this.buttonDelete.Location = new System.Drawing.Point(16, 115);
             this.buttonDelete.Name = "buttonDelete";
             this.buttonDelete.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
             this.buttonDelete.Size = new System.Drawing.Size(91, 39);
@@ -626,7 +626,7 @@
             this.buttonAdd.ForeColor = System.Drawing.Color.White;
             this.buttonAdd.Image = ((System.Drawing.Image)(resources.GetObject("buttonAdd.Image")));
             this.buttonAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonAdd.Location = new System.Drawing.Point(838, 65);
+            this.buttonAdd.Location = new System.Drawing.Point(16, 11);
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.buttonAdd.Size = new System.Drawing.Size(91, 39);
@@ -646,7 +646,7 @@
             this.buttonUpdate.ForeColor = System.Drawing.Color.White;
             this.buttonUpdate.Image = ((System.Drawing.Image)(resources.GetObject("buttonUpdate.Image")));
             this.buttonUpdate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonUpdate.Location = new System.Drawing.Point(838, 117);
+            this.buttonUpdate.Location = new System.Drawing.Point(16, 63);
             this.buttonUpdate.Name = "buttonUpdate";
             this.buttonUpdate.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.buttonUpdate.Size = new System.Drawing.Size(91, 39);
@@ -723,6 +723,16 @@
             this.IsMember1.Name = "IsMember1";
             this.IsMember1.ReadOnly = true;
             // 
+            // panelAdmin
+            // 
+            this.panelAdmin.Controls.Add(this.buttonUpdate);
+            this.panelAdmin.Controls.Add(this.buttonAdd);
+            this.panelAdmin.Controls.Add(this.buttonDelete);
+            this.panelAdmin.Location = new System.Drawing.Point(829, 54);
+            this.panelAdmin.Name = "panelAdmin";
+            this.panelAdmin.Size = new System.Drawing.Size(121, 163);
+            this.panelAdmin.TabIndex = 11;
+            // 
             // FormTeacher
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -747,6 +757,7 @@
             this.tableLayoutPanel1.PerformLayout();
             this.panelData.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTeacher)).EndInit();
+            this.panelAdmin.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -802,5 +813,6 @@
         private System.Windows.Forms.Label labelIsMember;
         private System.Windows.Forms.Label labelGroup;
         private System.Windows.Forms.Label labelSex;
+        private System.Windows.Forms.Panel panelAdmin;
     }
 }
