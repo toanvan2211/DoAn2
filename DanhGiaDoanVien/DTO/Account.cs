@@ -18,7 +18,19 @@ namespace DanhGiaDoanVien.DTO
         public string IdTeacher { get => idTeacher; set => idTeacher = value; }
         public string TypeAccount { get => typeAccount; set => typeAccount = value; }
 
-        public Account() { }
+        public Account()
+        {
+            typeAccount = "giảng viên";
+        }
+
+        public Account(string user1, string password1, string idTeacher1, string typeAccount1)
+        {
+            User = user1;
+            Password = password1;
+            IdTeacher = idTeacher1;
+            TypeAccount = typeAccount1;
+        }
+
         public Account(DataRow row)
         {
             this.User = (string)row["taiKhoan"];

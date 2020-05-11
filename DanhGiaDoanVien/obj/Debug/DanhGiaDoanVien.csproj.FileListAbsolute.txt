@@ -62,3 +62,4 @@ E:\Dữ liệu\Môn học\Trường\Học kỳ 2 (2019 - 2020)\Đồ án 2\Softw
 E:\Dữ liệu\Môn học\Trường\Học kỳ 2 (2019 - 2020)\Đồ án 2\Software\DoAn2\DanhGiaDoanVien\obj\Debug\DanhGiaDoanVien.Forms.FormHelp.resources
 E:\Dữ liệu\Môn học\Trường\Học kỳ 2 (2019 - 2020)\Đồ án 2\Software\DoAn2\DanhGiaDoanVien\bin\Debug\Database.mdf
 E:\Dữ liệu\Môn học\Trường\Học kỳ 2 (2019 - 2020)\Đồ án 2\Software\DoAn2\DanhGiaDoanVien\bin\Debug\Database_log.ldf
+E:\Dữ liệu\Môn học\Trường\Học kỳ 2 (2019 - 2020)\Đồ án 2\Software\DoAn2\DanhGiaDoanVien\obj\Debug\DanhGiaDoanVien.Forms.FormAccountManager.resources

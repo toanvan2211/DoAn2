@@ -116,6 +116,12 @@
     <Compile Include="Forms\FormHelp.Designer.cs">
       <DependentUpon>FormHelp.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FormAccountManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormAccountManager.Designer.cs">
+      <DependentUpon>FormAccountManager.cs</DependentUpon>
+    </Compile>
     <Compile Include="ModelDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -223,6 +229,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormVote.resx">
       <DependentUpon>FormVote.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormAccountManager.resx">
+      <DependentUpon>FormAccountManager.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -83,6 +83,7 @@
             this.labelError1 = new System.Windows.Forms.Label();
             this.labelChangePWNotifed = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.buttonAccountManager = new System.Windows.Forms.Button();
             this.buttonChangePassword = new System.Windows.Forms.Button();
             this.labelName = new System.Windows.Forms.Label();
             this.labelUsername = new System.Windows.Forms.Label();
@@ -616,6 +617,7 @@
             this.panelChildForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
             this.panelChildForm.Controls.Add(this.panelMain);
             this.panelChildForm.Controls.Add(this.panelChangePassword);
+            this.panelChildForm.Controls.Add(this.buttonAccountManager);
             this.panelChildForm.Controls.Add(this.buttonChangePassword);
             this.panelChildForm.Controls.Add(this.labelName);
             this.panelChildForm.Controls.Add(this.labelUsername);
@@ -633,7 +635,7 @@
             this.panelMain.Controls.Add(this.label12);
             this.panelMain.Location = new System.Drawing.Point(25, 93);
             this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(958, 547);
+            this.panelMain.Size = new System.Drawing.Size(958, 240);
             this.panelMain.TabIndex = 5;
             // 
             // label14
@@ -855,6 +857,22 @@
             this.label8.TabIndex = 2;
             this.label8.Text = "Đổi mật khẩu";
             // 
+            // buttonAccountManager
+            // 
+            this.buttonAccountManager.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonAccountManager.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonAccountManager.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonAccountManager.ForeColor = System.Drawing.Color.White;
+            this.buttonAccountManager.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonAccountManager.Location = new System.Drawing.Point(692, 15);
+            this.buttonAccountManager.Name = "buttonAccountManager";
+            this.buttonAccountManager.Size = new System.Drawing.Size(153, 33);
+            this.buttonAccountManager.TabIndex = 1;
+            this.buttonAccountManager.Tag = "";
+            this.buttonAccountManager.Text = "Quản lí tài khoản";
+            this.buttonAccountManager.UseVisualStyleBackColor = true;
+            this.buttonAccountManager.Click += new System.EventHandler(this.buttonAccountManager_Click);
+            // 
             // buttonChangePassword
             // 
             this.buttonChangePassword.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -995,6 +1013,7 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.PictureBox pictureBoxHelp;
+        private System.Windows.Forms.Button buttonAccountManager;
     }
 }
 

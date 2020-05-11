@@ -58,6 +58,11 @@ namespace DanhGiaDoanVien
         }
 
         #region method
+        void LoadInterface()
+        {
+            if (typeAccount == "giảng viên")
+                buttonAccountManager.Visible = false;
+        }
         void ActivateButton(object senderBtn, Color color, Image img)
         {
             bool check = false;
@@ -194,6 +199,7 @@ namespace DanhGiaDoanVien
             panelSubMenuEvaluate.Visible = false;
 
             LoadStatistical();
+            LoadInterface();
         }
 
         private void buttonTeacher_Click(object sender, EventArgs e)
@@ -399,6 +405,14 @@ namespace DanhGiaDoanVien
             using (FormHelp fh = new FormHelp())
             {
                 fh.ShowDialog();
+            }
+        }
+
+        private void buttonAccountManager_Click(object sender, EventArgs e)
+        {
+            using (FormAccountManager fam = new FormAccountManager())
+            {
+                fam.ShowDialog();
             }
         }
     }
