@@ -30,6 +30,7 @@ namespace DanhGiaDoanVien.DAO
             if (data.Rows.Count == 0)
                 return null;
 
+            info.TypeAccount = data.Rows[0]["loaiTaiKhoan"].ToString();
             if (!string.IsNullOrEmpty(data.Rows[0]["MSGV"].ToString()))
             {
                 info.IdMember = data.Rows[0]["MSGV"].ToString();
@@ -37,7 +38,6 @@ namespace DanhGiaDoanVien.DAO
                 data = DataProvider.Instance.ExecuteQuery(query);
                 info.Name = data.Rows[0]["ten"].ToString();
             }
-            info.TypeAccount = data.Rows[0]["loaiTaiKhoan"].ToString();
 
             return info;
         }

@@ -62,6 +62,7 @@
             this.label13 = new System.Windows.Forms.Label();
             this.textBoxNote = new System.Windows.Forms.RichTextBox();
             this.comboBoxRank = new System.Windows.Forms.ComboBox();
+            this.comboBoxAchievement = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label5 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -97,7 +98,6 @@
             this.label11 = new System.Windows.Forms.Label();
             this.comboBoxSemester = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.comboBoxAchievement = new System.Windows.Forms.ComboBox();
             this.panelTop.SuspendLayout();
             this.panelEditTool.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
@@ -387,6 +387,21 @@
             this.comboBoxRank.Name = "comboBoxRank";
             this.comboBoxRank.Size = new System.Drawing.Size(245, 21);
             this.comboBoxRank.TabIndex = 2;
+            // 
+            // comboBoxAchievement
+            // 
+            this.comboBoxAchievement.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBoxAchievement.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxAchievement.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBoxAchievement.FormattingEnabled = true;
+            this.comboBoxAchievement.Items.AddRange(new object[] {
+            "",
+            "Khen thưởng cấp trường",
+            "Khen thưởng cấp khoa"});
+            this.comboBoxAchievement.Location = new System.Drawing.Point(116, 83);
+            this.comboBoxAchievement.Name = "comboBoxAchievement";
+            this.comboBoxAchievement.Size = new System.Drawing.Size(245, 21);
+            this.comboBoxAchievement.TabIndex = 2;
             // 
             // tableLayoutPanel1
             // 
@@ -811,21 +826,6 @@
             this.label10.Size = new System.Drawing.Size(68, 17);
             this.label10.TabIndex = 8;
             this.label10.Text = "Năm học:";
-            // 
-            // comboBoxAchievement
-            // 
-            this.comboBoxAchievement.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBoxAchievement.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxAchievement.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBoxAchievement.FormattingEnabled = true;
-            this.comboBoxAchievement.Items.AddRange(new object[] {
-            "",
-            "Khen thưởng cấp trường",
-            "Khen thưởng cấp khoa"});
-            this.comboBoxAchievement.Location = new System.Drawing.Point(116, 83);
-            this.comboBoxAchievement.Name = "comboBoxAchievement";
-            this.comboBoxAchievement.Size = new System.Drawing.Size(245, 21);
-            this.comboBoxAchievement.TabIndex = 2;
             // 
             // FormEvaluateStudent
             // 

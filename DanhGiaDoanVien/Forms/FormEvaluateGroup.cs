@@ -56,6 +56,20 @@ namespace DanhGiaDoanVien
                 else
                     comboBoxRank.ResetText();
             }
+            else
+            {
+                textBoxIdGroup.ResetText();
+                textBoxMember.ResetText();
+                textBoxTeacher.ResetText();
+                textBoxStudent.ResetText();
+                textBoxExcellent.ResetText();
+                textBoxGreate.ResetText();
+                textBoxMedium.ResetText();
+                textBoxBad.ResetText();
+                textBoxNote.ResetText();
+                textBoxGoodMember.ResetText();
+                comboBoxRank.Text = "";
+            }
         }
 
         void LoadListScoresGroup()
@@ -76,6 +90,28 @@ namespace DanhGiaDoanVien
             {
                 dataGridViewScoresGroup.DataSource = ScoresGroupDAO.Instance.GetListScoresGroup(idCurrentSemester, idCurrentGroup);
             }
+        }
+
+        ScoresGroup CreateScoresGroupByText()
+        {
+            ScoresGroup sg = new ScoresGroup();
+            sg.Id = Convert.ToInt32(dataGridViewScoresGroup.Rows[currentIndex].Cells["Id1"].Value.ToString());
+            sg.IdSemester = dataGridViewScoresGroup.Rows[currentIndex].Cells["Semester1"].Value.ToString();
+            sg.ExcellentMember = Convert.ToInt32(dataGridViewScoresGroup.Rows[currentIndex].Cells["Excellent1"].Value.ToString());
+            sg.GreatMember = Convert.ToInt32(dataGridViewScoresGroup.Rows[currentIndex].Cells["Great1"].Value.ToString());
+            sg.MediumMember = Convert.ToInt32(dataGridViewScoresGroup.Rows[currentIndex].Cells["Medium1"].Value.ToString());
+            sg.BadMember = Convert.ToInt32(dataGridViewScoresGroup.Rows[currentIndex].Cells["Bad1"].Value.ToString());
+            sg.TotalMember = Convert.ToInt32(dataGridViewScoresGroup.Rows[currentIndex].Cells["TotalMember1"].Value.ToString());
+            sg.TotalStudent = Convert.ToInt32(dataGridViewScoresGroup.Rows[currentIndex].Cells["TotalStudent1"].Value.ToString());
+            sg.TotalTeacher = Convert.ToInt32(dataGridViewScoresGroup.Rows[currentIndex].Cells["TotalTeacher1"].Value.ToString());
+            sg.TotalGoodMember = Convert.ToInt32(dataGridViewScoresGroup.Rows[currentIndex].Cells["TotalGoodMember1"].Value.ToString());
+            sg.TotalFemalStudent = Convert.ToInt32(dataGridViewScoresGroup.Rows[currentIndex].Cells["TotalFemaleStudent1"].Value.ToString());
+            sg.TotalFemalTeacher = Convert.ToInt32(dataGridViewScoresGroup.Rows[currentIndex].Cells["TotalFemaleTeacher1"].Value.ToString());
+            sg.Note = textBoxNote.Text;
+
+            sg = EvaluateGroup(sg);
+
+            return sg;
         }
 
         void LoadComboBoxGroupNoEmpty()
@@ -138,7 +174,7 @@ namespace DanhGiaDoanVien
         {
             if (scoresGroup.TotalMember == 0) // Nếu chi đoàn chưa có đoàn viên thì không đánh giá được, nên để xếp loại là ""
             {
-                scoresGroup.Rank = "";
+                scoresGroup.Rank = RankGroup.rank4;
             }
             else
             {
@@ -314,6 +350,8 @@ namespace DanhGiaDoanVien
                     ScoresGroupDAO.Instance.DeleteScoresGroup(idCurrentScoresGroup);
                     LoadListScoresGroup();
                     LoadListGroup();
+                    currentIndex = -1;
+                    CellClick();
                 }
             }
             else
@@ -326,7 +364,8 @@ namespace DanhGiaDoanVien
         {
             if (currentIndex != -1)
             {
-                ScoresGroup sg = new ScoresGroup(dataGridViewScoresGroup.Rows[currentIndex]);
+                ScoresGroup sg = new ScoresGroup();
+                sg = CreateScoresGroupByText();
                 string rankHope = comboBoxRank.Text;
                 if (sg.Rank != "")
                 {
@@ -342,6 +381,7 @@ namespace DanhGiaDoanVien
                             checkDownRank = false;
                         }
                         LoadListScoresGroup();
+                        CellClick();
                     }
                     else
                     {
@@ -455,7 +495,7 @@ namespace DanhGiaDoanVien
         {
             if (currentIndex != -1)
             {
-                DialogResult dlr = MessageBox.Show("Bạn có chắc rằng muốn kết hoàn thành đánh giá cho kết quả này?", "Bạn chắc chứ", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult dlr = MessageBox.Show("Bạn có chắc rằng muốn đánh dấu hoàn thành cho đánh giá này?", "Bạn chắc chứ", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (dlr == DialogResult.Yes)
                 {
                     ScoresGroup sg = new ScoresGroup(dataGridViewScoresGroup.Rows[currentIndex]);

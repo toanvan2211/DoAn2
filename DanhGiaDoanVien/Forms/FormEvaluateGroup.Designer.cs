@@ -44,10 +44,11 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelBottom = new System.Windows.Forms.Panel();
+            this.buttonCreateList = new System.Windows.Forms.Button();
             this.buttonSaveSelect = new System.Windows.Forms.Button();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.buttonCreateList = new System.Windows.Forms.Button();
             this.comboBoxGroupEmpty = new System.Windows.Forms.ComboBox();
+            this.label14 = new System.Windows.Forms.Label();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.label3 = new System.Windows.Forms.Label();
             this.comboBoxRank = new System.Windows.Forms.ComboBox();
@@ -103,7 +104,6 @@
             this.TotalGoodMember1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Note1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CheckDone = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label14 = new System.Windows.Forms.Label();
             this.panelBottom.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -135,6 +135,24 @@
             this.panelBottom.Size = new System.Drawing.Size(1000, 197);
             this.panelBottom.TabIndex = 2;
             // 
+            // buttonCreateList
+            // 
+            this.buttonCreateList.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonCreateList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonCreateList.ForeColor = System.Drawing.Color.White;
+            this.buttonCreateList.Image = ((System.Drawing.Image)(resources.GetObject("buttonCreateList.Image")));
+            this.buttonCreateList.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonCreateList.Location = new System.Drawing.Point(759, 132);
+            this.buttonCreateList.Name = "buttonCreateList";
+            this.buttonCreateList.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.buttonCreateList.Size = new System.Drawing.Size(121, 39);
+            this.buttonCreateList.TabIndex = 2;
+            this.buttonCreateList.Text = "Tạo danh sách";
+            this.buttonCreateList.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonCreateList.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonCreateList.UseVisualStyleBackColor = true;
+            this.buttonCreateList.Click += new System.EventHandler(this.buttonCreateList_Click);
+            // 
             // buttonSaveSelect
             // 
             this.buttonSaveSelect.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -163,34 +181,27 @@
             this.tableLayoutPanel4.Size = new System.Drawing.Size(324, 68);
             this.tableLayoutPanel4.TabIndex = 3;
             // 
-            // buttonCreateList
-            // 
-            this.buttonCreateList.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonCreateList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonCreateList.ForeColor = System.Drawing.Color.White;
-            this.buttonCreateList.Image = ((System.Drawing.Image)(resources.GetObject("buttonCreateList.Image")));
-            this.buttonCreateList.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonCreateList.Location = new System.Drawing.Point(759, 132);
-            this.buttonCreateList.Name = "buttonCreateList";
-            this.buttonCreateList.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.buttonCreateList.Size = new System.Drawing.Size(121, 39);
-            this.buttonCreateList.TabIndex = 2;
-            this.buttonCreateList.Text = "Tạo danh sách";
-            this.buttonCreateList.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonCreateList.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonCreateList.UseVisualStyleBackColor = true;
-            this.buttonCreateList.Click += new System.EventHandler(this.buttonCreateList_Click);
-            // 
             // comboBoxGroupEmpty
             // 
             this.comboBoxGroupEmpty.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBoxGroupEmpty.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxGroupEmpty.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBoxGroupEmpty.FormattingEnabled = true;
-            this.comboBoxGroupEmpty.Location = new System.Drawing.Point(116, 23);
+            this.comboBoxGroupEmpty.Location = new System.Drawing.Point(115, 23);
             this.comboBoxGroupEmpty.Name = "comboBoxGroupEmpty";
-            this.comboBoxGroupEmpty.Size = new System.Drawing.Size(205, 21);
+            this.comboBoxGroupEmpty.Size = new System.Drawing.Size(206, 21);
             this.comboBoxGroupEmpty.TabIndex = 1;
+            // 
+            // label14
+            // 
+            this.label14.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label14.AutoSize = true;
+            this.label14.ForeColor = System.Drawing.Color.White;
+            this.label14.Location = new System.Drawing.Point(30, 21);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(79, 26);
+            this.label14.TabIndex = 6;
+            this.label14.Text = "Danh sách chi đoàn:";
             // 
             // tableLayoutPanel3
             // 
@@ -503,7 +514,7 @@
             this.buttonCheckDone.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonCheckDone.ForeColor = System.Drawing.Color.White;
             this.buttonCheckDone.Image = ((System.Drawing.Image)(resources.GetObject("buttonCheckDone.Image")));
-            this.buttonCheckDone.Location = new System.Drawing.Point(759, 72);
+            this.buttonCheckDone.Location = new System.Drawing.Point(818, 72);
             this.buttonCheckDone.Name = "buttonCheckDone";
             this.buttonCheckDone.Size = new System.Drawing.Size(53, 44);
             this.buttonCheckDone.TabIndex = 6;
@@ -529,7 +540,7 @@
             this.buttonDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonDelete.ForeColor = System.Drawing.Color.White;
             this.buttonDelete.Image = ((System.Drawing.Image)(resources.GetObject("buttonDelete.Image")));
-            this.buttonDelete.Location = new System.Drawing.Point(818, 72);
+            this.buttonDelete.Location = new System.Drawing.Point(877, 72);
             this.buttonDelete.Name = "buttonDelete";
             this.buttonDelete.Size = new System.Drawing.Size(53, 44);
             this.buttonDelete.TabIndex = 9;
@@ -542,7 +553,7 @@
             this.buttonUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonUpdate.ForeColor = System.Drawing.Color.White;
             this.buttonUpdate.Image = ((System.Drawing.Image)(resources.GetObject("buttonUpdate.Image")));
-            this.buttonUpdate.Location = new System.Drawing.Point(877, 72);
+            this.buttonUpdate.Location = new System.Drawing.Point(759, 72);
             this.buttonUpdate.Name = "buttonUpdate";
             this.buttonUpdate.Padding = new System.Windows.Forms.Padding(5, 0, 0, 2);
             this.buttonUpdate.Size = new System.Drawing.Size(53, 45);
@@ -833,17 +844,6 @@
             this.CheckDone.Name = "CheckDone";
             this.CheckDone.ReadOnly = true;
             this.CheckDone.Visible = false;
-            // 
-            // label14
-            // 
-            this.label14.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label14.AutoSize = true;
-            this.label14.ForeColor = System.Drawing.Color.White;
-            this.label14.Location = new System.Drawing.Point(3, 27);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(107, 13);
-            this.label14.TabIndex = 6;
-            this.label14.Text = "Danh sách chi đoàn:";
             // 
             // FormEvaluateGroup
             // 

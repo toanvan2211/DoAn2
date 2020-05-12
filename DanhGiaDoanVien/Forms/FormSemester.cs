@@ -238,7 +238,7 @@ namespace DanhGiaDoanVien.Forms
 
         private void buttonResetText_Click(object sender, EventArgs e)
         {
-            ResetText();
+            ResetTextEdit();
         }
 
         private void buttonExitEdit_Click(object sender, EventArgs e)
