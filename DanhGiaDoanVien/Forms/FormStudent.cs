@@ -410,7 +410,7 @@ namespace DanhGiaDoanVien
                 }
                 else
                 {
-                    MessageBox.Show("Bạn chưa nhập sinh viên cần xóa!", "Lỗi", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                    MessageBox.Show("Bạn chưa chọn sinh viên cần xóa!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
         }

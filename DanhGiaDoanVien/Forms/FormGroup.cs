@@ -150,23 +150,30 @@ namespace DanhGiaDoanVien
             }
             else if (currentEditState == EditState.update)
             {
-                if (textBoxNameEdit.Text == currentNameGroup)
+                if (textBoxMCDEdit.Text != "")
                 {
-                    MessageBox.Show("Thông tin không có sự thay đổi!", "Đã xảy ra lỗi", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else if (textBoxMCDEdit.Text != "" && textBoxNameEdit.Text != "")
-                {
-                    if (GroupDAO.Instance.UpdateGroup(textBoxMCDEdit.Text, textBoxNameEdit.Text) > 0)
+                    if (textBoxNameEdit.Text == currentNameGroup)
                     {
-                        string stringNotification = "chi đoàn có mã: " + textBoxMCDEdit.Text;
-                        currentNameGroup = textBoxNameEdit.Text;
-                        LoadListGroup();
-                                                
-                        Alert(stringNotification, FormNotified.enmType.Edit);
+                        MessageBox.Show("Thông tin không có sự thay đổi!", "Đã xảy ra lỗi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else if (textBoxMCDEdit.Text != "" && textBoxNameEdit.Text != "")
+                    {
+                        if (GroupDAO.Instance.UpdateGroup(textBoxMCDEdit.Text, textBoxNameEdit.Text) > 0)
+                        {
+                            string stringNotification = "chi đoàn có mã: " + textBoxMCDEdit.Text;
+                            currentNameGroup = textBoxNameEdit.Text;
+                            LoadListGroup();
+
+                            Alert(stringNotification, FormNotified.enmType.Edit);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Thất bại, thử lại sau!", "Đã xảy ra lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
                     else
                     {
-                        MessageBox.Show("Thất bại, thử lại sau!", "Đã xảy ra lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Chưa điền đủ thông tin!", "Đã xảy ra lỗi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
                 else
@@ -198,6 +205,10 @@ namespace DanhGiaDoanVien
                             MessageBox.Show("Thất bại, thử lại sau!", "Đã xảy ra lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
+                }
+                else
+                {
+                    MessageBox.Show("Bạn chưa chọn chi đoàn cần xóa!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
         }

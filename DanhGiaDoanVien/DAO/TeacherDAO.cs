@@ -92,7 +92,7 @@ namespace DanhGiaDoanVien.DAO
                 try
                 {
                     query = "insert into GiangVien " +
-                    "values ('" + idTeacher + "', '" + name + "', '" + sex + "', default, '" + isMember + "')";
+                    "values ('" + idTeacher + "', N'" + name + "', N'" + sex + "', default, '" + isMember + "')";
                     return DataProvider.Instance.ExecuteNonQuery(query);
                 }
                 catch (System.Data.SqlClient.SqlException)

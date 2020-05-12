@@ -36,6 +36,12 @@ namespace DanhGiaDoanVien
             public static string rank4 = "Yếu kém";
         }
 
+        private struct Achievement
+        {
+            public static string rank1 = "Khen thưởng cấp trường";
+            public static string rank2 = "Khen thưởng cấp khoa";
+        }
+
         #region method
         void CellClick()
         {
@@ -57,7 +63,7 @@ namespace DanhGiaDoanVien
                     textBoxTrain2.Text = dataGridViewStudent.Rows[currentIndex].Cells["TrainSemester21"].Value.ToString();
                     comboBoxRank.Text = dataGridViewStudent.Rows[currentIndex].Cells["Rank1"].Value.ToString();
                     textBoxGroup.Text = dataProvide.Rows[0]["idChiDoan"].ToString();
-                    textBoxAchievement.Text = dataGridViewStudent.Rows[currentIndex].Cells["Achievement1"].Value.ToString();
+                    comboBoxAchievement.Text = dataGridViewStudent.Rows[currentIndex].Cells["Achievement1"].Value.ToString();
                     textBoxNote.Text = dataGridViewStudent.Rows[currentIndex].Cells["Note1"].Value.ToString();
                     checkBoxGoodMember.Checked = Convert.ToBoolean(dataGridViewStudent.Rows[currentIndex].Cells["GoodMember1"].Value.ToString());
 
@@ -104,7 +110,7 @@ namespace DanhGiaDoanVien
         bool CheckConditionGoodMember(ScoresStudent st) //Kiểm tra xem sinh viên này có đủ điều kiện để bình xét đoàn viên ưu tú hay không
         {
             bool result = false;
-            if (st.Rank == "Xuất sắc" && st.AverageSemester1 >= 2.5 && st.AverageSemester2 >= 2.5 && st.AverageTrainingPoint >= 80)
+            if (st.Rank == "Xuất sắc" && st.AverageSemester1 >= 2.5 && st.AverageSemester2 >= 2.5 && st.AverageTrainingPoint >= 80 && st.Achievement == Achievement.rank2 || st.Achievement == Achievement.rank1)
             {
                 result = true;
             }
@@ -248,7 +254,7 @@ namespace DanhGiaDoanVien
                 st.Id = Convert.ToInt32(dataGridViewStudent.Rows[currentIndex].Cells["Id1"].Value.ToString());
                 st.IdScoresGroup = Convert.ToInt32(dataGridViewStudent.Rows[currentIndex].Cells["IdScoresGroup1"].Value.ToString());
                 st.IdStudent = dataGridViewStudent.Rows[currentIndex].Cells["IdStudent1"].Value.ToString();
-                st.Achievement = textBoxAchievement.Text;
+                st.Achievement = comboBoxAchievement.Text;
                 st.IsGoodMember = checkBoxGoodMember.Checked ? true : false;
                 st.Note = textBoxNote.Text;
 
@@ -445,41 +451,44 @@ namespace DanhGiaDoanVien
 
         private void buttonSaveSelect_Click(object sender, EventArgs e) //Chỉ cập nhật những hàng đc chọn
         {
-            List<int> listRankError = new List<int>(); //Dùng để lưu lại id các kết quả không đủ điều kiện xếp loại
-            foreach (int rowIndex in dataGridViewStudent.SelectedCells.Cast<DataGridViewCell>().Select(x => x.RowIndex).Distinct())
+            if (currentIndex != -1)
             {
-                string rankHope = dataGridViewStudent.Rows[rowIndex].Cells["Rank1"].Value.ToString();
-                ScoresStudent st = Evaluate(CreateScoresStudentByRowIndex(rowIndex));
-                if ((st.Rank = CompareRankCondition(st.Rank, rankHope)) != null)
+                List<int> listRankError = new List<int>(); //Dùng để lưu lại id các kết quả không đủ điều kiện xếp loại
+                foreach (int rowIndex in dataGridViewStudent.SelectedCells.Cast<DataGridViewCell>().Select(x => x.RowIndex).Distinct())
                 {
-                    ScoresStudentDAO.Instance.UpdateScoresStudent(st);
-                }
-                else
-                {
-                    listRankError.Add(st.Id);
-                }
-            }
-
-            if (listRankError.Count != 0)
-            {
-                StringBuilder sbd = new StringBuilder();
-                sbd.Append("Danh sách id các kết quả sinh viên không đủ điều kiện xếp loại: ");
-                for (int i = 0; i < listRankError.Count; i++)
-                {
-                    if (i < listRankError.Count - 1)
+                    string rankHope = dataGridViewStudent.Rows[rowIndex].Cells["Rank1"].Value.ToString();
+                    ScoresStudent st = Evaluate(CreateScoresStudentByRowIndex(rowIndex));
+                    if ((st.Rank = CompareRankCondition(st.Rank, rankHope)) != null)
                     {
-                        sbd.Append(listRankError[i] + ", ");
+                        ScoresStudentDAO.Instance.UpdateScoresStudent(st);
                     }
                     else
                     {
-                        sbd.Append(listRankError[i] + ".");
+                        listRankError.Add(st.Id);
                     }
                 }
-                sbd.Append("\nVui lòng kiểm tra lại!");
-                MessageBox.Show(sbd.ToString(), "Danh sách sai sót", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                if (listRankError.Count != 0)
+                {
+                    StringBuilder sbd = new StringBuilder();
+                    sbd.Append("Danh sách id các kết quả sinh viên không đủ điều kiện xếp loại: ");
+                    for (int i = 0; i < listRankError.Count; i++)
+                    {
+                        if (i < listRankError.Count - 1)
+                        {
+                            sbd.Append(listRankError[i] + ", ");
+                        }
+                        else
+                        {
+                            sbd.Append(listRankError[i] + ".");
+                        }
+                    }
+                    sbd.Append("\nVui lòng kiểm tra lại!");
+                    MessageBox.Show(sbd.ToString(), "Danh sách sai sót", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                LoadScoresStudent();
+                CellClick();
             }
-            LoadScoresStudent();
-            CellClick();
         }
 
         private void buttonUpdate_Click(object sender, EventArgs e)

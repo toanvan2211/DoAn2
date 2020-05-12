@@ -58,7 +58,6 @@
             this.textBoxMSGV = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBoxAchievement = new System.Windows.Forms.RichTextBox();
             this.comboBoxRank = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.textBoxSemester = new System.Windows.Forms.TextBox();
@@ -82,6 +81,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.comboBoxSemester = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
+            this.comboBoxAchievement = new System.Windows.Forms.ComboBox();
             this.panelBottom.SuspendLayout();
             this.panelEditTool.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
@@ -360,13 +360,13 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 32.48587F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 67.51412F));
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.textBoxAchievement, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.comboBoxRank, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.label6, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.textBoxSemester, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.textBoxGroup, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.label3, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.label4, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.comboBoxAchievement, 1, 3);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(390, 15);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 4;
@@ -387,15 +387,6 @@
             this.label2.Size = new System.Drawing.Size(53, 13);
             this.label2.TabIndex = 6;
             this.label2.Text = "Năm học:";
-            // 
-            // textBoxAchievement
-            // 
-            this.textBoxAchievement.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxAchievement.Location = new System.Drawing.Point(117, 108);
-            this.textBoxAchievement.Name = "textBoxAchievement";
-            this.textBoxAchievement.Size = new System.Drawing.Size(234, 65);
-            this.textBoxAchievement.TabIndex = 4;
-            this.textBoxAchievement.Text = "";
             // 
             // comboBoxRank
             // 
@@ -690,6 +681,21 @@
             this.label10.TabIndex = 8;
             this.label10.Text = "Năm học:";
             // 
+            // comboBoxAchievement
+            // 
+            this.comboBoxAchievement.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBoxAchievement.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxAchievement.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBoxAchievement.FormattingEnabled = true;
+            this.comboBoxAchievement.Items.AddRange(new object[] {
+            "",
+            "Khen thưởng cấp trường",
+            "Khen thưởng cấp khoa"});
+            this.comboBoxAchievement.Location = new System.Drawing.Point(117, 130);
+            this.comboBoxAchievement.Name = "comboBoxAchievement";
+            this.comboBoxAchievement.Size = new System.Drawing.Size(234, 21);
+            this.comboBoxAchievement.TabIndex = 9;
+            // 
             // FormEvaluateTeacher
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -747,7 +753,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox textBoxMSGV;
         private System.Windows.Forms.ComboBox comboBoxRank;
-        private System.Windows.Forms.RichTextBox textBoxAchievement;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.CheckBox checkBoxGoodMember;
@@ -769,5 +774,6 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.ComboBox comboBoxAchievement;
     }
 }

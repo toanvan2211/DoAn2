@@ -85,6 +85,18 @@ namespace DanhGiaDoanVien
 
                 labelNotified.Text = "";
             }
+            else if (textBoxUserName.Text == "" && textBoxPassword.Text == "")
+            {
+                labelNotified.Text = "Vui lòng nhập đầy đủ thông tin đăng nhập!";
+            }
+            else if (textBoxUserName.Text == "")
+            {
+                labelNotified.Text = "Vui lòng nhập tài khoản!";
+            }
+            else if (textBoxPassword.Text == "")
+            {
+                labelNotified.Text = "Vui lòng nhập mật khẩu!";
+            }
             else
             {
                 labelNotified.Text = "Sai tài khoản hoặc mật khẩu, vui lòng kiểm tra lại!";
@@ -94,8 +106,8 @@ namespace DanhGiaDoanVien
 
         private void FormLogin_Load(object sender, EventArgs e)
         {
-            //Properties.Settings.Default.IsBlockLogin = false;
-            //Properties.Settings.Default.Save();
+            Properties.Settings.Default.IsBlockLogin = false;
+            Properties.Settings.Default.Save();
 
             if (Properties.Settings.Default.UserName != string.Empty)
             {

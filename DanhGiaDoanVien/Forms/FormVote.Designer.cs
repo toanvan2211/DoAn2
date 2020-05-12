@@ -211,7 +211,7 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "FormVote";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "FormVote";
+            this.Text = "Đoàn viên ưu tú";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);

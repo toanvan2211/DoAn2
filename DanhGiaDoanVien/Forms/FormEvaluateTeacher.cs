@@ -61,17 +61,13 @@ namespace DanhGiaDoanVien
 
         ScoresTeacher Evaluation(ScoresTeacher tc) //Đánh giá giảng viên
         {            
-            if (tc.Evaluation == EvalutationStruct.evaluation1)
+            if (tc.Evaluation == EvalutationStruct.evaluation1 || tc.Evaluation == EvalutationStruct.evaluation2)
             {
                 tc.Rank = Rank.rank1;
             }
-            else if (tc.Evaluation == EvalutationStruct.evaluation2)
-            {
-                tc.Rank = Rank.rank2;
-            }
             else if (tc.Evaluation == EvalutationStruct.evaluation3)
             {
-                tc.Rank = Rank.rank3;
+                tc.Rank = Rank.rank2;
             }
             else if (tc.Evaluation == EvalutationStruct.evaluation4)
             {
@@ -209,7 +205,7 @@ namespace DanhGiaDoanVien
                 tc.IdTeacher = textBoxMSGV.Text;
                 tc.Evaluation = comboBoxEvaluation.Text;
                 tc.Rank = comboBoxRank.Text;
-                tc.Achievement = textBoxAchievement.Text;
+                tc.Achievement = comboBoxAchievement.Text;
                 tc.IsGoodMember = checkBoxGoodMember.Checked ? true : false;
                 tc.Note = textBoxNote.Text;
                 return tc;
@@ -237,7 +233,7 @@ namespace DanhGiaDoanVien
                     comboBoxEvaluation.Text = dataGridViewScoresTeacher.Rows[currentIndex].Cells["Evaluation1"].Value.ToString();
                     comboBoxRank.Text = dataGridViewScoresTeacher.Rows[currentIndex].Cells["Rank1"].Value.ToString();
                     textBoxGroup.Text = dataProvide.Rows[0]["idChiDoan"].ToString();
-                    textBoxAchievement.Text = dataGridViewScoresTeacher.Rows[currentIndex].Cells["Achievement1"].Value.ToString();
+                    comboBoxAchievement.Text = dataGridViewScoresTeacher.Rows[currentIndex].Cells["Achievement1"].Value.ToString();
                     textBoxNote.Text = dataGridViewScoresTeacher.Rows[currentIndex].Cells["Note1"].Value.ToString();
                     checkBoxGoodMember.Checked = Convert.ToBoolean(dataGridViewScoresTeacher.Rows[currentIndex].Cells["GoodMember1"].Value.ToString());
 

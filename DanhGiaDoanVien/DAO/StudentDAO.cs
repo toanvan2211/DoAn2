@@ -89,7 +89,7 @@ namespace DanhGiaDoanVien.DAO
                 try
                 {
                     query = "insert into SinhVien " +
-                    "values ('" + idStudent + "', '" + name + "', '" + sex + "', default, '" + isMember + "')";
+                    "values ('" + idStudent + "', N'" + name + "', N'" + sex + "', default, '" + isMember + "')";
                     return DataProvider.Instance.ExecuteNonQuery(query);
                 }
                 catch (System.Data.SqlClient.SqlException)
@@ -109,27 +109,6 @@ namespace DanhGiaDoanVien.DAO
                 }
             }
             
-        }
-
-        public int UpdateStudent(string idStudent, string name, string sex, string group, bool isMember)
-        {
-            string query = "USP_UpdateStudent @idStudent , @name , @sex , @group , @isMember";
-            if (group == "")
-            {
-                try
-                {
-                    query = "update SinhVien set ten = '" + name + "', gioiTinh = '" + sex + "', doanVien = N'" + isMember + "' where MSSV = '" + idStudent + "'";
-                    return DataProvider.Instance.ExecuteNonQuery(query);
-                }
-                catch (System.Data.SqlClient.SqlException)
-                {
-                    return -1;
-                }
-            }
-            else
-            {
-                return DataProvider.Instance.ExecuteNonQuery(query, new object[] { idStudent, name, sex, group, isMember });
-            }
         }
 
         public int UpdateStudent(Student student, string name, string sex, string group, bool isMember)

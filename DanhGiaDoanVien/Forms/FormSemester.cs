@@ -130,7 +130,7 @@ namespace DanhGiaDoanVien.Forms
                     }
                     else if (result == -1)
                     {
-                        MessageBox.Show("Mã chi đoàn mà bạn nhập đã tồn tại!", "Trùng mã chi đoàn", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Mã năm học mà bạn nhập đã tồn tại!", "Trùng mã năm học", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     else
                     {
@@ -193,6 +193,10 @@ namespace DanhGiaDoanVien.Forms
                             MessageBox.Show("Thất bại, thử lại sau", "Đã xảy ra lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
+                }
+                else
+                {
+                    MessageBox.Show("Bạn chưa chọn năm học cần xóa!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
         }

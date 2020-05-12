@@ -328,7 +328,7 @@ namespace DanhGiaDoanVien
                 }
                 else
                 {
-                    MessageBox.Show("Chưa điền đủ thông tin", "Đã xảy ra lỗi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Chưa điền đủ thông tin!", "Đã xảy ra lỗi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             else if (currentEditState == EditState.update)
@@ -413,7 +413,7 @@ namespace DanhGiaDoanVien
                 }
                 else
                 {
-                    MessageBox.Show("Bạn chưa nhập giảng viên cần xóa!", "Lỗi", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                    MessageBox.Show("Bạn chưa chọn giảng viên cần xóa!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
         }

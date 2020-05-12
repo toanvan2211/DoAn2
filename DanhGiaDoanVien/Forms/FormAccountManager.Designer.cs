@@ -35,15 +35,16 @@
             this.dragControl1 = new QuanLiDienThoai.DragControl();
             this.dragControl2 = new QuanLiDienThoai.DragControl();
             this.panelTool = new System.Windows.Forms.Panel();
+            this.checkBoxEditPassword = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.textBoxUserName = new System.Windows.Forms.TextBox();
             this.comboBoxIdTeacher = new System.Windows.Forms.ComboBox();
             this.comboBoxPermission = new System.Windows.Forms.ComboBox();
             this.textBoxPassword = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.panelAdmin = new System.Windows.Forms.Panel();
             this.buttonAdd = new System.Windows.Forms.Button();
             this.buttonUpdate = new System.Windows.Forms.Button();
@@ -54,7 +55,6 @@
             this.IdTeacher1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Permission1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.checkBoxEditPassword = new System.Windows.Forms.CheckBox();
             this.panelTop.SuspendLayout();
             this.panelTool.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -119,6 +119,18 @@
             this.panelTool.Size = new System.Drawing.Size(825, 233);
             this.panelTool.TabIndex = 1;
             // 
+            // checkBoxEditPassword
+            // 
+            this.checkBoxEditPassword.AutoSize = true;
+            this.checkBoxEditPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBoxEditPassword.ForeColor = System.Drawing.Color.White;
+            this.checkBoxEditPassword.Location = new System.Drawing.Point(278, 187);
+            this.checkBoxEditPassword.Name = "checkBoxEditPassword";
+            this.checkBoxEditPassword.Size = new System.Drawing.Size(108, 20);
+            this.checkBoxEditPassword.TabIndex = 1;
+            this.checkBoxEditPassword.Text = "Sửa mật khẩu";
+            this.checkBoxEditPassword.UseVisualStyleBackColor = true;
+            // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 2;
@@ -178,18 +190,6 @@
             this.label5.TabIndex = 0;
             this.label5.Text = "Quyền:";
             // 
-            // label3
-            // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(47, 52);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(65, 16);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Mật khẩu:";
-            // 
             // textBoxUserName
             // 
             this.textBoxUserName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
@@ -235,6 +235,18 @@
             this.textBoxPassword.Size = new System.Drawing.Size(250, 20);
             this.textBoxPassword.TabIndex = 1;
             this.textBoxPassword.UseSystemPasswordChar = true;
+            // 
+            // label3
+            // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(47, 52);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(65, 16);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Mật khẩu:";
             // 
             // panelAdmin
             // 
@@ -326,6 +338,7 @@
             this.dataGridViewAccount.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewAccount.Location = new System.Drawing.Point(0, 0);
             this.dataGridViewAccount.Name = "dataGridViewAccount";
+            this.dataGridViewAccount.ReadOnly = true;
             this.dataGridViewAccount.Size = new System.Drawing.Size(825, 258);
             this.dataGridViewAccount.TabIndex = 0;
             this.dataGridViewAccount.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewAccount_CellClick);
@@ -335,12 +348,14 @@
             this.UserName1.DataPropertyName = "taiKhoan";
             this.UserName1.HeaderText = "Tài khoản";
             this.UserName1.Name = "UserName1";
+            this.UserName1.ReadOnly = true;
             // 
             // IdTeacher1
             // 
             this.IdTeacher1.DataPropertyName = "MSGV";
             this.IdTeacher1.HeaderText = "MSGV";
             this.IdTeacher1.Name = "IdTeacher1";
+            this.IdTeacher1.ReadOnly = true;
             // 
             // Permission1
             // 
@@ -348,6 +363,7 @@
             this.Permission1.DataPropertyName = "loaiTaiKhoan";
             this.Permission1.HeaderText = "Quyền";
             this.Permission1.Name = "Permission1";
+            this.Permission1.ReadOnly = true;
             this.Permission1.Width = 63;
             // 
             // panel1
@@ -358,18 +374,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(825, 24);
             this.panel1.TabIndex = 3;
-            // 
-            // checkBoxEditPassword
-            // 
-            this.checkBoxEditPassword.AutoSize = true;
-            this.checkBoxEditPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBoxEditPassword.ForeColor = System.Drawing.Color.White;
-            this.checkBoxEditPassword.Location = new System.Drawing.Point(278, 187);
-            this.checkBoxEditPassword.Name = "checkBoxEditPassword";
-            this.checkBoxEditPassword.Size = new System.Drawing.Size(108, 20);
-            this.checkBoxEditPassword.TabIndex = 1;
-            this.checkBoxEditPassword.Text = "Sửa mật khẩu";
-            this.checkBoxEditPassword.UseVisualStyleBackColor = true;
             // 
             // FormAccountManager
             // 

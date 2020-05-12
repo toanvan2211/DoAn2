@@ -63,10 +63,17 @@ namespace DanhGiaDoanVien.Forms
                 }
                 else
                 {
-                    Account addAC = new Account(textBoxUserName.Text, textBoxPassword.Text, comboBoxIdTeacher.Text, comboBoxPermission.Text);
-                    AccountDAO.Instance.CreateAccount(addAC);
-                    LoadListAccount();
-                    LoadComboBoxTeacher();
+                    if (textBoxUserName.Text.Length < 5)
+                    {
+                        MessageBox.Show("Tài khoản phải dài hơn 5 kí tự!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        Account addAC = new Account(textBoxUserName.Text, textBoxPassword.Text, comboBoxIdTeacher.Text, comboBoxPermission.Text);
+                        AccountDAO.Instance.CreateAccount(addAC);
+                        LoadListAccount();
+                        LoadComboBoxTeacher();
+                    }
                 }
             }
             else

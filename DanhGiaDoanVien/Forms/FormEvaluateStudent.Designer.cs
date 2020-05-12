@@ -59,7 +59,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.textBoxGroup = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBoxAchievement = new System.Windows.Forms.RichTextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.textBoxNote = new System.Windows.Forms.RichTextBox();
             this.comboBoxRank = new System.Windows.Forms.ComboBox();
@@ -98,6 +97,7 @@
             this.label11 = new System.Windows.Forms.Label();
             this.comboBoxSemester = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
+            this.comboBoxAchievement = new System.Windows.Forms.ComboBox();
             this.panelTop.SuspendLayout();
             this.panelEditTool.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
@@ -273,10 +273,10 @@
             this.tableLayoutPanel2.Controls.Add(this.label4, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.textBoxGroup, 1, 1);
             this.tableLayoutPanel2.Controls.Add(this.label3, 0, 2);
-            this.tableLayoutPanel2.Controls.Add(this.textBoxAchievement, 1, 3);
             this.tableLayoutPanel2.Controls.Add(this.label13, 0, 4);
             this.tableLayoutPanel2.Controls.Add(this.textBoxNote, 1, 4);
             this.tableLayoutPanel2.Controls.Add(this.comboBoxRank, 1, 2);
+            this.tableLayoutPanel2.Controls.Add(this.comboBoxAchievement, 1, 3);
             this.tableLayoutPanel2.Location = new System.Drawing.Point(388, 10);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 5;
@@ -350,15 +350,6 @@
             this.label3.Size = new System.Drawing.Size(48, 13);
             this.label3.TabIndex = 6;
             this.label3.Text = "Xếp loại:";
-            // 
-            // textBoxAchievement
-            // 
-            this.textBoxAchievement.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxAchievement.Location = new System.Drawing.Point(116, 79);
-            this.textBoxAchievement.Name = "textBoxAchievement";
-            this.textBoxAchievement.Size = new System.Drawing.Size(245, 30);
-            this.textBoxAchievement.TabIndex = 3;
-            this.textBoxAchievement.Text = "";
             // 
             // label13
             // 
@@ -821,6 +812,21 @@
             this.label10.TabIndex = 8;
             this.label10.Text = "Năm học:";
             // 
+            // comboBoxAchievement
+            // 
+            this.comboBoxAchievement.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBoxAchievement.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxAchievement.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBoxAchievement.FormattingEnabled = true;
+            this.comboBoxAchievement.Items.AddRange(new object[] {
+            "",
+            "Khen thưởng cấp trường",
+            "Khen thưởng cấp khoa"});
+            this.comboBoxAchievement.Location = new System.Drawing.Point(116, 83);
+            this.comboBoxAchievement.Name = "comboBoxAchievement";
+            this.comboBoxAchievement.Size = new System.Drawing.Size(245, 21);
+            this.comboBoxAchievement.TabIndex = 2;
+            // 
             // FormEvaluateStudent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -881,7 +887,6 @@
         private System.Windows.Forms.TextBox textBoxTrain2;
         private System.Windows.Forms.TextBox textBoxTrain1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.RichTextBox textBoxAchievement;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.RichTextBox textBoxNote;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
@@ -911,5 +916,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.ComboBox comboBoxAchievement;
     }
 }
