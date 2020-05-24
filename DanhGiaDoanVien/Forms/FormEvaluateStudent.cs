@@ -110,7 +110,7 @@ namespace DanhGiaDoanVien
         bool CheckConditionGoodMember(ScoresStudent st) //Kiểm tra xem sinh viên này có đủ điều kiện để bình xét đoàn viên ưu tú hay không
         {
             bool result = false;
-            if (st.Rank == "Xuất sắc" && st.AverageSemester1 >= 2.5 && st.AverageSemester2 >= 2.5 && st.AverageTrainingPoint >= 80 && st.Achievement == Achievement.rank2 || st.Achievement == Achievement.rank1)
+            if (st.Rank == Rank.rank1 && st.AverageSemester1 >= 2.5 && st.AverageSemester2 >= 2.5 && st.AverageTrainingPoint >= 80 && st.Achievement == Achievement.rank2 || st.Achievement == Achievement.rank1)
             {
                 result = true;
             }
@@ -418,6 +418,11 @@ namespace DanhGiaDoanVien
                     st = Evaluate(st);
                     if ((st.Rank = CompareRankCondition(st.Rank, rankHope)) != null)
                     {
+                        if (st.Rank != Rank.rank1 && st.IsGoodMember == true)
+                        {
+                            GoodStudentDAO.Instance.ResetGoodMember(st.IdScoresGroup, st.IdStudent);
+                            st.IsGoodMember = false;
+                        }
                         ScoresStudentDAO.Instance.UpdateScoresStudent(st);
                     }
                     else
@@ -460,6 +465,11 @@ namespace DanhGiaDoanVien
                     ScoresStudent st = Evaluate(CreateScoresStudentByRowIndex(rowIndex));
                     if ((st.Rank = CompareRankCondition(st.Rank, rankHope)) != null)
                     {
+                        if (st.Rank != Rank.rank1 && st.IsGoodMember == true)
+                        {
+                            GoodStudentDAO.Instance.ResetGoodMember(st.IdScoresGroup, st.IdStudent);
+                            st.IsGoodMember = false;
+                        }
                         ScoresStudentDAO.Instance.UpdateScoresStudent(st);
                     }
                     else
@@ -500,7 +510,7 @@ namespace DanhGiaDoanVien
                 student = Evaluate(student);
                 if ((student.Rank = CompareRankCondition(student.Rank, rankHope)) != null)
                 {
-                    if (checkBoxGoodMember.Checked) // Nếu sinh viên đc chọn là DVUT thì phải check điều kiện
+                    if (checkBoxGoodMember.Checked && rankHope == Rank.rank1)
                     {
                         if (CheckConditionGoodMember(student))
                         {
@@ -517,6 +527,17 @@ namespace DanhGiaDoanVien
                         else
                         {
                             MessageBox.Show("Sinh viên này không đủ điều kiện để xét DVUT. Vui lòng xem xét lại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                    else if (checkBoxGoodMember.Checked && rankHope != Rank.rank1)
+                    {
+                        DialogResult rs = MessageBox.Show("Xếp loại: \"" + rankHope + "\" không đủ điều kiện để xét DVUT. Bạn có muốn tiếc tục?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        if (rs == DialogResult.Yes)
+                        {
+                            GoodStudentDAO.Instance.ResetGoodMember(student.IdScoresGroup, student.IdStudent);
+                            student.IsGoodMember = false;
+                            ScoresStudentDAO.Instance.UpdateScoresStudent(student);
+                            LoadScoresStudent();
                         }
                     }
                     else // Không thì thôi

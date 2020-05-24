@@ -64,16 +64,9 @@
             this.textBoxGroup = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.comboBoxAchievement = new System.Windows.Forms.ComboBox();
             this.panelData = new System.Windows.Forms.Panel();
             this.dataGridViewScoresTeacher = new System.Windows.Forms.DataGridView();
-            this.Id1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IdTeacher1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Evaluation1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.Achievement1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Rank1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.GoodMember1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.Note1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IdScoresGroup1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.comboBoxGroup = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -81,7 +74,14 @@
             this.label9 = new System.Windows.Forms.Label();
             this.comboBoxSemester = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.comboBoxAchievement = new System.Windows.Forms.ComboBox();
+            this.Id1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IdTeacher1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Evaluation1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.Achievement1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.Rank1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.GoodMember1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.Note1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IdScoresGroup1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelBottom.SuspendLayout();
             this.panelEditTool.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
@@ -456,6 +456,21 @@
             this.label4.TabIndex = 8;
             this.label4.Text = "Chi đoàn:";
             // 
+            // comboBoxAchievement
+            // 
+            this.comboBoxAchievement.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBoxAchievement.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxAchievement.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBoxAchievement.FormattingEnabled = true;
+            this.comboBoxAchievement.Items.AddRange(new object[] {
+            "",
+            "Khen thưởng cấp trường",
+            "Khen thưởng cấp khoa"});
+            this.comboBoxAchievement.Location = new System.Drawing.Point(117, 130);
+            this.comboBoxAchievement.Name = "comboBoxAchievement";
+            this.comboBoxAchievement.Size = new System.Drawing.Size(234, 21);
+            this.comboBoxAchievement.TabIndex = 9;
+            // 
             // panelData
             // 
             this.panelData.Controls.Add(this.dataGridViewScoresTeacher);
@@ -488,101 +503,6 @@
             this.dataGridViewScoresTeacher.Size = new System.Drawing.Size(1000, 393);
             this.dataGridViewScoresTeacher.TabIndex = 0;
             this.dataGridViewScoresTeacher.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewScoresTeacher_CellClick);
-            // 
-            // Id1
-            // 
-            this.Id1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Id1.DataPropertyName = "id";
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.Id1.DefaultCellStyle = dataGridViewCellStyle1;
-            this.Id1.HeaderText = "ID";
-            this.Id1.Name = "Id1";
-            this.Id1.ReadOnly = true;
-            this.Id1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Id1.Width = 43;
-            // 
-            // IdTeacher1
-            // 
-            this.IdTeacher1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.IdTeacher1.DataPropertyName = "MSGV";
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.IdTeacher1.DefaultCellStyle = dataGridViewCellStyle2;
-            this.IdTeacher1.HeaderText = "MSGV";
-            this.IdTeacher1.Name = "IdTeacher1";
-            this.IdTeacher1.ReadOnly = true;
-            this.IdTeacher1.Width = 63;
-            // 
-            // Evaluation1
-            // 
-            this.Evaluation1.DataPropertyName = "ketQuaDanhGia";
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.Evaluation1.DefaultCellStyle = dataGridViewCellStyle3;
-            this.Evaluation1.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
-            this.Evaluation1.HeaderText = "Kết quả đánh giá";
-            this.Evaluation1.Items.AddRange(new object[] {
-            "HOÀN THÀNH XUẤT SẮC NHIỆM VỤ",
-            "HOÀN THÀNH TỐT NHIỆM VỤ",
-            "HOÀN THÀNH NHIỆM VỤ",
-            "KHÔNG HOÀN THÀNH NHIỆM VỤ"});
-            this.Evaluation1.Name = "Evaluation1";
-            this.Evaluation1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Evaluation1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // Achievement1
-            // 
-            this.Achievement1.DataPropertyName = "thanhTichTieuBieu";
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.Achievement1.DefaultCellStyle = dataGridViewCellStyle4;
-            this.Achievement1.HeaderText = "Thành tích tiêu biểu";
-            this.Achievement1.Name = "Achievement1";
-            // 
-            // Rank1
-            // 
-            this.Rank1.DataPropertyName = "xepLoai";
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.Rank1.DefaultCellStyle = dataGridViewCellStyle5;
-            this.Rank1.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
-            this.Rank1.HeaderText = "Xếp loại";
-            this.Rank1.Items.AddRange(new object[] {
-            "Xuất sắc",
-            "Khá",
-            "Trung bình",
-            "Yếu kém"});
-            this.Rank1.Name = "Rank1";
-            this.Rank1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // GoodMember1
-            // 
-            this.GoodMember1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.GoodMember1.DataPropertyName = "doanVienUuTu";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle6.NullValue = false;
-            this.GoodMember1.DefaultCellStyle = dataGridViewCellStyle6;
-            this.GoodMember1.HeaderText = "Đoàn viên ưu tú";
-            this.GoodMember1.Name = "GoodMember1";
-            this.GoodMember1.ReadOnly = true;
-            this.GoodMember1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.GoodMember1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.GoodMember1.Width = 91;
-            // 
-            // Note1
-            // 
-            this.Note1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Note1.DataPropertyName = "ghiChu";
-            this.Note1.HeaderText = "Ghi chú";
-            this.Note1.Name = "Note1";
-            this.Note1.ReadOnly = true;
-            this.Note1.Visible = false;
-            // 
-            // IdScoresGroup1
-            // 
-            this.IdScoresGroup1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.IdScoresGroup1.DataPropertyName = "idKetQuaChiDoan";
-            this.IdScoresGroup1.HeaderText = "idKQCD";
-            this.IdScoresGroup1.Name = "IdScoresGroup1";
-            this.IdScoresGroup1.ReadOnly = true;
-            this.IdScoresGroup1.Visible = false;
             // 
             // panel1
             // 
@@ -681,20 +601,109 @@
             this.label10.TabIndex = 8;
             this.label10.Text = "Năm học:";
             // 
-            // comboBoxAchievement
+            // Id1
             // 
-            this.comboBoxAchievement.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBoxAchievement.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxAchievement.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBoxAchievement.FormattingEnabled = true;
-            this.comboBoxAchievement.Items.AddRange(new object[] {
+            this.Id1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Id1.DataPropertyName = "id";
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.Id1.DefaultCellStyle = dataGridViewCellStyle1;
+            this.Id1.HeaderText = "ID";
+            this.Id1.Name = "Id1";
+            this.Id1.ReadOnly = true;
+            this.Id1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Id1.Width = 43;
+            // 
+            // IdTeacher1
+            // 
+            this.IdTeacher1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.IdTeacher1.DataPropertyName = "MSGV";
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.IdTeacher1.DefaultCellStyle = dataGridViewCellStyle2;
+            this.IdTeacher1.HeaderText = "MSGV";
+            this.IdTeacher1.Name = "IdTeacher1";
+            this.IdTeacher1.ReadOnly = true;
+            this.IdTeacher1.Width = 63;
+            // 
+            // Evaluation1
+            // 
+            this.Evaluation1.DataPropertyName = "ketQuaDanhGia";
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.Evaluation1.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Evaluation1.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
+            this.Evaluation1.HeaderText = "Kết quả đánh giá";
+            this.Evaluation1.Items.AddRange(new object[] {
+            "HOÀN THÀNH XUẤT SẮC NHIỆM VỤ",
+            "HOÀN THÀNH TỐT NHIỆM VỤ",
+            "HOÀN THÀNH NHIỆM VỤ",
+            "KHÔNG HOÀN THÀNH NHIỆM VỤ"});
+            this.Evaluation1.Name = "Evaluation1";
+            this.Evaluation1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Evaluation1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // Achievement1
+            // 
+            this.Achievement1.DataPropertyName = "thanhTichTieuBieu";
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.Achievement1.DefaultCellStyle = dataGridViewCellStyle4;
+            this.Achievement1.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
+            this.Achievement1.HeaderText = "Thành tích tiêu biểu";
+            this.Achievement1.Items.AddRange(new object[] {
             "",
             "Khen thưởng cấp trường",
             "Khen thưởng cấp khoa"});
-            this.comboBoxAchievement.Location = new System.Drawing.Point(117, 130);
-            this.comboBoxAchievement.Name = "comboBoxAchievement";
-            this.comboBoxAchievement.Size = new System.Drawing.Size(234, 21);
-            this.comboBoxAchievement.TabIndex = 9;
+            this.Achievement1.Name = "Achievement1";
+            this.Achievement1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Achievement1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // Rank1
+            // 
+            this.Rank1.DataPropertyName = "xepLoai";
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.Rank1.DefaultCellStyle = dataGridViewCellStyle5;
+            this.Rank1.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
+            this.Rank1.HeaderText = "Xếp loại";
+            this.Rank1.Items.AddRange(new object[] {
+            "Xuất sắc",
+            "Khá",
+            "Trung bình",
+            "Yếu kém"});
+            this.Rank1.Name = "Rank1";
+            this.Rank1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // GoodMember1
+            // 
+            this.GoodMember1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.GoodMember1.DataPropertyName = "doanVienUuTu";
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle6.NullValue = false;
+            this.GoodMember1.DefaultCellStyle = dataGridViewCellStyle6;
+            this.GoodMember1.HeaderText = "Đoàn viên ưu tú";
+            this.GoodMember1.Name = "GoodMember1";
+            this.GoodMember1.ReadOnly = true;
+            this.GoodMember1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.GoodMember1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.GoodMember1.Width = 91;
+            // 
+            // Note1
+            // 
+            this.Note1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Note1.DataPropertyName = "ghiChu";
+            this.Note1.HeaderText = "Ghi chú";
+            this.Note1.Name = "Note1";
+            this.Note1.ReadOnly = true;
+            this.Note1.Visible = false;
+            this.Note1.Width = 64;
+            // 
+            // IdScoresGroup1
+            // 
+            this.IdScoresGroup1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.IdScoresGroup1.DataPropertyName = "idKetQuaChiDoan";
+            this.IdScoresGroup1.HeaderText = "idKQCD";
+            this.IdScoresGroup1.Name = "IdScoresGroup1";
+            this.IdScoresGroup1.ReadOnly = true;
+            this.IdScoresGroup1.Visible = false;
+            this.IdScoresGroup1.Width = 70;
             // 
             // FormEvaluateTeacher
             // 
@@ -706,7 +715,6 @@
             this.Controls.Add(this.panelBottom);
             this.Controls.Add(this.panel1);
             this.Name = "FormEvaluateTeacher";
-            this.Text = "FormEvaluate";
             this.Load += new System.EventHandler(this.FormEvaluateTeacher_Load);
             this.panelBottom.ResumeLayout(false);
             this.panelEditTool.ResumeLayout(false);
@@ -759,14 +767,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.CheckBox checkBoxAuto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Id1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IdTeacher1;
-        private System.Windows.Forms.DataGridViewComboBoxColumn Evaluation1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Achievement1;
-        private System.Windows.Forms.DataGridViewComboBoxColumn Rank1;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn GoodMember1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Note1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IdScoresGroup1;
         private System.Windows.Forms.ComboBox comboBoxScores;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Panel panelEditTool;
@@ -775,5 +775,13 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.ComboBox comboBoxAchievement;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IdTeacher1;
+        private System.Windows.Forms.DataGridViewComboBoxColumn Evaluation1;
+        private System.Windows.Forms.DataGridViewComboBoxColumn Achievement1;
+        private System.Windows.Forms.DataGridViewComboBoxColumn Rank1;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn GoodMember1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Note1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IdScoresGroup1;
     }
 }

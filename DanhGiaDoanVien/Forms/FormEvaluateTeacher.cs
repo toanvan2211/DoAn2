@@ -52,7 +52,7 @@ namespace DanhGiaDoanVien
         bool CheckConditionGoodTeacher(ScoresTeacher tc)
         {
             bool result = false;
-            if (tc.Rank == "Xuất sắc")
+            if (tc.Rank == Rank.rank1)
             {
                 result = true;
             }
@@ -330,7 +330,7 @@ namespace DanhGiaDoanVien
                 teacher = Evaluation(teacher);
                 if ((teacher.Rank = CompareRankCondition(teacher.Rank, rankHope)) != null) //Kiểm tra xem coi rankHope có lớn hơn rank điều kiện k, nếu nhỏ hơn thì duyệt
                 {
-                    if (checkBoxGoodMember.Checked) // Nếu giảng viên đc chọn là DVUT thì phải check điều kiện
+                    if (checkBoxGoodMember.Checked && rankHope == Rank.rank1)
                     {
                         if (CheckConditionGoodTeacher(teacher))
                         {
@@ -347,6 +347,17 @@ namespace DanhGiaDoanVien
                         else
                         {
                             MessageBox.Show("Giảng viên này không đủ điều kiện để xét DVUT. Vui lòng xem xét lại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                    else if (checkBoxGoodMember.Checked && rankHope != Rank.rank1)
+                    {
+                        DialogResult rs = MessageBox.Show("Xếp loại: \"" + rankHope + "\" không đủ điều kiện để xét DVUT. Bạn có muốn tiếc tục?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        if (rs == DialogResult.Yes)
+                        {
+                            GoodTeacherDAO.Instance.ResetGoodMember(teacher.IdScoresGroup, teacher.IdTeacher);
+                            teacher.IsGoodMember = false;
+                            ScoresTeacherDAO.Instance.UpdateScoresTeacher(teacher);
+                            LoadScoresTeacher();
                         }
                     }
                     else //Không thì thôi
@@ -397,6 +408,11 @@ namespace DanhGiaDoanVien
                     tc = Evaluation(tc);
                     if ((tc.Rank = CompareRankCondition(tc.Rank, rankHope)) != null) //Đủ điều kiện xếp loại thì duyệt
                     {
+                        if (tc.Rank != Rank.rank1 && tc.IsGoodMember == true)
+                        {
+                            GoodTeacherDAO.Instance.ResetGoodMember(tc.IdScoresGroup, tc.IdTeacher);
+                            tc.IsGoodMember = false;
+                        }
                         ScoresTeacherDAO.Instance.UpdateScoresTeacher(tc);
                     }
                     else
@@ -430,16 +446,21 @@ namespace DanhGiaDoanVien
 
         private void buttonSaveSelect_Click(object sender, EventArgs e)
         {
-            List<int> listRankError = new List<int>(); //Dùng để lưu lại id các kết quả không đủ điều kiện xếp loại
-            foreach (int rowIndex in dataGridViewScoresTeacher.SelectedCells.Cast<DataGridViewCell>().Select(x => x.RowIndex).Distinct())
+            if (currentIndex != -1)
             {
-                string rankHope = dataGridViewScoresTeacher.Rows[rowIndex].Cells["Rank1"].Value.ToString();
-                ScoresTeacher tc = CreateScoresTeacherByRowIndex(rowIndex);
-                if (tc != null)
+                List<int> listRankError = new List<int>(); //Dùng để lưu lại id các kết quả không đủ điều kiện xếp loại
+                foreach (int rowIndex in dataGridViewScoresTeacher.SelectedCells.Cast<DataGridViewCell>().Select(x => x.RowIndex).Distinct())
                 {
+                    string rankHope = dataGridViewScoresTeacher.Rows[rowIndex].Cells["Rank1"].Value.ToString();
+                    ScoresTeacher tc = CreateScoresTeacherByRowIndex(rowIndex);
                     tc = Evaluation(tc);
                     if ((tc.Rank = CompareRankCondition(tc.Rank, rankHope)) != null) //Đủ điều kiện xếp loại thì duyệt
                     {
+                        if (tc.Rank != Rank.rank1 && tc.IsGoodMember == true)
+                        {
+                            GoodTeacherDAO.Instance.ResetGoodMember(tc.IdScoresGroup, tc.IdTeacher);
+                            tc.IsGoodMember = false;
+                        }
                         ScoresTeacherDAO.Instance.UpdateScoresTeacher(tc);
                     }
                     else
@@ -447,32 +468,28 @@ namespace DanhGiaDoanVien
                         listRankError.Add(tc.Id);
                     }
                 }
-                else
-                {
-                    MessageBox.Show("Vui lòng chọn đánh giá muốn lưu!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-            }
 
-            if (listRankError.Count != 0)
-            {
-                StringBuilder sbd = new StringBuilder();
-                sbd.Append("Danh sách id các kết quả giảng viên không đủ điều kiện xếp loại: ");
-                for (int i = 0; i < listRankError.Count; i++)
+                if (listRankError.Count != 0)
                 {
-                    if (i < listRankError.Count - 1)
+                    StringBuilder sbd = new StringBuilder();
+                    sbd.Append("Danh sách id các kết quả giảng viên không đủ điều kiện xếp loại: ");
+                    for (int i = 0; i < listRankError.Count; i++)
                     {
-                        sbd.Append(listRankError[i] + ", ");
+                        if (i < listRankError.Count - 1)
+                        {
+                            sbd.Append(listRankError[i] + ", ");
+                        }
+                        else
+                        {
+                            sbd.Append(listRankError[i] + ".");
+                        }
                     }
-                    else
-                    {
-                        sbd.Append(listRankError[i] + ".");
-                    }
+                    sbd.Append("\nVui lòng kiểm tra lại!");
+                    MessageBox.Show(sbd.ToString(), "Danh sách sai sót", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                sbd.Append("\nVui lòng kiểm tra lại!");
-                MessageBox.Show(sbd.ToString(), "Danh sách sai sót", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                LoadScoresTeacher();
+                CellClick();
             }
-            LoadScoresTeacher();
-            CellClick();
         }
 
         private void comboBoxScores_SelectedIndexChanged(object sender, EventArgs e)

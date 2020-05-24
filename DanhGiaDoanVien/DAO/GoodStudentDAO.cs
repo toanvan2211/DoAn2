@@ -29,5 +29,12 @@ namespace DanhGiaDoanVien.DAO
 
             return DataProvider.Instance.ExecuteNonQuery(query);
         }
+        public void ResetGoodMember(int id, string idStudent)
+        {
+            string query = "delete DoanVienUuTuSV where idKetQuaChiDoan = " + id + " and  MSSV = '" + idStudent + "'";
+            DataProvider.Instance.ExecuteNonQuery(query);
+            query = "update KetQuaSinhVien set doanVienUuTu = 0 where idKetQuaChiDoan = " + id + " and MSSV = '" + idStudent + "'";
+            DataProvider.Instance.ExecuteNonQuery(query);
+        }
     }
 }

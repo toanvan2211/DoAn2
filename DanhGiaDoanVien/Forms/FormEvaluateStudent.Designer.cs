@@ -78,6 +78,13 @@
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.panelData = new System.Windows.Forms.Panel();
             this.dataGridViewStudent = new System.Windows.Forms.DataGridView();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.comboBoxScores = new System.Windows.Forms.ComboBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.comboBoxGroup = new System.Windows.Forms.ComboBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.comboBoxSemester = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.Id1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IdStudent1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PointSemester11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -87,17 +94,10 @@
             this.PointSemester1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TrainSemester1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Rank1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.Achievement1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Achievement1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.GoodMember1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Note1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IdScoresGroup1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.comboBoxScores = new System.Windows.Forms.ComboBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.comboBoxGroup = new System.Windows.Forms.ComboBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.comboBoxSemester = new System.Windows.Forms.ComboBox();
-            this.label10 = new System.Windows.Forms.Label();
             this.panelTop.SuspendLayout();
             this.panelEditTool.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
@@ -592,144 +592,6 @@
             this.dataGridViewStudent.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewStudent_CellClick);
             this.dataGridViewStudent.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dataGridViewStudent_EditingControlShowing);
             // 
-            // Id1
-            // 
-            this.Id1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Id1.DataPropertyName = "id";
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.Id1.DefaultCellStyle = dataGridViewCellStyle1;
-            this.Id1.HeaderText = "ID";
-            this.Id1.Name = "Id1";
-            this.Id1.ReadOnly = true;
-            this.Id1.Width = 43;
-            // 
-            // IdStudent1
-            // 
-            this.IdStudent1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.IdStudent1.DataPropertyName = "MSSV";
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.IdStudent1.DefaultCellStyle = dataGridViewCellStyle2;
-            this.IdStudent1.HeaderText = "MSSV";
-            this.IdStudent1.Name = "IdStudent1";
-            this.IdStudent1.ReadOnly = true;
-            this.IdStudent1.Width = 62;
-            // 
-            // PointSemester11
-            // 
-            this.PointSemester11.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.PointSemester11.DataPropertyName = "diemHK1";
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.PointSemester11.DefaultCellStyle = dataGridViewCellStyle3;
-            this.PointSemester11.HeaderText = "HK1";
-            this.PointSemester11.Name = "PointSemester11";
-            this.PointSemester11.Width = 53;
-            // 
-            // PointSemester21
-            // 
-            this.PointSemester21.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.PointSemester21.DataPropertyName = "diemHK2";
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.PointSemester21.DefaultCellStyle = dataGridViewCellStyle4;
-            this.PointSemester21.HeaderText = "HK2";
-            this.PointSemester21.Name = "PointSemester21";
-            this.PointSemester21.Width = 53;
-            // 
-            // TrainSemester11
-            // 
-            this.TrainSemester11.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.TrainSemester11.DataPropertyName = "DRLHK1";
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.TrainSemester11.DefaultCellStyle = dataGridViewCellStyle5;
-            this.TrainSemester11.HeaderText = "DRL1";
-            this.TrainSemester11.Name = "TrainSemester11";
-            this.TrainSemester11.Width = 60;
-            // 
-            // TrainSemester21
-            // 
-            this.TrainSemester21.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.TrainSemester21.DataPropertyName = "DRLHK2";
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.TrainSemester21.DefaultCellStyle = dataGridViewCellStyle6;
-            this.TrainSemester21.HeaderText = "DRL2";
-            this.TrainSemester21.Name = "TrainSemester21";
-            this.TrainSemester21.Width = 60;
-            // 
-            // PointSemester1
-            // 
-            this.PointSemester1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.PointSemester1.DataPropertyName = "tongHK";
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.PointSemester1.DefaultCellStyle = dataGridViewCellStyle7;
-            this.PointSemester1.HeaderText = "TBC HK";
-            this.PointSemester1.Name = "PointSemester1";
-            this.PointSemester1.ReadOnly = true;
-            this.PointSemester1.Width = 66;
-            // 
-            // TrainSemester1
-            // 
-            this.TrainSemester1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.TrainSemester1.DataPropertyName = "DRL";
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.TrainSemester1.DefaultCellStyle = dataGridViewCellStyle8;
-            this.TrainSemester1.HeaderText = "TBC DRL";
-            this.TrainSemester1.Name = "TrainSemester1";
-            this.TrainSemester1.ReadOnly = true;
-            this.TrainSemester1.Width = 72;
-            // 
-            // Rank1
-            // 
-            this.Rank1.DataPropertyName = "xepLoai";
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.Rank1.DefaultCellStyle = dataGridViewCellStyle9;
-            this.Rank1.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
-            this.Rank1.HeaderText = "Xếp loại";
-            this.Rank1.Items.AddRange(new object[] {
-            "Xuất sắc",
-            "Khá",
-            "Trung bình",
-            "Yếu kém"});
-            this.Rank1.Name = "Rank1";
-            this.Rank1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Rank1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // Achievement1
-            // 
-            this.Achievement1.DataPropertyName = "thanhTichTieuBieu";
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.Achievement1.DefaultCellStyle = dataGridViewCellStyle10;
-            this.Achievement1.HeaderText = "Thành tích tiêu biểu";
-            this.Achievement1.Name = "Achievement1";
-            // 
-            // GoodMember1
-            // 
-            this.GoodMember1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.GoodMember1.DataPropertyName = "doanVienUuTu";
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle11.NullValue = false;
-            this.GoodMember1.DefaultCellStyle = dataGridViewCellStyle11;
-            this.GoodMember1.HeaderText = "Đoàn viên ưu tú";
-            this.GoodMember1.Name = "GoodMember1";
-            this.GoodMember1.ReadOnly = true;
-            this.GoodMember1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.GoodMember1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.GoodMember1.Width = 91;
-            // 
-            // Note1
-            // 
-            this.Note1.DataPropertyName = "ghiChu";
-            this.Note1.HeaderText = "Ghi chú";
-            this.Note1.Name = "Note1";
-            this.Note1.Visible = false;
-            // 
-            // IdScoresGroup1
-            // 
-            this.IdScoresGroup1.DataPropertyName = "idKetQuaChiDoan";
-            this.IdScoresGroup1.HeaderText = "ID KQCD";
-            this.IdScoresGroup1.Name = "IdScoresGroup1";
-            this.IdScoresGroup1.ReadOnly = true;
-            this.IdScoresGroup1.Visible = false;
-            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(87)))), ((int)(((byte)(95)))));
@@ -827,6 +689,151 @@
             this.label10.TabIndex = 8;
             this.label10.Text = "Năm học:";
             // 
+            // Id1
+            // 
+            this.Id1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Id1.DataPropertyName = "id";
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.Id1.DefaultCellStyle = dataGridViewCellStyle1;
+            this.Id1.HeaderText = "ID";
+            this.Id1.Name = "Id1";
+            this.Id1.ReadOnly = true;
+            this.Id1.Width = 43;
+            // 
+            // IdStudent1
+            // 
+            this.IdStudent1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.IdStudent1.DataPropertyName = "MSSV";
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.IdStudent1.DefaultCellStyle = dataGridViewCellStyle2;
+            this.IdStudent1.HeaderText = "MSSV";
+            this.IdStudent1.Name = "IdStudent1";
+            this.IdStudent1.ReadOnly = true;
+            this.IdStudent1.Width = 62;
+            // 
+            // PointSemester11
+            // 
+            this.PointSemester11.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.PointSemester11.DataPropertyName = "diemHK1";
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.PointSemester11.DefaultCellStyle = dataGridViewCellStyle3;
+            this.PointSemester11.HeaderText = "HK1";
+            this.PointSemester11.Name = "PointSemester11";
+            this.PointSemester11.Width = 53;
+            // 
+            // PointSemester21
+            // 
+            this.PointSemester21.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.PointSemester21.DataPropertyName = "diemHK2";
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.PointSemester21.DefaultCellStyle = dataGridViewCellStyle4;
+            this.PointSemester21.HeaderText = "HK2";
+            this.PointSemester21.Name = "PointSemester21";
+            this.PointSemester21.Width = 53;
+            // 
+            // TrainSemester11
+            // 
+            this.TrainSemester11.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.TrainSemester11.DataPropertyName = "DRLHK1";
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.TrainSemester11.DefaultCellStyle = dataGridViewCellStyle5;
+            this.TrainSemester11.HeaderText = "DRL1";
+            this.TrainSemester11.Name = "TrainSemester11";
+            this.TrainSemester11.Width = 60;
+            // 
+            // TrainSemester21
+            // 
+            this.TrainSemester21.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.TrainSemester21.DataPropertyName = "DRLHK2";
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.TrainSemester21.DefaultCellStyle = dataGridViewCellStyle6;
+            this.TrainSemester21.HeaderText = "DRL2";
+            this.TrainSemester21.Name = "TrainSemester21";
+            this.TrainSemester21.Width = 60;
+            // 
+            // PointSemester1
+            // 
+            this.PointSemester1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.PointSemester1.DataPropertyName = "tongHK";
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.PointSemester1.DefaultCellStyle = dataGridViewCellStyle7;
+            this.PointSemester1.HeaderText = "TBC HK";
+            this.PointSemester1.Name = "PointSemester1";
+            this.PointSemester1.ReadOnly = true;
+            this.PointSemester1.Width = 71;
+            // 
+            // TrainSemester1
+            // 
+            this.TrainSemester1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.TrainSemester1.DataPropertyName = "DRL";
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.TrainSemester1.DefaultCellStyle = dataGridViewCellStyle8;
+            this.TrainSemester1.HeaderText = "TBC DRL";
+            this.TrainSemester1.Name = "TrainSemester1";
+            this.TrainSemester1.ReadOnly = true;
+            this.TrainSemester1.Width = 78;
+            // 
+            // Rank1
+            // 
+            this.Rank1.DataPropertyName = "xepLoai";
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.Rank1.DefaultCellStyle = dataGridViewCellStyle9;
+            this.Rank1.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
+            this.Rank1.HeaderText = "Xếp loại";
+            this.Rank1.Items.AddRange(new object[] {
+            "Xuất sắc",
+            "Khá",
+            "Trung bình",
+            "Yếu kém"});
+            this.Rank1.Name = "Rank1";
+            this.Rank1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Rank1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // Achievement1
+            // 
+            this.Achievement1.DataPropertyName = "thanhTichTieuBieu";
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.Achievement1.DefaultCellStyle = dataGridViewCellStyle10;
+            this.Achievement1.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
+            this.Achievement1.HeaderText = "Thành tích tiêu biểu";
+            this.Achievement1.Items.AddRange(new object[] {
+            "",
+            "Khen thưởng cấp trường",
+            "Khen thưởng cấp khoa"});
+            this.Achievement1.Name = "Achievement1";
+            this.Achievement1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Achievement1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // GoodMember1
+            // 
+            this.GoodMember1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.GoodMember1.DataPropertyName = "doanVienUuTu";
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle11.NullValue = false;
+            this.GoodMember1.DefaultCellStyle = dataGridViewCellStyle11;
+            this.GoodMember1.HeaderText = "Đoàn viên ưu tú";
+            this.GoodMember1.Name = "GoodMember1";
+            this.GoodMember1.ReadOnly = true;
+            this.GoodMember1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.GoodMember1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.GoodMember1.Width = 91;
+            // 
+            // Note1
+            // 
+            this.Note1.DataPropertyName = "ghiChu";
+            this.Note1.HeaderText = "Ghi chú";
+            this.Note1.Name = "Note1";
+            this.Note1.Visible = false;
+            // 
+            // IdScoresGroup1
+            // 
+            this.IdScoresGroup1.DataPropertyName = "idKetQuaChiDoan";
+            this.IdScoresGroup1.HeaderText = "ID KQCD";
+            this.IdScoresGroup1.Name = "IdScoresGroup1";
+            this.IdScoresGroup1.ReadOnly = true;
+            this.IdScoresGroup1.Visible = false;
+            // 
             // FormEvaluateStudent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -897,6 +904,13 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.CheckBox checkBoxAuto;
+        private System.Windows.Forms.Panel panelEditTool;
+        private System.Windows.Forms.ComboBox comboBoxScores;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.ComboBox comboBoxAchievement;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id1;
         private System.Windows.Forms.DataGridViewTextBoxColumn IdStudent1;
         private System.Windows.Forms.DataGridViewTextBoxColumn PointSemester11;
@@ -906,16 +920,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn PointSemester1;
         private System.Windows.Forms.DataGridViewTextBoxColumn TrainSemester1;
         private System.Windows.Forms.DataGridViewComboBoxColumn Rank1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Achievement1;
+        private System.Windows.Forms.DataGridViewComboBoxColumn Achievement1;
         private System.Windows.Forms.DataGridViewCheckBoxColumn GoodMember1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Note1;
         private System.Windows.Forms.DataGridViewTextBoxColumn IdScoresGroup1;
-        private System.Windows.Forms.Panel panelEditTool;
-        private System.Windows.Forms.ComboBox comboBoxScores;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.ComboBox comboBoxAchievement;
     }
 }
